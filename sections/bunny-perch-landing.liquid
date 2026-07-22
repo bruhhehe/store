@@ -1,0 +1,199 @@
+{%- comment -%}
+  Bunny Perch — TikTok-optimized product landing section.
+
+  HOW TO USE:
+  1. Drop this file into sections/ in your theme repo.
+  2. In Shopify Admin > Online Store > Themes > Customize, open your
+     PRODUCT page template, click "Add section", and add
+     "Bunny Perch Landing" — it reads the product you're viewing
+     automatically (`product` is a native Liquid object on product templates).
+  3. In the section settings (right sidebar in the customizer), pick which
+     products are your "2-pack" and "3-pack" bundles (these are typically
+     separate products in Shopify, since bundle pricing isn't linear).
+  4. This section assumes your color option is literally named "Color"
+     in the product's variant options. If yours is named differently
+     (e.g. "Colour"), change the option_name check below.
+{%- endcomment -%}
+
+<style>
+  .bp-wrap{ max-width:520px; margin:0 auto; padding:0 20px; font-family:'Nunito', sans-serif; color:#3D2B2E; }
+  .bp-hero{ background:#F6AFC0; padding:18px 0 32px; }
+  .bp-eyebrow{ text-align:center; font-size:.75rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; opacity:.7; margin-bottom:10px; }
+  .bp-h1{ font-family:'Fredoka', sans-serif; text-align:center; font-size:1.8rem; margin-bottom:14px; }
+  .bp-stage{ background:#fff; border-radius:28px; padding:22px; box-shadow:0 8px 24px rgba(61,43,46,.12); }
+  .bp-product-shot img{ width:100%; border-radius:20px; display:block; }
+  .bp-stars{ display:flex; justify-content:center; gap:6px; margin-top:16px; font-weight:800; font-size:.9rem; }
+  .bp-price-row{ display:flex; justify-content:center; align-items:baseline; gap:10px; margin-top:16px; }
+  .bp-price-now{ font-family:'Fredoka'; font-size:2rem; font-weight:700; }
+  .bp-price-was{ font-size:1.1rem; text-decoration:line-through; opacity:.5; }
+  .bp-swatches{ display:flex; gap:10px; justify-content:center; margin-top:16px; flex-wrap:wrap; }
+  .bp-swatch{ border:2px solid #eee; border-radius:100px; padding:8px 16px; font-weight:700; cursor:pointer; background:#fff; }
+  .bp-swatch.active{ border-color:#FFD23F; background:#FFFBEC; }
+  .bp-btn{ display:block; width:100%; text-align:center; background:#FFD23F; color:#3D2B2E; font-family:'Fredoka'; font-weight:600; font-size:1.05rem; border:none; border-radius:100px; padding:16px 20px; box-shadow:0 6px 0 #E0AC1F; cursor:pointer; margin-top:18px; }
+  .bp-btn:active{ transform:translateY(4px); box-shadow:0 2px 0 #E0AC1F; }
+  .bp-btn[disabled]{ opacity:.5; cursor:not-allowed; box-shadow:none; }
+  .bp-sub{ text-align:center; font-size:.8rem; opacity:.75; margin-top:10px; }
+  .bp-plans{ display:flex; flex-direction:column; gap:12px; margin:20px 0; }
+  .bp-plan{ border:2px solid #eee; border-radius:18px; padding:16px 18px; background:#fff; }
+  .bp-plan.best{ border-color:#FFD23F; background:#FFFBEC; position:relative; }
+  .bp-plan.best::before{ content:"MOST POPULAR"; position:absolute; top:-11px; left:16px; background:#FFD23F; font-size:.65rem; font-weight:800; padding:3px 10px; border-radius:100px; }
+  .bp-plan-row{ display:flex; justify-content:space-between; align-items:center; }
+  .bp-plan-name{ font-weight:800; }
+  .bp-plan-now{ font-family:'Fredoka'; font-weight:700; font-size:1.1rem; }
+  .bp-plan .bp-btn{ margin-top:12px; padding:10px; font-size:.9rem; }
+  .bp-section-title{ font-family:'Fredoka'; text-align:center; font-size:1.4rem; margin:28px 0 16px; }
+</style>
+
+<div class="bp-wrap">
+
+  <section class="bp-hero">
+    <div class="bp-eyebrow">As seen on TikTok</div>
+    <h1 class="bp-h1">{{ section.settings.headline | default: 'The Bunny That Holds Your Phone So You Don''t Have To' }}</h1>
+
+    <div class="bp-stage">
+      <div class="bp-product-shot">
+        {%- if product.featured_media -%}
+          {{ product.featured_media | image_url: width: 900 | image_tag: loading: 'eager', alt: product.title }}
+        {%- endif -%}
+      </div>
+
+      <div class="bp-stars">★★★★★ <span>{{ section.settings.rating | default: '4.6' }} · {{ section.settings.sold_count | default: '50,000+ sold' }}</span></div>
+
+      <div class="bp-price-row">
+        <span class="bp-price-now" id="bp-current-price">{{ product.selected_or_first_available_variant.price | money }}</span>
+        {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+          <span class="bp-price-was">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Real Shopify product form — posts to /cart/add, works even without JS {%- endcomment -%}
+      {%- form 'product', product, id: 'bp-product-form' -%}
+        <select name="id" id="bp-variant-select" style="display:none;">
+          {%- for variant in product.variants -%}
+            <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %}>
+              {{ variant.title }}
+            </option>
+          {%- endfor -%}
+        </select>
+
+        {%- comment -%} Color swatches — assumes the option is named "Color" {%- endcomment -%}
+        {%- assign color_option_index = -1 -%}
+        {%- for option in product.options_with_values -%}
+          {%- if option.name == 'Color' -%}
+            {%- assign color_option_index = forloop.index0 -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if color_option_index >= 0 -%}
+          <div class="bp-swatches" id="bp-swatches" data-option-index="{{ color_option_index }}">
+            {%- for value in product.options_with_values[color_option_index].values -%}
+              <button type="button" class="bp-swatch{% if value == product.selected_or_first_available_variant.options[color_option_index] %} active{% endif %}" data-value="{{ value | escape }}">
+                {{ value }}
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        <button type="submit" class="bp-btn" id="bp-add-to-cart" {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>
+          {%- if product.selected_or_first_available_variant.available -%}
+            Get My Bunny — {{ product.selected_or_first_available_variant.price | money }}
+          {%- else -%}
+            Out of Stock
+          {%- endif -%}
+        </button>
+        <div class="bp-sub">Free shipping · 3-7 business days · 30-day guarantee</div>
+      {%- endform -%}
+    </div>
+  </section>
+
+  <h2 class="bp-section-title">Pick your bunny</h2>
+  <div class="bp-plans">
+
+    <div class="bp-plan">
+      <div class="bp-plan-row">
+        <div class="bp-plan-name">1 Bunny Perch</div>
+        <div class="bp-plan-now">{{ product.price | money }}</div>
+      </div>
+    </div>
+
+    {%- if section.settings.duo_product -%}
+      {%- assign duo = section.settings.duo_product -%}
+      <div class="bp-plan best">
+        <div class="bp-plan-row">
+          <div class="bp-plan-name">{{ duo.title }}</div>
+          <div class="bp-plan-now">{{ duo.price | money }}</div>
+        </div>
+        {%- form 'product', duo -%}
+          <input type="hidden" name="id" value="{{ duo.selected_or_first_available_variant.id }}">
+          <button type="submit" class="bp-btn">Add To Cart</button>
+        {%- endform -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.trio_product -%}
+      {%- assign trio = section.settings.trio_product -%}
+      <div class="bp-plan">
+        <div class="bp-plan-row">
+          <div class="bp-plan-name">{{ trio.title }}</div>
+          <div class="bp-plan-now">{{ trio.price | money }}</div>
+        </div>
+        {%- form 'product', trio -%}
+          <input type="hidden" name="id" value="{{ trio.selected_or_first_available_variant.id }}">
+          <button type="submit" class="bp-btn">Add To Cart</button>
+        {%- endform -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+<script>
+  // Update the hidden variant <select> + price + Add to Cart button when a
+  // color swatch is tapped, using Shopify's product JSON (real variant data,
+  // no guessing at IDs).
+  (function () {
+    var productJson = {{ product.variants | json }};
+    var swatchWrap = document.getElementById('bp-swatches');
+    if (!swatchWrap) return;
+    var optionIndex = parseInt(swatchWrap.dataset.optionIndex, 10);
+
+    swatchWrap.querySelectorAll('.bp-swatch').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        swatchWrap.querySelectorAll('.bp-swatch').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        var chosenValue = btn.dataset.value;
+        var match = productJson.find(function (v) { return v.options[optionIndex] === chosenValue; });
+        if (!match) return;
+
+        document.getElementById('bp-variant-select').value = match.id;
+        var priceEl = document.getElementById('bp-current-price');
+        var addBtn = document.getElementById('bp-add-to-cart');
+        priceEl.textContent = '$' + (match.price / 100).toFixed(2);
+        if (match.available) {
+          addBtn.disabled = false;
+          addBtn.textContent = 'Get My Bunny — $' + (match.price / 100).toFixed(2);
+        } else {
+          addBtn.disabled = true;
+          addBtn.textContent = 'Out of Stock';
+        }
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Bunny Perch Landing",
+  "settings": [
+    { "type": "text", "id": "headline", "label": "Hero headline" },
+    { "type": "text", "id": "rating", "label": "Star rating text (e.g. 4.6)" },
+    { "type": "text", "id": "sold_count", "label": "Sold count text (e.g. 50,000+ sold)" },
+    { "type": "product", "id": "duo_product", "label": "2-pack bundle product" },
+    { "type": "product", "id": "trio_product", "label": "3-pack bundle product" }
+  ],
+  "presets": [
+    { "name": "Bunny Perch Landing" }
+  ]
+}
+{% endschema %}
