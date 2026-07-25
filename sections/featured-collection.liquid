@@ -324,8 +324,18 @@
   }
 
   .fc-{{ section.id }} .fc-tier-price {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
     font-weight: 700;
     font-size: 15px;
+  }
+
+  .fc-{{ section.id }} .fc-tier-compare {
+    font-weight: 400;
+    font-size: 12px;
+    text-decoration: line-through;
+    opacity: 0.55;
   }
 
   .fc-{{ section.id }} .fc-stock {
@@ -487,7 +497,13 @@
               class="fc-form"
               enctype="multipart/form-data"
             >
-              <input type="hidden" name="return_to" value="/cart">
+              {%- liquid
+                assign default_return_to = '/cart'
+                if default_block.settings.discount_code != blank
+                  assign default_return_to = '/discount/' | append: default_block.settings.discount_code | url_encode | append: '?redirect=/cart'
+                endif
+              -%}
+              <input type="hidden" name="return_to" id="FcReturnTo-{{ section.id }}" value="{{ default_return_to }}">
               <input type="hidden" name="id" value="{{ variant.id }}">
               <input type="hidden" name="quantity" id="FcQuantity-{{ section.id }}" value="{{ default_block.settings.quantity | default: 1 }}">
 
@@ -532,6 +548,7 @@
                       aria-checked="{{ is_checked }}"
                       data-quantity="{{ block.settings.quantity }}"
                       data-price="{{ block.settings.price | times: 100 }}"
+                      data-discount-code="{{ block.settings.discount_code }}"
                       {{ block.shopify_attributes }}
                     >
                       <span class="fc-tier-label">
@@ -540,7 +557,12 @@
                           <span class="fc-tier-badge">{{ block.settings.badge_text }}</span>
                         {%- endif -%}
                       </span>
-                      <span class="fc-tier-price">{{ block.settings.price | times: 100 | money }}</span>
+                      <span class="fc-tier-price">
+                        {%- if variant.compare_at_price > variant.price -%}
+                          <span class="fc-tier-compare">{{ variant.compare_at_price | times: block.settings.quantity | money }}</span>
+                        {%- endif -%}
+                        {{ block.settings.price | times: 100 | money }}
+                      </span>
                     </button>
                   {%- endif -%}
                 {%- endfor -%}
@@ -804,6 +826,7 @@
       var tiers = document.querySelectorAll('#FeaturedOffer-' + sectionId + ' .fc-tier');
       var quantityInput = document.getElementById('FcQuantity-' + sectionId);
       var submitBtn = document.getElementById('FcSubmit-' + sectionId);
+      var returnToInput = document.getElementById('FcReturnTo-' + sectionId);
 
       tiers.forEach(function (tier) {
         tier.addEventListener('click', function () {
@@ -814,11 +837,23 @@
 
           var qty = parseInt(tier.getAttribute('data-quantity'), 10) || 1;
           var priceCents = parseInt(tier.getAttribute('data-price'), 10) || 0;
+          var discountCode = tier.getAttribute('data-discount-code') || '';
 
           if (quantityInput) quantityInput.value = qty;
 
           if (submitBtn) {
             submitBtn.textContent = 'Add to Cart — ' + formatMoney(priceCents);
+          }
+
+          // Route the post-add-to-cart redirect through Shopify's discount
+          // activation endpoint when this tier has a code attached, so the
+          // saving applies automatically — no code entry needed. Tiers with
+          // no code (e.g. the base price already reflects the offer) just
+          // go straight to the cart as before.
+          if (returnToInput) {
+            returnToInput.value = discountCode
+              ? '/discount/' + encodeURIComponent(discountCode) + '?redirect=/cart'
+              : '/cart';
           }
 
           document.dispatchEvent(new CustomEvent('fc:tierchange', {
@@ -1044,6 +1079,12 @@
           "id": "default_selected",
           "label": "Selected by default",
           "default": false
+        },
+        {
+          "type": "text",
+          "id": "discount_code",
+          "label": "Auto-apply discount code (optional)",
+          "info": "If set, this code is applied automatically when the shopper checks out with this tier selected — no code entry needed. Leave blank if this tier needs no discount code (e.g. the base price already reflects the offer)."
         }
       ]
     },
