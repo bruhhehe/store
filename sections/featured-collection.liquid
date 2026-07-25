@@ -477,15 +477,17 @@
           <h3 class="fc-card-title">{{ product.title }}</h3>
 
           <div class="fc-price-row">
-            <span class="fc-price" id="FcPrice-{{ section.id }}">{{ variant.price | money }}</span>
+            <span class="fc-price" id="FcPrice-{{ section.id }}">{{ default_block.settings.price | times: 100 | money }}</span>
             {%- if variant.compare_at_price > variant.price -%}
-              <span class="fc-compare-price">{{ variant.compare_at_price | money }}</span>
+              <span class="fc-compare-price" id="FcComparePrice-{{ section.id }}">{{ variant.compare_at_price | times: default_block.settings.quantity | money }}</span>
             {%- endif -%}
           </div>
           {%- if variant.compare_at_price > variant.price -%}
-            {%- assign savings_amount = variant.compare_at_price | minus: variant.price -%}
-            {%- assign savings_percent = savings_amount | times: 100.0 | divided_by: variant.compare_at_price -%}
-            <p class="fc-savings">You save {{ savings_amount | money }} ({{ savings_percent | round }}%)</p>
+            {%- assign default_compare_total = variant.compare_at_price | times: default_block.settings.quantity -%}
+            {%- assign default_price_total = default_block.settings.price | times: 100 -%}
+            {%- assign savings_amount = default_compare_total | minus: default_price_total -%}
+            {%- assign savings_percent = savings_amount | times: 100.0 | divided_by: default_compare_total -%}
+            <p class="fc-savings" id="FcSavings-{{ section.id }}">You save {{ savings_amount | money }} ({{ savings_percent | round }}%)</p>
           {%- endif -%}
 
           {%- if section.blocks.size > 0 -%}
@@ -865,6 +867,10 @@
       var quantityInput = document.getElementById('FcQuantity-' + sectionId);
       var submitBtn = document.getElementById('FcSubmit-' + sectionId);
       var returnToInput = document.getElementById('FcReturnTo-' + sectionId);
+      var priceEl = document.getElementById('FcPrice-' + sectionId);
+      var comparePriceEl = document.getElementById('FcComparePrice-' + sectionId);
+      var savingsEl = document.getElementById('FcSavings-' + sectionId);
+      var compareAtCents = {{ variant.compare_at_price | default: 0 }};
 
       tiers.forEach(function (tier) {
         tier.addEventListener('click', function () {
@@ -881,6 +887,24 @@
 
           if (submitBtn) {
             submitBtn.textContent = 'Checkout — ' + formatMoney(priceCents);
+          }
+
+          // Reflect this tier's total (and exact savings) in the top price
+          // row, instead of always showing the single-unit price.
+          if (priceEl) priceEl.textContent = formatMoney(priceCents);
+          if (compareAtCents > 0) {
+            var compareTotalCents = compareAtCents * qty;
+            var savingsCents = compareTotalCents - priceCents;
+            if (comparePriceEl) comparePriceEl.textContent = formatMoney(compareTotalCents);
+            if (savingsEl) {
+              if (savingsCents > 0) {
+                var savingsPercent = Math.round((savingsCents / compareTotalCents) * 100);
+                savingsEl.textContent = 'You save ' + formatMoney(savingsCents) + ' (' + savingsPercent + '%)';
+                savingsEl.style.display = '';
+              } else {
+                savingsEl.style.display = 'none';
+              }
+            }
           }
 
           // Route the redirect straight to checkout (skipping the cart page)
