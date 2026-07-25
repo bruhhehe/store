@@ -15,11 +15,7 @@
   if section.settings.image != blank
     assign hero_slide_count = 5
   endif
-  assign hero_total_seconds = hero_slide_count | times: 4
-  assign hero_visible_pct = 1.0 | divided_by: hero_slide_count | times: 100
-  assign hero_fade_pct = 0.8 | divided_by: hero_total_seconds | times: 100
-  assign hero_hold_end_pct = hero_visible_pct | minus: hero_fade_pct
-  assign hero_fade_in_pct = 100 | minus: hero_fade_pct
+  assign hero_slide_seconds = 4
 -%}
 
 <div class="bp-section bp-hero-{{ section.id }}" style="background:{{ section.settings.bg_color }};">
@@ -43,29 +39,34 @@
     .bp-hero-{{ section.id }} .bp-hero-visual img{ width:100%; height:100%; object-fit:cover; }
     .bp-hero-{{ section.id }} .bp-hero-slide{
       position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
-      opacity:0; animation: bp-hero-fade-{{ section.id }} {{ hero_total_seconds }}s infinite;
+      opacity:0; transition: opacity 0.6s ease;
     }
-    .bp-hero-{{ section.id }} .bp-hero-slide:nth-child(1){ animation-delay: 0s; }
-    .bp-hero-{{ section.id }} .bp-hero-slide:nth-child(2){ animation-delay: -4s; }
-    .bp-hero-{{ section.id }} .bp-hero-slide:nth-child(3){ animation-delay: -8s; }
-    .bp-hero-{{ section.id }} .bp-hero-slide:nth-child(4){ animation-delay: -12s; }
-    .bp-hero-{{ section.id }} .bp-hero-slide:nth-child(5){ animation-delay: -16s; }
-    .bp-hero-{{ section.id }} .bp-hero-slide:nth-child(6){ animation-delay: -20s; }
-    @keyframes bp-hero-fade-{{ section.id }} {
-      0%    { opacity: 1; }
-      {{ hero_hold_end_pct }}%   { opacity: 1; }
-      {{ hero_visible_pct }}%    { opacity: 0; }
-      {{ hero_fade_in_pct }}%    { opacity: 0; }
-      100%  { opacity: 1; }
+    .bp-hero-{{ section.id }} .bp-hero-slide.is-active{ opacity:1; z-index:1; }
+    .bp-hero-{{ section.id }} .bp-hero-progress{
+      position:absolute; left:14px; right:14px; bottom:14px; z-index:5;
+      display:flex; gap:6px;
+    }
+    .bp-hero-{{ section.id }} .bp-hero-progress-seg{
+      flex:1; height:4px; padding:0; border:none; border-radius:999px;
+      background: rgba(255,255,255,.4); cursor:pointer; position:relative; overflow:hidden;
+    }
+    .bp-hero-{{ section.id }} .bp-hero-progress-fill{
+      position:absolute; inset:0; width:0%; background:#fff; border-radius:999px;
+    }
+    .bp-hero-{{ section.id }} .bp-hero-progress-seg.is-complete .bp-hero-progress-fill{
+      width:100%;
+    }
+    .bp-hero-{{ section.id }} .bp-hero-progress-seg.is-active .bp-hero-progress-fill{
+      width:100%; transition: width {{ hero_slide_seconds }}s linear;
     }
     @media (prefers-reduced-motion: reduce){
-      .bp-hero-{{ section.id }} .bp-hero-slide{ animation: none; opacity: 0; }
-      .bp-hero-{{ section.id }} .bp-hero-slide:first-child{ opacity: 1; }
+      .bp-hero-{{ section.id }} .bp-hero-slide{ transition:none; }
+      .bp-hero-{{ section.id }} .bp-hero-progress-seg.is-active .bp-hero-progress-fill{ transition:none; }
     }
     .bp-hero-{{ section.id }} .bp-callout{
       position:absolute; background:#fff; border-radius:999px; padding:9px 16px;
       font-size:13px; font-weight:600; box-shadow:0 6px 20px rgba(43,30,34,.12);
-      display:flex; align-items:center; gap:6px;
+      display:flex; align-items:center; gap:6px; z-index:2;
     }
     .bp-hero-{{ section.id }} .bp-callout--top{ top:24px; left:24px; }
     .bp-hero-{{ section.id }} .bp-callout--bottom{ bottom:24px; right:24px; }
@@ -97,11 +98,13 @@
       </div>
     </div>
 
-    <div class="bp-hero-visual">
+    <div class="bp-hero-visual" id="BpHeroVisual-{{ section.id }}">
       {% if section.settings.image != blank %}
-        <img class="bp-hero-slide" src="{{ section.settings.image | image_url: width: 900 }}" alt="{{ section.settings.image.alt | escape }}" loading="eager">
+        <img class="bp-hero-slide is-active" src="{{ section.settings.image | image_url: width: 900 }}" alt="{{ section.settings.image.alt | escape }}" loading="eager">
+        <img class="bp-hero-slide" src="{{ 'bp-hero-slide-1.jpg' | asset_url }}" alt="Bunny Perch product size" loading="lazy">
+      {% else %}
+        <img class="bp-hero-slide is-active" src="{{ 'bp-hero-slide-1.jpg' | asset_url }}" alt="Bunny Perch product size" loading="eager">
       {% endif %}
-      <img class="bp-hero-slide" src="{{ 'bp-hero-slide-1.jpg' | asset_url }}" alt="{{ section.settings.image.alt | default: 'Bunny Perch product size' | escape }}" loading="eager">
       <img class="bp-hero-slide" src="{{ 'bp-hero-slide-2.jpg' | asset_url }}" alt="Bunny Perch on a kitchen counter" loading="lazy">
       <img class="bp-hero-slide" src="{{ 'bp-hero-slide-3.jpg' | asset_url }}" alt="Bunny Perch stands on a bedside table" loading="lazy">
       <img class="bp-hero-slide" src="{{ 'bp-hero-slide-4.jpg' | asset_url }}" alt="Bunny Perch stands on a desk" loading="lazy">
@@ -111,9 +114,78 @@
       {% if section.settings.callout_bottom != blank %}
         <div class="bp-callout bp-callout--bottom">✏️ {{ section.settings.callout_bottom }}</div>
       {% endif %}
+      <div class="bp-hero-progress" role="tablist" aria-label="Product photos">
+        {%- for i in (1..hero_slide_count) -%}
+          <button
+            type="button"
+            class="bp-hero-progress-seg{% if forloop.first %} is-active{% endif %}"
+            role="tab"
+            aria-label="Show photo {{ forloop.index }}"
+            aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+          >
+            <span class="bp-hero-progress-fill"></span>
+          </button>
+        {%- endfor -%}
+      </div>
     </div>
   </div>
 </div>
+
+<script>
+  (function () {
+    var root = document.getElementById('BpHeroVisual-{{ section.id }}');
+    if (!root) return;
+
+    var slides = Array.prototype.slice.call(root.querySelectorAll('.bp-hero-slide'));
+    var segs = Array.prototype.slice.call(root.querySelectorAll('.bp-hero-progress-seg'));
+    if (slides.length === 0 || segs.length === 0) return;
+
+    var duration = {{ hero_slide_seconds }} * 1000;
+    var current = 0;
+    var timer = null;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function render(index, restart) {
+      slides.forEach(function (slide, i) {
+        slide.classList.toggle('is-active', i === index);
+      });
+      segs.forEach(function (seg, i) {
+        seg.classList.toggle('is-active', i === index);
+        seg.classList.toggle('is-complete', i < index);
+        seg.setAttribute('aria-selected', i === index ? 'true' : 'false');
+        if (i === index) {
+          // Restart the CSS width transition on the active segment's fill
+          // by forcing a reflow before re-adding the class.
+          seg.classList.remove('is-active');
+          void seg.offsetWidth;
+          seg.classList.add('is-active');
+        }
+      });
+      current = index;
+      if (restart) resetTimer();
+    }
+
+    function next() {
+      render((current + 1) % slides.length, false);
+      resetTimer();
+    }
+
+    function resetTimer() {
+      if (timer) clearTimeout(timer);
+      if (reduceMotion) return;
+      timer = setTimeout(next, duration);
+    }
+
+    segs.forEach(function (seg, i) {
+      seg.addEventListener('click', function () {
+        render(i, true);
+      });
+    });
+
+    render(0, false);
+    resetTimer();
+  })();
+</script>
 
 {% schema %}
 {
