@@ -29,11 +29,13 @@
     @media (max-width:900px){
       .bp-hero-{{ section.id }} .bp-hero-grid{ grid-template-columns: 1fr; padding:40px 20px; }
       .bp-hero-{{ section.id }} h1{ font-size:32px; }
+      .bp-hero-{{ section.id }} .bp-hero-visual{ order: -1; min-height:280px; }
+      .bp-hero-{{ section.id }} .bp-hero-info{ order: 1; }
     }
   </style>
 
   <div class="bp-hero-grid">
-    <div>
+    <div class="bp-hero-info">
       <div class="bp-eyebrow">{{ section.settings.eyebrow }}</div>
       <h1>{{ section.settings.heading }} <span class="bp-accent">{{ section.settings.heading_accent }}</span></h1>
       <p class="bp-sub">{{ section.settings.subtext }}</p>

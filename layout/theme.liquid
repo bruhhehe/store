@@ -319,6 +319,22 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+    <style>
+      /* Mobile-only reorder: show Hero above Trust bar on the home page.
+         Section wrapper IDs match the section keys in templates/index.json,
+         so this only takes effect there and leaves desktop order untouched. */
+      @media screen and (max-width: 749px) {
+        main[data-template="index"] #shopify-section-bp_hero {
+          order: -2;
+        }
+        main[data-template="index"] #shopify-section-bp_trust_bar {
+          order: -1;
+        }
+        main[data-template="index"] #shopify-section-bp_announce {
+          order: -3;
+        }
+      }
+    </style>
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
