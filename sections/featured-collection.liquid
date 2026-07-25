@@ -498,9 +498,9 @@
               enctype="multipart/form-data"
             >
               {%- liquid
-                assign default_return_to = '/cart'
+                assign default_return_to = '/checkout'
                 if default_block.settings.discount_code != blank
-                  assign default_return_to = '/discount/' | append: default_block.settings.discount_code | url_encode | append: '?redirect=/cart'
+                  assign default_return_to = '/discount/' | append: default_block.settings.discount_code | url_encode | append: '?redirect=/checkout'
                 endif
               -%}
               <input type="hidden" name="return_to" id="FcReturnTo-{{ section.id }}" value="{{ default_return_to }}">
@@ -588,7 +588,7 @@
               {%- endif -%}
 
               <button type="submit" class="fc-submit" id="FcSubmit-{{ section.id }}">
-                Add to Cart — {{ default_block.settings.price | times: 100 | money }}
+                Checkout — {{ default_block.settings.price | times: 100 | money }}
               </button>
             </form>
           {%- endif -%}
@@ -842,18 +842,18 @@
           if (quantityInput) quantityInput.value = qty;
 
           if (submitBtn) {
-            submitBtn.textContent = 'Add to Cart — ' + formatMoney(priceCents);
+            submitBtn.textContent = 'Checkout — ' + formatMoney(priceCents);
           }
 
-          // Route the post-add-to-cart redirect through Shopify's discount
-          // activation endpoint when this tier has a code attached, so the
-          // saving applies automatically — no code entry needed. Tiers with
-          // no code (e.g. the base price already reflects the offer) just
-          // go straight to the cart as before.
+          // Route the redirect straight to checkout (skipping the cart page)
+          // through Shopify's discount activation endpoint when this tier has
+          // a code attached, so the saving applies automatically — no code
+          // entry needed. Tiers with no code (e.g. the base price already
+          // reflects the offer) go straight to checkout as-is.
           if (returnToInput) {
             returnToInput.value = discountCode
-              ? '/discount/' + encodeURIComponent(discountCode) + '?redirect=/cart'
-              : '/cart';
+              ? '/discount/' + encodeURIComponent(discountCode) + '?redirect=/checkout'
+              : '/checkout';
           }
 
           document.dispatchEvent(new CustomEvent('fc:tierchange', {
