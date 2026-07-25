@@ -1,0 +1,57 @@
+{{ 'bunny-trust.css' | asset_url | stylesheet_tag }}
+
+<div class="bp-section bp-trust-bar-{{ section.id }}" style="background:{{ section.settings.bg_color }};">
+  <style>
+    .bp-trust-bar-{{ section.id }} .bp-trust-inner{
+      max-width:1180px; margin:0 auto; padding:14px 24px;
+      display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+      gap:10px 24px; font-size:14px; color:{{ section.settings.text_color }};
+    }
+    .bp-trust-bar-{{ section.id }} .bp-trust-item{ display:flex; align-items:center; gap:6px; white-space:nowrap; }
+    @media (max-width:749px){
+      .bp-trust-bar-{{ section.id }} .bp-trust-inner{ justify-content:center; text-align:center; }
+    }
+  </style>
+  <div class="bp-trust-inner">
+    {% for block in section.blocks %}
+      <div class="bp-trust-item" {{ block.shopify_attributes }}>
+        <span>{{ block.settings.icon }}</span>
+        <span>{{ block.settings.label }}</span>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BP Trust bar",
+  "tag": "section",
+  "class": "section-bp-trust-bar",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background color", "default": "#fbe9ec" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#2b1e22" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Trust item",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon / emoji", "default": "⭐" },
+        { "type": "text", "id": "label", "label": "Label", "default": "4.8/5 · 1,317 reviews" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "BP Trust bar",
+      "blocks": [
+        { "type": "item", "settings": { "icon": "⭐", "label": "4.8/5 · 1,317 reviews" } },
+        { "type": "item", "settings": { "icon": "🐇", "label": "58,000+ stands sold" } },
+        { "type": "item", "settings": { "icon": "🇬🇧", "label": "Free UK shipping" } },
+        { "type": "item", "settings": { "icon": "🔒", "label": "Secure checkout via Shopify Payments" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

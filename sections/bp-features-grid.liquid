@@ -1,0 +1,80 @@
+{{ 'bunny-trust.css' | asset_url | stylesheet_tag }}
+
+<div class="bp-section bp-features-{{ section.id }}" style="background:{{ section.settings.bg_color }};">
+  <style>
+    .bp-features-{{ section.id }} .bp-features-grid{
+      max-width:1180px; margin:0 auto; padding:64px 24px;
+      display:grid; grid-template-columns: repeat(3, 1fr); gap:22px;
+    }
+    .bp-features-{{ section.id }} .bp-icon-box{
+      width:44px; height:44px; border-radius:12px; background:{{ section.settings.icon_bg }};
+      display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:16px;
+    }
+    .bp-features-{{ section.id }} .bp-card h3{ font-size:17px; margin-bottom:8px; }
+    .bp-features-{{ section.id }} .bp-card p{ font-size:14px; color:var(--bp-muted); line-height:1.5; margin:0; }
+    @media (max-width:900px){
+      .bp-features-{{ section.id }} .bp-features-grid{ grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width:560px){
+      .bp-features-{{ section.id }} .bp-features-grid{ grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <div class="bp-wrap" style="padding-bottom:0;">
+    <div class="bp-center">
+      <div class="bp-eyebrow">{{ section.settings.eyebrow }}</div>
+      <h2 style="font-size:30px;">{{ section.settings.heading }}</h2>
+      <p style="color:var(--bp-muted); margin-top:12px;">{{ section.settings.subheading }}</p>
+    </div>
+  </div>
+
+  <div class="bp-features-grid">
+    {% for block in section.blocks %}
+      <div class="bp-card" {{ block.shopify_attributes }}>
+        <div class="bp-icon-box">{{ block.settings.icon }}</div>
+        <h3>{{ block.settings.title }}</h3>
+        <p>{{ block.settings.text }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BP Features grid",
+  "tag": "section",
+  "class": "section-bp-features",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#fdf3f4" },
+    { "type": "color", "id": "icon_bg", "label": "Icon background", "default": "#f6c9d3" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "WHY IT WORKS" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Small desk upgrade, big daily difference" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Every detail is there to make hands-free actually hands-free." }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon / emoji", "default": "📐" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Adjustable height" },
+        { "type": "textarea", "id": "text", "label": "Description", "default": "Raise or lower the stand to match your eye line on calls, or your countertop for recipes." }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "BP Features grid",
+      "blocks": [
+        { "type": "feature", "settings": { "icon": "📐", "title": "Adjustable height", "text": "Raise or lower the stand to match your eye line on calls, or your countertop for recipes." } },
+        { "type": "feature", "settings": { "icon": "⚖️", "title": "Stable weighted base", "text": "Won't tip when you tap, swipe, or bump the desk — built to actually hold its ground." } },
+        { "type": "feature", "settings": { "icon": "💧", "title": "Anti-slip silicone padding", "text": "Soft grip points cushion your device instead of scratching the case or screen edge." } },
+        { "type": "feature", "settings": { "icon": "📱", "title": "Fits phones & tablets", "text": "One stand adjusts to hold devices from compact phones up to full-size tablets." } },
+        { "type": "feature", "settings": { "icon": "🔄", "title": "Multiple viewing angles", "text": "Portrait or landscape, low or high — tilt it to whatever the moment calls for." } },
+        { "type": "feature", "settings": { "icon": "🐇", "title": "A desk accessory worth having out", "text": "Soft pink rabbit silhouette that looks intentional next to your other desk pieces, not like a gadget." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

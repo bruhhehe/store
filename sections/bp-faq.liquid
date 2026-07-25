@@ -1,0 +1,65 @@
+{{ 'bunny-trust.css' | asset_url | stylesheet_tag }}
+
+<div class="bp-section bp-faq-{{ section.id }}" style="background:{{ section.settings.bg_color }};">
+  <style>
+    .bp-faq-{{ section.id }} .bp-faq-list{ max-width:760px; margin:0 auto; }
+    .bp-faq-{{ section.id }} details{ border-bottom:1px solid rgba(43,30,34,.1); padding:18px 0; }
+    .bp-faq-{{ section.id }} summary{
+      cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;
+      font-weight:600; font-size:15px;
+    }
+    .bp-faq-{{ section.id }} summary::-webkit-details-marker{ display:none; }
+    .bp-faq-{{ section.id }} summary::after{ content:"+"; font-size:20px; color:var(--bp-muted); font-weight:400; }
+    .bp-faq-{{ section.id }} details[open] summary::after{ content:"–"; }
+    .bp-faq-{{ section.id }} .bp-faq-answer{ font-size:14px; color:var(--bp-muted); margin-top:12px; line-height:1.6; }
+  </style>
+  <div class="bp-wrap">
+    <div class="bp-center" style="margin-bottom:36px;">
+      <div class="bp-eyebrow">{{ section.settings.eyebrow }}</div>
+      <h2 style="font-size:30px;">{{ section.settings.heading }}</h2>
+    </div>
+    <div class="bp-faq-list">
+      {% for block in section.blocks %}
+        <details {{ block.shopify_attributes }} {% if forloop.first %}open{% endif %}>
+          <summary>{{ block.settings.question }}</summary>
+          <div class="bp-faq-answer">{{ block.settings.answer }}</div>
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BP FAQ",
+  "tag": "section",
+  "class": "section-bp-faq",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#fdf3f4" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "FAQ" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Questions, answered" }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Will it hold my tablet, not just my phone?" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Yes — the adjustable grip and weighted base are designed to securely hold tablets as well as phones.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BP FAQ",
+      "blocks": [
+        { "type": "faq", "settings": { "question": "Will it hold my tablet, not just my phone?", "answer": "<p>Yes — the adjustable grip and weighted base are designed to securely hold tablets as well as phones, though very large tablets may need a lower angle for best stability.</p>" } },
+        { "type": "faq", "settings": { "question": "Does it work in both portrait and landscape?", "answer": "<p>Yes, simply rotate your device — the grip adjusts to hold it securely either way.</p>" } },
+        { "type": "faq", "settings": { "question": "Will it scratch my phone case?", "answer": "<p>No — every contact point is lined with soft anti-slip silicone padding.</p>" } },
+        { "type": "faq", "settings": { "question": "How tall is the stand when fully extended?", "answer": "<p>See the product page for exact dimensions at minimum and maximum height.</p>" } },
+        { "type": "faq", "settings": { "question": "What's your return policy?", "answer": "<p>We offer a 45-day money-back guarantee on every order, no questions asked.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

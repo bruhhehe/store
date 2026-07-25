@@ -1,0 +1,32 @@
+{% comment %}
+  BP Product trust badges
+  Include on the product page, just below the Add to Cart / Buy buttons:
+  {% render 'bp-product-trust-badges' %}
+{% endcomment %}
+
+{{ 'bunny-trust.css' | asset_url | stylesheet_tag }}
+
+<div class="bp-section bp-ptb">
+  <style>
+    .bp-ptb-row{
+      display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;
+    }
+    .bp-ptb-item{
+      display:flex; align-items:center; gap:6px; font-size:12.5px;
+      background: #fbe9ec; color:#2b1e22; padding:8px 12px; border-radius:999px;
+    }
+    .bp-ptb-strip{
+      display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+      font-size:12.5px; color:#7a6b6e; margin-top:10px; border-top:1px solid rgba(43,30,34,.08); padding-top:12px;
+    }
+  </style>
+  <div class="bp-ptb-row">
+    <span class="bp-ptb-item">🇬🇧 Free UK shipping</span>
+    <span class="bp-ptb-item">↩ 45-day returns</span>
+    <span class="bp-ptb-item">🔒 Secure checkout</span>
+  </div>
+  <div class="bp-ptb-strip">
+    <span>★★★★★ 4.8/5 · 1,317 verified UK customers</span>
+    <span>Shopify Payments · Visa · Mastercard · Apple Pay · PayPal</span>
+  </div>
+</div>

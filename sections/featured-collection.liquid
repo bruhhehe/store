@@ -1,0 +1,784 @@
+{%- style -%}
+  .fc-{{ section.id }} {
+    --fc-bg: {{ section.settings.bg_color }};
+    --fc-text: {{ section.settings.text_color }};
+    --fc-card-bg: {{ section.settings.card_bg_color }};
+    --fc-accent: {{ section.settings.accent_color }};
+    --fc-badge-bg: {{ section.settings.badge_bg_color }};
+    --fc-badge-text: {{ section.settings.badge_text_color }};
+    --fc-savings: {{ section.settings.savings_color }};
+    background: var(--fc-bg);
+    color: var(--fc-text);
+  }
+
+  .fc-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .fc-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .fc-{{ section.id }} .fc-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    align-items: stretch;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .fc-{{ section.id }} .fc-left,
+  .fc-{{ section.id }} .fc-right {
+    flex: 1 1 420px;
+    min-width: 300px;
+  }
+
+  .fc-{{ section.id }} .fc-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .fc-{{ section.id }} .fc-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    color: var(--fc-text);
+  }
+
+  .fc-{{ section.id }} .fc-eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: var(--fc-text);
+    opacity: 0.6;
+  }
+
+  .fc-{{ section.id }} .fc-heading {
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.15;
+    margin: 0;
+    color: var(--fc-text);
+  }
+
+  .fc-{{ section.id }} .fc-subheading {
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.85;
+    max-width: 46ch;
+    margin: 0;
+    color: var(--fc-text);
+  }
+
+  .fc-{{ section.id }} .fc-countdown {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .fc-{{ section.id }} .fc-countdown-box {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 14px 18px;
+    text-align: center;
+    min-width: 70px;
+  }
+
+  .fc-{{ section.id }} .fc-countdown-num {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .fc-{{ section.id }} .fc-countdown-label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-top: 6px;
+  }
+
+  .fc-{{ section.id }} .fc-disclaimer {
+    border: 1px dashed rgba(255, 190, 120, 0.5);
+    background: rgba(255, 190, 120, 0.08);
+    color: rgb(230, 180, 120);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    max-width: 46ch;
+  }
+
+  .fc-{{ section.id }} .fc-card {
+    background: var(--fc-card-bg);
+    color: #2b1b1f;
+    border-radius: 18px;
+    padding: 32px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  }
+
+  .fc-{{ section.id }} .fc-card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--fc-badge-bg);
+    color: var(--fc-badge-text);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+
+  .fc-{{ section.id }} .fc-card-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 12px;
+  }
+
+  .fc-{{ section.id }} .fc-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .fc-{{ section.id }} .fc-price {
+    font-size: 34px;
+    font-weight: 700;
+  }
+
+  .fc-{{ section.id }} .fc-compare-price {
+    font-size: 18px;
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+
+  .fc-{{ section.id }} .fc-savings {
+    color: var(--fc-savings);
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0 0 20px;
+  }
+
+  .fc-{{ section.id }} .fc-tiers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .fc-{{ section.id }} .fc-tier {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border: 1.5px solid rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+    padding: 12px 16px;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    width: 100%;
+  }
+
+  .fc-{{ section.id }} .fc-tier[aria-checked="true"] {
+    border-color: var(--fc-accent);
+    background: color-mix(in srgb, var(--fc-accent) 10%, transparent);
+  }
+
+  .fc-{{ section.id }} .fc-tier-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .fc-{{ section.id }} .fc-tier-badge {
+    background: var(--fc-badge-bg);
+    color: var(--fc-badge-text);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .fc-{{ section.id }} .fc-tier-price {
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  .fc-{{ section.id }} .fc-stock {
+    margin-bottom: 18px;
+  }
+
+  .fc-{{ section.id }} .fc-stock-bar {
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+
+  .fc-{{ section.id }} .fc-stock-bar-fill {
+    height: 100%;
+    background: var(--fc-accent);
+    border-radius: 999px;
+  }
+
+  .fc-{{ section.id }} .fc-stock-text {
+    font-size: 13px;
+    color: var(--fc-accent);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .fc-{{ section.id }} .fc-submit {
+    width: 100%;
+    background: var(--fc-accent);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 16px;
+  }
+
+  .fc-{{ section.id }} .fc-submit:hover {
+    filter: brightness(0.94);
+  }
+
+  .fc-{{ section.id }} .fc-payment-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .fc-{{ section.id }} .fc-payment-row svg,
+  .fc-{{ section.id }} .fc-payment-row img {
+    height: 22px;
+    width: auto;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+
+  .fc-{{ section.id }} .fc-no-product {
+    font-size: 14px;
+    opacity: 0.7;
+  }
+
+  @media screen and (max-width: 749px) {
+    .fc-{{ section.id }} .fc-countdown-box {
+      min-width: 60px;
+      padding: 10px 12px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign product = section.settings.product
+  if product != blank
+    assign variant = product.selected_or_first_available_variant
+  endif
+
+  assign default_block = section.blocks.first
+  for block in section.blocks
+    if block.settings.default_selected
+      assign default_block = block
+    endif
+  endfor
+-%}
+
+<div class="fc-{{ section.id }} isolate">
+  <div class="fc-{{ section.id }}-padding fc-wrap" id="FeaturedOffer-{{ section.id }}" data-section-id="{{ section.id }}">
+    <div class="fc-left">
+      {%- if section.settings.eyebrow_text != blank -%}
+        <p class="fc-eyebrow">{{ section.settings.eyebrow_text }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="fc-heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.subheading != blank -%}
+        <div class="fc-subheading">{{ section.settings.subheading }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.show_countdown -%}
+        <div
+          class="fc-countdown"
+          id="FcCountdown-{{ section.id }}"
+          data-end="{{ section.settings.countdown_end }}"
+          data-ended-text="{{ section.settings.countdown_ended_text | escape }}"
+        >
+          <div class="fc-countdown-box">
+            <span class="fc-countdown-num" data-unit="hours">00</span>
+            <span class="fc-countdown-label">Hours</span>
+          </div>
+          <div class="fc-countdown-box">
+            <span class="fc-countdown-num" data-unit="minutes">00</span>
+            <span class="fc-countdown-label">Mins</span>
+          </div>
+          <div class="fc-countdown-box">
+            <span class="fc-countdown-num" data-unit="seconds">00</span>
+            <span class="fc-countdown-label">Secs</span>
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.countdown_disclaimer != blank -%}
+        <p class="fc-disclaimer">{{ section.settings.countdown_disclaimer }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="fc-right">
+      <div class="fc-card">
+        {%- if section.settings.badge_text != blank -%}
+          <span class="fc-card-badge">{{ section.settings.badge_text }}</span>
+        {%- endif -%}
+
+        {%- if product == blank -%}
+          <p class="fc-no-product">Select a product in the theme editor to activate this section.</p>
+        {%- else -%}
+          <h3 class="fc-card-title">{{ product.title }}</h3>
+
+          <div class="fc-price-row">
+            <span class="fc-price" id="FcPrice-{{ section.id }}">{{ variant.price | money }}</span>
+            {%- if variant.compare_at_price > variant.price -%}
+              <span class="fc-compare-price">{{ variant.compare_at_price | money }}</span>
+            {%- endif -%}
+          </div>
+          {%- if variant.compare_at_price > variant.price -%}
+            {%- assign savings_amount = variant.compare_at_price | minus: variant.price -%}
+            {%- assign savings_percent = savings_amount | times: 100.0 | divided_by: variant.compare_at_price -%}
+            <p class="fc-savings">You save {{ savings_amount | money }} ({{ savings_percent | round }}%)</p>
+          {%- endif -%}
+
+          {%- if section.blocks.size > 0 -%}
+            <form
+              method="post"
+              action="{{ routes.cart_add_url }}"
+              id="FcForm-{{ section.id }}"
+              accept-charset="UTF-8"
+              class="fc-form"
+              enctype="multipart/form-data"
+            >
+              <input type="hidden" name="return_to" value="/cart">
+              <input type="hidden" name="id" value="{{ variant.id }}">
+              <input type="hidden" name="quantity" id="FcQuantity-{{ section.id }}" value="{{ default_block.settings.quantity | default: 1 }}">
+
+              <div class="fc-tiers" role="radiogroup" aria-label="Quantity options">
+                {%- for block in section.blocks -%}
+                  {%- if block.type == 'tier' -%}
+                    {%- liquid
+                      assign is_checked = false
+                      if block == default_block
+                        assign is_checked = true
+                      endif
+                    -%}
+                    <button
+                      type="button"
+                      class="fc-tier"
+                      role="radio"
+                      aria-checked="{{ is_checked }}"
+                      data-quantity="{{ block.settings.quantity }}"
+                      data-price="{{ block.settings.price | times: 100 }}"
+                      {{ block.shopify_attributes }}
+                    >
+                      <span class="fc-tier-label">
+                        {{ block.settings.label }}
+                        {%- if block.settings.badge_text != blank -%}
+                          <span class="fc-tier-badge">{{ block.settings.badge_text }}</span>
+                        {%- endif -%}
+                      </span>
+                      <span class="fc-tier-price">{{ block.settings.price | times: 100 | money }}</span>
+                    </button>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+
+              {%- if section.settings.show_stock_bar -%}
+                {%- liquid
+                  assign stock_count = section.settings.stock_display_max
+                  if variant.inventory_management == 'shopify' and variant.inventory_quantity != blank
+                    assign stock_count = variant.inventory_quantity
+                  endif
+                  assign stock_percent = stock_count | times: 100.0 | divided_by: section.settings.stock_display_max
+                  if stock_percent > 100
+                    assign stock_percent = 100
+                  endif
+                -%}
+                <div class="fc-stock">
+                  <div class="fc-stock-bar">
+                    <div class="fc-stock-bar-fill" style="width: {{ stock_percent }}%;"></div>
+                  </div>
+                  <p class="fc-stock-text">{{ section.settings.stock_text_template | replace: '[count]', stock_count }}</p>
+                </div>
+              {%- endif -%}
+
+              <button type="submit" class="fc-submit" id="FcSubmit-{{ section.id }}">
+                Add to Cart — {{ default_block.settings.price | times: 100 | money }}
+              </button>
+            </form>
+          {%- endif -%}
+
+          {%- if section.settings.show_payment_icons -%}
+            <div class="fc-payment-row">
+              {%- for type in shop.enabled_payment_types -%}
+                {{ type | payment_type_svg_tag: class: 'fc-payment-icon' }}
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{%- if section.settings.show_countdown -%}
+  <script>
+    (function () {
+      var root = document.getElementById('FcCountdown-{{ section.id }}');
+      if (!root) return;
+      var endValue = root.getAttribute('data-end');
+      var endedText = root.getAttribute('data-ended-text') || 'Offer ended';
+      if (!endValue) return;
+      var endDate = new Date(endValue);
+      if (isNaN(endDate.getTime())) return;
+
+      var hoursEl = root.querySelector('[data-unit="hours"]');
+      var minutesEl = root.querySelector('[data-unit="minutes"]');
+      var secondsEl = root.querySelector('[data-unit="seconds"]');
+
+      function pad(n) {
+        return String(n).padStart(2, '0');
+      }
+
+      function tick() {
+        var now = new Date().getTime();
+        var diff = endDate.getTime() - now;
+
+        if (diff <= 0) {
+          root.innerHTML = '<p style="font-weight:600;">' + endedText + '</p>';
+          clearInterval(timer);
+          return;
+        }
+
+        var totalSeconds = Math.floor(diff / 1000);
+        var hours = Math.floor(totalSeconds / 3600);
+        var minutes = Math.floor((totalSeconds % 3600) / 60);
+        var seconds = totalSeconds % 60;
+
+        if (hoursEl) hoursEl.textContent = pad(hours);
+        if (minutesEl) minutesEl.textContent = pad(minutes);
+        if (secondsEl) secondsEl.textContent = pad(seconds);
+      }
+
+      tick();
+      var timer = setInterval(tick, 1000);
+    })();
+  </script>
+{%- endif -%}
+
+{%- if section.blocks.size > 0 -%}
+  <script>
+    (function () {
+      var sectionId = {{ section.id | json }};
+      var tiers = document.querySelectorAll('#FeaturedOffer-' + sectionId + ' .fc-tier');
+      var quantityInput = document.getElementById('FcQuantity-' + sectionId);
+      var submitBtn = document.getElementById('FcSubmit-' + sectionId);
+
+      tiers.forEach(function (tier) {
+        tier.addEventListener('click', function () {
+          tiers.forEach(function (t) {
+            t.setAttribute('aria-checked', 'false');
+          });
+          tier.setAttribute('aria-checked', 'true');
+
+          var qty = tier.getAttribute('data-quantity') || 1;
+          var priceCents = parseInt(tier.getAttribute('data-price'), 10) || 0;
+
+          if (quantityInput) quantityInput.value = qty;
+
+          if (submitBtn) {
+            submitBtn.textContent = 'Add to Cart — ' + formatMoney(priceCents);
+          }
+        });
+      });
+
+      function formatMoney(cents) {
+        return (cents / 100).toLocaleString(undefined, {
+          style: 'currency',
+          currency: {{ cart.currency.iso_code | json }}
+        });
+      }
+    })();
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Featured offer",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow_text",
+      "label": "Eyebrow label",
+      "default": "Desk Refresh Offer"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>A cleaner desk setup for less than a takeout order.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>Every order includes a 45-day money-back guarantee and free returns — try it risk-free.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Countdown timer"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_countdown",
+      "label": "Show countdown timer",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "countdown_end",
+      "label": "Offer end date and time",
+      "info": "Format: YYYY-MM-DDTHH:MM, e.g. 2026-08-01T23:59. Uses the visitor's local timezone."
+    },
+    {
+      "type": "text",
+      "id": "countdown_ended_text",
+      "label": "Text shown after offer ends",
+      "default": "Offer ended"
+    },
+    {
+      "type": "text",
+      "id": "countdown_disclaimer",
+      "label": "Disclaimer note (optional)",
+      "info": "Leave blank to hide. Use this to note the countdown is illustrative, if applicable."
+    },
+    {
+      "type": "header",
+      "content": "Buy box"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "25% OFF — TODAY ONLY"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stock_bar",
+      "label": "Show stock bar",
+      "default": true
+    },
+    {
+      "type": "number",
+      "id": "stock_display_max",
+      "label": "Stock bar scale (max units)",
+      "info": "Used to calculate the fill width of the stock bar, and as the fallback count if inventory tracking is off.",
+      "default": 50
+    },
+    {
+      "type": "text",
+      "id": "stock_text_template",
+      "label": "Stock text",
+      "info": "Use [count] as a placeholder for the live count.",
+      "default": "Only [count] left in stock — based on current inventory"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "label": "Show accepted payment icons",
+      "info": "Automatically pulls the payment methods enabled on your store.",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#2b1b1f"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#f5ece7"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card background",
+      "default": "#fdf8f3"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent / button",
+      "default": "#b5647a"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg_color",
+      "label": "Badge background",
+      "default": "#f6dbe3"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Badge text",
+      "default": "#7a2f45"
+    },
+    {
+      "type": "color",
+      "id": "savings_color",
+      "label": "Savings text",
+      "default": "#4b7f57"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tier",
+      "name": "Quantity tier",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "1x"
+        },
+        {
+          "type": "number",
+          "id": "quantity",
+          "label": "Quantity added to cart",
+          "default": 1
+        },
+        {
+          "type": "number",
+          "id": "price",
+          "label": "Displayed total price",
+          "info": "Display only. The actual checkout price is quantity × the product variant price — set up a real volume discount (Shopify's native quantity pricing or an app) so the amount charged matches what's shown here.",
+          "default": 0
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Small badge (optional)"
+        },
+        {
+          "type": "checkbox",
+          "id": "default_selected",
+          "label": "Selected by default",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured offer",
+      "blocks": [
+        {
+          "type": "tier",
+          "settings": {
+            "label": "1x",
+            "quantity": 1,
+            "default_selected": true
+          }
+        },
+        {
+          "type": "tier",
+          "settings": {
+            "label": "2x",
+            "quantity": 2,
+            "badge_text": "Free shipping"
+          }
+        },
+        {
+          "type": "tier",
+          "settings": {
+            "label": "3x",
+            "quantity": 3,
+            "badge_text": "Best value"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

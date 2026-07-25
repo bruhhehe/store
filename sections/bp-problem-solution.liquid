@@ -1,0 +1,86 @@
+{{ 'bunny-trust.css' | asset_url | stylesheet_tag }}
+
+<div class="bp-section bp-ps-{{ section.id }}" style="background:{{ section.settings.bg_color }};">
+  <style>
+    .bp-ps-{{ section.id }} .bp-ps-grid{
+      max-width:1180px; margin:0 auto; padding:64px 24px;
+      display:grid; grid-template-columns: 1fr 1fr; gap:36px; align-items:start;
+    }
+    .bp-ps-{{ section.id }} h2{ font-size:28px; margin-bottom:22px; max-width:340px; }
+    .bp-ps-{{ section.id }} .bp-list-item{
+      display:flex; gap:10px; align-items:flex-start; padding:12px 0;
+      border-bottom:1px solid rgba(43,30,34,.08); font-size:15px;
+    }
+    .bp-ps-{{ section.id }} .bp-list-item:last-child{ border-bottom:none; }
+    .bp-ps-{{ section.id }} .bp-x{ color: var(--bp-red); font-weight:700; }
+    .bp-ps-{{ section.id }} .bp-check{ color: var(--bp-green); font-weight:700; }
+    .bp-ps-{{ section.id }} .bp-solution-card{
+      background: var(--bp-plum); color:#fff; border-radius:20px; padding:34px;
+    }
+    .bp-ps-{{ section.id }} .bp-solution-card h3{ font-size:22px; color:#fff; margin-bottom:18px; }
+    .bp-ps-{{ section.id }} .bp-solution-card .bp-list-item{ border-color: rgba(255,255,255,.12); }
+    @media (max-width:900px){
+      .bp-ps-{{ section.id }} .bp-ps-grid{ grid-template-columns:1fr; }
+    }
+  </style>
+
+  <div class="bp-ps-grid">
+    <div>
+      <div class="bp-eyebrow">{{ section.settings.problem_eyebrow }}</div>
+      <h2>{{ section.settings.problem_heading }}</h2>
+      {% for block in section.blocks %}
+        {% if block.type == 'problem' %}
+          <div class="bp-list-item" {{ block.shopify_attributes }}>
+            <span class="bp-x">✕</span><span>{{ block.settings.text }}</span>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="bp-solution-card">
+      <div class="bp-eyebrow" style="color:{{ section.settings.accent_color }};">{{ section.settings.solution_eyebrow }}</div>
+      <h3>{{ section.settings.solution_heading }}</h3>
+      {% for block in section.blocks %}
+        {% if block.type == 'solution' %}
+          <div class="bp-list-item" {{ block.shopify_attributes }}>
+            <span class="bp-check">✓</span><span>{{ block.settings.text }}</span>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BP Problem vs Solution",
+  "tag": "section",
+  "class": "section-bp-ps",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#fdf3f4" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#c96a86" },
+    { "type": "text", "id": "problem_eyebrow", "label": "Problem eyebrow", "default": "THE PROBLEM" },
+    { "type": "text", "id": "problem_heading", "label": "Problem heading", "default": "Propping your phone against a candle isn't a stand." },
+    { "type": "text", "id": "solution_eyebrow", "label": "Solution eyebrow", "default": "THE BUNNY PERCH WAY" },
+    { "type": "text", "id": "solution_heading", "label": "Solution heading", "default": "One stand, every angle, zero wobble." }
+  ],
+  "blocks": [
+    { "type": "problem", "name": "Problem point", "settings": [{ "type": "text", "id": "text", "label": "Text", "default": "Flat phone stands that only work at one fixed angle" }] },
+    { "type": "solution", "name": "Solution point", "settings": [{ "type": "text", "id": "text", "label": "Text", "default": "Adjustable height and tilt for video calls, cooking, or bedside viewing" }] }
+  ],
+  "presets": [
+    {
+      "name": "BP Problem vs Solution",
+      "blocks": [
+        { "type": "problem", "settings": { "text": "Flat phone stands that only work at one fixed angle" } },
+        { "type": "problem", "settings": { "text": "Flimsy bases that tip the second you tap the screen" } },
+        { "type": "problem", "settings": { "text": "Hard plastic clips that scratch your phone case" } },
+        { "type": "problem", "settings": { "text": "One stand for your phone, a totally different one for your tablet" } },
+        { "type": "solution", "settings": { "text": "Adjustable height and tilt for video calls, cooking, or bedside viewing" } },
+        { "type": "solution", "settings": { "text": "Weighted, stable base that stays put even when you tap the screen" } },
+        { "type": "solution", "settings": { "text": "Soft anti-slip silicone padding that protects your device, not just holds it" } },
+        { "type": "solution", "settings": { "text": "Fits phones and tablets alike — no separate stand needed" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
