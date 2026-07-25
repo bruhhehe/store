@@ -1,5 +1,27 @@
 {{ 'bunny-trust.css' | asset_url | stylesheet_tag }}
 
+{%- liquid
+  assign cta_href = section.settings.cta_link
+  if cta_href == blank
+    assign cta_href = '/#FeaturedOffer-template--29777453646171__featured_collection'
+  endif
+
+  assign reviews_href = section.settings.reviews_link
+  if reviews_href == blank
+    assign reviews_href = '/#HowItWorks-template--29777453646171__bp_how_it_works'
+  endif
+
+  assign hero_slide_count = 4
+  if section.settings.image != blank
+    assign hero_slide_count = 5
+  endif
+  assign hero_total_seconds = hero_slide_count | times: 4
+  assign hero_visible_pct = 1.0 | divided_by: hero_slide_count | times: 100
+  assign hero_fade_pct = 0.8 | divided_by: hero_total_seconds | times: 100
+  assign hero_hold_end_pct = hero_visible_pct | minus: hero_fade_pct
+  assign hero_fade_in_pct = 100 | minus: hero_fade_pct
+-%}
+
 <div class="bp-section bp-hero-{{ section.id }}" style="background:{{ section.settings.bg_color }};">
   <style>
     .bp-hero-{{ section.id }} .bp-hero-grid{
@@ -19,6 +41,27 @@
       overflow:hidden;
     }
     .bp-hero-{{ section.id }} .bp-hero-visual img{ width:100%; height:100%; object-fit:cover; }
+    .bp-hero-{{ section.id }} .bp-hero-slide{
+      position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+      opacity:0; animation: bp-hero-fade-{{ section.id }} {{ hero_total_seconds }}s infinite;
+    }
+    .bp-hero-{{ section.id }} .bp-hero-slide:nth-child(1){ animation-delay: 0s; }
+    .bp-hero-{{ section.id }} .bp-hero-slide:nth-child(2){ animation-delay: -4s; }
+    .bp-hero-{{ section.id }} .bp-hero-slide:nth-child(3){ animation-delay: -8s; }
+    .bp-hero-{{ section.id }} .bp-hero-slide:nth-child(4){ animation-delay: -12s; }
+    .bp-hero-{{ section.id }} .bp-hero-slide:nth-child(5){ animation-delay: -16s; }
+    .bp-hero-{{ section.id }} .bp-hero-slide:nth-child(6){ animation-delay: -20s; }
+    @keyframes bp-hero-fade-{{ section.id }} {
+      0%    { opacity: 1; }
+      {{ hero_hold_end_pct }}%   { opacity: 1; }
+      {{ hero_visible_pct }}%    { opacity: 0; }
+      {{ hero_fade_in_pct }}%    { opacity: 0; }
+      100%  { opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .bp-hero-{{ section.id }} .bp-hero-slide{ animation: none; opacity: 0; }
+      .bp-hero-{{ section.id }} .bp-hero-slide:first-child{ opacity: 1; }
+    }
     .bp-hero-{{ section.id }} .bp-callout{
       position:absolute; background:#fff; border-radius:999px; padding:9px 16px;
       font-size:13px; font-weight:600; box-shadow:0 6px 20px rgba(43,30,34,.12);
@@ -33,18 +76,6 @@
       .bp-hero-{{ section.id }} .bp-hero-info{ order: 1; }
     }
   </style>
-
-  {%- liquid
-    assign cta_href = section.settings.cta_link
-    if cta_href == blank
-      assign cta_href = '/#FeaturedOffer-template--29777453646171__featured_collection'
-    endif
-
-    assign reviews_href = section.settings.reviews_link
-    if reviews_href == blank
-      assign reviews_href = '/#HowItWorks-template--29777453646171__bp_how_it_works'
-    endif
-  -%}
 
   <div class="bp-hero-grid">
     <div class="bp-hero-info">
@@ -68,10 +99,12 @@
 
     <div class="bp-hero-visual">
       {% if section.settings.image != blank %}
-        <img src="{{ section.settings.image | image_url: width: 900 }}" alt="{{ section.settings.image.alt | escape }}" loading="eager">
-      {% else %}
-        <div style="color: var(--bp-muted); font-family: var(--bp-sans);">Add a product image in section settings</div>
+        <img class="bp-hero-slide" src="{{ section.settings.image | image_url: width: 900 }}" alt="{{ section.settings.image.alt | escape }}" loading="eager">
       {% endif %}
+      <img class="bp-hero-slide" src="{{ 'bp-hero-slide-1.jpg' | asset_url }}" alt="{{ section.settings.image.alt | default: 'Bunny Perch product size' | escape }}" loading="eager">
+      <img class="bp-hero-slide" src="{{ 'bp-hero-slide-2.jpg' | asset_url }}" alt="Bunny Perch on a kitchen counter" loading="lazy">
+      <img class="bp-hero-slide" src="{{ 'bp-hero-slide-3.jpg' | asset_url }}" alt="Bunny Perch stands on a bedside table" loading="lazy">
+      <img class="bp-hero-slide" src="{{ 'bp-hero-slide-4.jpg' | asset_url }}" alt="Bunny Perch stands on a desk" loading="lazy">
       {% if section.settings.callout_top != blank %}
         <div class="bp-callout bp-callout--top">✏️ {{ section.settings.callout_top }}</div>
       {% endif %}
