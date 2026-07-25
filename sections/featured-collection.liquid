@@ -808,13 +808,51 @@
                 : 'Please select only ' + maxColours + ' colour' + (maxColours === 1 ? '' : 's') + ' total.';
               errorEl.classList.add('is-visible');
             }
+            return;
           }
+
+          // Colours check out — but don't let this add stack on top of
+          // whatever's already in the cart (e.g. from a previous visit,
+          // or the shopper hitting back after a prior checkout). Clear
+          // the cart first, then submit for real so checkout only ever
+          // reflects the current selection.
+          e.preventDefault();
+          fetch('/cart/clear.js', { method: 'POST' })
+            .catch(function () {
+              // Proceed even if the clear request fails — better to risk
+              // a stale cart than block checkout entirely.
+            })
+            .then(function () {
+              form.submit();
+            });
         });
       }
 
       // Initialise from whichever quantity tier is selected on page load.
       var initialQuantity = quantityInput ? parseInt(quantityInput.value, 10) : 1;
       setMaxColours(isNaN(initialQuantity) ? 1 : initialQuantity);
+    })();
+  </script>
+{%- endif -%}
+
+{%- if swatch_blocks.size == 0 and section.blocks.size > 0 -%}
+  <script>
+    (function () {
+      // No colour swatches on this instance, so there's no validation to
+      // gate on — just make sure this add doesn't stack on top of
+      // whatever's already in the cart before submitting.
+      var sectionId = {{ section.id | json }};
+      var form = document.getElementById('FcForm-' + sectionId);
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        fetch('/cart/clear.js', { method: 'POST' })
+          .catch(function () {})
+          .then(function () {
+            form.submit();
+          });
+      });
     })();
   </script>
 {%- endif -%}
