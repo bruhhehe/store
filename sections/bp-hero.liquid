@@ -34,14 +34,36 @@
     }
   </style>
 
+  {%- liquid
+    assign id_parts = section.id | split: '__'
+    if id_parts.size == 2
+      assign tpl_prefix = id_parts[0]
+      assign computed_offer_anchor = '#FeaturedOffer-' | append: tpl_prefix | append: '__featured_collection'
+      assign computed_how_it_works_anchor = '#HowItWorks-' | append: tpl_prefix | append: '__bp_how_it_works'
+    else
+      assign computed_offer_anchor = '#FeaturedOffer-featured_collection'
+      assign computed_how_it_works_anchor = '#HowItWorks-bp_how_it_works'
+    endif
+
+    assign cta_href = section.settings.cta_link
+    if cta_href == blank or cta_href == '#FeaturedOffer-featured_collection'
+      assign cta_href = computed_offer_anchor
+    endif
+
+    assign reviews_href = section.settings.reviews_link
+    if reviews_href == blank or reviews_href == '#HowItWorks-bp_how_it_works'
+      assign reviews_href = computed_how_it_works_anchor
+    endif
+  -%}
+
   <div class="bp-hero-grid">
     <div class="bp-hero-info">
       <div class="bp-eyebrow">{{ section.settings.eyebrow }}</div>
       <h1>{{ section.settings.heading }} <span class="bp-accent">{{ section.settings.heading_accent }}</span></h1>
       <p class="bp-sub">{{ section.settings.subtext }}</p>
       <div class="bp-hero-ctas">
-        <a href="{{ section.settings.cta_link }}" class="bp-btn">{{ section.settings.cta_text }} →</a>
-        <a href="{{ section.settings.reviews_link }}" class="bp-btn bp-btn--outline">{{ section.settings.reviews_text }}</a>
+        <a href="{{ cta_href }}" class="bp-btn">{{ section.settings.cta_text }} →</a>
+        <a href="{{ reviews_href }}" class="bp-btn bp-btn--outline">{{ section.settings.reviews_text }}</a>
       </div>
       <div class="bp-hero-stats">
         <span>{{ section.settings.stars }}</span>

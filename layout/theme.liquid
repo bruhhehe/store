@@ -326,22 +326,28 @@
         }
       }
       /* Offset in-page anchor jumps (hero CTAs) so a sticky header doesn't
-         cover the top of the target section. */
-      #FeaturedOffer-featured_collection,
-      #HowItWorks-bp_how_it_works {
+         cover the top of the target section. Uses a prefix match because
+         Shopify prefixes section ids with the template id at runtime
+         (e.g. "FeaturedOffer-template--123456__featured_collection"). */
+      [id^="FeaturedOffer-"],
+      [id^="HowItWorks-"] {
         scroll-margin-top: 100px;
       }
 
       /* Mobile-only reorder: show Hero above Trust bar on the home page.
-         Section wrapper IDs match the section keys in templates/index.json,
-         so this only takes effect there and leaves desktop order untouched. */
+         Matches by id suffix because Shopify prefixes JSON-template section
+         wrapper ids with the template id at runtime
+         (e.g. "shopify-section-template--123456__bp_hero"). */
       @media screen and (max-width: 749px) {
+        main[data-template="index"] [id$="__bp_hero"],
         main[data-template="index"] #shopify-section-bp_hero {
           order: -2;
         }
+        main[data-template="index"] [id$="__bp_trust_bar"],
         main[data-template="index"] #shopify-section-bp_trust_bar {
           order: -1;
         }
+        main[data-template="index"] [id$="__bp_announce"],
         main[data-template="index"] #shopify-section-bp_announce {
           order: -3;
         }
