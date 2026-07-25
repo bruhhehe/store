@@ -320,6 +320,18 @@
       }
     </script>
     <style>
+      @media (prefers-reduced-motion: no-preference) {
+        html {
+          scroll-behavior: smooth;
+        }
+      }
+      /* Offset in-page anchor jumps (hero CTAs) so a sticky header doesn't
+         cover the top of the target section. */
+      #FeaturedOffer-featured_collection,
+      #HowItWorks-bp_how_it_works {
+        scroll-margin-top: 100px;
+      }
+
       /* Mobile-only reorder: show Hero above Trust bar on the home page.
          Section wrapper IDs match the section keys in templates/index.json,
          so this only takes effect there and leaves desktop order untouched. */
