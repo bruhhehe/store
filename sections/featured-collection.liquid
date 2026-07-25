@@ -209,6 +209,16 @@
     background: color-mix(in srgb, var(--fc-accent) 10%, transparent);
   }
 
+  .fc-{{ section.id }} .fc-swatch[aria-disabled="true"] {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .fc-{{ section.id }} .fc-swatches-hint {
+    font-weight: 400;
+    opacity: 0.7;
+  }
+
   .fc-{{ section.id }} .fc-swatch-dot {
     width: 16px;
     height: 16px;
@@ -447,7 +457,10 @@
               {%- assign swatch_blocks = section.blocks | where: 'type', 'swatch' -%}
               {%- if swatch_blocks.size > 0 -%}
                 <input type="hidden" name="properties[Colour]" id="FcColours-{{ section.id }}" value="">
-                <p class="fc-swatches-label">Choose your colour{{ swatch_blocks.size | pluralize: '', 's' }} (select one or more)</p>
+                <p class="fc-swatches-label">
+                  Choose your colour{{ swatch_blocks.size | pluralize: '', 's' }}
+                  <span class="fc-swatches-hint" id="FcSwatchesHint-{{ section.id }}">(select {{ default_block.settings.quantity | default: 1 }})</span>
+                </p>
                 <div class="fc-swatches" id="FcSwatches-{{ section.id }}" role="group" aria-label="Colour options">
                   {%- for block in swatch_blocks -%}
                     <button
@@ -455,6 +468,7 @@
                       class="fc-swatch"
                       role="checkbox"
                       aria-checked="false"
+                      aria-disabled="false"
                       data-label="{{ block.settings.label }}"
                       {{ block.shopify_attributes }}
                     >
@@ -600,42 +614,119 @@
   <script>
     (function () {
       var sectionId = {{ section.id | json }};
-      var swatches = document.querySelectorAll('#FcSwatches-' + sectionId + ' .fc-swatch');
+      var swatches = Array.prototype.slice.call(
+        document.querySelectorAll('#FcSwatches-' + sectionId + ' .fc-swatch')
+      );
       var hiddenInput = document.getElementById('FcColours-' + sectionId);
       var errorEl = document.getElementById('FcSwatchesError-' + sectionId);
+      var hintEl = document.getElementById('FcSwatchesHint-' + sectionId);
       var form = document.getElementById('FcForm-' + sectionId);
+      var quantityInput = document.getElementById('FcQuantity-' + sectionId);
+
+      // The number of colours the shopper must select for the currently
+      // chosen quantity tier. Kept in sync with the tier buttons via the
+      // 'fc:tierchange' event dispatched below.
+      var maxColours = 1;
+
+      function getSelected() {
+        return swatches.filter(function (s) {
+          return s.getAttribute('aria-checked') === 'true';
+        });
+      }
 
       function updateHiddenValue() {
-        var selected = [];
-        swatches.forEach(function (s) {
-          if (s.getAttribute('aria-checked') === 'true') {
-            selected.push(s.getAttribute('data-label'));
-          }
+        var selected = getSelected().map(function (s) {
+          return s.getAttribute('data-label');
         });
         if (hiddenInput) hiddenInput.value = selected.join(', ');
         return selected;
       }
 
+      function updateHint() {
+        if (hintEl) {
+          hintEl.textContent = '(select ' + maxColours + ' of ' + swatches.length + ')';
+        }
+      }
+
+      // Once the cap is reached, grey out and block clicks on the
+      // remaining unselected swatches. Already-selected ones stay
+      // clickable so the shopper can swap their choice.
+      function refreshDisabledState() {
+        var selectedCount = getSelected().length;
+        var atCap = selectedCount >= maxColours;
+        swatches.forEach(function (s) {
+          var isChecked = s.getAttribute('aria-checked') === 'true';
+          s.setAttribute('aria-disabled', atCap && !isChecked ? 'true' : 'false');
+        });
+      }
+
+      function clearErrorIfSatisfied() {
+        if (errorEl && getSelected().length === maxColours) {
+          errorEl.classList.remove('is-visible');
+        }
+      }
+
+      // Applies a new cap (triggered by picking a different quantity
+      // tier). If the shopper had more colours selected than the new
+      // tier allows — e.g. dropping from 3x to 1x — trim the extras
+      // from the end of the selection so the count matches again.
+      function setMaxColours(newMax) {
+        if (isNaN(newMax) || newMax < 1) newMax = 1;
+        maxColours = Math.min(newMax, swatches.length);
+
+        var selected = getSelected();
+        var excess = selected.length - maxColours;
+        for (var i = selected.length - 1; i >= 0 && excess > 0; i--) {
+          selected[i].setAttribute('aria-checked', 'false');
+          excess--;
+        }
+
+        updateHiddenValue();
+        updateHint();
+        refreshDisabledState();
+      }
+
       swatches.forEach(function (swatch) {
         swatch.addEventListener('click', function () {
           var isChecked = swatch.getAttribute('aria-checked') === 'true';
-          swatch.setAttribute('aria-checked', isChecked ? 'false' : 'true');
-          var selected = updateHiddenValue();
-          if (errorEl && selected.length > 0) {
-            errorEl.classList.remove('is-visible');
+
+          if (!isChecked && swatch.getAttribute('aria-disabled') === 'true') {
+            // At the cap for this quantity tier — deselect one first.
+            return;
           }
+
+          swatch.setAttribute('aria-checked', isChecked ? 'false' : 'true');
+          updateHiddenValue();
+          refreshDisabledState();
+          clearErrorIfSatisfied();
         });
+      });
+
+      document.addEventListener('fc:tierchange', function (evt) {
+        if (!evt.detail || evt.detail.sectionId !== sectionId) return;
+        setMaxColours(evt.detail.quantity);
+        clearErrorIfSatisfied();
       });
 
       if (form) {
         form.addEventListener('submit', function (e) {
           var selected = updateHiddenValue();
-          if (selected.length === 0) {
+          if (selected.length !== maxColours) {
             e.preventDefault();
-            if (errorEl) errorEl.classList.add('is-visible');
+            if (errorEl) {
+              var missing = maxColours - selected.length;
+              errorEl.textContent = missing > 0
+                ? 'Please select ' + missing + ' more colour' + (missing === 1 ? '' : 's') + '.'
+                : 'Please select only ' + maxColours + ' colour' + (maxColours === 1 ? '' : 's') + '.';
+              errorEl.classList.add('is-visible');
+            }
           }
         });
       }
+
+      // Initialise from whichever quantity tier is selected on page load.
+      var initialQuantity = quantityInput ? parseInt(quantityInput.value, 10) : 1;
+      setMaxColours(isNaN(initialQuantity) ? 1 : initialQuantity);
     })();
   </script>
 {%- endif -%}
@@ -655,7 +746,7 @@
           });
           tier.setAttribute('aria-checked', 'true');
 
-          var qty = tier.getAttribute('data-quantity') || 1;
+          var qty = parseInt(tier.getAttribute('data-quantity'), 10) || 1;
           var priceCents = parseInt(tier.getAttribute('data-price'), 10) || 0;
 
           if (quantityInput) quantityInput.value = qty;
@@ -663,6 +754,10 @@
           if (submitBtn) {
             submitBtn.textContent = 'Add to Cart — ' + formatMoney(priceCents);
           }
+
+          document.dispatchEvent(new CustomEvent('fc:tierchange', {
+            detail: { sectionId: sectionId, quantity: qty }
+          }));
         });
       });
 
