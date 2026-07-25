@@ -31,27 +31,34 @@
     .bp-hero-{{ section.id }} .bp-hero-stats{ display:flex; align-items:center; gap:10px; font-size:14px; color:var(--bp-muted); margin-bottom:18px; }
     .bp-hero-{{ section.id }} .bp-hero-badges{ display:flex; gap:18px; flex-wrap:wrap; font-size:13px; color:var(--bp-muted); }
     .bp-hero-{{ section.id }} .bp-hero-badges span{ display:flex; align-items:center; gap:6px; }
+    .bp-hero-{{ section.id }} .bp-hero-media{
+      display:flex; flex-direction:column; gap:14px;
+    }
     .bp-hero-{{ section.id }} .bp-hero-visual{
-      position:relative; background: rgba(255,255,255,.5);
-      border-radius: 24px; min-height:420px; display:flex; align-items:center; justify-content:center;
+      position:relative; background: rgba(255,255,255,.55);
+      border-radius: 24px; min-height:420px;
       overflow:hidden;
     }
-    .bp-hero-{{ section.id }} .bp-hero-visual img{ width:100%; height:100%; object-fit:cover; }
     .bp-hero-{{ section.id }} .bp-hero-slide{
-      position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:contain; object-position:center; padding:28px; box-sizing:border-box;
       opacity:0; transition: opacity 0.6s ease;
     }
     .bp-hero-{{ section.id }} .bp-hero-slide.is-active{ opacity:1; z-index:1; }
     .bp-hero-{{ section.id }} .bp-hero-progress{
-      position:absolute; left:14px; right:14px; bottom:14px; z-index:5;
-      display:flex; gap:6px;
+      display:flex; gap:8px; padding:0 4px;
     }
     .bp-hero-{{ section.id }} .bp-hero-progress-seg{
-      flex:1; height:4px; padding:0; border:none; border-radius:999px;
-      background: rgba(255,255,255,.4); cursor:pointer; position:relative; overflow:hidden;
+      flex:1; height:5px; padding:6px 0; margin:-6px 0; border:none; background:none;
+      cursor:pointer; position:relative;
+    }
+    .bp-hero-{{ section.id }} .bp-hero-progress-seg::before{
+      content:""; position:absolute; inset:6px 0; border-radius:999px;
+      background: color-mix(in srgb, {{ section.settings.accent_color }} 18%, transparent);
     }
     .bp-hero-{{ section.id }} .bp-hero-progress-fill{
-      position:absolute; inset:0; width:0%; background:#fff; border-radius:999px;
+      position:absolute; top:6px; bottom:6px; left:0; width:0%;
+      background: {{ section.settings.accent_color }}; border-radius:999px;
     }
     .bp-hero-{{ section.id }} .bp-hero-progress-seg.is-complete .bp-hero-progress-fill{
       width:100%;
@@ -73,7 +80,8 @@
     @media (max-width:900px){
       .bp-hero-{{ section.id }} .bp-hero-grid{ grid-template-columns: 1fr; padding:40px 20px; }
       .bp-hero-{{ section.id }} h1{ font-size:32px; }
-      .bp-hero-{{ section.id }} .bp-hero-visual{ order: -1; min-height:280px; }
+      .bp-hero-{{ section.id }} .bp-hero-media{ order: -1; }
+      .bp-hero-{{ section.id }} .bp-hero-visual{ min-height:280px; }
       .bp-hero-{{ section.id }} .bp-hero-info{ order: 1; }
     }
   </style>
@@ -98,22 +106,24 @@
       </div>
     </div>
 
-    <div class="bp-hero-visual" id="BpHeroVisual-{{ section.id }}">
-      {% if section.settings.image != blank %}
-        <img class="bp-hero-slide is-active" src="{{ section.settings.image | image_url: width: 900 }}" alt="{{ section.settings.image.alt | escape }}" loading="eager">
-        <img class="bp-hero-slide" src="{{ 'bp-hero-slide-1.jpg' | asset_url }}" alt="Bunny Perch product size" loading="lazy">
-      {% else %}
-        <img class="bp-hero-slide is-active" src="{{ 'bp-hero-slide-1.jpg' | asset_url }}" alt="Bunny Perch product size" loading="eager">
-      {% endif %}
-      <img class="bp-hero-slide" src="{{ 'bp-hero-slide-2.jpg' | asset_url }}" alt="Bunny Perch on a kitchen counter" loading="lazy">
-      <img class="bp-hero-slide" src="{{ 'bp-hero-slide-3.jpg' | asset_url }}" alt="Bunny Perch stands on a bedside table" loading="lazy">
-      <img class="bp-hero-slide" src="{{ 'bp-hero-slide-4.jpg' | asset_url }}" alt="Bunny Perch stands on a desk" loading="lazy">
-      {% if section.settings.callout_top != blank %}
-        <div class="bp-callout bp-callout--top">✏️ {{ section.settings.callout_top }}</div>
-      {% endif %}
-      {% if section.settings.callout_bottom != blank %}
-        <div class="bp-callout bp-callout--bottom">✏️ {{ section.settings.callout_bottom }}</div>
-      {% endif %}
+    <div class="bp-hero-media" id="BpHeroMedia-{{ section.id }}">
+      <div class="bp-hero-visual">
+        {% if section.settings.image != blank %}
+          <img class="bp-hero-slide is-active" src="{{ section.settings.image | image_url: width: 900 }}" alt="{{ section.settings.image.alt | escape }}" loading="eager">
+          <img class="bp-hero-slide" src="{{ 'bp-hero-slide-1.jpg' | asset_url }}" alt="Bunny Perch product size" loading="lazy">
+        {% else %}
+          <img class="bp-hero-slide is-active" src="{{ 'bp-hero-slide-1.jpg' | asset_url }}" alt="Bunny Perch product size" loading="eager">
+        {% endif %}
+        <img class="bp-hero-slide" src="{{ 'bp-hero-slide-2.jpg' | asset_url }}" alt="Bunny Perch on a kitchen counter" loading="lazy">
+        <img class="bp-hero-slide" src="{{ 'bp-hero-slide-3.jpg' | asset_url }}" alt="Bunny Perch stands on a bedside table" loading="lazy">
+        <img class="bp-hero-slide" src="{{ 'bp-hero-slide-4.jpg' | asset_url }}" alt="Bunny Perch stands on a desk" loading="lazy">
+        {% if section.settings.callout_top != blank %}
+          <div class="bp-callout bp-callout--top">✏️ {{ section.settings.callout_top }}</div>
+        {% endif %}
+        {% if section.settings.callout_bottom != blank %}
+          <div class="bp-callout bp-callout--bottom">✏️ {{ section.settings.callout_bottom }}</div>
+        {% endif %}
+      </div>
       <div class="bp-hero-progress" role="tablist" aria-label="Product photos">
         {%- for i in (1..hero_slide_count) -%}
           <button
@@ -133,7 +143,7 @@
 
 <script>
   (function () {
-    var root = document.getElementById('BpHeroVisual-{{ section.id }}');
+    var root = document.getElementById('BpHeroMedia-{{ section.id }}');
     if (!root) return;
 
     var slides = Array.prototype.slice.call(root.querySelectorAll('.bp-hero-slide'));
