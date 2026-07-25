@@ -176,6 +176,59 @@
     margin: 0 0 20px;
   }
 
+  .fc-{{ section.id }} .fc-swatches-label {
+    font-weight: 600;
+    font-size: 13px;
+    margin: 0 0 8px;
+  }
+
+  .fc-{{ section.id }} .fc-swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .fc-{{ section.id }} .fc-swatch {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
+    border-radius: 999px;
+    padding: 6px 14px 6px 8px;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .fc-{{ section.id }} .fc-swatch[aria-checked="true"] {
+    border-color: var(--fc-accent);
+    background: color-mix(in srgb, var(--fc-accent) 10%, transparent);
+  }
+
+  .fc-{{ section.id }} .fc-swatch-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    flex: none;
+  }
+
+  .fc-{{ section.id }} .fc-swatches-error {
+    color: #b5647a;
+    font-size: 12px;
+    font-weight: 600;
+    margin: -4px 0 14px;
+    display: none;
+  }
+
+  .fc-{{ section.id }} .fc-swatches-error.is-visible {
+    display: block;
+  }
+
   .fc-{{ section.id }} .fc-tiers {
     display: flex;
     flex-direction: column;
@@ -331,7 +384,7 @@
         <div
           class="fc-countdown"
           id="FcCountdown-{{ section.id }}"
-          data-end="{{ section.settings.countdown_end }}"
+          data-hours="{{ section.settings.countdown_hours | default: 6 }}"
           data-ended-text="{{ section.settings.countdown_ended_text | escape }}"
         >
           <div class="fc-countdown-box">
@@ -389,6 +442,28 @@
               <input type="hidden" name="return_to" value="/cart">
               <input type="hidden" name="id" value="{{ variant.id }}">
               <input type="hidden" name="quantity" id="FcQuantity-{{ section.id }}" value="{{ default_block.settings.quantity | default: 1 }}">
+
+              {%- assign swatch_blocks = section.blocks | where: 'type', 'swatch' -%}
+              {%- if swatch_blocks.size > 0 -%}
+                <input type="hidden" name="properties[Colour]" id="FcColours-{{ section.id }}" value="">
+                <p class="fc-swatches-label">Choose your colour{{ swatch_blocks.size | pluralize: '', 's' }} (select one or more)</p>
+                <div class="fc-swatches" id="FcSwatches-{{ section.id }}" role="group" aria-label="Colour options">
+                  {%- for block in swatch_blocks -%}
+                    <button
+                      type="button"
+                      class="fc-swatch"
+                      role="checkbox"
+                      aria-checked="false"
+                      data-label="{{ block.settings.label }}"
+                      {{ block.shopify_attributes }}
+                    >
+                      <span class="fc-swatch-dot" style="background: {{ block.settings.color }};"></span>
+                      {{ block.settings.label }}
+                    </button>
+                  {%- endfor -%}
+                </div>
+                <p class="fc-swatches-error" id="FcSwatchesError-{{ section.id }}">Please select at least one colour.</p>
+              {%- endif -%}
 
               <div class="fc-tiers" role="radiogroup" aria-label="Quantity options">
                 {%- for block in section.blocks -%}
@@ -463,11 +538,29 @@
     (function () {
       var root = document.getElementById('FcCountdown-{{ section.id }}');
       if (!root) return;
-      var endValue = root.getAttribute('data-end');
+
+      var hours = parseFloat(root.getAttribute('data-hours'));
+      if (isNaN(hours) || hours <= 0) hours = 6;
+      var durationMs = hours * 60 * 60 * 1000;
       var endedText = root.getAttribute('data-ended-text') || 'Offer ended';
-      if (!endValue) return;
-      var endDate = new Date(endValue);
-      if (isNaN(endDate.getTime())) return;
+      var storageKey = 'fcCountdownEnd-{{ section.id }}';
+
+      // Each visitor gets their own rolling countdown: it starts the first time
+      // they open the site, persists across pages via localStorage while it's
+      // running, and a fresh one starts automatically once it expires.
+      var endTime;
+      try {
+        var stored = window.localStorage.getItem(storageKey);
+        endTime = stored ? parseInt(stored, 10) : NaN;
+        if (isNaN(endTime) || endTime <= Date.now()) {
+          endTime = Date.now() + durationMs;
+          window.localStorage.setItem(storageKey, String(endTime));
+        }
+      } catch (e) {
+        // localStorage unavailable (e.g. private browsing) — fall back to a
+        // countdown scoped to this page load only.
+        endTime = Date.now() + durationMs;
+      }
 
       var hoursEl = root.querySelector('[data-unit="hours"]');
       var minutesEl = root.querySelector('[data-unit="minutes"]');
@@ -478,8 +571,7 @@
       }
 
       function tick() {
-        var now = new Date().getTime();
-        var diff = endDate.getTime() - now;
+        var diff = endTime - Date.now();
 
         if (diff <= 0) {
           root.innerHTML = '<p style="font-weight:600;">' + endedText + '</p>';
@@ -488,17 +580,61 @@
         }
 
         var totalSeconds = Math.floor(diff / 1000);
-        var hours = Math.floor(totalSeconds / 3600);
-        var minutes = Math.floor((totalSeconds % 3600) / 60);
-        var seconds = totalSeconds % 60;
+        var h = Math.floor(totalSeconds / 3600);
+        var m = Math.floor((totalSeconds % 3600) / 60);
+        var s = totalSeconds % 60;
 
-        if (hoursEl) hoursEl.textContent = pad(hours);
-        if (minutesEl) minutesEl.textContent = pad(minutes);
-        if (secondsEl) secondsEl.textContent = pad(seconds);
+        if (hoursEl) hoursEl.textContent = pad(h);
+        if (minutesEl) minutesEl.textContent = pad(m);
+        if (secondsEl) secondsEl.textContent = pad(s);
       }
 
       tick();
       var timer = setInterval(tick, 1000);
+    })();
+  </script>
+{%- endif -%}
+
+{%- if swatch_blocks.size > 0 -%}
+  <script>
+    (function () {
+      var sectionId = {{ section.id | json }};
+      var swatches = document.querySelectorAll('#FcSwatches-' + sectionId + ' .fc-swatch');
+      var hiddenInput = document.getElementById('FcColours-' + sectionId);
+      var errorEl = document.getElementById('FcSwatchesError-' + sectionId);
+      var form = document.getElementById('FcForm-' + sectionId);
+
+      function updateHiddenValue() {
+        var selected = [];
+        swatches.forEach(function (s) {
+          if (s.getAttribute('aria-checked') === 'true') {
+            selected.push(s.getAttribute('data-label'));
+          }
+        });
+        if (hiddenInput) hiddenInput.value = selected.join(', ');
+        return selected;
+      }
+
+      swatches.forEach(function (swatch) {
+        swatch.addEventListener('click', function () {
+          var isChecked = swatch.getAttribute('aria-checked') === 'true';
+          swatch.setAttribute('aria-checked', isChecked ? 'false' : 'true');
+          var selected = updateHiddenValue();
+          if (errorEl && selected.length > 0) {
+            errorEl.classList.remove('is-visible');
+          }
+        });
+      });
+
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          var selected = updateHiddenValue();
+          if (selected.length === 0) {
+            e.preventDefault();
+            if (errorEl) errorEl.classList.add('is-visible');
+          }
+        });
+      }
     })();
   </script>
 {%- endif -%}
@@ -581,10 +717,11 @@
       "default": true
     },
     {
-      "type": "text",
-      "id": "countdown_end",
-      "label": "Offer end date and time",
-      "info": "Format: YYYY-MM-DDTHH:MM, e.g. 2026-08-01T23:59. Uses the visitor's local timezone."
+      "type": "number",
+      "id": "countdown_hours",
+      "label": "Countdown duration (hours)",
+      "info": "Starts counting down for each visitor from the moment they first open the site, and persists across pages until it runs out. Resets automatically for their next visit after expiry.",
+      "default": 6
     },
     {
       "type": "text",
@@ -747,6 +884,24 @@
           "default": false
         }
       ]
+    },
+    {
+      "type": "swatch",
+      "name": "Colour option",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Colour name",
+          "default": "Pink"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Swatch colour",
+          "default": "#e8a0b4"
+        }
+      ]
     }
   ],
   "presets": [
@@ -776,6 +931,22 @@
             "quantity": 3,
             "badge_text": "Best value"
           }
+        },
+        {
+          "type": "swatch",
+          "settings": { "label": "Pink", "color": "#e8a0b4" }
+        },
+        {
+          "type": "swatch",
+          "settings": { "label": "Blue", "color": "#7fa8d9" }
+        },
+        {
+          "type": "swatch",
+          "settings": { "label": "White", "color": "#ffffff" }
+        },
+        {
+          "type": "swatch",
+          "settings": { "label": "Black", "color": "#2b2b2b" }
         }
       ]
     }
