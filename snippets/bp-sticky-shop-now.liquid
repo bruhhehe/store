@@ -1,0 +1,113 @@
+{{ 'bunny-trust.css' | asset_url | stylesheet_tag }}
+
+<div class="bp-sticky-cta" id="BpStickyCta" aria-hidden="true">
+  <div class="bp-sticky-cta-inner">
+    <span class="bp-sticky-cta-text">Ready to hop to it?</span>
+    <a href="/#bp-featured-offer" class="bp-sticky-cta-btn">Shop Now →</a>
+  </div>
+</div>
+
+<style>
+  .bp-sticky-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    background: var(--bp-plum, #2b1e22);
+    color: #fdf8f4;
+    box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.18);
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+
+  .bp-sticky-cta.is-visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .bp-sticky-cta-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .bp-sticky-cta-text {
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.9;
+  }
+
+  .bp-sticky-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bp-pink, #c96a86);
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 999px;
+    white-space: nowrap;
+    transition: filter 0.15s ease;
+  }
+
+  .bp-sticky-cta-btn:hover {
+    filter: brightness(0.95);
+  }
+
+  @media screen and (max-width: 480px) {
+    .bp-sticky-cta-text {
+      display: none;
+    }
+    .bp-sticky-cta-inner {
+      justify-content: center;
+    }
+    .bp-sticky-cta-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    var bar = document.getElementById('BpStickyCta');
+    if (!bar) return;
+
+    var SHOW_AFTER_SCROLL = 400;
+    var offerVisible = false;
+
+    function updateVisibility() {
+      var pastThreshold = window.scrollY > SHOW_AFTER_SCROLL;
+      var shouldShow = pastThreshold && !offerVisible;
+      bar.classList.toggle('is-visible', shouldShow);
+      bar.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
+    }
+
+    // Hide the bar automatically whenever the real Featured offer buy box
+    // is already on screen (only present on the home page) so we don't
+    // show a duplicate CTA on top of the real one.
+    var offerAnchor = document.getElementById('bp-featured-offer');
+    if (offerAnchor && 'IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(
+        function (entries) {
+          offerVisible = entries[0].isIntersecting;
+          updateVisibility();
+        },
+        { rootMargin: '0px 0px -60% 0px' }
+      );
+      observer.observe(offerAnchor);
+    }
+
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+    updateVisibility();
+  })();
+</script>

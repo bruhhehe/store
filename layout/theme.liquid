@@ -325,15 +325,6 @@
           scroll-behavior: smooth;
         }
       }
-      /* Offset in-page anchor jumps (hero CTAs) so a sticky header doesn't
-         cover the top of the target section. Uses a prefix match because
-         Shopify prefixes section ids with the template id at runtime
-         (e.g. "FeaturedOffer-template--123456__featured_collection"). */
-      [id^="FeaturedOffer-"],
-      [id^="HowItWorks-"] {
-        scroll-margin-top: 100px;
-      }
-
       /* Mobile-only reorder: show Hero above Trust bar on the home page.
          Matches by id suffix because Shopify prefixes JSON-template section
          wrapper ids with the template id at runtime
@@ -377,6 +368,8 @@
     </main>
 
     {% sections 'footer-group' %}
+
+    {%- render 'bp-sticky-shop-now' -%}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
