@@ -3,7 +3,7 @@
 <div class="bp-sticky-cta" id="BpStickyCta" aria-hidden="true">
   <div class="bp-sticky-cta-inner">
     <span class="bp-sticky-cta-text">Ready to hop to it?</span>
-    <a href="/#FeaturedOffer-template--29777453646171__featured_collection" class="bp-sticky-cta-btn">Shop Now →</a>
+    <a href="/#bp-featured-offer" class="bp-sticky-cta-btn">Shop Now →</a>
   </div>
 </div>
 
@@ -95,7 +95,7 @@
     // Hide the bar automatically whenever the real Featured offer buy box
     // is already on screen (only present on the home page) so we don't
     // show a duplicate CTA on top of the real one.
-    var offerAnchor = document.getElementById('FeaturedOffer-template--29777453646171__featured_collection');
+    var offerAnchor = document.getElementById('bp-featured-offer');
     if (offerAnchor && 'IntersectionObserver' in window) {
       var observer = new IntersectionObserver(
         function (entries) {

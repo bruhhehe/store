@@ -86,6 +86,52 @@
                     <div class="footer-block__details-content rte">
                       {{ block.settings.subtext }}
                     </div>
+                  {%- when 'bp_shop_links' -%}
+                    <ul class="footer-block__details-content list-unstyled">
+                      <li>
+                        <a href="/#bp-featured-offer" class="link link--text list-menu__item list-menu__item--link">Shop the Stand</a>
+                      </li>
+                      <li>
+                        <a href="/#bp-featured-offer" class="link link--text list-menu__item list-menu__item--link">Colors &amp; Bundles</a>
+                      </li>
+                      <li>
+                        <a href="/#bp-how-it-works" class="link link--text list-menu__item list-menu__item--link">How It Works</a>
+                      </li>
+                      <li>
+                        <a href="/#bp-product-size" class="link link--text list-menu__item list-menu__item--link">Product Size</a>
+                      </li>
+                    </ul>
+                  {%- when 'bp_support_links' -%}
+                    <ul class="footer-block__details-content list-unstyled">
+                      <li>
+                        <a href="/pages/support#bp-contact" class="link link--text list-menu__item list-menu__item--link">Contact Us</a>
+                      </li>
+                      <li>
+                        <a href="/pages/support#bp-shipping" class="link link--text list-menu__item list-menu__item--link">Shipping &amp; Returns</a>
+                      </li>
+                      <li>
+                        <a href="/pages/support#bp-faq" class="link link--text list-menu__item list-menu__item--link">FAQ</a>
+                      </li>
+                    </ul>
+                  {%- when 'bp_company_links' -%}
+                    <ul class="footer-block__details-content list-unstyled">
+                      <li>
+                        <a href="/" class="link link--text list-menu__item list-menu__item--link">About Bunny Perch</a>
+                      </li>
+                      <li>
+                        <a href="/#bp-reviews" class="link link--text list-menu__item list-menu__item--link">Reviews</a>
+                      </li>
+                      {%- if shop.privacy_policy -%}
+                        <li>
+                          <a href="{{ shop.privacy_policy.url }}" class="link link--text list-menu__item list-menu__item--link">Privacy Policy</a>
+                        </li>
+                      {%- endif -%}
+                      {%- if shop.terms_of_service -%}
+                        <li>
+                          <a href="{{ shop.terms_of_service.url }}" class="link link--text list-menu__item list-menu__item--link">Terms of Service</a>
+                        </li>
+                      {%- endif -%}
+                    </ul>
                   {%- when 'link_list' -%}
                     {%- if block.settings.menu != blank -%}
                       <ul class="footer-block__details-content list-unstyled">
@@ -360,6 +406,42 @@
           "default": true,
           "label": "t:sections.footer.blocks.brand_information.settings.show_social.label",
           "info": "t:sections.footer.blocks.brand_information.settings.show_social.info"
+        }
+      ]
+    },
+    {
+      "type": "bp_shop_links",
+      "name": "BP Shop links",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Shop"
+        }
+      ]
+    },
+    {
+      "type": "bp_support_links",
+      "name": "BP Support links",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Support"
+        }
+      ]
+    },
+    {
+      "type": "bp_company_links",
+      "name": "BP Company links",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Company"
         }
       ]
     },

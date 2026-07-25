@@ -3,12 +3,12 @@
 {%- liquid
   assign cta_href = section.settings.cta_link
   if cta_href == blank
-    assign cta_href = '/#FeaturedOffer-template--29777453646171__featured_collection'
+    assign cta_href = '/#bp-featured-offer'
   endif
 
   assign reviews_href = section.settings.reviews_link
   if reviews_href == blank
-    assign reviews_href = '/#HowItWorks-template--29777453646171__bp_how_it_works'
+    assign reviews_href = '/#bp-how-it-works'
   endif
 
   assign hero_slide_count = 3
@@ -223,7 +223,7 @@
     { "type": "url", "id": "reviews_link", "label": "Secondary CTA link", "info": "Leave blank to jump down to the How it works section automatically." },
     { "type": "text", "id": "stars", "label": "Star rating display", "default": "★★★★★" },
     { "type": "text", "id": "rating_text", "label": "Rating text", "default": "4.8/5 from 1,317 verified UK customers" },
-    { "type": "text", "id": "returns_days", "label": "Returns window (days)", "default": "45" },
+    { "type": "text", "id": "returns_days", "label": "Returns window (days)", "default": "30" },
     { "type": "image_picker", "id": "image", "label": "Product image" },
     { "type": "text", "id": "callout_top", "label": "Top callout text", "default": "Multi-angle tilt" },
     { "type": "text", "id": "callout_bottom", "label": "Bottom callout text", "default": "Anti-slip padding" }
