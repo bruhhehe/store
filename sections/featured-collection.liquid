@@ -184,34 +184,32 @@
 
   .fc-{{ section.id }} .fc-swatches {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-direction: column;
+    gap: 8px;
     margin-bottom: 8px;
   }
 
-  .fc-{{ section.id }} .fc-swatch {
+  .fc-{{ section.id }} .fc-swatch-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    padding: 8px 8px 8px 14px;
+    transition: opacity 0.15s ease;
+  }
+
+  .fc-{{ section.id }} .fc-swatch-row[data-quantity="0"] {
+    opacity: 0.75;
+  }
+
+  .fc-{{ section.id }} .fc-swatch-swatch {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    border: 1.5px solid rgba(0, 0, 0, 0.15);
-    border-radius: 999px;
-    padding: 6px 14px 6px 8px;
-    background: transparent;
-    cursor: pointer;
-    font: inherit;
-    color: inherit;
     font-size: 13px;
     font-weight: 600;
-  }
-
-  .fc-{{ section.id }} .fc-swatch[aria-checked="true"] {
-    border-color: var(--fc-accent);
-    background: color-mix(in srgb, var(--fc-accent) 10%, transparent);
-  }
-
-  .fc-{{ section.id }} .fc-swatch[aria-disabled="true"] {
-    opacity: 0.35;
-    cursor: not-allowed;
   }
 
   .fc-{{ section.id }} .fc-swatches-hint {
@@ -225,6 +223,45 @@
     border-radius: 50%;
     border: 1px solid rgba(0, 0, 0, 0.2);
     flex: none;
+  }
+
+  .fc-{{ section.id }} .fc-stepper {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .fc-{{ section.id }} .fc-stepper-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0, 0, 0, 0.2);
+    background: transparent;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    font: inherit;
+    padding: 0;
+  }
+
+  .fc-{{ section.id }} .fc-stepper-btn:hover:not(:disabled) {
+    border-color: var(--fc-accent);
+  }
+
+  .fc-{{ section.id }} .fc-stepper-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .fc-{{ section.id }} .fc-stepper-value {
+    min-width: 1.4em;
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
   }
 
   .fc-{{ section.id }} .fc-swatches-error {
@@ -463,18 +500,17 @@
                 </p>
                 <div class="fc-swatches" id="FcSwatches-{{ section.id }}" role="group" aria-label="Colour options">
                   {%- for block in swatch_blocks -%}
-                    <button
-                      type="button"
-                      class="fc-swatch"
-                      role="checkbox"
-                      aria-checked="false"
-                      aria-disabled="false"
-                      data-label="{{ block.settings.label }}"
-                      {{ block.shopify_attributes }}
-                    >
-                      <span class="fc-swatch-dot" style="background: {{ block.settings.color }};"></span>
-                      {{ block.settings.label }}
-                    </button>
+                    <div class="fc-swatch-row" data-label="{{ block.settings.label }}" data-quantity="0" {{ block.shopify_attributes }}>
+                      <span class="fc-swatch-swatch">
+                        <span class="fc-swatch-dot" style="background: {{ block.settings.color }};"></span>
+                        {{ block.settings.label }}
+                      </span>
+                      <span class="fc-stepper">
+                        <button type="button" class="fc-stepper-btn fc-stepper-minus" aria-label="Fewer {{ block.settings.label }}">−</button>
+                        <span class="fc-stepper-value">0</span>
+                        <button type="button" class="fc-stepper-btn fc-stepper-plus" aria-label="More {{ block.settings.label }}">+</button>
+                      </span>
+                    </div>
                   {%- endfor -%}
                 </div>
                 <p class="fc-swatches-error" id="FcSwatchesError-{{ section.id }}">Please select at least one colour.</p>
@@ -614,8 +650,8 @@
   <script>
     (function () {
       var sectionId = {{ section.id | json }};
-      var swatches = Array.prototype.slice.call(
-        document.querySelectorAll('#FcSwatches-' + sectionId + ' .fc-swatch')
+      var rows = Array.prototype.slice.call(
+        document.querySelectorAll('#FcSwatches-' + sectionId + ' .fc-swatch-row')
       );
       var hiddenInput = document.getElementById('FcColours-' + sectionId);
       var errorEl = document.getElementById('FcSwatchesError-' + sectionId);
@@ -623,83 +659,113 @@
       var form = document.getElementById('FcForm-' + sectionId);
       var quantityInput = document.getElementById('FcQuantity-' + sectionId);
 
-      // The number of colours the shopper must select for the currently
-      // chosen quantity tier. Kept in sync with the tier buttons via the
-      // 'fc:tierchange' event dispatched below.
+      // Total number of colour units the shopper must assign across all
+      // rows for the currently chosen quantity tier — they can mix and
+      // match freely, or put them all on one colour. Kept in sync with
+      // the tier buttons via the 'fc:tierchange' event dispatched below.
       var maxColours = 1;
 
-      function getSelected() {
-        return swatches.filter(function (s) {
-          return s.getAttribute('aria-checked') === 'true';
-        });
+      function getQuantity(row) {
+        return parseInt(row.getAttribute('data-quantity'), 10) || 0;
+      }
+
+      function setQuantity(row, value) {
+        row.setAttribute('data-quantity', String(value));
+        var valueEl = row.querySelector('.fc-stepper-value');
+        if (valueEl) valueEl.textContent = String(value);
+      }
+
+      function totalSelected() {
+        return rows.reduce(function (sum, row) {
+          return sum + getQuantity(row);
+        }, 0);
       }
 
       function updateHiddenValue() {
-        var selected = getSelected().map(function (s) {
-          return s.getAttribute('data-label');
+        var labels = [];
+        rows.forEach(function (row) {
+          var qty = getQuantity(row);
+          var label = row.getAttribute('data-label');
+          for (var i = 0; i < qty; i++) labels.push(label);
         });
-        if (hiddenInput) hiddenInput.value = selected.join(', ');
-        return selected;
+        if (hiddenInput) hiddenInput.value = labels.join(', ');
+        return labels;
       }
 
       function updateHint() {
         if (hintEl) {
-          hintEl.textContent = '(select ' + maxColours + ' of ' + swatches.length + ')';
+          hintEl.textContent = '(' + totalSelected() + ' of ' + maxColours + ' selected)';
         }
       }
 
-      // Once the cap is reached, grey out and block clicks on the
-      // remaining unselected swatches. Already-selected ones stay
-      // clickable so the shopper can swap their choice.
-      function refreshDisabledState() {
-        var selectedCount = getSelected().length;
-        var atCap = selectedCount >= maxColours;
-        swatches.forEach(function (s) {
-          var isChecked = s.getAttribute('aria-checked') === 'true';
-          s.setAttribute('aria-disabled', atCap && !isChecked ? 'true' : 'false');
+      // Disable a row's minus button once it's at 0, and every row's plus
+      // button once the total across all colours hits the cap — but a
+      // single colour is never blocked from taking the whole allotment.
+      function refreshButtonStates() {
+        var atCap = totalSelected() >= maxColours;
+        rows.forEach(function (row) {
+          var qty = getQuantity(row);
+          var minusBtn = row.querySelector('.fc-stepper-minus');
+          var plusBtn = row.querySelector('.fc-stepper-plus');
+          if (minusBtn) minusBtn.disabled = qty <= 0;
+          if (plusBtn) plusBtn.disabled = atCap;
         });
       }
 
       function clearErrorIfSatisfied() {
-        if (errorEl && getSelected().length === maxColours) {
+        if (errorEl && totalSelected() === maxColours) {
           errorEl.classList.remove('is-visible');
         }
       }
 
-      // Applies a new cap (triggered by picking a different quantity
-      // tier). If the shopper had more colours selected than the new
-      // tier allows — e.g. dropping from 3x to 1x — trim the extras
-      // from the end of the selection so the count matches again.
-      function setMaxColours(newMax) {
-        if (isNaN(newMax) || newMax < 1) newMax = 1;
-        maxColours = Math.min(newMax, swatches.length);
-
-        var selected = getSelected();
-        var excess = selected.length - maxColours;
-        for (var i = selected.length - 1; i >= 0 && excess > 0; i--) {
-          selected[i].setAttribute('aria-checked', 'false');
-          excess--;
-        }
-
+      function refreshAll() {
         updateHiddenValue();
         updateHint();
-        refreshDisabledState();
+        refreshButtonStates();
       }
 
-      swatches.forEach(function (swatch) {
-        swatch.addEventListener('click', function () {
-          var isChecked = swatch.getAttribute('aria-checked') === 'true';
+      // Applies a new cap (triggered by picking a different quantity
+      // tier). If more colour units are already assigned than the new
+      // tier allows — e.g. dropping from 3x to 1x — trim from the last
+      // row with a positive count backwards until the total fits again.
+      function setMaxColours(newMax) {
+        if (isNaN(newMax) || newMax < 1) newMax = 1;
+        maxColours = newMax;
 
-          if (!isChecked && swatch.getAttribute('aria-disabled') === 'true') {
-            // At the cap for this quantity tier — deselect one first.
-            return;
-          }
+        var excess = totalSelected() - maxColours;
+        for (var i = rows.length - 1; i >= 0 && excess > 0; i--) {
+          var qty = getQuantity(rows[i]);
+          if (qty <= 0) continue;
+          var reduceBy = Math.min(qty, excess);
+          setQuantity(rows[i], qty - reduceBy);
+          excess -= reduceBy;
+        }
 
-          swatch.setAttribute('aria-checked', isChecked ? 'false' : 'true');
-          updateHiddenValue();
-          refreshDisabledState();
-          clearErrorIfSatisfied();
-        });
+        refreshAll();
+      }
+
+      rows.forEach(function (row) {
+        var minusBtn = row.querySelector('.fc-stepper-minus');
+        var plusBtn = row.querySelector('.fc-stepper-plus');
+
+        if (minusBtn) {
+          minusBtn.addEventListener('click', function () {
+            var qty = getQuantity(row);
+            if (qty <= 0) return;
+            setQuantity(row, qty - 1);
+            refreshAll();
+            clearErrorIfSatisfied();
+          });
+        }
+
+        if (plusBtn) {
+          plusBtn.addEventListener('click', function () {
+            if (totalSelected() >= maxColours) return;
+            setQuantity(row, getQuantity(row) + 1);
+            refreshAll();
+            clearErrorIfSatisfied();
+          });
+        }
       });
 
       document.addEventListener('fc:tierchange', function (evt) {
@@ -710,14 +776,14 @@
 
       if (form) {
         form.addEventListener('submit', function (e) {
-          var selected = updateHiddenValue();
-          if (selected.length !== maxColours) {
+          var labels = updateHiddenValue();
+          if (labels.length !== maxColours) {
             e.preventDefault();
             if (errorEl) {
-              var missing = maxColours - selected.length;
+              var missing = maxColours - labels.length;
               errorEl.textContent = missing > 0
                 ? 'Please select ' + missing + ' more colour' + (missing === 1 ? '' : 's') + '.'
-                : 'Please select only ' + maxColours + ' colour' + (maxColours === 1 ? '' : 's') + '.';
+                : 'Please select only ' + maxColours + ' colour' + (maxColours === 1 ? '' : 's') + ' total.';
               errorEl.classList.add('is-visible');
             }
           }
