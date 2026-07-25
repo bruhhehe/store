@@ -32,33 +32,39 @@
     .bp-hero-{{ section.id }} .bp-hero-badges{ display:flex; gap:18px; flex-wrap:wrap; font-size:13px; color:var(--bp-muted); }
     .bp-hero-{{ section.id }} .bp-hero-badges span{ display:flex; align-items:center; gap:6px; }
     .bp-hero-{{ section.id }} .bp-hero-media{
-      display:flex; flex-direction:column; gap:14px;
+      display:flex; flex-direction:column;
     }
     .bp-hero-{{ section.id }} .bp-hero-visual{
       position:relative; background: rgba(255,255,255,.55);
-      border-radius: 24px; min-height:420px;
+      border-radius: 24px; min-height:560px;
       overflow:hidden;
     }
     .bp-hero-{{ section.id }} .bp-hero-slide{
       position:absolute; inset:0; width:100%; height:100%;
-      object-fit:contain; object-position:center; padding:28px; box-sizing:border-box;
+      object-fit:cover; object-position:center;
       opacity:0; transition: opacity 0.6s ease;
     }
     .bp-hero-{{ section.id }} .bp-hero-slide.is-active{ opacity:1; z-index:1; }
+    .bp-hero-{{ section.id }} .bp-hero-scrim{
+      position:absolute; left:0; right:0; bottom:0; height:90px; z-index:3;
+      background: linear-gradient(to top, rgba(0,0,0,.42), rgba(0,0,0,0));
+      pointer-events:none;
+    }
     .bp-hero-{{ section.id }} .bp-hero-progress{
-      display:flex; gap:8px; padding:0 4px;
+      position:absolute; left:16px; right:16px; bottom:16px; z-index:4;
+      display:flex; gap:8px;
     }
     .bp-hero-{{ section.id }} .bp-hero-progress-seg{
-      flex:1; height:5px; padding:6px 0; margin:-6px 0; border:none; background:none;
+      flex:1; height:6px; padding:8px 0; margin:-8px 0; border:none; background:none;
       cursor:pointer; position:relative;
     }
     .bp-hero-{{ section.id }} .bp-hero-progress-seg::before{
-      content:""; position:absolute; inset:6px 0; border-radius:999px;
-      background: color-mix(in srgb, {{ section.settings.accent_color }} 18%, transparent);
+      content:""; position:absolute; inset:8px 0; border-radius:999px;
+      background: rgba(255,255,255,.35);
     }
     .bp-hero-{{ section.id }} .bp-hero-progress-fill{
-      position:absolute; top:6px; bottom:6px; left:0; width:0%;
-      background: {{ section.settings.accent_color }}; border-radius:999px;
+      position:absolute; top:8px; bottom:8px; left:0; width:0%;
+      background: #ffffff; border-radius:999px;
     }
     .bp-hero-{{ section.id }} .bp-hero-progress-seg.is-complete .bp-hero-progress-fill{
       width:100%;
@@ -73,7 +79,7 @@
     .bp-hero-{{ section.id }} .bp-callout{
       position:absolute; background:#fff; border-radius:999px; padding:9px 16px;
       font-size:13px; font-weight:600; box-shadow:0 6px 20px rgba(43,30,34,.12);
-      display:flex; align-items:center; gap:6px; z-index:2;
+      display:flex; align-items:center; gap:6px; z-index:5;
     }
     .bp-hero-{{ section.id }} .bp-callout--top{ top:24px; left:24px; }
     .bp-hero-{{ section.id }} .bp-callout--bottom{ bottom:24px; right:24px; }
@@ -81,7 +87,7 @@
       .bp-hero-{{ section.id }} .bp-hero-grid{ grid-template-columns: 1fr; padding:40px 20px; }
       .bp-hero-{{ section.id }} h1{ font-size:32px; }
       .bp-hero-{{ section.id }} .bp-hero-media{ order: -1; }
-      .bp-hero-{{ section.id }} .bp-hero-visual{ min-height:280px; }
+      .bp-hero-{{ section.id }} .bp-hero-visual{ min-height:380px; }
       .bp-hero-{{ section.id }} .bp-hero-info{ order: 1; }
     }
   </style>
@@ -123,19 +129,20 @@
         {% if section.settings.callout_bottom != blank %}
           <div class="bp-callout bp-callout--bottom">✏️ {{ section.settings.callout_bottom }}</div>
         {% endif %}
-      </div>
-      <div class="bp-hero-progress" role="tablist" aria-label="Product photos">
-        {%- for i in (1..hero_slide_count) -%}
-          <button
-            type="button"
-            class="bp-hero-progress-seg{% if forloop.first %} is-active{% endif %}"
-            role="tab"
-            aria-label="Show photo {{ forloop.index }}"
-            aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
-          >
-            <span class="bp-hero-progress-fill"></span>
-          </button>
-        {%- endfor -%}
+        <div class="bp-hero-scrim"></div>
+        <div class="bp-hero-progress" role="tablist" aria-label="Product photos">
+          {%- for i in (1..hero_slide_count) -%}
+            <button
+              type="button"
+              class="bp-hero-progress-seg{% if forloop.first %} is-active{% endif %}"
+              role="tab"
+              aria-label="Show photo {{ forloop.index }}"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+            >
+              <span class="bp-hero-progress-fill"></span>
+            </button>
+          {%- endfor -%}
+        </div>
       </div>
     </div>
   </div>
