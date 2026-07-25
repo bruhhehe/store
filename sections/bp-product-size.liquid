@@ -1,0 +1,150 @@
+{{ 'bunny-trust.css' | asset_url | stylesheet_tag }}
+
+<div class="bp-section bp-size-{{ section.id }}" style="background:{{ section.settings.bg_color }};">
+  <style>
+    .bp-size-{{ section.id }} .bp-size-card{
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .bp-size-{{ section.id }} .bp-size-image-wrap{
+      border-radius: var(--bp-radius);
+      overflow: hidden;
+      margin-bottom: 24px;
+      background: #fff;
+    }
+    .bp-size-{{ section.id }} .bp-size-image-wrap img{
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .bp-size-{{ section.id }} .bp-size-stats{
+      display: grid;
+      grid-template-columns: repeat({{ section.blocks.size }}, 1fr);
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .bp-size-{{ section.id }} .bp-size-stat{
+      background: var(--bp-bg-blush-light);
+      border-radius: var(--bp-radius-sm);
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .bp-size-{{ section.id }} .bp-size-stat-label{
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--bp-pink-deep);
+      margin-bottom: 6px;
+    }
+    .bp-size-{{ section.id }} .bp-size-stat-value{
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--bp-ink);
+      line-height: 1.2;
+    }
+    .bp-size-{{ section.id }} .bp-size-stat-sub{
+      font-size: 12px;
+      color: var(--bp-muted);
+      margin-top: 2px;
+    }
+    .bp-size-{{ section.id }} .bp-size-footnote{
+      font-size: 13px;
+      color: var(--bp-muted);
+      text-align: center;
+      margin: 0;
+    }
+    @media (max-width: 600px){
+      .bp-size-{{ section.id }} .bp-size-stats{ grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+
+  <div class="bp-wrap bp-center">
+    {%- if section.settings.eyebrow != blank -%}
+      <div class="bp-eyebrow">{{ section.settings.eyebrow }}</div>
+    {%- endif -%}
+    <h2 style="font-size:30px; margin-bottom:10px;">{{ section.settings.heading }}</h2>
+    {%- if section.settings.subheading != blank -%}
+      <p style="font-size:15px; color:var(--bp-muted); max-width:460px; margin:0 auto 36px;">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+
+    <div class="bp-size-card bp-card">
+      {%- if section.settings.image != blank -%}
+        <div class="bp-size-image-wrap">
+          <img
+            src="{{ section.settings.image | image_url: width: 800 }}"
+            alt="{{ section.settings.image.alt | default: 'Bunny Perch product size and dimensions' | escape }}"
+            loading="lazy"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}"
+          >
+        </div>
+      {%- else -%}
+        <div class="bp-size-image-wrap">
+          <img
+            src="{{ 'bp-hero-slide-1.jpg' | asset_url }}"
+            alt="Bunny Perch product size and dimensions"
+            loading="lazy"
+          >
+        </div>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="bp-size-stats">
+          {%- for block in section.blocks -%}
+            <div class="bp-size-stat" {{ block.shopify_attributes }}>
+              <div class="bp-size-stat-label">{{ block.settings.label }}</div>
+              <div class="bp-size-stat-value">{{ block.settings.value }}</div>
+              {%- if block.settings.sub_value != blank -%}
+                <div class="bp-size-stat-sub">{{ block.settings.sub_value }}</div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.footnote != blank -%}
+        <p class="bp-size-footnote">{{ section.settings.footnote }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BP Product size",
+  "tag": "section",
+  "class": "section-bp-product-size",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#fdf3f4" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "PRODUCT SIZE" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Purr-fect size for any desk" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Compact enough for a nightstand, sturdy enough for a tablet." },
+    { "type": "image_picker", "id": "image", "label": "Size chart image", "info": "Defaults to the built-in product size graphic if left blank." },
+    { "type": "text", "id": "footnote", "label": "Footnote", "default": "Fits phones and most tablets. Angle & height adjustable." }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Dimension",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Height" },
+        { "type": "text", "id": "value", "label": "Value", "default": "30 cm" },
+        { "type": "text", "id": "sub_value", "label": "Secondary value (optional)", "default": "11.81 in" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "BP Product size",
+      "blocks": [
+        { "type": "stat", "settings": { "label": "Total height", "value": "30 cm", "sub_value": "11.81 in" } },
+        { "type": "stat", "settings": { "label": "Base width", "value": "10 cm", "sub_value": "3.93 in" } },
+        { "type": "stat", "settings": { "label": "Adjustable neck", "value": "9–18 cm", "sub_value": "3.54–7.08 in" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
