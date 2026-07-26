@@ -944,6 +944,94 @@
   </script>
 {%- endif -%}
 
+{%- if product != blank -%}
+  <div class="bp-sticky-bar bp-sticky-bar-{{ section.id }}" id="BpStickyBar-{{ section.id }}">
+    <style>
+      .bp-sticky-bar-{{ section.id }} {
+        display: none;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 40;
+        background: var(--bp-cream, #fdf8f4);
+        border-top: 1px solid rgba(43,30,34,.12);
+        box-shadow: 0 -6px 20px rgba(0,0,0,.10);
+        padding: 10px 14px;
+        padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .bp-sticky-bar-{{ section.id }}.is-visible { display: flex; }
+      .bp-sticky-bar-{{ section.id }} .bp-sb-info { display: flex; flex-direction: column; min-width: 0; }
+      .bp-sticky-bar-{{ section.id }} .bp-sb-title {
+        font-size: 12px; color: var(--bp-muted, #7a6b6e); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      }
+      .bp-sticky-bar-{{ section.id }} .bp-sb-price { font-size: 17px; font-weight: 700; color: var(--bp-ink, #2b1e22); }
+      .bp-sticky-bar-{{ section.id }} .bp-sb-btn {
+        flex-shrink: 0;
+        background: var(--bp-pink-deep, #a8496a);
+        color: #fff;
+        font-weight: 600;
+        font-size: 14px;
+        border: none;
+        border-radius: 999px;
+        padding: 12px 20px;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+      @media screen and (min-width: 750px) {
+        .bp-sticky-bar-{{ section.id }} { display: none !important; }
+      }
+    </style>
+    <div class="bp-sb-info">
+      <span class="bp-sb-title">{{ product.title }}</span>
+      <span class="bp-sb-price" id="BpStickyPrice-{{ section.id }}">{{ default_block.settings.price | times: 100 | money }}</span>
+    </div>
+    <button type="button" class="bp-sb-btn" id="BpStickyBtn-{{ section.id }}">{{ section.settings.sticky_bar_button_label | default: 'Buy now' }}</button>
+  </div>
+
+  <script>
+    (function () {
+      var sectionId = {{ section.id | json }};
+      var bar = document.getElementById('BpStickyBar-' + sectionId);
+      var priceMirror = document.getElementById('BpStickyPrice-' + sectionId);
+      var sourcePrice = document.getElementById('FcPrice-' + sectionId);
+      var jumpTarget = document.getElementById('FeaturedOffer-' + sectionId);
+      var jumpBtn = document.getElementById('BpStickyBtn-' + sectionId);
+      if (!bar || !jumpTarget) return;
+
+      // Show the bar once the buy box has scrolled out of view, hide once
+      // it's back on screen (avoids showing a redundant bar right on top
+      // of the real buy box).
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            bar.classList.toggle('is-visible', !entry.isIntersecting);
+          });
+        }, { rootMargin: '-64px 0px 0px 0px', threshold: 0 });
+        observer.observe(jumpTarget);
+      }
+
+      // Mirror the buy box's live price (updates when the shopper picks a
+      // different quantity tier) so the sticky bar never shows a stale price.
+      if (sourcePrice && priceMirror && 'MutationObserver' in window) {
+        var priceObserver = new MutationObserver(function () {
+          priceMirror.textContent = sourcePrice.textContent;
+        });
+        priceObserver.observe(sourcePrice, { childList: true, characterData: true, subtree: true });
+      }
+
+      if (jumpBtn) {
+        jumpBtn.addEventListener('click', function () {
+          jumpTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+    })();
+  </script>
+{%- endif -%}
+
 {% schema %}
 {
   "name": "Featured offer",
@@ -1013,6 +1101,13 @@
       "id": "badge_text",
       "label": "Badge text",
       "default": "25% OFF — TODAY ONLY"
+    },
+    {
+      "type": "text",
+      "id": "sticky_bar_button_label",
+      "label": "Mobile sticky bar button label",
+      "info": "Shown in the sticky bottom bar that appears on mobile once the buy box scrolls out of view.",
+      "default": "Buy now"
     },
     {
       "type": "product",

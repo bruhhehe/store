@@ -1,0 +1,125 @@
+{{ 'bunny-trust.css' | asset_url | stylesheet_tag }}
+
+<div class="bp-section bp-reviews-display-{{ section.id }}" style="background:{{ section.settings.bg_color }};">
+  <style>
+    .bp-reviews-display-{{ section.id }} .bp-rd-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 8px;
+    }
+    @media screen and (max-width: 989px) {
+      .bp-reviews-display-{{ section.id }} .bp-rd-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media screen and (max-width: 640px) {
+      .bp-reviews-display-{{ section.id }} .bp-rd-grid { grid-template-columns: 1fr; }
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-card {
+      background: #fff;
+      border: 1px solid rgba(43,30,34,.08);
+      border-radius: var(--bp-radius);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-quote {
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: var(--bp-ink);
+      flex-grow: 1;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 12px;
+      color: var(--bp-muted);
+      border-top: 1px solid rgba(43,30,34,.08);
+      padding-top: 10px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-name { font-weight: 700; color: var(--bp-ink); }
+    .bp-reviews-display-{{ section.id }} .bp-rd-variant {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      color: var(--bp-pink-deep);
+      margin-bottom: 2px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-footer {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 14px;
+      color: var(--bp-muted);
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-footer a { color: var(--bp-pink-deep); font-weight: 600; text-decoration: none; }
+    .bp-reviews-display-{{ section.id }} .bp-rd-footer a:hover { text-decoration: underline; }
+  </style>
+
+  <div class="bp-wrap">
+    <div class="bp-center" style="margin-bottom: 8px;">
+      <div class="bp-eyebrow">{{ section.settings.eyebrow }}</div>
+      <h2 style="font-size:30px;">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="bp-rd-grid">
+      {%- for block in section.blocks -%}
+        <div class="bp-rd-card" {{ block.shopify_attributes }}>
+          <span class="bp-rd-variant">{{ block.settings.variant }}</span>
+          <p class="bp-rd-quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
+          <div class="bp-rd-meta">
+            <span class="bp-rd-name">{{ block.settings.name }}</span>
+            <span>{{ block.settings.date }}</span>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <p class="bp-rd-footer">{{ section.settings.footer_text }} <a href="#bp-reviews">{{ section.settings.footer_link_text }}</a></p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "BP Reviews Display",
+  "tag": "section",
+  "class": "section-bp-reviews-display",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#fdf3f4" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "WHAT CUSTOMERS SAY" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "4.6/5 from 1,317 reviews" },
+    { "type": "text", "id": "footer_text", "label": "Footer text", "default": "Bought one already?" },
+    { "type": "text", "id": "footer_link_text", "label": "Footer link text", "default": "Leave your own review" }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name (masked)", "default": "C***s" },
+        { "type": "text", "id": "date", "label": "Date", "default": "15 May 2026" },
+        { "type": "text", "id": "variant", "label": "Variant purchased", "default": "1pc - Black" },
+        { "type": "textarea", "id": "quote", "label": "Review text", "default": "Very satisfied with these, easy to assemble." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BP Reviews Display",
+      "blocks": [
+        { "type": "review", "settings": { "name": "C***s", "date": "15 May 2026", "variant": "2pcs - Black", "quote": "Very satisfied with these. Easy to assemble, and great for holding my phone or a small notebook whilst gaming." } },
+        { "type": "review", "settings": { "name": "z***r", "date": "17 Jan 2026", "variant": "1pc - Pink", "quote": "Such a life saver, always needed a cute phone stand to watch stuff on." } },
+        { "type": "review", "settings": { "name": "t***n", "date": "3 Jan 2026", "variant": "1pc - White", "quote": "So useful to hold my phone when recording or watching something." } },
+        { "type": "review", "settings": { "name": "J***1", "date": "15 Jun 2026", "variant": "1pc - White", "quote": "Very happy, I can use it as a controller stand too, keeps my desk organised." } },
+        { "type": "review", "settings": { "name": "s***r", "date": "29 Dec 2025", "variant": "1pc - Black", "quote": "Very useful, can use it to film videos from above as well. Easy to set up, and for the price it's fine." } },
+        { "type": "review", "settings": { "name": "N***d", "date": "8 Jun 2026", "variant": "2pcs - Pink", "quote": "Lovely items and great quality, well worth the price. Arrived speedily and very happy with everything." } },
+        { "type": "review", "settings": { "name": "K***v", "date": "20 Mar 2026", "variant": "1pc - Black", "quote": "It's very light and cheaply made, but it supports my phone, so it does what it's supposed to do for the price." } },
+        { "type": "review", "settings": { "name": "A***r", "date": "6 May 2026", "variant": "1pc - Pink", "quote": "Very cute, holds my phone at both angles. Assembly was a bit fiddly, but it does the job. Definitely recommend." } },
+        { "type": "review", "settings": { "name": "N***n", "date": "8 Mar 2026", "variant": "1pc - White", "quote": "Very handy little stand for my phone, so pleased with the quality." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
