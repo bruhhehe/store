@@ -1,0 +1,166 @@
+{{ 'bunny-trust.css' | asset_url | stylesheet_tag }}
+
+<div class="bp-urgency-bar" id="BpUrgencyBar">
+  <a href="/#bp-featured-offer" class="bp-urgency-bar-link">
+    <span class="bp-urgency-flame" aria-hidden="true">🔥</span>
+    <span class="bp-urgency-text">Sale ends in</span>
+    <span class="bp-urgency-countdown" id="BpUrgencyCountdown" data-hours="6" data-ended-text="Offer ended">
+      <span class="bp-urgency-num" data-unit="hours">00</span><span class="bp-urgency-colon">:</span><span class="bp-urgency-num" data-unit="minutes">00</span><span class="bp-urgency-colon">:</span><span class="bp-urgency-num" data-unit="seconds">00</span>
+    </span>
+    <span class="bp-urgency-cta">Shop Now →</span>
+  </a>
+</div>
+
+<style>
+  .bp-urgency-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    width: 100%;
+    background: linear-gradient(90deg, #e0293e, #b81f30);
+    text-align: center;
+    animation: bp-urgency-pulse 1.6s infinite;
+  }
+
+  @keyframes bp-urgency-pulse {
+    0% { box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0); }
+    50% { box-shadow: inset 0 0 30px 0 rgba(255, 255, 255, 0.12); }
+    100% { box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0); }
+  }
+
+  .bp-urgency-bar-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 10px 16px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+  }
+
+  .bp-urgency-bar-link:hover {
+    text-decoration: underline;
+  }
+
+  .bp-urgency-flame {
+    font-size: 16px;
+  }
+
+  .bp-urgency-countdown {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    padding: 3px 8px;
+    font-variant-numeric: tabular-nums;
+    font-weight: 800;
+  }
+
+  .bp-urgency-colon {
+    opacity: 0.7;
+    padding: 0 1px;
+  }
+
+  .bp-urgency-cta {
+    text-decoration: underline;
+    margin-left: 4px;
+    white-space: nowrap;
+  }
+
+  @media screen and (max-width: 480px) {
+    .bp-urgency-bar-link {
+      font-size: 12px;
+      padding: 8px 10px;
+      gap: 6px;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    var root = document.getElementById('BpUrgencyCountdown');
+    var bar = document.getElementById('BpUrgencyBar');
+    if (!root || !bar) return;
+
+    var hours = parseFloat(root.getAttribute('data-hours'));
+    if (isNaN(hours) || hours <= 0) hours = 6;
+    var durationMs = hours * 60 * 60 * 1000;
+    var endedText = root.getAttribute('data-ended-text') || 'Offer ended';
+    var storageKey = 'bpCountdownEnd';
+
+    // Shares the same rolling per-visitor countdown as the buy box timer,
+    // so both stay in sync.
+    var endTime;
+    try {
+      var stored = window.localStorage.getItem(storageKey);
+      endTime = stored ? parseInt(stored, 10) : NaN;
+      if (isNaN(endTime) || endTime <= Date.now()) {
+        endTime = Date.now() + durationMs;
+        window.localStorage.setItem(storageKey, String(endTime));
+      }
+    } catch (e) {
+      endTime = Date.now() + durationMs;
+    }
+
+    var hoursEl = root.querySelector('[data-unit="hours"]');
+    var minutesEl = root.querySelector('[data-unit="minutes"]');
+    var secondsEl = root.querySelector('[data-unit="seconds"]');
+
+    function pad(n) {
+      return String(n).padStart(2, '0');
+    }
+
+    function tick() {
+      var diff = endTime - Date.now();
+
+      if (diff <= 0) {
+        bar.querySelector('.bp-urgency-bar-link').innerHTML =
+          '<span class="bp-urgency-flame" aria-hidden="true">🔥</span> ' + endedText;
+        clearInterval(timer);
+        return;
+      }
+
+      var totalSeconds = Math.floor(diff / 1000);
+      var h = Math.floor(totalSeconds / 3600);
+      var m = Math.floor((totalSeconds % 3600) / 60);
+      var s = totalSeconds % 60;
+
+      if (hoursEl) hoursEl.textContent = pad(h);
+      if (minutesEl) minutesEl.textContent = pad(m);
+      if (secondsEl) secondsEl.textContent = pad(s);
+    }
+
+    tick();
+    var timer = setInterval(tick, 1000);
+
+    // Push the theme's sticky header down below this bar instead of
+    // letting them overlap at the same top:0 position.
+    function setBarHeightVar() {
+      document.documentElement.style.setProperty('--bp-urgency-bar-height', bar.offsetHeight + 'px');
+    }
+    setBarHeightVar();
+    window.addEventListener('resize', setBarHeightVar);
+  })();
+</script>
+
+<style>
+  :root {
+    --bp-urgency-bar-height: 40px;
+  }
+
+  .shopify-section-header-sticky {
+    top: var(--bp-urgency-bar-height) !important;
+  }
+
+  .shopify-section-header-hidden {
+    top: calc(var(--bp-urgency-bar-height) - var(--header-height)) !important;
+  }
+
+  .shopify-section-header-hidden.menu-open {
+    top: var(--bp-urgency-bar-height) !important;
+  }
+</style>
