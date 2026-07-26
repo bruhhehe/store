@@ -574,7 +574,8 @@
             "name": "C***s",
             "date": "15 May 2026",
             "variant": "2pcs - Black",
-            "quote": "Very satisfied with these. Easy to assemble, and great for holding my phone or a small notebook whilst gaming."
+            "quote": "Very satisfied with these. Easy to assemble, and great for holding my phone or a small notebook whilst gaming.",
+            "stars": 5
           }
         },
         "review_2": {
@@ -583,7 +584,8 @@
             "name": "z***r",
             "date": "17 Jan 2026",
             "variant": "1pc - Pink",
-            "quote": "Such a life saver, always needed a cute phone stand to watch stuff on."
+            "quote": "Such a life saver, always needed a cute phone stand to watch stuff on.",
+            "stars": 5
           }
         },
         "review_3": {
@@ -592,7 +594,8 @@
             "name": "t***n",
             "date": "3 Jan 2026",
             "variant": "1pc - White",
-            "quote": "So useful to hold my phone when recording or watching something."
+            "quote": "So useful to hold my phone when recording or watching something.",
+            "stars": 5
           }
         },
         "review_4": {
@@ -601,7 +604,8 @@
             "name": "J***1",
             "date": "15 Jun 2026",
             "variant": "1pc - White",
-            "quote": "Very happy, I can use it as a controller stand too, keeps my desk organised."
+            "quote": "Very happy, I can use it as a controller stand too, keeps my desk organised.",
+            "stars": 5
           }
         },
         "review_5": {
@@ -610,7 +614,8 @@
             "name": "s***r",
             "date": "29 Dec 2025",
             "variant": "1pc - Black",
-            "quote": "Very useful, can use it to film videos from above as well. Easy to set up, and for the price it's fine."
+            "quote": "Very useful, can use it to film videos from above as well. Easy to set up, and for the price it's fine.",
+            "stars": 4
           }
         },
         "review_6": {
@@ -619,7 +624,8 @@
             "name": "N***d",
             "date": "8 Jun 2026",
             "variant": "2pcs - Pink",
-            "quote": "Lovely items and great quality, well worth the price. Arrived speedily and very happy with everything."
+            "quote": "Lovely items and great quality, well worth the price. Arrived speedily and very happy with everything.",
+            "stars": 5
           }
         },
         "review_7": {
@@ -628,7 +634,8 @@
             "name": "K***v",
             "date": "20 Mar 2026",
             "variant": "1pc - Black",
-            "quote": "It's very light and cheaply made, but it supports my phone, so it does what it's supposed to do for the price."
+            "quote": "It's very light and cheaply made, but it supports my phone, so it does what it's supposed to do for the price.",
+            "stars": 4
           }
         },
         "review_8": {
@@ -637,7 +644,8 @@
             "name": "A***r",
             "date": "6 May 2026",
             "variant": "1pc - Pink",
-            "quote": "Very cute, holds my phone at both angles. Assembly was a bit fiddly, but it does the job. Definitely recommend."
+            "quote": "Very cute, holds my phone at both angles. Assembly was a bit fiddly, but it does the job. Definitely recommend.",
+            "stars": 4
           }
         },
         "review_9": {
@@ -646,7 +654,8 @@
             "name": "N***n",
             "date": "8 Mar 2026",
             "variant": "1pc - White",
-            "quote": "Very handy little stand for my phone, so pleased with the quality."
+            "quote": "Very handy little stand for my phone, so pleased with the quality.",
+            "stars": 5
           }
         }
       },
