@@ -35,9 +35,15 @@
     .bp-hero-{{ section.id }} .bp-hero-trust span,
     .bp-hero-{{ section.id }} .bp-hero-trust a{
       display:flex; align-items:center; gap:6px; white-space:nowrap;
-      color:inherit; text-decoration:none;
     }
-    .bp-hero-{{ section.id }} .bp-hero-trust a:hover{ text-decoration:underline; }
+    .bp-hero-{{ section.id }} .bp-hero-trust span{ color:inherit; }
+    .bp-hero-{{ section.id }} .bp-hero-trust a{
+      color:{{ section.settings.accent_color }};
+      font-weight:600;
+      text-decoration:underline;
+      text-underline-offset:2px;
+    }
+    .bp-hero-{{ section.id }} .bp-hero-trust a:hover{ filter:brightness(0.85); }
     .bp-hero-{{ section.id }} .bp-hero-media{
       display:flex; flex-direction:column;
     }
