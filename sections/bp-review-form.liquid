@@ -1,0 +1,213 @@
+{{ 'bunny-trust.css' | asset_url | stylesheet_tag }}
+
+<div id="bp-reviews" style="scroll-margin-top: 100px; display: block !important;"></div>
+<div class="bp-section bp-review-form-{{ section.id }}" style="background:{{ section.settings.bg_color }}; color:{{ section.settings.text_color }};">
+  <style>
+    .bp-review-form-{{ section.id }} .bp-rf-wrap{
+      max-width:640px; margin:0 auto; padding:64px 24px;
+    }
+    .bp-review-form-{{ section.id }} .bp-eyebrow{ color:{{ section.settings.text_color }}; opacity:.85; }
+    .bp-review-form-{{ section.id }} .bp-eyebrow::before{ background:{{ section.settings.text_color }}; }
+    .bp-review-form-{{ section.id }} h2{ font-size:30px; color:{{ section.settings.text_color }}; }
+    .bp-review-form-{{ section.id }} .bp-rf-sub{
+      font-size:15px; line-height:1.6; opacity:.85; margin-top:10px; margin-bottom:36px;
+    }
+    .bp-review-form-{{ section.id }} .bp-rf-success{
+      background: rgba(245,236,231,.12);
+      border:1px solid rgba(245,236,231,.35);
+      border-radius: var(--bp-radius-sm);
+      padding:20px 22px;
+      font-size:15px;
+      line-height:1.6;
+    }
+    .bp-review-form-{{ section.id }} form{ display:flex; flex-direction:column; gap:18px; }
+    .bp-review-form-{{ section.id }} .bp-rf-row{ display:flex; gap:14px; flex-wrap:wrap; }
+    .bp-review-form-{{ section.id }} .bp-rf-field{ flex:1 1 220px; display:flex; flex-direction:column; gap:6px; }
+    .bp-review-form-{{ section.id }} label{
+      font-size:12px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; opacity:.75;
+    }
+    .bp-review-form-{{ section.id }} input[type="text"],
+    .bp-review-form-{{ section.id }} input[type="email"],
+    .bp-review-form-{{ section.id }} textarea{
+      background: rgba(245,236,231,.08);
+      border: 1px solid rgba(245,236,231,.3);
+      border-radius: var(--bp-radius-sm);
+      padding: 12px 14px;
+      font-size: 15px;
+      font-family: var(--bp-sans);
+      color:{{ section.settings.text_color }};
+      outline: none;
+      transition: border-color .15s ease, background .15s ease;
+    }
+    .bp-review-form-{{ section.id }} input::placeholder,
+    .bp-review-form-{{ section.id }} textarea::placeholder{ color:{{ section.settings.text_color }}; opacity:.45; }
+    .bp-review-form-{{ section.id }} input:focus,
+    .bp-review-form-{{ section.id }} textarea:focus{
+      border-color: rgba(245,236,231,.75);
+      background: rgba(245,236,231,.13);
+    }
+    .bp-review-form-{{ section.id }} textarea{ min-height:120px; resize:vertical; }
+    .bp-review-form-{{ section.id }} .bp-rf-stars{
+      display:flex; gap:6px; font-size:30px; line-height:1;
+    }
+    .bp-review-form-{{ section.id }} .bp-rf-star{
+      cursor:pointer; opacity:.35; transition: opacity .12s ease, transform .12s ease; user-select:none;
+      background:none; border:none; padding:0; color:{{ section.settings.text_color }};
+    }
+    .bp-review-form-{{ section.id }} .bp-rf-star:hover{ transform: scale(1.12); }
+    .bp-review-form-{{ section.id }} .bp-rf-star.is-active{ opacity:1; }
+    .bp-review-form-{{ section.id }} .bp-rf-error{
+      font-size:13px; color:#ffb4b4; margin-top:-8px;
+    }
+    .bp-review-form-{{ section.id }} .bp-rf-submit{
+      align-self:flex-start; background:{{ section.settings.text_color }}; color:{{ section.settings.bg_color }};
+      border:none; margin-top:6px;
+    }
+    .bp-review-form-{{ section.id }} .bp-rf-submit:hover{ box-shadow: 0 8px 20px rgba(0,0,0,.25); }
+    .bp-review-form-{{ section.id }} .bp-rf-hint{ font-size:12px; opacity:.6; }
+  </style>
+
+  <div class="bp-rf-wrap">
+    <div class="bp-eyebrow">{{ section.settings.eyebrow }}</div>
+    <h2>{{ section.settings.heading }}</h2>
+    <p class="bp-rf-sub">{{ section.settings.subheading }}</p>
+
+    {%- form 'contact', id: 'bp-review-form' -%}
+      {%- if form.posted_successfully? -%}
+        <div class="bp-rf-success" tabindex="-1" autofocus>
+          {{ section.settings.success_message }}
+        </div>
+      {%- else -%}
+        <input type="hidden" name="contact[email]" id="bp-rf-email-hidden" value="">
+        <input type="hidden" name="contact[body]" id="bp-rf-body">
+
+        <div class="bp-rf-row">
+          <div class="bp-rf-field">
+            <label for="bp-rf-name">Name</label>
+            <input type="text" id="bp-rf-name" placeholder="Your name" autocomplete="name" required>
+          </div>
+          <div class="bp-rf-field">
+            <label for="bp-rf-email">Email</label>
+            <input type="email" id="bp-rf-email" placeholder="you@example.com" autocomplete="email" required
+              {% if form.errors contains 'email' %}aria-invalid="true"{% endif %}>
+          </div>
+        </div>
+        {%- if form.errors contains 'email' -%}
+          <div class="bp-rf-error">Please enter a valid email address.</div>
+        {%- endif -%}
+
+        <div class="bp-rf-field">
+          <label for="bp-rf-product">Which product? <span style="text-transform:none; font-weight:400; opacity:.7;">(optional)</span></label>
+          <input type="text" id="bp-rf-product" placeholder="e.g. Bunny Perch — Pink, 1pc">
+        </div>
+
+        <div class="bp-rf-field">
+          <label>Rating</label>
+          <div class="bp-rf-stars" id="bp-rf-stars" role="radiogroup" aria-label="Star rating">
+            {%- for i in (1..5) -%}
+              <button type="button" class="bp-rf-star" data-value="{{ i }}" role="radio" aria-checked="false" aria-label="{{ i }} star{% if i != 1 %}s{% endif %}">★</button>
+            {%- endfor -%}
+          </div>
+        </div>
+
+        <div class="bp-rf-field">
+          <label for="bp-rf-review">Your review</label>
+          <textarea id="bp-rf-review" placeholder="Tell us what you think — how does it hold up, what colour did you get, would you recommend it?" required></textarea>
+        </div>
+
+        <button type="submit" class="bp-btn bp-rf-submit">{{ section.settings.button_label }}</button>
+        <div class="bp-rf-hint">{{ section.settings.privacy_note }}</div>
+      {%- endif -%}
+    {%- endform -%}
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.currentScript.closest('.bp-review-form-{{ section.id }}');
+  if (!root) return;
+
+  var form = root.querySelector('form');
+  var stars = root.querySelectorAll('.bp-rf-star');
+  var rating = 0;
+
+  stars.forEach(function (star) {
+    star.addEventListener('click', function () {
+      rating = parseInt(star.getAttribute('data-value'), 10);
+      stars.forEach(function (s) {
+        var active = parseInt(s.getAttribute('data-value'), 10) <= rating;
+        s.classList.toggle('is-active', active);
+        s.setAttribute('aria-checked', active ? 'true' : 'false');
+      });
+    });
+  });
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      var nameEl = root.querySelector('#bp-rf-name');
+      var emailEl = root.querySelector('#bp-rf-email');
+      var productEl = root.querySelector('#bp-rf-product');
+      var reviewEl = root.querySelector('#bp-rf-review');
+      var emailHidden = root.querySelector('#bp-rf-email-hidden');
+      var bodyHidden = root.querySelector('#bp-rf-body');
+
+      if (rating < 1) {
+        e.preventDefault();
+        alert('Please select a star rating before submitting.');
+        return;
+      }
+
+      emailHidden.value = emailEl.value;
+
+      var lines = [
+        'New product review submitted via velagoods.co.uk',
+        '',
+        'Name: ' + nameEl.value,
+        'Email: ' + emailEl.value,
+        'Rating: ' + rating + ' / 5',
+        'Product: ' + (productEl.value || 'Not specified'),
+        '',
+        'Review:',
+        reviewEl.value
+      ];
+      bodyHidden.value = lines.join('\n');
+    });
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "BP Review Form",
+  "tag": "section",
+  "class": "section-bp-review-form",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#2b1e22" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#f5ece7" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "REVIEWS" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Leave us a review" },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Bought a Bunny Perch? Tell us how it's holding up — your review gets read by an actual person on our team, not a bot."
+    },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Submit review" },
+    {
+      "type": "textarea",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thank you! Your review has been sent to our team — we read every single one."
+    },
+    {
+      "type": "text",
+      "id": "privacy_note",
+      "label": "Privacy note",
+      "default": "Your email is only used to follow up if needed and is never shared."
+    }
+  ],
+  "presets": [
+    { "name": "BP Review Form" }
+  ]
+}
+{% endschema %}

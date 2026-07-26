@@ -1,1 +1,616 @@
-{"sections": {"bp_announce": {"type": "bp-announcement-bar", "settings": {"bg_color": "#2b1e22", "text_color": "#ffffff", "text": "Free UK shipping on every order · 30-day money-back guarantee", "link": "", "link_text": "Shop now"}}, "bp_trust_bar": {"type": "bp-trust-bar", "blocks": {"b1": {"type": "item", "settings": {"icon": "⭐", "label": "4.6/5 · 1,317 reviews"}}, "b2": {"type": "item", "settings": {"icon": "🐇", "label": "50,000+ stands sold"}}, "b3": {"type": "item", "settings": {"icon": "🇬🇧", "label": "Free UK shipping"}}, "b4": {"type": "item", "settings": {"icon": "🔒", "label": "Secure checkout via Shopify Payments"}}}, "block_order": ["b1", "b2", "b3", "b4"], "settings": {"bg_color": "#fbe9ec", "text_color": "#2b1e22"}}, "bp_hero": {"type": "bp-hero", "settings": {"bg_color": "#fbe9ec", "accent_color": "#c96a86", "eyebrow": "ADJUSTABLE RABBIT STAND", "heading": "Hands-free calls,", "heading_accent": "hop to it.", "subtext": "Bunny Perch holds your phone or tablet at any angle you need — video calls, recipes, shows in bed — on a stable base with soft anti-slip padding.", "cta_text": "Shop Now", "cta_link": "", "reviews_text": "How it works", "reviews_link": "", "stars": "★★★★★", "rating_text": "4.6/5 from 1,317 verified UK customers", "returns_days": "30", "image": "shopify://shop_images/bunny-hero.png", "callout_top": "Multi-angle tilt", "callout_bottom": "Anti-slip padding"}}, "bp_problem_solution": {"type": "bp-problem-solution", "blocks": {"p1": {"type": "problem", "settings": {"text": "Flat phone stands that only work at one fixed angle"}}, "p2": {"type": "problem", "settings": {"text": "Flimsy bases that tip the second you tap the screen"}}, "p3": {"type": "problem", "settings": {"text": "Hard plastic clips that scratch your phone case"}}, "p4": {"type": "problem", "settings": {"text": "One stand for your phone, a totally different one for your tablet"}}, "s1": {"type": "solution", "settings": {"text": "Adjustable height and tilt for video calls, cooking, or bedside viewing"}}, "s2": {"type": "solution", "settings": {"text": "Wide, stable base designed to stay steady on your desk"}}, "s3": {"type": "solution", "settings": {"text": "Soft anti-slip padding that protects your device, not just holds it"}}, "s4": {"type": "solution", "settings": {"text": "Fits phones and most tablets alike — no separate stand needed"}}}, "block_order": ["p1", "p2", "p3", "p4", "s1", "s2", "s3", "s4"], "settings": {"bg_color": "#fdf3f4", "accent_color": "#c96a86", "problem_eyebrow": "THE PROBLEM", "problem_heading": "Propping your phone against a candle isn't a stand.", "solution_eyebrow": "THE BUNNY PERCH WAY", "solution_heading": "One stand, every angle, zero wobble."}}, "bp_features": {"type": "bp-features-grid", "blocks": {"f1": {"type": "feature", "settings": {"icon": "📐", "title": "Adjustable height", "text": "Raise or lower the stand to match your eye line on calls, or your countertop for recipes."}}, "f2": {"type": "feature", "settings": {"icon": "⚖️", "title": "Wide stable base", "text": "A broader footprint helps keep the stand steady on your desk."}}, "f3": {"type": "feature", "settings": {"icon": "💧", "title": "Anti-slip padding", "text": "Soft grip points cushion your device instead of scratching the case or screen edge."}}, "f4": {"type": "feature", "settings": {"icon": "📱", "title": "Fits phones & tablets", "text": "One stand adjusts to hold devices from compact phones up to most tablets — not intended for full-size iPads or heavier tablets."}}, "f5": {"type": "feature", "settings": {"icon": "🔄", "title": "Multiple viewing angles", "text": "Portrait or landscape, low or high — tilt it to whatever the moment calls for."}}, "f6": {"type": "feature", "settings": {"icon": "🐇", "title": "A desk accessory worth having out", "text": "Soft pink rabbit silhouette that looks intentional next to your other desk pieces, not like a gadget."}}}, "block_order": ["f1", "f2", "f3", "f4", "f5", "f6"], "settings": {"bg_color": "#fdf3f4", "icon_bg": "#f6c9d3", "eyebrow": "WHY IT WORKS", "heading": "Small desk upgrade, big daily difference", "subheading": "Every detail is there to make hands-free actually hands-free."}}, "bp_how_it_works": {"type": "bp-how-it-works", "blocks": {"s1": {"type": "step", "settings": {"title": "Place it on your desk", "text": "Set the base wherever you need it — desk, nightstand, or kitchen counter."}}, "s2": {"type": "step", "settings": {"title": "Adjust height & angle", "text": "Slide and tilt until the screen lines up with your eyes or your task at hand."}}, "s3": {"type": "step", "settings": {"title": "Rest your device, go hands-free", "text": "The anti-slip padding grips your phone or tablet securely while you work, cook, or watch."}}}, "block_order": ["s1", "s2", "s3"], "settings": {"bg_color": "#fdf3f4", "accent_color": "#c96a86", "eyebrow": "HOW IT WORKS", "heading": "Set it once, use it every day"}}, "bp_comparison": {"type": "bp-comparison-table", "blocks": {"r1": {"type": "row", "settings": {"feature": "Adjustable height", "brand_value": "✓", "competitor1_value": "Fixed", "competitor2_value": "✕"}}, "r2": {"type": "row", "settings": {"feature": "Multiple viewing angles", "brand_value": "✓", "competitor1_value": "One angle", "competitor2_value": "Limited"}}, "r3": {"type": "row", "settings": {"feature": "Fits most tablets", "brand_value": "Most tablets", "competitor1_value": "Rarely", "competitor2_value": "✕"}}, "r4": {"type": "row", "settings": {"feature": "Anti-slip padding", "brand_value": "Padded", "competitor1_value": "Bare plastic", "competitor2_value": "Hard clip"}}, "r5": {"type": "row", "settings": {"feature": "Stable on desk", "brand_value": "Wide base", "competitor1_value": "Lightweight, tips easily", "competitor2_value": "N/A"}}, "r6": {"type": "row", "settings": {"feature": "Designed to display", "brand_value": "✓", "competitor1_value": "✕", "competitor2_value": "✕"}}}, "block_order": ["r1", "r2", "r3", "r4", "r5", "r6"], "settings": {"bg_color": "#fdf3f4", "highlight_bg": "#f6c9d3", "accent_color": "#a8496a", "eyebrow": "HOW BUNNY PERCH COMPARES", "heading": "Stop re-propping your phone every five minutes", "brand_name": "Bunny Perch", "competitor1": "Basic flat stand", "competitor2": "Clip-on car mount"}}, "featured_collection": {"type": "featured-collection", "blocks": {"tier_eBMUHz": {"type": "tier", "settings": {"label": "1x", "quantity": 1, "price": 13.0, "badge_text": "", "default_selected": false, "discount_code": ""}}, "tier_jxzQ3D": {"type": "tier", "settings": {"label": "2x", "quantity": 2, "price": 24.7, "badge_text": "Most Popular", "default_selected": false, "discount_code": "BUNNY2"}}, "tier_eHADa9": {"type": "tier", "settings": {"label": "3x", "quantity": 3, "price": 35.1, "badge_text": "", "default_selected": false, "discount_code": "BUNNY3"}}, "tier_bMRAHT": {"type": "tier", "settings": {"label": "4x", "quantity": 4, "price": 44.2, "badge_text": "Best Value", "default_selected": false, "discount_code": "BUNNY4"}}, "swatch_pink": {"type": "swatch", "settings": {"label": "Pink", "color": "#e8a0b4"}}, "swatch_blue": {"type": "swatch", "settings": {"label": "Blue", "color": "#7fa8d9"}}, "swatch_white": {"type": "swatch", "settings": {"label": "White", "color": "#ffffff"}}, "swatch_black": {"type": "swatch", "settings": {"label": "Black", "color": "#2b2b2b"}}}, "block_order": ["tier_eBMUHz", "tier_jxzQ3D", "tier_eHADa9", "tier_bMRAHT", "swatch_pink", "swatch_blue", "swatch_white", "swatch_black"], "settings": {"eyebrow_text": "Desk Refresh Offer", "heading": "<p>A cleaner desk setup for less than a takeout order.</p>", "subheading": "<p>Every order includes a 30-day money-back guarantee and free returns — try it risk-free.</p>", "show_countdown": true, "countdown_ended_text": "Offer ended", "countdown_disclaimer": "", "badge_text": "25% OFF — TODAY ONLY", "product": "bunny-perch", "show_stock_bar": false, "stock_display_max": 90, "stock_text_template": "Only 80 left in stock — based on current inventory", "show_payment_icons": true, "bg_color": "#2b1b1f", "text_color": "#f5ece7", "card_bg_color": "#fdf8f3", "accent_color": "#b5647a", "badge_bg_color": "#f6dbe3", "badge_text_color": "#7a2f45", "savings_color": "#4b7f57", "padding_top": 48, "padding_bottom": 36, "countdown_hours": 6}}, "bp_guarantees": {"type": "bp-guarantees", "blocks": {"g1": {"type": "item", "settings": {"icon": "🛡️", "title": "30-day guarantee", "text": "Not happy with the fit or stability? Full refund, no questions asked."}}, "g2": {"type": "item", "settings": {"icon": "🔒", "title": "Secure checkout", "text": "SSL-encrypted payments processed through Shopify Payments."}}, "g3": {"type": "item", "settings": {"icon": "📦", "title": "Tracked UK shipping", "text": "Every order ships free with real-time tracking from dispatch to your door."}}, "g4": {"type": "item", "settings": {"icon": "💬", "title": "Real human support", "text": "Email us and get a reply from our team within 24 hours, 7 days a week."}}}, "block_order": ["g1", "g2", "g3", "g4"], "settings": {"bg_color": "#fdf3f4", "eyebrow": "WHY SHOP WITH CONFIDENCE", "heading": "Backed by real guarantees, not just words"}}, "bp_shipping": {"type": "bp-shipping-uk", "settings": {"bg_color": "#fbe9ec", "eyebrow": "SHIPPING & DELIVERY", "heading": "Free UK shipping, every order", "subheading": "We currently ship to UK addresses only, at no extra cost.", "card_title": "United Kingdom", "processing_time": "1–2 business days", "delivery_time": "3–6 business days", "shipping_cost": "Free", "tracking_text": "Included on every order"}}, "bp_faq": {"type": "bp-faq", "blocks": {"q1": {"type": "faq", "settings": {"question": "Will it hold my tablet, not just my phone?", "answer": "<p>Yes, for most tablets — the adjustable grip is designed to securely hold phones and compact-to-mid-size tablets. We don’t recommend it for full-size iPads or heavier tablets, which can be too heavy for the base.</p>"}}, "q2": {"type": "faq", "settings": {"question": "Does it work in both portrait and landscape?", "answer": "<p>Yes, simply rotate your device — the grip adjusts to hold it securely either way.</p>"}}, "q3": {"type": "faq", "settings": {"question": "Will it scratch my phone case?", "answer": "<p>No — every contact point is lined with soft anti-slip padding.</p>"}}, "q4": {"type": "faq", "settings": {"question": "How tall is the stand when fully extended?", "answer": "<p>See the product page for exact dimensions at minimum and maximum height.</p>"}}, "q5": {"type": "faq", "settings": {"question": "What's your return policy?", "answer": "<p>We offer a 30-day money-back guarantee on every order, no questions asked.</p>"}}}, "block_order": ["q1", "q2", "q3", "q4", "q5"], "settings": {"bg_color": "#fdf3f4", "eyebrow": "FAQ", "heading": "Questions, answered"}}, "bp_product_size": {"type": "bp-product-size", "blocks": {"d1": {"type": "stat", "settings": {"label": "Total height", "value": "30 cm", "sub_value": "11.81 in"}}, "d2": {"type": "stat", "settings": {"label": "Base width", "value": "10 cm", "sub_value": "3.93 in"}}, "d3": {"type": "stat", "settings": {"label": "Adjustable neck", "value": "9–18 cm", "sub_value": "3.54–7.08 in"}}}, "block_order": ["d1", "d2", "d3"], "settings": {"bg_color": "#fdf3f4", "eyebrow": "PRODUCT SIZE", "heading": "Purr-fect size for any desk", "subheading": "Compact enough for a nightstand, sturdy enough for a tablet.", "footnote": "Fits phones and most tablets. Angle & height adjustable."}}}, "order": ["bp_announce", "bp_trust_bar", "bp_hero", "bp_problem_solution", "bp_features", "bp_how_it_works", "bp_comparison", "featured_collection", "bp_guarantees", "bp_shipping", "bp_faq", "bp_product_size"]}
+{
+  "sections": {
+    "bp_announce": {
+      "type": "bp-announcement-bar",
+      "settings": {
+        "bg_color": "#2b1e22",
+        "text_color": "#ffffff",
+        "text": "Free UK shipping on every order \u00b7 30-day money-back guarantee",
+        "link": "",
+        "link_text": "Shop now"
+      }
+    },
+    "bp_trust_bar": {
+      "type": "bp-trust-bar",
+      "blocks": {
+        "b1": {
+          "type": "item",
+          "settings": {
+            "icon": "\u2b50",
+            "label": "4.6/5 \u00b7 1,317 reviews"
+          }
+        },
+        "b2": {
+          "type": "item",
+          "settings": {
+            "icon": "\ud83d\udc07",
+            "label": "50,000+ stands sold"
+          }
+        },
+        "b3": {
+          "type": "item",
+          "settings": {
+            "icon": "\ud83c\uddec\ud83c\udde7",
+            "label": "Free UK shipping"
+          }
+        },
+        "b4": {
+          "type": "item",
+          "settings": {
+            "icon": "\ud83d\udd12",
+            "label": "Secure checkout via Shopify Payments"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
+      "settings": {
+        "bg_color": "#fbe9ec",
+        "text_color": "#2b1e22"
+      }
+    },
+    "bp_hero": {
+      "type": "bp-hero",
+      "settings": {
+        "bg_color": "#fbe9ec",
+        "accent_color": "#c96a86",
+        "eyebrow": "ADJUSTABLE RABBIT STAND",
+        "heading": "Hands-free calls,",
+        "heading_accent": "hop to it.",
+        "subtext": "Bunny Perch holds your phone or tablet at any angle you need \u2014 video calls, recipes, shows in bed \u2014 on a stable base with soft anti-slip padding.",
+        "cta_text": "Shop Now",
+        "cta_link": "",
+        "reviews_text": "How it works",
+        "reviews_link": "",
+        "stars": "\u2605\u2605\u2605\u2605\u2605",
+        "rating_text": "4.6/5 from 1,317 verified UK customers",
+        "returns_days": "30",
+        "image": "shopify://shop_images/bunny-hero.png",
+        "callout_top": "Multi-angle tilt",
+        "callout_bottom": "Anti-slip padding"
+      }
+    },
+    "bp_problem_solution": {
+      "type": "bp-problem-solution",
+      "blocks": {
+        "p1": {
+          "type": "problem",
+          "settings": {
+            "text": "Flat phone stands that only work at one fixed angle"
+          }
+        },
+        "p2": {
+          "type": "problem",
+          "settings": {
+            "text": "Flimsy bases that tip the second you tap the screen"
+          }
+        },
+        "p3": {
+          "type": "problem",
+          "settings": {
+            "text": "Hard plastic clips that scratch your phone case"
+          }
+        },
+        "p4": {
+          "type": "problem",
+          "settings": {
+            "text": "One stand for your phone, a totally different one for your tablet"
+          }
+        },
+        "s1": {
+          "type": "solution",
+          "settings": {
+            "text": "Adjustable height and tilt for video calls, cooking, or bedside viewing"
+          }
+        },
+        "s2": {
+          "type": "solution",
+          "settings": {
+            "text": "Wide, stable base designed to stay steady on your desk"
+          }
+        },
+        "s3": {
+          "type": "solution",
+          "settings": {
+            "text": "Soft anti-slip padding that protects your device, not just holds it"
+          }
+        },
+        "s4": {
+          "type": "solution",
+          "settings": {
+            "text": "Fits phones and most tablets alike \u2014 no separate stand needed"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "settings": {
+        "bg_color": "#fdf3f4",
+        "accent_color": "#c96a86",
+        "problem_eyebrow": "THE PROBLEM",
+        "problem_heading": "Propping your phone against a candle isn't a stand.",
+        "solution_eyebrow": "THE BUNNY PERCH WAY",
+        "solution_heading": "One stand, every angle, zero wobble."
+      }
+    },
+    "bp_features": {
+      "type": "bp-features-grid",
+      "blocks": {
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "icon": "\ud83d\udcd0",
+            "title": "Adjustable height",
+            "text": "Raise or lower the stand to match your eye line on calls, or your countertop for recipes."
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "icon": "\u2696\ufe0f",
+            "title": "Wide stable base",
+            "text": "A broader footprint helps keep the stand steady on your desk."
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "icon": "\ud83d\udca7",
+            "title": "Anti-slip padding",
+            "text": "Soft grip points cushion your device instead of scratching the case or screen edge."
+          }
+        },
+        "f4": {
+          "type": "feature",
+          "settings": {
+            "icon": "\ud83d\udcf1",
+            "title": "Fits phones & tablets",
+            "text": "One stand adjusts to hold devices from compact phones up to most tablets \u2014 not intended for full-size iPads or heavier tablets."
+          }
+        },
+        "f5": {
+          "type": "feature",
+          "settings": {
+            "icon": "\ud83d\udd04",
+            "title": "Multiple viewing angles",
+            "text": "Portrait or landscape, low or high \u2014 tilt it to whatever the moment calls for."
+          }
+        },
+        "f6": {
+          "type": "feature",
+          "settings": {
+            "icon": "\ud83d\udc07",
+            "title": "A desk accessory worth having out",
+            "text": "Soft pink rabbit silhouette that looks intentional next to your other desk pieces, not like a gadget."
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6"
+      ],
+      "settings": {
+        "bg_color": "#fdf3f4",
+        "icon_bg": "#f6c9d3",
+        "eyebrow": "WHY IT WORKS",
+        "heading": "Small desk upgrade, big daily difference",
+        "subheading": "Every detail is there to make hands-free actually hands-free."
+      }
+    },
+    "bp_how_it_works": {
+      "type": "bp-how-it-works",
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Place it on your desk",
+            "text": "Set the base wherever you need it \u2014 desk, nightstand, or kitchen counter."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Adjust height & angle",
+            "text": "Slide and tilt until the screen lines up with your eyes or your task at hand."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Rest your device, go hands-free",
+            "text": "The anti-slip padding grips your phone or tablet securely while you work, cook, or watch."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "settings": {
+        "bg_color": "#fdf3f4",
+        "accent_color": "#c96a86",
+        "eyebrow": "HOW IT WORKS",
+        "heading": "Set it once, use it every day"
+      }
+    },
+    "bp_comparison": {
+      "type": "bp-comparison-table",
+      "blocks": {
+        "r1": {
+          "type": "row",
+          "settings": {
+            "feature": "Adjustable height",
+            "brand_value": "\u2713",
+            "competitor1_value": "Fixed",
+            "competitor2_value": "\u2715"
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "feature": "Multiple viewing angles",
+            "brand_value": "\u2713",
+            "competitor1_value": "One angle",
+            "competitor2_value": "Limited"
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "feature": "Fits most tablets",
+            "brand_value": "Most tablets",
+            "competitor1_value": "Rarely",
+            "competitor2_value": "\u2715"
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "feature": "Anti-slip padding",
+            "brand_value": "Padded",
+            "competitor1_value": "Bare plastic",
+            "competitor2_value": "Hard clip"
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "feature": "Stable on desk",
+            "brand_value": "Wide base",
+            "competitor1_value": "Lightweight, tips easily",
+            "competitor2_value": "N/A"
+          }
+        },
+        "r6": {
+          "type": "row",
+          "settings": {
+            "feature": "Designed to display",
+            "brand_value": "\u2713",
+            "competitor1_value": "\u2715",
+            "competitor2_value": "\u2715"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6"
+      ],
+      "settings": {
+        "bg_color": "#fdf3f4",
+        "highlight_bg": "#f6c9d3",
+        "accent_color": "#a8496a",
+        "eyebrow": "HOW BUNNY PERCH COMPARES",
+        "heading": "Stop re-propping your phone every five minutes",
+        "brand_name": "Bunny Perch",
+        "competitor1": "Basic flat stand",
+        "competitor2": "Clip-on car mount"
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "blocks": {
+        "tier_eBMUHz": {
+          "type": "tier",
+          "settings": {
+            "label": "1x",
+            "quantity": 1,
+            "price": 13.0,
+            "badge_text": "",
+            "default_selected": false,
+            "discount_code": ""
+          }
+        },
+        "tier_jxzQ3D": {
+          "type": "tier",
+          "settings": {
+            "label": "2x",
+            "quantity": 2,
+            "price": 24.7,
+            "badge_text": "Most Popular",
+            "default_selected": false,
+            "discount_code": "BUNNY2"
+          }
+        },
+        "tier_eHADa9": {
+          "type": "tier",
+          "settings": {
+            "label": "3x",
+            "quantity": 3,
+            "price": 35.1,
+            "badge_text": "",
+            "default_selected": false,
+            "discount_code": "BUNNY3"
+          }
+        },
+        "tier_bMRAHT": {
+          "type": "tier",
+          "settings": {
+            "label": "4x",
+            "quantity": 4,
+            "price": 44.2,
+            "badge_text": "Best Value",
+            "default_selected": false,
+            "discount_code": "BUNNY4"
+          }
+        },
+        "swatch_pink": {
+          "type": "swatch",
+          "settings": {
+            "label": "Pink",
+            "color": "#e8a0b4"
+          }
+        },
+        "swatch_blue": {
+          "type": "swatch",
+          "settings": {
+            "label": "Blue",
+            "color": "#7fa8d9"
+          }
+        },
+        "swatch_white": {
+          "type": "swatch",
+          "settings": {
+            "label": "White",
+            "color": "#ffffff"
+          }
+        },
+        "swatch_black": {
+          "type": "swatch",
+          "settings": {
+            "label": "Black",
+            "color": "#2b2b2b"
+          }
+        }
+      },
+      "block_order": [
+        "tier_eBMUHz",
+        "tier_jxzQ3D",
+        "tier_eHADa9",
+        "tier_bMRAHT",
+        "swatch_pink",
+        "swatch_blue",
+        "swatch_white",
+        "swatch_black"
+      ],
+      "settings": {
+        "eyebrow_text": "Desk Refresh Offer",
+        "heading": "<p>A cleaner desk setup for less than a takeout order.</p>",
+        "subheading": "<p>Every order includes a 30-day money-back guarantee and free returns \u2014 try it risk-free.</p>",
+        "show_countdown": true,
+        "countdown_ended_text": "Offer ended",
+        "countdown_disclaimer": "",
+        "badge_text": "25% OFF \u2014 TODAY ONLY",
+        "product": "bunny-perch",
+        "show_stock_bar": false,
+        "stock_display_max": 90,
+        "stock_text_template": "Only 80 left in stock \u2014 based on current inventory",
+        "show_payment_icons": true,
+        "bg_color": "#2b1b1f",
+        "text_color": "#f5ece7",
+        "card_bg_color": "#fdf8f3",
+        "accent_color": "#b5647a",
+        "badge_bg_color": "#f6dbe3",
+        "badge_text_color": "#7a2f45",
+        "savings_color": "#4b7f57",
+        "padding_top": 48,
+        "padding_bottom": 36,
+        "countdown_hours": 6
+      }
+    },
+    "bp_guarantees": {
+      "type": "bp-guarantees",
+      "blocks": {
+        "g1": {
+          "type": "item",
+          "settings": {
+            "icon": "\ud83d\udee1\ufe0f",
+            "title": "30-day guarantee",
+            "text": "Not happy with the fit or stability? Full refund, no questions asked."
+          }
+        },
+        "g2": {
+          "type": "item",
+          "settings": {
+            "icon": "\ud83d\udd12",
+            "title": "Secure checkout",
+            "text": "SSL-encrypted payments processed through Shopify Payments."
+          }
+        },
+        "g3": {
+          "type": "item",
+          "settings": {
+            "icon": "\ud83d\udce6",
+            "title": "Tracked UK shipping",
+            "text": "Every order ships free with real-time tracking from dispatch to your door."
+          }
+        },
+        "g4": {
+          "type": "item",
+          "settings": {
+            "icon": "\ud83d\udcac",
+            "title": "Real human support",
+            "text": "Email us and get a reply from our team within 24 hours, 7 days a week."
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3",
+        "g4"
+      ],
+      "settings": {
+        "bg_color": "#fdf3f4",
+        "eyebrow": "WHY SHOP WITH CONFIDENCE",
+        "heading": "Backed by real guarantees, not just words"
+      }
+    },
+    "bp_shipping": {
+      "type": "bp-shipping-uk",
+      "settings": {
+        "bg_color": "#fbe9ec",
+        "eyebrow": "SHIPPING & DELIVERY",
+        "heading": "Free UK shipping, every order",
+        "subheading": "We currently ship to UK addresses only, at no extra cost.",
+        "card_title": "United Kingdom",
+        "processing_time": "1\u20132 business days",
+        "delivery_time": "3\u20136 business days",
+        "shipping_cost": "Free",
+        "tracking_text": "Included on every order"
+      }
+    },
+    "bp_faq": {
+      "type": "bp-faq",
+      "blocks": {
+        "q1": {
+          "type": "faq",
+          "settings": {
+            "question": "Will it hold my tablet, not just my phone?",
+            "answer": "<p>Yes, for most tablets \u2014 the adjustable grip is designed to securely hold phones and compact-to-mid-size tablets. We don\u2019t recommend it for full-size iPads or heavier tablets, which can be too heavy for the base.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq",
+          "settings": {
+            "question": "Does it work in both portrait and landscape?",
+            "answer": "<p>Yes, simply rotate your device \u2014 the grip adjusts to hold it securely either way.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq",
+          "settings": {
+            "question": "Will it scratch my phone case?",
+            "answer": "<p>No \u2014 every contact point is lined with soft anti-slip padding.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq",
+          "settings": {
+            "question": "How tall is the stand when fully extended?",
+            "answer": "<p>See the product page for exact dimensions at minimum and maximum height.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq",
+          "settings": {
+            "question": "What's your return policy?",
+            "answer": "<p>We offer a 30-day money-back guarantee on every order, no questions asked.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
+      "settings": {
+        "bg_color": "#fdf3f4",
+        "eyebrow": "FAQ",
+        "heading": "Questions, answered"
+      }
+    },
+    "bp_product_size": {
+      "type": "bp-product-size",
+      "blocks": {
+        "d1": {
+          "type": "stat",
+          "settings": {
+            "label": "Total height",
+            "value": "30 cm",
+            "sub_value": "11.81 in"
+          }
+        },
+        "d2": {
+          "type": "stat",
+          "settings": {
+            "label": "Base width",
+            "value": "10 cm",
+            "sub_value": "3.93 in"
+          }
+        },
+        "d3": {
+          "type": "stat",
+          "settings": {
+            "label": "Adjustable neck",
+            "value": "9\u201318 cm",
+            "sub_value": "3.54\u20137.08 in"
+          }
+        }
+      },
+      "block_order": [
+        "d1",
+        "d2",
+        "d3"
+      ],
+      "settings": {
+        "bg_color": "#fdf3f4",
+        "eyebrow": "PRODUCT SIZE",
+        "heading": "Purr-fect size for any desk",
+        "subheading": "Compact enough for a nightstand, sturdy enough for a tablet.",
+        "footnote": "Fits phones and most tablets. Angle & height adjustable."
+      }
+    },
+    "bp_review_form": {
+      "type": "bp-review-form",
+      "settings": {}
+    }
+  },
+  "order": [
+    "bp_announce",
+    "bp_trust_bar",
+    "bp_hero",
+    "bp_problem_solution",
+    "bp_features",
+    "bp_how_it_works",
+    "bp_comparison",
+    "featured_collection",
+    "bp_guarantees",
+    "bp_shipping",
+    "bp_faq",
+    "bp_review_form",
+    "bp_product_size"
+  ]
+}
