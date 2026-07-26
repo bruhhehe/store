@@ -112,17 +112,21 @@
 
     // Hide the bar automatically whenever the real Featured offer buy box
     // is already on screen (only present on the home page) so we don't
-    // show a duplicate CTA on top of the real one.
+    // show a duplicate CTA on top of the real one. We deliberately watch
+    // the offer's actual content container, not the '#bp-featured-offer'
+    // anchor itself — that anchor is a zero-height marker used only for
+    // the scroll-jump link, so watching it directly meant the bar
+    // reappeared as soon as the shopper scrolled past that thin marker,
+    // even while the real buy box still filled the screen below it.
     var offerAnchor = document.getElementById('bp-featured-offer');
-    if (offerAnchor && 'IntersectionObserver' in window) {
-      var observer = new IntersectionObserver(
-        function (entries) {
-          offerVisible = entries[0].isIntersecting;
-          updateVisibility();
-        },
-        { rootMargin: '0px 0px -60% 0px' }
-      );
-      observer.observe(offerAnchor);
+    var offerSection = offerAnchor ? offerAnchor.nextElementSibling : null;
+    var offerObserveTarget = offerSection || offerAnchor;
+    if (offerObserveTarget && 'IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        offerVisible = entries[0].isIntersecting;
+        updateVisibility();
+      });
+      observer.observe(offerObserveTarget);
     }
 
     window.addEventListener('scroll', updateVisibility, { passive: true });
