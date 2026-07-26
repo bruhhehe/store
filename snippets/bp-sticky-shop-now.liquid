@@ -2,6 +2,9 @@
 
 <div class="bp-sticky-cta" id="BpStickyCta" aria-hidden="true">
   <div class="bp-sticky-cta-inner">
+    {%- if settings.sticky_cta_show_discount and settings.sticky_cta_discount_text != blank -%}
+      <span class="bp-sticky-cta-badge">{{ settings.sticky_cta_discount_text }}</span>
+    {%- endif -%}
     <span class="bp-sticky-cta-text">Ready to hop to it?</span>
     <a href="/#bp-featured-offer" class="bp-sticky-cta-btn">Shop Now →</a>
   </div>
@@ -44,6 +47,20 @@
     opacity: 0.9;
   }
 
+  .bp-sticky-cta-badge {
+    display: inline-flex;
+    align-items: center;
+    background: var(--bp-pink, #c96a86);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
   .bp-sticky-cta-btn {
     display: inline-flex;
     align-items: center;
@@ -68,7 +85,8 @@
       display: none;
     }
     .bp-sticky-cta-inner {
-      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
     }
     .bp-sticky-cta-btn {
       width: 100%;

@@ -1451,5 +1451,22 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Sticky Shop Now bar",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "sticky_cta_show_discount",
+        "label": "Show discount badge",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sticky_cta_discount_text",
+        "label": "Discount badge text",
+        "default": "25% OFF"
+      }
+    ]
   }
 ]
