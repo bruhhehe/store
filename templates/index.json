@@ -389,7 +389,7 @@
         "heading": "<p>A cleaner desk setup for less than a takeout order.</p>",
         "subheading": "<p>Every order includes a 30-day money-back guarantee and free returns — try it risk-free.</p>",
         "show_countdown": true,
-        "countdown_hours": 0,
+        "countdown_hours": 6,
         "countdown_ended_text": "Offer ended",
         "countdown_disclaimer": "",
         "badge_text": "25% OFF — TODAY ONLY",
