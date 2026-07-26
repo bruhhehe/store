@@ -22,7 +22,8 @@
     }
     .bp-review-form-{{ section.id }} form{ display:flex; flex-direction:column; gap:18px; }
     .bp-review-form-{{ section.id }} .bp-rf-row{ display:flex; gap:14px; flex-wrap:wrap; }
-    .bp-review-form-{{ section.id }} .bp-rf-field{ flex:1 1 220px; display:flex; flex-direction:column; gap:6px; }
+    .bp-review-form-{{ section.id }} .bp-rf-field{ flex:0 0 auto; display:flex; flex-direction:column; gap:6px; }
+    .bp-review-form-{{ section.id }} .bp-rf-row .bp-rf-field{ flex:1 1 220px; }
     .bp-review-form-{{ section.id }} label{
       font-size:12px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; opacity:.75;
     }
@@ -78,17 +79,17 @@
           {{ section.settings.success_message }}
         </div>
       {%- else -%}
-        <input type="hidden" name="contact[email]" id="bp-rf-email-hidden" value="">
-        <input type="hidden" name="contact[body]" id="bp-rf-body">
+        <input type="hidden" name="contact[email]" id="bp-rf-email-hidden-{{ section.id }}" value="">
+        <input type="hidden" name="contact[body]" id="bp-rf-body-{{ section.id }}">
 
         <div class="bp-rf-row">
           <div class="bp-rf-field">
-            <label for="bp-rf-name">Name</label>
-            <input type="text" id="bp-rf-name" placeholder="Your name" autocomplete="name" required>
+            <label for="bp-rf-name-{{ section.id }}">Name</label>
+            <input type="text" id="bp-rf-name-{{ section.id }}" placeholder="Your name" autocomplete="name" required>
           </div>
           <div class="bp-rf-field">
-            <label for="bp-rf-email">Email</label>
-            <input type="email" id="bp-rf-email" placeholder="you@example.com" autocomplete="email" required
+            <label for="bp-rf-email-{{ section.id }}">Email</label>
+            <input type="email" id="bp-rf-email-{{ section.id }}" placeholder="you@example.com" autocomplete="email" required
               {% if form.errors contains 'email' %}aria-invalid="true"{% endif %}>
           </div>
         </div>
@@ -97,13 +98,13 @@
         {%- endif -%}
 
         <div class="bp-rf-field">
-          <label for="bp-rf-product">Which product? <span style="text-transform:none; font-weight:400; opacity:.7;">(optional)</span></label>
-          <input type="text" id="bp-rf-product" placeholder="e.g. Bunny Perch — Pink, 1pc">
+          <label for="bp-rf-product-{{ section.id }}">Which product? <span style="text-transform:none; font-weight:400; opacity:.7;">(optional)</span></label>
+          <input type="text" id="bp-rf-product-{{ section.id }}" placeholder="e.g. Bunny Perch — Pink, 1pc">
         </div>
 
         <div class="bp-rf-field">
           <label>Rating</label>
-          <div class="bp-rf-stars" id="bp-rf-stars" role="radiogroup" aria-label="Star rating">
+          <div class="bp-rf-stars" id="bp-rf-stars-{{ section.id }}" role="radiogroup" aria-label="Star rating">
             {%- for i in (1..5) -%}
               <button type="button" class="bp-rf-star" data-value="{{ i }}" role="radio" aria-checked="false" aria-label="{{ i }} star{% if i != 1 %}s{% endif %}">★</button>
             {%- endfor -%}
@@ -111,8 +112,8 @@
         </div>
 
         <div class="bp-rf-field">
-          <label for="bp-rf-review">Your review</label>
-          <textarea id="bp-rf-review" placeholder="Tell us what you think — how does it hold up, what colour did you get, would you recommend it?" required></textarea>
+          <label for="bp-rf-review-{{ section.id }}">Your review</label>
+          <textarea id="bp-rf-review-{{ section.id }}" placeholder="Tell us what you think — how does it hold up, what colour did you get, would you recommend it?" required></textarea>
         </div>
 
         <button type="submit" class="bp-btn bp-rf-submit">{{ section.settings.button_label }}</button>
@@ -124,12 +125,13 @@
 
 <script>
 (function () {
-  var root = document.currentScript.closest('.bp-review-form-{{ section.id }}');
-  if (!root) return;
-
-  var form = root.querySelector('form');
-  var stars = root.querySelectorAll('.bp-rf-star');
+  var sectionId = {{ section.id | json }};
+  var stars = document.querySelectorAll('#bp-rf-stars-' + sectionId + ' .bp-rf-star');
+  var form = document.getElementById('bp-rf-stars-' + sectionId);
+  form = form ? form.closest('form') : null;
   var rating = 0;
+
+  if (!stars.length) return;
 
   stars.forEach(function (star) {
     star.addEventListener('click', function () {
@@ -144,12 +146,12 @@
 
   if (form) {
     form.addEventListener('submit', function (e) {
-      var nameEl = root.querySelector('#bp-rf-name');
-      var emailEl = root.querySelector('#bp-rf-email');
-      var productEl = root.querySelector('#bp-rf-product');
-      var reviewEl = root.querySelector('#bp-rf-review');
-      var emailHidden = root.querySelector('#bp-rf-email-hidden');
-      var bodyHidden = root.querySelector('#bp-rf-body');
+      var nameEl = document.getElementById('bp-rf-name-' + sectionId);
+      var emailEl = document.getElementById('bp-rf-email-' + sectionId);
+      var productEl = document.getElementById('bp-rf-product-' + sectionId);
+      var reviewEl = document.getElementById('bp-rf-review-' + sectionId);
+      var emailHidden = document.getElementById('bp-rf-email-hidden-' + sectionId);
+      var bodyHidden = document.getElementById('bp-rf-body-' + sectionId);
 
       if (rating < 1) {
         e.preventDefault();
