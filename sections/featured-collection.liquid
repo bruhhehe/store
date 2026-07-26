@@ -161,6 +161,42 @@
     margin: 0 0 12px;
   }
 
+  .fc-{{ section.id }} .fc-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .fc-{{ section.id }} .fc-rating-stars {
+    color: #d9a441;
+    font-size: 15px;
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+
+  .fc-{{ section.id }} .fc-rating-score {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .fc-{{ section.id }} .fc-rating-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--bp-pink-deep, #a8496a);
+    text-decoration: none;
+    padding: 3px 10px;
+    border: 1px solid var(--bp-pink-deep, #a8496a);
+    border-radius: 999px;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .fc-{{ section.id }} .fc-rating-link:hover {
+    background: var(--bp-pink-deep, #a8496a);
+    color: #fff;
+  }
+
   .fc-{{ section.id }} .fc-price-row {
     display: flex;
     align-items: baseline;
@@ -485,6 +521,14 @@
           <p class="fc-no-product">Select a product in the theme editor to activate this section.</p>
         {%- else -%}
           <h3 class="fc-card-title">{{ product.title }}</h3>
+
+          {%- if section.settings.show_rating_row -%}
+            <div class="fc-rating-row">
+              <span class="fc-rating-stars" aria-hidden="true">★★★★★</span>
+              <span class="fc-rating-score">{{ section.settings.rating_score }}</span>
+              <a href="#bp-reviews" class="fc-rating-link">{{ section.settings.rating_link_text }}</a>
+            </div>
+          {%- endif -%}
 
           <div class="fc-price-row">
             <span class="fc-price" id="FcPrice-{{ section.id }}">{{ default_block.settings.price | times: 100 | money }}</span>
@@ -1108,6 +1152,25 @@
       "label": "Mobile sticky bar button label",
       "info": "Shown in the sticky bottom bar that appears on mobile once the buy box scrolls out of view.",
       "default": "Buy now"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating_row",
+      "label": "Show star rating row",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "rating_score",
+      "label": "Rating text",
+      "default": "4.6/5 (1,317 reviews)"
+    },
+    {
+      "type": "text",
+      "id": "rating_link_text",
+      "label": "Rating link text",
+      "info": "Jumps down to the reviews section (#bp-reviews).",
+      "default": "See reviews"
     },
     {
       "type": "product",
