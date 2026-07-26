@@ -304,9 +304,9 @@
         "tier_eBMUHz": {
           "type": "tier",
           "settings": {
-            "label": "1 Bunny Perch",
+            "label": "1 Stand",
             "quantity": 1,
-            "price": 13.0,
+            "price": 13,
             "badge_text": "",
             "default_selected": false,
             "discount_code": ""
@@ -315,7 +315,7 @@
         "tier_jxzQ3D": {
           "type": "tier",
           "settings": {
-            "label": "2 Bunny Perches",
+            "label": "2 Stands",
             "quantity": 2,
             "price": 24.7,
             "badge_text": "Most Popular",
@@ -326,7 +326,7 @@
         "tier_eHADa9": {
           "type": "tier",
           "settings": {
-            "label": "3 Bunny Perches",
+            "label": "3 Stands",
             "quantity": 3,
             "price": 35.1,
             "badge_text": "",
@@ -337,7 +337,7 @@
         "tier_bMRAHT": {
           "type": "tier",
           "settings": {
-            "label": "4 Bunny Perches",
+            "label": "4 Stands",
             "quantity": 4,
             "price": 44.2,
             "badge_text": "Best Value",
