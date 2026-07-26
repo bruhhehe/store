@@ -32,7 +32,12 @@
       display:flex; align-items:center; gap:18px; flex-wrap:wrap;
       font-size:13px; color:var(--bp-muted); margin-bottom:22px;
     }
-    .bp-hero-{{ section.id }} .bp-hero-trust span{ display:flex; align-items:center; gap:6px; white-space:nowrap; }
+    .bp-hero-{{ section.id }} .bp-hero-trust span,
+    .bp-hero-{{ section.id }} .bp-hero-trust a{
+      display:flex; align-items:center; gap:6px; white-space:nowrap;
+      color:inherit; text-decoration:none;
+    }
+    .bp-hero-{{ section.id }} .bp-hero-trust a:hover{ text-decoration:underline; }
     .bp-hero-{{ section.id }} .bp-hero-media{
       display:flex; flex-direction:column;
     }
@@ -102,7 +107,7 @@
       <h1>{{ section.settings.heading }} <span class="bp-accent">{{ section.settings.heading_accent }}</span></h1>
       <p class="bp-sub">{{ section.settings.subtext }}</p>
       <div class="bp-hero-trust">
-        <span>{{ section.settings.trust_icon_1 }} {{ section.settings.trust_label_1 }}</span>
+        <a href="#bp-reviews-display">{{ section.settings.trust_icon_1 }} {{ section.settings.trust_label_1 }}</a>
         <span>{{ section.settings.trust_icon_2 }} {{ section.settings.trust_label_2 }}</span>
         <span>{{ section.settings.trust_icon_3 }} {{ section.settings.trust_label_3 }}</span>
         <span>{{ section.settings.trust_icon_4 }} {{ section.settings.trust_label_4 }}</span>
