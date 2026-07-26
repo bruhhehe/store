@@ -347,7 +347,9 @@
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
-    {%- render 'bp-urgency-bar' -%}
+    {%- unless request.page_type == 'cart' -%}
+      {%- render 'bp-urgency-bar' -%}
+    {%- endunless -%}
 
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
@@ -371,7 +373,9 @@
 
     {% sections 'footer-group' %}
 
-    {%- render 'bp-sticky-shop-now' -%}
+    {%- unless request.page_type == 'cart' -%}
+      {%- render 'bp-sticky-shop-now' -%}
+    {%- endunless -%}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>

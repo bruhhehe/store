@@ -556,7 +556,8 @@
               {%- liquid
                 assign default_return_to = '/checkout'
                 if default_block.settings.discount_code != blank
-                  assign default_return_to = '/discount/' | append: default_block.settings.discount_code | url_encode | append: '?redirect=/checkout'
+                  assign encoded_default_discount_code = default_block.settings.discount_code | strip | url_encode
+                  assign default_return_to = '/discount/' | append: encoded_default_discount_code | append: '?redirect=/checkout'
                 endif
               -%}
               <input type="hidden" name="return_to" id="FcReturnTo-{{ section.id }}" value="{{ default_return_to }}">
@@ -642,6 +643,8 @@
                   <p class="fc-stock-text">{{ section.settings.stock_text_template | replace: '[count]', stock_count }}</p>
                 </div>
               {%- endif -%}
+
+              <p class="fc-swatches-error" id="FcCheckoutError-{{ section.id }}" role="alert"></p>
 
               <button type="submit" class="fc-submit" id="FcSubmit-{{ section.id }}">
                 Checkout — {{ default_block.settings.price | times: 100 | money }}
@@ -736,6 +739,62 @@
       var hintEl = document.getElementById('FcSwatchesHint-' + sectionId);
       var form = document.getElementById('FcForm-' + sectionId);
       var quantityInput = document.getElementById('FcQuantity-' + sectionId);
+
+      // Clears the cart, adds the current form selection via AJAX, then
+      // navigates to whatever return_to points at (plain /checkout, or
+      // the /discount/CODE?redirect=/checkout chain for tiers with a
+      // code attached). Any failure along the way — sold out, a
+      // rejected/expired discount, a network error — re-enables the
+      // button and shows the problem inline instead of navigating
+      // anywhere, so shoppers are never dropped on an unexplained page.
+      function submitFcOffer(theForm, theSectionId) {
+        var submitBtn = document.getElementById('FcSubmit-' + theSectionId);
+        var returnToInput = document.getElementById('FcReturnTo-' + theSectionId);
+        var checkoutErrorEl = document.getElementById('FcCheckoutError-' + theSectionId);
+        var originalText = submitBtn ? submitBtn.textContent : '';
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Adding…';
+        }
+
+        fetch('/cart/clear.js', { method: 'POST' })
+          .catch(function () {
+            // Proceed even if the clear request fails — better to risk
+            // a stale cart than block checkout entirely.
+          })
+          .then(function () {
+            return fetch('/cart/add.js', {
+              method: 'POST',
+              headers: { Accept: 'application/json' },
+              body: new FormData(theForm)
+            });
+          })
+          .then(function (res) {
+            return res.json().then(function (data) {
+              if (!res.ok) {
+                throw new Error((data && data.description) || 'That could not be added to your cart.');
+              }
+              return data;
+            });
+          })
+          .then(function () {
+            window.location.href = (returnToInput && returnToInput.value) || '/checkout';
+          })
+          .catch(function (err) {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = originalText;
+            }
+            var message = (err && err.message) || 'Something went wrong adding this to your cart — please try again.';
+            if (checkoutErrorEl) {
+              checkoutErrorEl.textContent = message;
+              checkoutErrorEl.classList.add('is-visible');
+            } else {
+              window.alert(message);
+            }
+          });
+      }
 
       // Total number of colour units the shopper must assign across all
       // rows for the currently chosen quantity tier — they can mix and
@@ -854,9 +913,9 @@
 
       if (form) {
         form.addEventListener('submit', function (e) {
+          e.preventDefault();
           var labels = updateHiddenValue();
           if (labels.length !== maxColours) {
-            e.preventDefault();
             if (errorEl) {
               var missing = maxColours - labels.length;
               errorEl.textContent = missing > 0
@@ -867,20 +926,15 @@
             return;
           }
 
-          // Colours check out — but don't let this add stack on top of
-          // whatever's already in the cart (e.g. from a previous visit,
-          // or the shopper hitting back after a prior checkout). Clear
-          // the cart first, then submit for real so checkout only ever
-          // reflects the current selection.
-          e.preventDefault();
-          fetch('/cart/clear.js', { method: 'POST' })
-            .catch(function () {
-              // Proceed even if the clear request fails — better to risk
-              // a stale cart than block checkout entirely.
-            })
-            .then(function () {
-              form.submit();
-            });
+          // Colours check out — submit via AJAX rather than a raw form
+          // POST so we control what happens next: clear whatever's
+          // already in the cart (e.g. from a previous visit, or the
+          // shopper hitting back after a prior checkout), add the
+          // current selection, and only THEN navigate. If anything in
+          // that chain fails — sold out, a rejected discount code, a
+          // network hiccup — show it right here instead of leaving the
+          // shopper on an unexplained dead end.
+          submitFcOffer(form, sectionId);
         });
       }
 
@@ -895,18 +949,58 @@
   <script>
     (function () {
       // No colour swatches on this instance, so there's no validation to
-      // gate on — just make sure this add doesn't stack on top of
-      // whatever's already in the cart before submitting.
+      // gate on — just clear the cart, add via AJAX, and navigate only
+      // once that succeeds so a failed add never drops the shopper on
+      // an unexplained page.
       var sectionId = {{ section.id | json }};
       var form = document.getElementById('FcForm-' + sectionId);
       if (!form) return;
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
+
+        var submitBtn = document.getElementById('FcSubmit-' + sectionId);
+        var returnToInput = document.getElementById('FcReturnTo-' + sectionId);
+        var checkoutErrorEl = document.getElementById('FcCheckoutError-' + sectionId);
+        var originalText = submitBtn ? submitBtn.textContent : '';
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Adding…';
+        }
+
         fetch('/cart/clear.js', { method: 'POST' })
           .catch(function () {})
           .then(function () {
-            form.submit();
+            return fetch('/cart/add.js', {
+              method: 'POST',
+              headers: { Accept: 'application/json' },
+              body: new FormData(form)
+            });
+          })
+          .then(function (res) {
+            return res.json().then(function (data) {
+              if (!res.ok) {
+                throw new Error((data && data.description) || 'That could not be added to your cart.');
+              }
+              return data;
+            });
+          })
+          .then(function () {
+            window.location.href = (returnToInput && returnToInput.value) || '/checkout';
+          })
+          .catch(function (err) {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = originalText;
+            }
+            var message = (err && err.message) || 'Something went wrong adding this to your cart — please try again.';
+            if (checkoutErrorEl) {
+              checkoutErrorEl.textContent = message;
+              checkoutErrorEl.classList.add('is-visible');
+            } else {
+              window.alert(message);
+            }
           });
       });
     })();
@@ -935,7 +1029,7 @@
 
           var qty = parseInt(tier.getAttribute('data-quantity'), 10) || 1;
           var priceCents = parseInt(tier.getAttribute('data-price'), 10) || 0;
-          var discountCode = tier.getAttribute('data-discount-code') || '';
+          var discountCode = (tier.getAttribute('data-discount-code') || '').trim();
 
           if (quantityInput) quantityInput.value = qty;
 
