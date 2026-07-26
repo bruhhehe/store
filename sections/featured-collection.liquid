@@ -468,7 +468,6 @@
   endfor
 -%}
 
-<div id="bp-featured-offer" style="scroll-margin-top: 100px; display: block !important;"></div>
 <div class="fc-{{ section.id }} isolate">
   <div class="fc-{{ section.id }}-padding fc-wrap" id="FeaturedOffer-{{ section.id }}" data-section-id="{{ section.id }}">
     <div class="fc-left">
@@ -512,6 +511,7 @@
     </div>
 
     <div class="fc-right">
+      <div id="bp-featured-offer" style="scroll-margin-top: 100px; display: block !important;"></div>
       <div class="fc-card">
         {%- if section.settings.badge_text != blank -%}
           <span class="fc-card-badge">{{ section.settings.badge_text }}</span>
