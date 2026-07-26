@@ -306,7 +306,7 @@
           "settings": {
             "label": "1x",
             "quantity": 1,
-            "price": 13,
+            "price": 13.0,
             "badge_text": "",
             "default_selected": false,
             "discount_code": ""
