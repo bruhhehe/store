@@ -19,49 +19,6 @@
         "link_text": "Shop now"
       }
     },
-    "bp_trust_bar": {
-      "type": "bp-trust-bar",
-      "blocks": {
-        "b1": {
-          "type": "item",
-          "settings": {
-            "icon": "⭐",
-            "label": "4.6/5 · 1,317 reviews"
-          }
-        },
-        "b2": {
-          "type": "item",
-          "settings": {
-            "icon": "🐇",
-            "label": "50,000+ stands sold"
-          }
-        },
-        "b3": {
-          "type": "item",
-          "settings": {
-            "icon": "🇬🇧",
-            "label": "Free UK shipping"
-          }
-        },
-        "b4": {
-          "type": "item",
-          "settings": {
-            "icon": "🔒",
-            "label": "Secure checkout via Shopify Payments"
-          }
-        }
-      },
-      "block_order": [
-        "b1",
-        "b2",
-        "b3",
-        "b4"
-      ],
-      "settings": {
-        "bg_color": "#fbe9ec",
-        "text_color": "#2b1e22"
-      }
-    },
     "bp_hero": {
       "type": "bp-hero",
       "settings": {
@@ -75,12 +32,17 @@
         "cta_link": "",
         "reviews_text": "How it works",
         "reviews_link": "",
-        "stars": "★★★★★",
-        "rating_text": "4.6/5 from 1,317 verified UK customers",
-        "returns_days": "30",
         "image": "shopify://shop_images/bunny-hero.png",
         "callout_top": "Multi-angle tilt",
-        "callout_bottom": "Anti-slip padding"
+        "callout_bottom": "Anti-slip padding",
+        "trust_icon_1": "⭐",
+        "trust_label_1": "4.6/5 (1,317 reviews)",
+        "trust_icon_2": "🐇",
+        "trust_label_2": "50,000+ sold",
+        "trust_icon_3": "🇬🇧",
+        "trust_label_3": "Free UK shipping",
+        "trust_icon_4": "🔒",
+        "trust_label_4": "Secure checkout"
       }
     },
     "bp_problem_solution": {
@@ -735,7 +697,6 @@
   },
   "order": [
     "bp_announce",
-    "bp_trust_bar",
     "bp_hero",
     "bp_problem_solution",
     "bp_features",

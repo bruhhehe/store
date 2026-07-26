@@ -28,9 +28,11 @@
     .bp-hero-{{ section.id }} h1 .bp-accent{ color:{{ section.settings.accent_color }}; }
     .bp-hero-{{ section.id }} p.bp-sub{ font-size:16px; color:var(--bp-muted); max-width:460px; margin-bottom:26px; }
     .bp-hero-{{ section.id }} .bp-hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:22px; }
-    .bp-hero-{{ section.id }} .bp-hero-stats{ display:flex; align-items:center; gap:10px; font-size:14px; color:var(--bp-muted); margin-bottom:18px; }
-    .bp-hero-{{ section.id }} .bp-hero-badges{ display:flex; gap:18px; flex-wrap:wrap; font-size:13px; color:var(--bp-muted); }
-    .bp-hero-{{ section.id }} .bp-hero-badges span{ display:flex; align-items:center; gap:6px; }
+    .bp-hero-{{ section.id }} .bp-hero-trust{
+      display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+      font-size:13px; color:var(--bp-muted); margin-bottom:22px;
+    }
+    .bp-hero-{{ section.id }} .bp-hero-trust span{ display:flex; align-items:center; gap:6px; white-space:nowrap; }
     .bp-hero-{{ section.id }} .bp-hero-media{
       display:flex; flex-direction:column;
     }
@@ -99,18 +101,15 @@
       <div class="bp-eyebrow">{{ section.settings.eyebrow }}</div>
       <h1>{{ section.settings.heading }} <span class="bp-accent">{{ section.settings.heading_accent }}</span></h1>
       <p class="bp-sub">{{ section.settings.subtext }}</p>
+      <div class="bp-hero-trust">
+        <span>{{ section.settings.trust_icon_1 }} {{ section.settings.trust_label_1 }}</span>
+        <span>{{ section.settings.trust_icon_2 }} {{ section.settings.trust_label_2 }}</span>
+        <span>{{ section.settings.trust_icon_3 }} {{ section.settings.trust_label_3 }}</span>
+        <span>{{ section.settings.trust_icon_4 }} {{ section.settings.trust_label_4 }}</span>
+      </div>
       <div class="bp-hero-ctas">
         <a href="{{ cta_href }}" class="bp-btn">{{ section.settings.cta_text }} →</a>
         <a href="{{ reviews_href }}" class="bp-btn bp-btn--outline">{{ section.settings.reviews_text }}</a>
-      </div>
-      <div class="bp-hero-stats">
-        <span>{{ section.settings.stars }}</span>
-        <span>{{ section.settings.rating_text }}</span>
-      </div>
-      <div class="bp-hero-badges">
-        <span>🇬🇧 Free UK shipping</span>
-        <span>↩ {{ section.settings.returns_days }}-day returns</span>
-        <span>🔒 Secure checkout</span>
       </div>
     </div>
 
@@ -221,9 +220,15 @@
     { "type": "url", "id": "cta_link", "label": "Primary CTA link", "info": "Leave blank to jump down to the Featured offer section automatically." },
     { "type": "text", "id": "reviews_text", "label": "Secondary CTA text", "default": "How it works" },
     { "type": "url", "id": "reviews_link", "label": "Secondary CTA link", "info": "Leave blank to jump down to the How it works section automatically." },
-    { "type": "text", "id": "stars", "label": "Star rating display", "default": "★★★★★" },
-    { "type": "text", "id": "rating_text", "label": "Rating text", "default": "4.8/5 from 1,317 verified UK customers" },
-    { "type": "text", "id": "returns_days", "label": "Returns window (days)", "default": "30" },
+    { "type": "header", "content": "Trust row (shown above the buttons)" },
+    { "type": "text", "id": "trust_icon_1", "label": "Item 1 icon", "default": "⭐" },
+    { "type": "text", "id": "trust_label_1", "label": "Item 1 label", "default": "4.6/5 (1,317 reviews)" },
+    { "type": "text", "id": "trust_icon_2", "label": "Item 2 icon", "default": "🐇" },
+    { "type": "text", "id": "trust_label_2", "label": "Item 2 label", "default": "50,000+ sold" },
+    { "type": "text", "id": "trust_icon_3", "label": "Item 3 icon", "default": "🇬🇧" },
+    { "type": "text", "id": "trust_label_3", "label": "Item 3 label", "default": "Free UK shipping" },
+    { "type": "text", "id": "trust_icon_4", "label": "Item 4 icon", "default": "🔒" },
+    { "type": "text", "id": "trust_label_4", "label": "Item 4 label", "default": "Secure checkout" },
     { "type": "image_picker", "id": "image", "label": "Product image" },
     { "type": "text", "id": "callout_top", "label": "Top callout text", "default": "Multi-angle tilt" },
     { "type": "text", "id": "callout_bottom", "label": "Bottom callout text", "default": "Anti-slip padding" }
