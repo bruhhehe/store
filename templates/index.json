@@ -527,7 +527,7 @@
       }
     },
     "bp_reviews_display": {
-      "type": "bp-reviews-display",
+      "type": "bp-reviews-display-v2",
       "blocks": {
         "review_1": {
           "type": "review",

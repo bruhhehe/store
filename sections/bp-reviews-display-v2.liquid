@@ -1,0 +1,531 @@
+{{ 'bunny-trust.css' | asset_url | stylesheet_tag }}
+
+<div id="bp-reviews-display" style="scroll-margin-top: 100px; display: block !important;"></div>
+<div class="bp-section bp-reviews-display-{{ section.id }}" style="background:{{ section.settings.bg_color }};">
+  {%- liquid
+    assign rd_5 = section.settings.star_5_count
+    assign rd_4 = section.settings.star_4_count
+    assign rd_3 = section.settings.star_3_count
+    assign rd_2 = section.settings.star_2_count
+    assign rd_1 = section.settings.star_1_count
+    assign rd_total = rd_5 | plus: rd_4 | plus: rd_3 | plus: rd_2 | plus: rd_1
+    assign rd_pct_5 = 0
+    assign rd_pct_4 = 0
+    assign rd_pct_3 = 0
+    assign rd_pct_2 = 0
+    assign rd_pct_1 = 0
+    if rd_total > 0
+      assign rd_pct_5 = rd_5 | times: 100.0 | divided_by: rd_total
+      assign rd_pct_4 = rd_4 | times: 100.0 | divided_by: rd_total
+      assign rd_pct_3 = rd_3 | times: 100.0 | divided_by: rd_total
+      assign rd_pct_2 = rd_2 | times: 100.0 | divided_by: rd_total
+      assign rd_pct_1 = rd_1 | times: 100.0 | divided_by: rd_total
+    endif
+  -%}
+  <style>
+    .bp-reviews-display-{{ section.id }} .bp-rd-summary {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 40px;
+      align-items: center;
+      background: #fff;
+      border: 1px solid rgba(43,30,34,.08);
+      border-radius: var(--bp-radius);
+      padding: 32px;
+      margin-top: 28px;
+      margin-bottom: 36px;
+    }
+    @media screen and (max-width: 749px) {
+      .bp-reviews-display-{{ section.id }} .bp-rd-summary {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 24px;
+        padding: 26px 22px;
+      }
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-overall {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      min-width: 130px;
+    }
+    @media screen and (max-width: 749px) {
+      .bp-reviews-display-{{ section.id }} .bp-rd-overall { align-items: center; }
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-overall-number {
+      font-family: var(--bp-serif);
+      font-size: 48px;
+      line-height: 1;
+      color: var(--bp-ink);
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-overall-count {
+      font-size: 13px;
+      color: var(--bp-muted);
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-trust {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-trust-desc {
+      font-size: 15px;
+      color: var(--bp-ink);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-trust-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--bp-ink);
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-trust-item svg {
+      width: 18px;
+      height: 18px;
+      flex: none;
+      color: var(--bp-pink);
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      min-width: 180px;
+    }
+    @media screen and (max-width: 749px) {
+      .bp-reviews-display-{{ section.id }} .bp-rd-cta { align-items: center; }
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-cta-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--bp-ink);
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 8px;
+    }
+    @media screen and (max-width: 989px) {
+      .bp-reviews-display-{{ section.id }} .bp-rd-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media screen and (max-width: 640px) {
+      .bp-reviews-display-{{ section.id }} .bp-rd-grid { grid-template-columns: 1fr; }
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-card {
+      background: #fff;
+      border: 1px solid rgba(43,30,34,.08);
+      border-radius: var(--bp-radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-grow: 1;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-header {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-photos {
+      display: flex;
+      flex: none;
+      gap: 6px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-photo-btn {
+      width: 90px;
+      height: 90px;
+      flex: none;
+      margin: 0;
+      padding: 0;
+      border: 1px solid rgba(43,30,34,.12);
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      background: none;
+      display: block;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-photo-btn:hover {
+      border-color: {{ section.settings.bg_color | color_darken: 30 }};
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-photos img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(20,14,16,.82);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-lightbox.is-open {
+      display: flex;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-lightbox img {
+      max-width: min(90vw, 520px);
+      max-height: 85vh;
+      border-radius: 14px;
+      display: block;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,.15);
+      color: #fff;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-lightbox-close:hover {
+      background: rgba(255,255,255,.25);
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-quote {
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: var(--bp-ink);
+      flex-grow: 1;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 12px;
+      color: var(--bp-muted);
+      border-top: 1px solid rgba(43,30,34,.08);
+      padding-top: 10px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-name { font-weight: 700; color: var(--bp-ink); }
+    .bp-reviews-display-{{ section.id }} .bp-rd-variant {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      color: var(--bp-pink-deep);
+      margin-bottom: 2px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-stars {
+      color: #d9a441;
+      font-size: 14px;
+      letter-spacing: 1px;
+      line-height: 1;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-overall .bp-rd-stars { font-size: 18px; }
+    .bp-reviews-display-{{ section.id }} .bp-rd-stars .bp-rd-star-empty { color: rgba(43,30,34,.18); }
+    .bp-reviews-display-{{ section.id }} .bp-rd-verified {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(30, 158, 92, 0.12);
+      color: #1e6b41;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-verified svg {
+      width: 16px;
+      height: 16px;
+      flex: none;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-card-extra {
+      display: none;
+    }
+    .bp-reviews-display-{{ section.id }}.bp-rd-expanded .bp-rd-card-extra {
+      display: flex;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-more {
+      margin-top: 24px;
+      padding: 32px 24px;
+      border-radius: 16px;
+      background: rgba(43,30,34,.03);
+      border: 1px solid rgba(43,30,34,.08);
+      text-align: center;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-more svg {
+      width: 30px;
+      height: 30px;
+      color: var(--bp-pink);
+      margin-bottom: 8px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-more h3 {
+      margin: 0 0 4px;
+      font-size: 19px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-more p {
+      margin: 0 0 16px;
+      color: var(--bp-muted);
+      font-size: 14px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-more.is-done {
+      display: none;
+    }
+  </style>
+
+  <div class="bp-wrap">
+    <div class="bp-center" style="margin-bottom: 8px;">
+      <div class="bp-eyebrow">{{ section.settings.eyebrow }}</div>
+      <h2 style="font-size:30px;">{{ section.settings.heading }}</h2>
+      <span class="bp-rd-verified">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="10" cy="10" r="10" fill="#1e9e5c"/>
+          <path d="M5.5 10.2L8.3 13L14.5 6.8" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        All from verified purchases
+      </span>
+    </div>
+
+    <div class="bp-rd-summary">
+      <div class="bp-rd-overall">
+        <span class="bp-rd-overall-number">{{ section.settings.overall_rating }}</span>
+        <span class="bp-rd-stars" aria-hidden="true">★★★★★</span>
+        <span class="bp-rd-overall-count">{{ rd_total }} reviews</span>
+      </div>
+
+      <div class="bp-rd-trust">
+        <p class="bp-rd-trust-desc">{{ section.settings.trust_description }}</p>
+        <div class="bp-rd-trust-items">
+          <span class="bp-rd-trust-item">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M5.5 10.2L8.3 13L14.5 6.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            {{ section.settings.trust_text_1 }}
+          </span>
+          <span class="bp-rd-trust-item">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M10 17s-6.5-4.1-6.5-8.6C3.5 5.7 5.4 4 7.6 4c1 0 2 .4 2.7 1.2l-.3.3.3-.3c.7-.8 1.7-1.2 2.7-1.2 2.2 0 4.1 1.7 4.1 4.4C17 12.9 10.5 17 10.5 17H10z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            </svg>
+            {{ section.settings.trust_text_2 }}
+          </span>
+          <span class="bp-rd-trust-item">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="3.5" y="8.5" width="13" height="8" rx="1" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M3.5 8.5H16.5V6.5C16.5 5.9 16 5.5 15.5 5.5H4.5C3.9 5.5 3.5 5.9 3.5 6.5V8.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+              <path d="M10 5.5V16.5" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M10 5.5C10 5.5 8.5 2.5 6.7 3.1C5.3 3.6 5.6 5.5 6.5 5.5H10Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+              <path d="M10 5.5C10 5.5 11.5 2.5 13.3 3.1C14.7 3.6 14.4 5.5 13.5 5.5H10Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            </svg>
+            {{ section.settings.trust_text_3 }}
+          </span>
+        </div>
+      </div>
+
+      <div class="bp-rd-cta">
+        <span class="bp-rd-cta-label">{{ section.settings.cta_label }}</span>
+        <a href="#bp-reviews" class="bp-btn">{{ section.settings.cta_text }}</a>
+      </div>
+    </div>
+
+    <div class="bp-rd-grid" id="BpRdGrid-{{ section.id }}">
+      {%- for block in section.blocks -%}
+        <div class="bp-rd-card{% if forloop.index > 3 %} bp-rd-card-extra{% endif %}" {{ block.shopify_attributes }}>
+          <div class="bp-rd-card-body">
+            <div class="bp-rd-top">
+              <div class="bp-rd-header">
+                {%- if block.settings.variant != blank -%}
+                  <span class="bp-rd-variant">{{ block.settings.variant }}</span>
+                {%- endif -%}
+                <span class="bp-rd-stars" aria-label="{{ block.settings.stars }} out of 5 stars">
+                  {%- for i in (1..5) -%}
+                    {%- if i <= block.settings.stars -%}★{%- else -%}<span class="bp-rd-star-empty">★</span>{%- endif -%}
+                  {%- endfor -%}
+                </span>
+              </div>
+              {%- if block.settings.image != blank or block.settings.image_2 != blank -%}
+                <div class="bp-rd-photos">
+                  {%- if block.settings.image != blank -%}
+                    <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image | asset_url }}" aria-label="View photo from {{ block.settings.name }}'s review">
+                      <img
+                        src="{{ block.settings.image | asset_url }}"
+                        loading="lazy"
+                        alt="Photo from {{ block.settings.name }}'s review"
+                        width="90"
+                        height="90"
+                      >
+                    </button>
+                  {%- endif -%}
+                  {%- if block.settings.image_2 != blank -%}
+                    <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image_2 | asset_url }}" aria-label="View second photo from {{ block.settings.name }}'s review">
+                      <img
+                        src="{{ block.settings.image_2 | asset_url }}"
+                        loading="lazy"
+                        alt="Second photo from {{ block.settings.name }}'s review"
+                        width="90"
+                        height="90"
+                      >
+                    </button>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+            <p class="bp-rd-quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
+            <div class="bp-rd-meta">
+              <span class="bp-rd-name">{{ block.settings.name }}</span>
+              <span>{{ block.settings.date }}</span>
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.blocks.size > 3 -%}
+      <div class="bp-rd-more" id="BpRdMore-{{ section.id }}">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M8 12.5C8 9.5 10.5 7 14 7C17.5 7 20 9.5 20 12.5C20 15.5 17.5 18 14 18C13.2 18 12.5 17.9 11.8 17.6L8.5 19L9.3 16.2C8.5 15.2 8 13.9 8 12.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M4 9.5C4 8 5.3 6.7 7 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <h3>{{ section.settings.more_heading }}</h3>
+        <p>{{ section.settings.more_text | replace: '{count}', rd_total }}</p>
+        <button type="button" class="bp-btn" id="BpRdShowMore-{{ section.id }}">{{ section.settings.more_button_text }}</button>
+      </div>
+    {%- endif -%}
+
+    <div class="bp-rd-lightbox" id="BpRdLightbox-{{ section.id }}">
+      <button type="button" class="bp-rd-lightbox-close" aria-label="Close photo">✕</button>
+      <img src="" alt="" id="BpRdLightboxImg-{{ section.id }}">
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var root = document.querySelector('.bp-reviews-display-{{ section.id }}');
+    if (!root) return;
+
+    var lightbox = document.getElementById('BpRdLightbox-{{ section.id }}');
+    var lightboxImg = document.getElementById('BpRdLightboxImg-{{ section.id }}');
+    var closeBtn = lightbox ? lightbox.querySelector('.bp-rd-lightbox-close') : null;
+    if (!lightbox || !lightboxImg) return;
+
+    function open(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || '';
+      lightbox.classList.add('is-open');
+    }
+
+    function close() {
+      lightbox.classList.remove('is-open');
+      lightboxImg.src = '';
+    }
+
+    root.querySelectorAll('.bp-rd-photo-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var img = btn.querySelector('img');
+        open(btn.getAttribute('data-full'), img ? img.alt : '');
+      });
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') close();
+    });
+
+    var showMoreBtn = document.getElementById('BpRdShowMore-{{ section.id }}');
+    var moreBox = document.getElementById('BpRdMore-{{ section.id }}');
+    if (showMoreBtn) {
+      showMoreBtn.addEventListener('click', function () {
+        root.classList.add('bp-rd-expanded');
+        if (moreBox) moreBox.classList.add('is-done');
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "BP Reviews Display v2",
+  "tag": "section",
+  "class": "section-bp-reviews-display-v2",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#fdf3f4" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "WHAT DO CUSTOMERS SAY" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Real customers, real Bunny Perches" },
+    { "type": "text", "id": "overall_rating", "label": "Overall rating (shown large)", "default": "4.9" },
+    { "type": "number", "id": "star_5_count", "label": "5-star review count", "default": 181 },
+    { "type": "number", "id": "star_4_count", "label": "4-star review count", "default": 18 },
+    { "type": "number", "id": "star_3_count", "label": "3-star review count", "default": 1 },
+    { "type": "number", "id": "star_2_count", "label": "2-star review count", "default": 0 },
+    { "type": "number", "id": "star_1_count", "label": "1-star review count", "default": 0 },
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Share your experience" },
+    { "type": "text", "id": "cta_text", "label": "CTA button text", "default": "Write a review" },
+    { "type": "header", "content": "Trust row (shown above the reviews)" },
+    { "type": "textarea", "id": "trust_description", "label": "Description", "default": "Customers love the quality, practicality, and design of our phone stands." },
+    { "type": "text", "id": "trust_text_1", "label": "Trust item 1", "default": "Great quality" },
+    { "type": "text", "id": "trust_text_2", "label": "Trust item 2", "default": "Useful & practical" },
+    { "type": "text", "id": "trust_text_3", "label": "Trust item 3", "default": "Perfect gift" },
+    { "type": "header", "content": "\"Show more\" box (shown after the first 3 reviews)" },
+    { "type": "text", "id": "more_heading", "label": "Heading", "default": "More happy customers" },
+    { "type": "text", "id": "more_text", "label": "Text", "info": "Use {count} to insert the total review count", "default": "Join {count}+ customers who love our phone stands." },
+    { "type": "text", "id": "more_button_text", "label": "Button text", "default": "Show more reviews" }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "text", "id": "image", "label": "Photo filename (optional)", "info": "Filename of an image uploaded to this theme's Assets folder, e.g. bp-review-photo-1.jpg" },
+        { "type": "text", "id": "image_2", "label": "Second photo filename (optional)", "info": "Filename of an image uploaded to this theme's Assets folder" },
+        { "type": "text", "id": "name", "label": "Name (masked)", "default": "C***s" },
+        { "type": "text", "id": "date", "label": "Date", "default": "15 May 2026" },
+        { "type": "text", "id": "variant", "label": "Variant purchased", "default": "1pc - Black" },
+        { "type": "range", "id": "stars", "label": "Star rating", "min": 1, "max": 5, "step": 1, "default": 5 },
+        { "type": "textarea", "id": "quote", "label": "Review text", "default": "Very satisfied with these, easy to assemble." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BP Reviews Display",
+      "blocks": [
+        { "type": "review", "settings": { "name": "C***s", "date": "15 May 2026", "variant": "2pcs - Black", "stars": 5, "quote": "Very satisfied with these. Easy to assemble, and great for holding my phone or a small notebook whilst gaming." } },
+        { "type": "review", "settings": { "name": "z***r", "date": "17 Jan 2026", "variant": "1pc - Pink", "stars": 5, "quote": "Such a life saver, always needed a cute phone stand to watch stuff on." } },
+        { "type": "review", "settings": { "name": "t***n", "date": "3 Jan 2026", "variant": "1pc - White", "stars": 5, "quote": "So useful to hold my phone when recording or watching something." } },
+        { "type": "review", "settings": { "name": "J***1", "date": "15 Jun 2026", "variant": "1pc - White", "stars": 5, "quote": "Very happy, I can use it as a controller stand too, keeps my desk organised." } },
+        { "type": "review", "settings": { "name": "s***r", "date": "29 Dec 2025", "variant": "1pc - Black", "stars": 4, "quote": "Very useful, can use it to film videos from above as well. Easy to set up, and for the price it's fine." } },
+        { "type": "review", "settings": { "name": "N***d", "date": "8 Jun 2026", "variant": "2pcs - Pink", "stars": 5, "quote": "Lovely items and great quality, well worth the price. Arrived speedily and very happy with everything." } },
+        { "type": "review", "settings": { "name": "K***v", "date": "20 Mar 2026", "variant": "1pc - Black", "stars": 4, "quote": "It's very light and cheaply made, but it supports my phone, so it does what it's supposed to do for the price." } },
+        { "type": "review", "settings": { "name": "A***r", "date": "6 May 2026", "variant": "1pc - Pink", "stars": 4, "quote": "Very cute, holds my phone at both angles. Assembly was a bit fiddly, but it does the job. Definitely recommend." } },
+        { "type": "review", "settings": { "name": "N***n", "date": "8 Mar 2026", "variant": "1pc - White", "stars": 5, "quote": "Very handy little stand for my phone, so pleased with the quality." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
