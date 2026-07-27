@@ -64,32 +64,23 @@
       pointer-events:none;
     }
     .bp-hero-{{ section.id }} .bp-hero-progress{
-      position:absolute; left:20px; right:20px; bottom:20px; z-index:4;
-      display:flex; gap:8px;
+      position:absolute; left:50%; transform:translateX(-50%); bottom:18px; z-index:4;
+      display:flex; align-items:center; gap:6px;
     }
     .bp-hero-{{ section.id }} .bp-hero-progress-seg{
-      flex:1; height:8px; padding:8px 0; margin:-8px 0; border:none; background:none;
-      cursor:pointer; position:relative;
+      width:8px; height:8px; padding:0; margin:0; border:none; border-radius:999px;
+      background: rgba(255,255,255,.75);
+      box-shadow: 0 1px 3px rgba(0,0,0,.15);
+      cursor:pointer;
+      transition: width .3s ease, background-color .3s ease;
     }
-    .bp-hero-{{ section.id }} .bp-hero-progress-seg::before{
-      content:""; position:absolute; inset:8px 0; border-radius:999px;
-      background: rgba(255,255,255,.5);
-      border: 1px solid rgba(0,0,0,.25);
-    }
-    .bp-hero-{{ section.id }} .bp-hero-progress-fill{
-      position:absolute; top:8px; bottom:8px; left:0; width:0%;
-      background: #ffffff; border-radius:999px;
-      box-shadow: 0 0 0 1px rgba(0,0,0,.25);
-    }
-    .bp-hero-{{ section.id }} .bp-hero-progress-seg.is-complete .bp-hero-progress-fill{
-      width:100%;
-    }
-    .bp-hero-{{ section.id }} .bp-hero-progress-seg.is-active .bp-hero-progress-fill{
-      width:100%; transition: width {{ hero_slide_seconds }}s linear;
+    .bp-hero-{{ section.id }} .bp-hero-progress-seg.is-active{
+      width:26px;
+      background: {{ section.settings.accent_color }};
     }
     @media (prefers-reduced-motion: reduce){
       .bp-hero-{{ section.id }} .bp-hero-slide{ transition:none; }
-      .bp-hero-{{ section.id }} .bp-hero-progress-seg.is-active .bp-hero-progress-fill{ transition:none; }
+      .bp-hero-{{ section.id }} .bp-hero-progress-seg{ transition:none; }
     }
     .bp-hero-{{ section.id }} .bp-callout{
       position:absolute; background:#fff; border-radius:999px; padding:9px 16px;
@@ -149,9 +140,7 @@
               role="tab"
               aria-label="Show photo {{ forloop.index }}"
               aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
-            >
-              <span class="bp-hero-progress-fill"></span>
-            </button>
+            ></button>
           {%- endfor -%}
         </div>
       </div>
@@ -179,15 +168,7 @@
       });
       segs.forEach(function (seg, i) {
         seg.classList.toggle('is-active', i === index);
-        seg.classList.toggle('is-complete', i < index);
         seg.setAttribute('aria-selected', i === index ? 'true' : 'false');
-        if (i === index) {
-          // Restart the CSS width transition on the active segment's fill
-          // by forcing a reflow before re-adding the class.
-          seg.classList.remove('is-active');
-          void seg.offsetWidth;
-          seg.classList.add('is-active');
-        }
       });
       current = index;
       if (restart) resetTimer();
