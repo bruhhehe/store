@@ -263,11 +263,12 @@
   }
 
   .fc-{{ section.id }} .fc-swatch-dot {
+    box-sizing: border-box;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 1.5px solid rgba(0, 0, 0, 0.15);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 2px solid rgba(43, 30, 34, 0.18);
+    background-clip: padding-box;
     flex: none;
   }
 
@@ -794,6 +795,21 @@
           });
       }
 
+      // If the shopper heads to checkout, then hits Back, some browsers
+      // restore this exact page (including the disabled "Adding…"
+      // button) straight from cache instead of reloading it — pageshow
+      // fires in both that case and a normal load, so unconditionally
+      // put the button back into its resting state either way.
+      window.addEventListener('pageshow', function () {
+        var submitBtn = document.getElementById('FcSubmit-' + sectionId);
+        var checkoutErrorEl = document.getElementById('FcCheckoutError-' + sectionId);
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = submitBtn.dataset.defaultText || submitBtn.textContent;
+        }
+        if (checkoutErrorEl) checkoutErrorEl.classList.remove('is-visible');
+      });
+
       // Total number of colour units the shopper must assign across all
       // rows for the currently chosen quantity tier — they can mix and
       // match freely, or put them all on one colour. Kept in sync with
@@ -1001,6 +1017,19 @@
             }
           });
       });
+
+      // Same fix as the colour-swatch variant: restore the button if the
+      // shopper goes to checkout and hits Back into a cached copy of
+      // this page with the button still stuck disabled.
+      window.addEventListener('pageshow', function () {
+        var submitBtn = document.getElementById('FcSubmit-' + sectionId);
+        var checkoutErrorEl = document.getElementById('FcCheckoutError-' + sectionId);
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = submitBtn.dataset.defaultText || submitBtn.textContent;
+        }
+        if (checkoutErrorEl) checkoutErrorEl.classList.remove('is-visible');
+      });
     })();
   </script>
 {%- endif -%}
@@ -1018,6 +1047,12 @@
       var savingsEl = document.getElementById('FcSavings-' + sectionId);
       var compareAtCents = {{ variant.compare_at_price | default: 0 }};
 
+      // Stash the button's "resting" label (not the transient "Adding…"
+      // state) so it can be restored correctly if the shopper navigates
+      // to checkout and then hits Back — see the pageshow listener in
+      // the submit script below.
+      if (submitBtn) submitBtn.dataset.defaultText = submitBtn.textContent;
+
       tiers.forEach(function (tier) {
         tier.addEventListener('click', function () {
           tiers.forEach(function (t) {
@@ -1033,6 +1068,7 @@
 
           if (submitBtn) {
             submitBtn.textContent = 'Checkout — ' + formatMoney(priceCents);
+            submitBtn.dataset.defaultText = submitBtn.textContent;
           }
 
           // Reflect this tier's total (and exact savings) in the top price
