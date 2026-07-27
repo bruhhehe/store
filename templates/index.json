@@ -40,9 +40,8 @@
         "trust_label_3": "Free UK shipping",
         "trust_icon_4": "🔒",
         "trust_label_4": "Secure checkout",
-        "image": "",
-        "callout_top": "Multi-angle tilt",
-        "callout_bottom": "Anti-slip padding"
+        "callout_top": "",
+        "callout_bottom": ""
       }
     },
     "bp_problem_solution": {
@@ -306,7 +305,7 @@
           "settings": {
             "label": "1 Stand",
             "quantity": 1,
-            "price": 11.99,
+            "price": 12.0,
             "badge_text": "",
             "default_selected": false,
             "discount_code": ""
@@ -317,7 +316,7 @@
           "settings": {
             "label": "2 Stands",
             "quantity": 2,
-            "price": 20.99,
+            "price": 21.0,
             "badge_text": "Most Popular",
             "default_selected": true,
             "discount_code": "BUNNY2"
@@ -328,7 +327,7 @@
           "settings": {
             "label": "3 Stands",
             "quantity": 3,
-            "price": 27.99,
+            "price": 28.0,
             "badge_text": "",
             "default_selected": false,
             "discount_code": "BUNNY3"
@@ -339,7 +338,7 @@
           "settings": {
             "label": "4 Stands",
             "quantity": 4,
-            "price": 32.99,
+            "price": 33.0,
             "badge_text": "Best Value",
             "default_selected": false,
             "discount_code": "BUNNY4"
@@ -532,51 +531,61 @@
         "review_1": {
           "type": "review",
           "settings": {
+            "image": "bp-review-photo-1.jpg",
+            "image_2": "",
+            "image_3": "",
             "name": "C***s",
             "date": "15 May 2026",
             "variant": "2pcs - Black",
             "stars": 5,
-            "quote": "Very satisfied with these. Easy to assemble, and great for holding my phone or a small notebook whilst gaming.",
-            "image": "bp-review-photo-1.jpg"
+            "quote": "Very satisfied with these. Easy to assemble, and great for holding my phone or a small notebook whilst gaming."
           }
         },
         "review_2": {
           "type": "review",
           "settings": {
+            "image": "bp-review-photo-11.jpg",
+            "image_2": "",
+            "image_3": "",
             "name": "z***r",
             "date": "17 Jan 2026",
             "variant": "1pc - Pink",
             "stars": 5,
-            "quote": "Such a life saver, always needed a cute phone stand to watch stuff on.",
-            "image": "bp-review-photo-11.jpg"
+            "quote": "Such a life saver, always needed a cute phone stand to watch stuff on."
           }
         },
         "review_3": {
           "type": "review",
           "settings": {
+            "image": "bp-review-photo-4.jpg",
+            "image_2": "",
+            "image_3": "",
             "name": "t***n",
             "date": "3 Jan 2026",
             "variant": "1pc - White",
             "stars": 5,
-            "quote": "So useful to hold my phone when recording or watching something.",
-            "image": "bp-review-photo-4.jpg"
+            "quote": "So useful to hold my phone when recording or watching something."
           }
         },
         "review_4": {
           "type": "review",
           "settings": {
+            "image": "bp-review-photo-2.jpg",
+            "image_2": "bp-review-photo-3.jpg",
+            "image_3": "",
             "name": "J***1",
             "date": "15 Jun 2026",
             "variant": "1pc - White",
             "stars": 5,
-            "quote": "Very happy, I can use it as a controller stand too, keeps my desk organised.",
-            "image": "bp-review-photo-2.jpg",
-            "image_2": "bp-review-photo-3.jpg"
+            "quote": "Very happy, I can use it as a controller stand too, keeps my desk organised."
           }
         },
         "review_5": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "s***r",
             "date": "29 Dec 2025",
             "variant": "1pc - Black",
@@ -587,6 +596,9 @@
         "review_6": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "N***d",
             "date": "8 Jun 2026",
             "variant": "2pcs - Pink",
@@ -597,6 +609,9 @@
         "review_7": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "A***a",
             "date": "31 Aug 2025",
             "variant": "1pc - White",
@@ -607,6 +622,9 @@
         "review_8": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "A***r",
             "date": "6 May 2026",
             "variant": "1pc - Pink",
@@ -617,6 +635,9 @@
         "review_9": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "N***n",
             "date": "8 Mar 2026",
             "variant": "1pc - White",
@@ -627,96 +648,113 @@
         "review_10": {
           "type": "review",
           "settings": {
+            "image": "bp-review-photo-1.jpg",
+            "image_2": "",
+            "image_3": "",
             "name": "L***r",
             "date": "1 Jan 2026",
             "variant": "1pc - Pink",
             "stars": 5,
-            "quote": "So cute and easy to build!! It holds my phone really well.",
-            "image": "bp-review-photo-1.jpg"
+            "quote": "So cute and easy to build!! It holds my phone really well."
           }
         },
         "review_11": {
           "type": "review",
           "settings": {
+            "image": "bp-review-photo-5.jpg",
+            "image_2": "",
+            "image_3": "",
             "name": "J***r",
             "date": "17 Jan 2026",
             "variant": "1pc - Pink",
             "stars": 5,
-            "quote": "Just like in the photo. No complaints, it arrived ahead of schedule.",
-            "image": "bp-review-photo-5.jpg"
+            "quote": "Just like in the photo. No complaints, it arrived ahead of schedule."
           }
         },
         "review_12": {
           "type": "review",
           "settings": {
+            "image": "bp-review-photo-6.jpg",
+            "image_2": "",
+            "image_3": "",
             "name": "M***d",
             "date": "14 Sep 2025",
             "variant": "1pc - Pink",
             "stars": 5,
-            "quote": "I bought it on Monday (08/09) and it arrived in Portugal on Saturday (13/09). I've never seen anything so fast. Let's talk about the product, which was a combo of 13 gifts for my girlfriend: cute and finely crafted, she will finally have a place to put her phone on video call!",
-            "image": "bp-review-photo-6.jpg"
+            "quote": "I bought it on Monday (08/09) and it arrived in Portugal on Saturday (13/09). I've never seen anything so fast. Let's talk about the product, which was a combo of 13 gifts for my girlfriend: cute and finely crafted, she will finally have a place to put her phone on video call!"
           }
         },
         "review_13": {
           "type": "review",
           "settings": {
+            "image": "bp-review-photo-7.jpg",
+            "image_2": "bp-review-photo-8.jpg",
+            "image_3": "",
             "name": "O***z",
             "date": "23 Dec 2025",
             "variant": "1pc - Black",
             "stars": 5,
-            "quote": "Very good. I struggled a little to assemble the pieces, but it holds the weight of my phone with a case on well, whether placed vertically or horizontally. The base is not very heavy, but overall it feels solid. Good purchase.",
-            "image": "bp-review-photo-7.jpg",
-            "image_2": "bp-review-photo-8.jpg"
+            "quote": "Very good. I struggled a little to assemble the pieces, but it holds the weight of my phone with a case on well, whether placed vertically or horizontally. The base is not very heavy, but overall it feels solid. Good purchase."
           }
         },
         "review_14": {
           "type": "review",
           "settings": {
+            "image": "bp-review-photo-9.jpg",
+            "image_2": "bp-review-photo-10.jpg",
+            "image_3": "",
             "name": "S***o",
             "date": "26 Dec 2025",
             "variant": "1pc - Pink",
             "stars": 5,
-            "quote": "Super easy to assemble and the call stays very firm.",
-            "image": "bp-review-photo-9.jpg",
-            "image_2": "bp-review-photo-10.jpg"
+            "quote": "Super easy to assemble and the call stays very firm."
           }
         },
         "review_15": {
           "type": "review",
           "settings": {
+            "image": "bp-review-photo-11.jpg",
+            "image_2": "",
+            "image_3": "",
             "name": "X***u",
             "date": "4 Feb 2026",
             "variant": "1pc - Pink",
             "stars": 5,
-            "quote": "Fast delivery, the product is very good and my phone fits perfectly on it. Honestly, I recommend it. Thank you again.",
-            "image": "bp-review-photo-11.jpg"
+            "quote": "Fast delivery, the product is very good and my phone fits perfectly on it. Honestly, I recommend it. Thank you again."
           }
         },
         "review_16": {
           "type": "review",
           "settings": {
+            "image": "bp-review-photo-12.jpg",
+            "image_2": "",
+            "image_3": "",
             "name": "Anonymous",
             "date": "8 Feb 2026",
             "variant": "1pc - Pink",
             "stars": 5,
-            "quote": "Cute 😍 Love it! Exactly what I expected.",
-            "image": "bp-review-photo-12.jpg"
+            "quote": "Cute 😍 Love it! Exactly what I expected."
           }
         },
         "review_17": {
           "type": "review",
           "settings": {
+            "image": "bp-review-photo-13.jpg",
+            "image_2": "",
+            "image_3": "",
             "name": "Anonymous",
             "date": "19 Feb 2026",
             "variant": "1pc - Black",
             "stars": 5,
-            "quote": "It arrived quickly and is just as described.",
-            "image": "bp-review-photo-13.jpg"
+            "quote": "It arrived quickly and is just as described."
           }
         },
         "review_18": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "s***r",
             "date": "29 Dec 2025",
             "variant": "1pc - White",
@@ -727,6 +765,9 @@
         "review_19": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "A***e",
             "date": "18 Dec 2025",
             "variant": "1pc - Pink",
@@ -737,6 +778,9 @@
         "review_20": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "I***a",
             "date": "06 Jul 2026",
             "variant": "2pcs - Blue",
@@ -747,6 +791,9 @@
         "review_21": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "S***r",
             "date": "01 Jul 2026",
             "variant": "2pcs - Blue",
@@ -757,6 +804,9 @@
         "review_22": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "d***z",
             "date": "01 Jul 2026",
             "variant": "1pc - Pink",
@@ -767,19 +817,22 @@
         "review_23": {
           "type": "review",
           "settings": {
+            "image": "bp-review-photo-14.jpg",
+            "image_2": "bp-review-photo-15.jpg",
+            "image_3": "bp-review-photo-16.jpg",
             "name": "anonymous",
             "date": "01 Jul 2026",
             "variant": "1pc - Pink",
             "stars": 4,
-            "quote": "great!!! yeyyy",
-            "image": "bp-review-photo-14.jpg",
-            "image_2": "bp-review-photo-15.jpg",
-            "image_3": "bp-review-photo-16.jpg"
+            "quote": "great!!! yeyyy"
           }
         },
         "review_24": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "m***r",
             "date": "22 Jul 2026",
             "variant": "1pc - Pink",
@@ -790,6 +843,9 @@
         "review_25": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "U***r",
             "date": "29 Dec 2025",
             "variant": "2pcs - White",
@@ -800,6 +856,9 @@
         "review_26": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "M***d",
             "date": "30 Dec 2025",
             "variant": "1pc - Pink",
@@ -810,6 +869,9 @@
         "review_27": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "a***r",
             "date": "20 Dec 2025",
             "variant": "1pc - Pink",
@@ -820,6 +882,9 @@
         "review_28": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "B***e",
             "date": "17 Dec 2025",
             "variant": "1pc - Pink",
@@ -830,6 +895,9 @@
         "review_29": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "M***s",
             "date": "09 Feb 2026",
             "variant": "1pc - White",
@@ -840,6 +908,9 @@
         "review_30": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "r***a",
             "date": "04 Feb 2026",
             "variant": "1pc - Pink",
@@ -850,6 +921,9 @@
         "review_31": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "J***r",
             "date": "22 Jan 2026",
             "variant": "1pc - Black",
@@ -860,6 +934,9 @@
         "review_32": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "U***r",
             "date": "22 Jan 2026",
             "variant": "1pc - Pink",
@@ -870,6 +947,9 @@
         "review_33": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "I***i",
             "date": "28 Dec 2025",
             "variant": "1pc - Pink",
@@ -880,6 +960,9 @@
         "review_34": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "L***r",
             "date": "09 Aug 2025",
             "variant": "2pcs - Pink",
@@ -890,6 +973,9 @@
         "review_35": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "G***a",
             "date": "14 Feb 2026",
             "variant": "1pc - Pink",
@@ -900,6 +986,9 @@
         "review_36": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "U***r",
             "date": "18 Feb 2026",
             "variant": "1pc - Pink",
@@ -910,6 +999,9 @@
         "review_37": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "s***r",
             "date": "20 Feb 2026",
             "variant": "2pcs - Pink",
@@ -920,6 +1012,9 @@
         "review_38": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "U***r",
             "date": "19 Feb 2026",
             "variant": "1pc - Pink",
@@ -930,6 +1025,9 @@
         "review_39": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "V***a",
             "date": "01 Mar 2026",
             "variant": "1pc - Pink",
@@ -940,6 +1038,9 @@
         "review_40": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "a***r",
             "date": "16 Oct 2025",
             "variant": "1pc - White",
@@ -950,6 +1051,9 @@
         "review_41": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "U***r",
             "date": "05 Mar 2026",
             "variant": "1pc - Black",
@@ -960,6 +1064,9 @@
         "review_42": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "B***y",
             "date": "11 Mar 2026",
             "variant": "1pc - Pink",
@@ -970,6 +1077,9 @@
         "review_43": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "U***r",
             "date": "05 Mar 2026",
             "variant": "1pc - Black",
@@ -980,6 +1090,9 @@
         "review_44": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "T***e",
             "date": "03 Jan 2026",
             "variant": "1pc - Pink",
@@ -990,6 +1103,9 @@
         "review_45": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "T***s",
             "date": "08 Mar 2026",
             "variant": "1pc - Black",
@@ -1000,6 +1116,9 @@
         "review_46": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "j***l",
             "date": "10 Mar 2026",
             "variant": "1pc - Pink",
@@ -1010,6 +1129,9 @@
         "review_47": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "A***n",
             "date": "09 Mar 2026",
             "variant": "1pc - Pink",
@@ -1020,6 +1142,9 @@
         "review_48": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "e***r",
             "date": "17 Mar 2026",
             "variant": "1pc - White",
@@ -1030,6 +1155,9 @@
         "review_49": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "H***a",
             "date": "24 Jan 2026",
             "variant": "1pc - Black",
@@ -1040,6 +1168,9 @@
         "review_50": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "G***i",
             "date": "11 Jan 2026",
             "variant": "1pc - White",
@@ -1050,6 +1181,9 @@
         "review_51": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "m***r",
             "date": "27 Mar 2026",
             "variant": "1pc - Pink",
@@ -1060,6 +1194,9 @@
         "review_52": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "U***r",
             "date": "31 Dec 2025",
             "variant": "1pc - Pink",
@@ -1070,6 +1207,9 @@
         "review_53": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "l***r",
             "date": "15 Mar 2026",
             "variant": "1pc - Pink",
@@ -1080,6 +1220,9 @@
         "review_54": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "n***r",
             "date": "31 Mar 2026",
             "variant": "1pc - White",
@@ -1090,6 +1233,9 @@
         "review_55": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "L***r",
             "date": "09 Aug 2025",
             "variant": "1pc - Pink",
@@ -1100,6 +1246,9 @@
         "review_56": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "a***r",
             "date": "26 Jan 2026",
             "variant": "1pc - Pink",
@@ -1110,6 +1259,9 @@
         "review_57": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "U***r",
             "date": "31 Dec 2025",
             "variant": "2pcs - Black",
@@ -1120,6 +1272,9 @@
         "review_58": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "A***t",
             "date": "12 Feb 2026",
             "variant": "1pc - Black",
@@ -1130,6 +1285,9 @@
         "review_59": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "H***s",
             "date": "13 Jan 2026",
             "variant": "1pc - Pink",
@@ -1140,6 +1298,9 @@
         "review_60": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "U***r",
             "date": "28 Jan 2026",
             "variant": "1pc - Pink",
@@ -1150,6 +1311,9 @@
         "review_61": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "I***s",
             "date": "15 Jan 2026",
             "variant": "1pc - White",
@@ -1160,6 +1324,9 @@
         "review_62": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "m***e",
             "date": "26 Mar 2026",
             "variant": "1pc - Pink",
@@ -1170,6 +1337,9 @@
         "review_63": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "a***r",
             "date": "30 Mar 2026",
             "variant": "1pc - Pink",
@@ -1180,6 +1350,9 @@
         "review_64": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "S***m",
             "date": "29 Mar 2026",
             "variant": "1pc - Pink",
@@ -1190,6 +1363,9 @@
         "review_65": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "F***1",
             "date": "04 Apr 2026",
             "variant": "2pcs - Pink",
@@ -1200,6 +1376,9 @@
         "review_66": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "S***r",
             "date": "04 Apr 2026",
             "variant": "1pc - Black",
@@ -1210,6 +1389,9 @@
         "review_67": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "C***n",
             "date": "10 Jan 2026",
             "variant": "1pc - Pink",
@@ -1220,6 +1402,9 @@
         "review_68": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "4***r",
             "date": "25 Jan 2026",
             "variant": "1pc - White",
@@ -1230,6 +1415,9 @@
         "review_69": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "S***n",
             "date": "13 Jan 2026",
             "variant": "1pc - Pink",
@@ -1240,6 +1428,9 @@
         "review_70": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "U***r",
             "date": "16 Jan 2026",
             "variant": "1pc - Black",
@@ -1250,6 +1441,9 @@
         "review_71": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "C***a",
             "date": "26 Jan 2026",
             "variant": "1pc - White",
@@ -1260,6 +1454,9 @@
         "review_72": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "T***n",
             "date": "30 Jan 2026",
             "variant": "1pc - Pink",
@@ -1270,6 +1467,9 @@
         "review_73": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "H***e",
             "date": "11 Apr 2026",
             "variant": "1pc - Pink",
@@ -1280,6 +1480,9 @@
         "review_74": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "c***s",
             "date": "19 Jan 2026",
             "variant": "1pc - Pink",
@@ -1290,6 +1493,9 @@
         "review_75": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "L***笑",
             "date": "12 Apr 2026",
             "variant": "1pc - Black",
@@ -1300,6 +1506,9 @@
         "review_76": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "z***a",
             "date": "20 Apr 2026",
             "variant": "1pc - White",
@@ -1310,6 +1519,9 @@
         "review_77": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "U***m",
             "date": "25 Jan 2026",
             "variant": "1pc - White",
@@ -1320,6 +1532,9 @@
         "review_78": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "P***n",
             "date": "24 Apr 2026",
             "variant": "1pc - Pink",
@@ -1330,6 +1545,9 @@
         "review_79": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "1***r",
             "date": "01 Feb 2026",
             "variant": "1pc - Pink",
@@ -1340,6 +1558,9 @@
         "review_80": {
           "type": "review",
           "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
             "name": "P***a",
             "date": "23 Dec 2025",
             "variant": "1pc - Pink",
@@ -1350,12 +1571,14 @@
         "review_81": {
           "type": "review",
           "settings": {
+            "image": "bp-review-photo-17.jpg",
+            "image_2": "",
+            "image_3": "",
             "name": "U***r",
             "date": "17 Jun 2026",
             "variant": "1pc - Pink",
             "stars": 4,
-            "quote": "",
-            "image": "bp-review-photo-17.jpg"
+            "quote": ""
           }
         }
       },
@@ -1453,7 +1676,14 @@
         "star_2_count": 17,
         "star_1_count": 10,
         "cta_label": "Share your experience",
-        "cta_text": "Write a review"
+        "cta_text": "Write a review",
+        "trust_description": "Customers love the quality, practicality, and design of our phone stands.",
+        "trust_text_1": "Great quality",
+        "trust_text_2": "Useful & practical",
+        "trust_text_3": "Perfect gift",
+        "more_heading": "More happy customers",
+        "more_text": "Join [count]+ customers who love our phone stands.",
+        "more_button_text": "Show more reviews"
       }
     },
     "bp_product_size": {
