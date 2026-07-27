@@ -530,7 +530,9 @@
                   </div>
                 {%- endif -%}
               </div>
-              <p class="bp-rd-quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
+              {%- if block.settings.quote != blank -%}
+                <p class="bp-rd-quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
+              {%- endif -%}
               <div class="bp-rd-meta">
                 <span class="bp-rd-who">
                   {%- render 'bp-review-avatar', name: block.settings.name -%}
@@ -624,7 +626,9 @@
                           </div>
                         {%- endif -%}
                       </div>
-                      <p class="bp-rd-quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
+                      {%- if block.settings.quote != blank -%}
+                        <p class="bp-rd-quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
+                      {%- endif -%}
                       <div class="bp-rd-meta">
                         <span class="bp-rd-who">
                           {%- render 'bp-review-avatar', name: block.settings.name -%}
