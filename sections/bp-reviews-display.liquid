@@ -239,12 +239,36 @@
     }
     .bp-reviews-display-{{ section.id }} .bp-rd-overall .bp-rd-stars { font-size: 18px; }
     .bp-reviews-display-{{ section.id }} .bp-rd-stars .bp-rd-star-empty { color: rgba(43,30,34,.18); }
+    .bp-reviews-display-{{ section.id }} .bp-rd-verified {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(30, 158, 92, 0.12);
+      color: #1e6b41;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-verified svg {
+      width: 16px;
+      height: 16px;
+      flex: none;
+    }
   </style>
 
   <div class="bp-wrap">
     <div class="bp-center" style="margin-bottom: 8px;">
       <div class="bp-eyebrow">{{ section.settings.eyebrow }}</div>
       <h2 style="font-size:30px;">{{ section.settings.heading }}</h2>
+      <span class="bp-rd-verified">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="10" cy="10" r="10" fill="#1e9e5c"/>
+          <path d="M5.5 10.2L8.3 13L14.5 6.8" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        All from verified purchases
+      </span>
     </div>
 
     <div class="bp-rd-summary">
