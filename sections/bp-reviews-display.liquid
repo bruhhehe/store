@@ -618,6 +618,12 @@
     var root = document.querySelector('.bp-reviews-display-{{ section.id }}');
     if (!root) return;
 
+    var bpRdAvatarPalette = ['#e57373', '#f06292', '#ba68c8', '#9575cd', '#7986cb', '#64b5f6', '#4fc3f7', '#4dd0e1', '#4db6ac', '#81c784', '#aed581', '#ffb74d', '#ff8a65', '#a1887f', '#90a4ae'];
+    root.querySelectorAll('[data-bp-rd-avatar]').forEach(function (el) {
+      var color = bpRdAvatarPalette[Math.floor(Math.random() * bpRdAvatarPalette.length)];
+      el.style.background = color;
+    });
+
     var lightbox = document.getElementById('BpRdLightbox-{{ section.id }}');
     var lightboxImg = document.getElementById('BpRdLightboxImg-{{ section.id }}');
     var closeBtn = lightbox ? lightbox.querySelector('.bp-rd-lightbox-close') : null;
