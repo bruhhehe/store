@@ -538,19 +538,19 @@
           {%- endif -%}
 
           <div class="fc-price-row">
-            <span class="fc-price" id="FcPrice-{{ section.id }}">{{ default_block.settings.price | times: 100 | money }}</span>
+            <span class="fc-price" id="FcPrice-{{ section.id }}">{{ default_block.settings.price_pence | money }}</span>
             {%- if variant.compare_at_price > variant.price -%}
               <span class="fc-compare-price" id="FcComparePrice-{{ section.id }}">{{ variant.compare_at_price | times: default_block.settings.quantity | money }}</span>
             {%- endif -%}
           </div>
           {%- liquid
             assign default_qty = default_block.settings.quantity | default: 1
-            assign default_price_cents = default_block.settings.price | times: 100
+            assign default_price_cents = default_block.settings.price_pence
           -%}
           <p class="fc-unit-price" id="FcUnitPrice-{{ section.id }}"{% if default_qty <= 1 %} style="display:none;"{% endif %}>{{ default_price_cents | divided_by: default_qty | money }} per stand</p>
           {%- if variant.compare_at_price > variant.price -%}
             {%- assign default_compare_total = variant.compare_at_price | times: default_block.settings.quantity -%}
-            {%- assign default_price_total = default_block.settings.price | times: 100 -%}
+            {%- assign default_price_total = default_block.settings.price_pence -%}
             {%- assign savings_amount = default_compare_total | minus: default_price_total -%}
             {%- assign savings_percent = savings_amount | times: 100.0 | divided_by: default_compare_total -%}
             <p class="fc-savings" id="FcSavings-{{ section.id }}">You save {{ savings_amount | money }} ({{ savings_percent | round }}%)</p>
@@ -614,7 +614,7 @@
                       role="radio"
                       aria-checked="{{ is_checked }}"
                       data-quantity="{{ block.settings.quantity }}"
-                      data-price="{{ block.settings.price | times: 100 }}"
+                      data-price="{{ block.settings.price_pence }}"
                       data-discount-code="{{ block.settings.discount_code }}"
                       {{ block.shopify_attributes }}
                     >
@@ -628,7 +628,7 @@
                         {%- if variant.compare_at_price > variant.price -%}
                           <span class="fc-tier-compare">{{ variant.compare_at_price | times: block.settings.quantity | money }}</span>
                         {%- endif -%}
-                        {{ block.settings.price | times: 100 | money }}
+                        {{ block.settings.price_pence | money }}
                       </span>
                     </button>
                   {%- endif -%}
@@ -657,7 +657,7 @@
               <p class="fc-swatches-error" id="FcCheckoutError-{{ section.id }}" role="alert"></p>
 
               <button type="submit" class="fc-submit" id="FcSubmit-{{ section.id }}">
-                Checkout — {{ default_block.settings.price | times: 100 | money }}
+                Checkout — {{ default_block.settings.price_pence | money }}
               </button>
             </form>
           {%- endif -%}
@@ -1348,9 +1348,9 @@
         },
         {
           "type": "number",
-          "id": "price",
-          "label": "Displayed total price",
-          "info": "Display only. The actual checkout price is quantity × the product variant price — set up a real volume discount (Shopify's native quantity pricing or an app) so the amount charged matches what's shown here.",
+          "id": "price_pence",
+          "label": "Displayed total price (in pence, e.g. 1199 for £11.99)",
+          "info": "Whole number in pence/cents — avoids the Theme Editor rounding decimal prices. Display only. The actual checkout price is quantity × the product variant price — set up a real volume discount (Shopify's native quantity pricing or an app) so the amount charged matches what's shown here.",
           "default": 0
         },
         {
