@@ -731,7 +731,7 @@
           <button type="button" class="bp-rd-modal-close" id="BpRdWriteModalClose-{{ section.id }}" aria-label="Close">✕</button>
         </div>
         <div class="bp-rd-modal-body">
-          {%- form 'contact', id: 'bp-rd-write-form-' | append: section.id -%}
+          {%- form 'contact' -%}
             {%- if form.posted_successfully? -%}
               <div class="bp-rd-write-success" tabindex="-1" autofocus>
                 Thank you! Your review has been sent to our team — we read every single one.
