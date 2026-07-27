@@ -244,6 +244,20 @@
     }
     .bp-reviews-display-{{ section.id }} .bp-rd-overall .bp-rd-stars { font-size: 18px; }
     .bp-reviews-display-{{ section.id }} .bp-rd-stars .bp-rd-star-empty { color: rgba(43,30,34,.18); }
+    .bp-reviews-display-{{ section.id }} .bp-rd-star-half {
+      position: relative;
+      display: inline-block;
+      color: rgba(43,30,34,.18);
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-star-half::before {
+      content: '★';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      overflow: hidden;
+      color: #d9a441;
+    }
     .bp-reviews-display-{{ section.id }} .bp-rd-verified {
       display: inline-flex;
       align-items: center;
@@ -260,12 +274,6 @@
       width: 16px;
       height: 16px;
       flex: none;
-    }
-    .bp-reviews-display-{{ section.id }} .bp-rd-card-extra {
-      display: none;
-    }
-    .bp-reviews-display-{{ section.id }}.bp-rd-expanded .bp-rd-card-extra {
-      display: flex;
     }
     .bp-reviews-display-{{ section.id }} .bp-rd-more {
       margin-top: 24px;
@@ -290,8 +298,95 @@
       color: var(--bp-muted);
       font-size: 14px;
     }
-    .bp-reviews-display-{{ section.id }} .bp-rd-more.is-done {
+    .bp-reviews-display-{{ section.id }} .bp-rd-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1100;
       display: none;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-modal.is-open {
+      display: flex;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(20,14,16,.55);
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-modal-panel {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      max-height: 86vh;
+      background: #fff;
+      border-radius: 20px 20px 0 0;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 -8px 40px rgba(0,0,0,.25);
+      animation: bpRdModalUp .28s ease;
+    }
+    @media screen and (min-width: 750px) {
+      .bp-reviews-display-{{ section.id }} .bp-rd-modal {
+        align-items: center;
+      }
+      .bp-reviews-display-{{ section.id }} .bp-rd-modal-panel {
+        border-radius: 20px;
+        max-height: 80vh;
+      }
+    }
+    @keyframes bpRdModalUp {
+      from { transform: translateY(24px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(43,30,34,.08);
+      flex: none;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-modal-head h3 {
+      margin: 0;
+      font-size: 18px;
+      color: var(--bp-ink);
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-modal-count {
+      font-weight: 400;
+      color: var(--bp-muted);
+      font-size: 14px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-modal-close {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(43,30,34,.06);
+      color: var(--bp-ink);
+      font-size: 16px;
+      cursor: pointer;
+      flex: none;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-modal-close:hover {
+      background: rgba(43,30,34,.12);
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-modal-body {
+      overflow-y: auto;
+      padding: 20px 22px 28px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-modal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    @media screen and (max-width: 640px) {
+      .bp-reviews-display-{{ section.id }} .bp-rd-modal-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    body.bp-rd-modal-lock {
+      overflow: hidden;
     }
   </style>
 
@@ -311,7 +406,7 @@
     <div class="bp-rd-summary">
       <div class="bp-rd-overall">
         <span class="bp-rd-overall-number">{{ section.settings.overall_rating }}</span>
-        <span class="bp-rd-stars" aria-hidden="true">★★★★★</span>
+        <span class="bp-rd-stars bp-rd-stars-half" aria-hidden="true">★★★★<span class="bp-rd-star-half">★</span></span>
         <span class="bp-rd-overall-count">{{ rd_total }} reviews</span>
       </div>
 
@@ -352,53 +447,55 @@
 
     <div class="bp-rd-grid" id="BpRdGrid-{{ section.id }}">
       {%- for block in section.blocks -%}
-        <div class="bp-rd-card{% if forloop.index > 3 %} bp-rd-card-extra{% endif %}" {{ block.shopify_attributes }}>
-          <div class="bp-rd-card-body">
-            <div class="bp-rd-top">
-              <div class="bp-rd-header">
-                {%- if block.settings.variant != blank -%}
-                  <span class="bp-rd-variant">{{ block.settings.variant }}</span>
-                {%- endif -%}
-                <span class="bp-rd-stars" aria-label="{{ block.settings.stars }} out of 5 stars">
-                  {%- for i in (1..5) -%}
-                    {%- if i <= block.settings.stars -%}★{%- else -%}<span class="bp-rd-star-empty">★</span>{%- endif -%}
-                  {%- endfor -%}
-                </span>
-              </div>
-              {%- if block.settings.image != blank or block.settings.image_2 != blank -%}
-                <div class="bp-rd-photos">
-                  {%- if block.settings.image != blank -%}
-                    <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image | asset_url }}" aria-label="View photo from {{ block.settings.name }}'s review">
-                      <img
-                        src="{{ block.settings.image | asset_url }}"
-                        loading="lazy"
-                        alt="Photo from {{ block.settings.name }}'s review"
-                        width="90"
-                        height="90"
-                      >
-                    </button>
+        {%- if forloop.index <= 3 -%}
+          <div class="bp-rd-card" {{ block.shopify_attributes }}>
+            <div class="bp-rd-card-body">
+              <div class="bp-rd-top">
+                <div class="bp-rd-header">
+                  {%- if block.settings.variant != blank -%}
+                    <span class="bp-rd-variant">{{ block.settings.variant }}</span>
                   {%- endif -%}
-                  {%- if block.settings.image_2 != blank -%}
-                    <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image_2 | asset_url }}" aria-label="View second photo from {{ block.settings.name }}'s review">
-                      <img
-                        src="{{ block.settings.image_2 | asset_url }}"
-                        loading="lazy"
-                        alt="Second photo from {{ block.settings.name }}'s review"
-                        width="90"
-                        height="90"
-                      >
-                    </button>
-                  {%- endif -%}
+                  <span class="bp-rd-stars" aria-label="{{ block.settings.stars }} out of 5 stars">
+                    {%- for i in (1..5) -%}
+                      {%- if i <= block.settings.stars -%}★{%- else -%}<span class="bp-rd-star-empty">★</span>{%- endif -%}
+                    {%- endfor -%}
+                  </span>
                 </div>
-              {%- endif -%}
-            </div>
-            <p class="bp-rd-quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
-            <div class="bp-rd-meta">
-              <span class="bp-rd-name">{{ block.settings.name }}</span>
-              <span>{{ block.settings.date }}</span>
+                {%- if block.settings.image != blank or block.settings.image_2 != blank -%}
+                  <div class="bp-rd-photos">
+                    {%- if block.settings.image != blank -%}
+                      <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image | asset_url }}" aria-label="View photo from {{ block.settings.name }}'s review">
+                        <img
+                          src="{{ block.settings.image | asset_url }}"
+                          loading="lazy"
+                          alt="Photo from {{ block.settings.name }}'s review"
+                          width="90"
+                          height="90"
+                        >
+                      </button>
+                    {%- endif -%}
+                    {%- if block.settings.image_2 != blank -%}
+                      <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image_2 | asset_url }}" aria-label="View second photo from {{ block.settings.name }}'s review">
+                        <img
+                          src="{{ block.settings.image_2 | asset_url }}"
+                          loading="lazy"
+                          alt="Second photo from {{ block.settings.name }}'s review"
+                          width="90"
+                          height="90"
+                        >
+                      </button>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+              </div>
+              <p class="bp-rd-quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
+              <div class="bp-rd-meta">
+                <span class="bp-rd-name">{{ block.settings.name }}</span>
+                <span>{{ block.settings.date }}</span>
+              </div>
             </div>
           </div>
-        </div>
+        {%- endif -%}
       {%- endfor -%}
     </div>
 
@@ -418,6 +515,73 @@
       <button type="button" class="bp-rd-lightbox-close" aria-label="Close photo">✕</button>
       <img src="" alt="" id="BpRdLightboxImg-{{ section.id }}">
     </div>
+
+    {%- if section.blocks.size > 3 -%}
+      <div class="bp-rd-modal" id="BpRdModal-{{ section.id }}" role="dialog" aria-modal="true" aria-label="All customer reviews">
+        <div class="bp-rd-modal-backdrop"></div>
+        <div class="bp-rd-modal-panel">
+          <div class="bp-rd-modal-head">
+            <h3>{{ 'All reviews' }} <span class="bp-rd-modal-count">({{ rd_total }})</span></h3>
+            <button type="button" class="bp-rd-modal-close" aria-label="Close reviews">✕</button>
+          </div>
+          <div class="bp-rd-modal-body">
+            <div class="bp-rd-modal-grid">
+              {%- for block in section.blocks -%}
+                {%- if forloop.index > 3 -%}
+                  <div class="bp-rd-card" {{ block.shopify_attributes }}>
+                    <div class="bp-rd-card-body">
+                      <div class="bp-rd-top">
+                        <div class="bp-rd-header">
+                          {%- if block.settings.variant != blank -%}
+                            <span class="bp-rd-variant">{{ block.settings.variant }}</span>
+                          {%- endif -%}
+                          <span class="bp-rd-stars" aria-label="{{ block.settings.stars }} out of 5 stars">
+                            {%- for i in (1..5) -%}
+                              {%- if i <= block.settings.stars -%}★{%- else -%}<span class="bp-rd-star-empty">★</span>{%- endif -%}
+                            {%- endfor -%}
+                          </span>
+                        </div>
+                        {%- if block.settings.image != blank or block.settings.image_2 != blank -%}
+                          <div class="bp-rd-photos">
+                            {%- if block.settings.image != blank -%}
+                              <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image | asset_url }}" aria-label="View photo from {{ block.settings.name }}'s review">
+                                <img
+                                  src="{{ block.settings.image | asset_url }}"
+                                  loading="lazy"
+                                  alt="Photo from {{ block.settings.name }}'s review"
+                                  width="90"
+                                  height="90"
+                                >
+                              </button>
+                            {%- endif -%}
+                            {%- if block.settings.image_2 != blank -%}
+                              <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image_2 | asset_url }}" aria-label="View second photo from {{ block.settings.name }}'s review">
+                                <img
+                                  src="{{ block.settings.image_2 | asset_url }}"
+                                  loading="lazy"
+                                  alt="Second photo from {{ block.settings.name }}'s review"
+                                  width="90"
+                                  height="90"
+                                >
+                              </button>
+                            {%- endif -%}
+                          </div>
+                        {%- endif -%}
+                      </div>
+                      <p class="bp-rd-quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
+                      <div class="bp-rd-meta">
+                        <span class="bp-rd-name">{{ block.settings.name }}</span>
+                        <span>{{ block.settings.date }}</span>
+                      </div>
+                    </div>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
   </div>
 </div>
 
@@ -458,11 +622,37 @@
     });
 
     var showMoreBtn = document.getElementById('BpRdShowMore-{{ section.id }}');
-    var moreBox = document.getElementById('BpRdMore-{{ section.id }}');
-    if (showMoreBtn) {
-      showMoreBtn.addEventListener('click', function () {
-        root.classList.add('bp-rd-expanded');
-        if (moreBox) moreBox.classList.add('is-done');
+    var modal = document.getElementById('BpRdModal-{{ section.id }}');
+    var modalClose = modal ? modal.querySelector('.bp-rd-modal-close') : null;
+    var modalBackdrop = modal ? modal.querySelector('.bp-rd-modal-backdrop') : null;
+
+    function openModal() {
+      if (!modal) return;
+      modal.classList.add('is-open');
+      document.body.classList.add('bp-rd-modal-lock');
+    }
+
+    function closeModal() {
+      if (!modal) return;
+      modal.classList.remove('is-open');
+      document.body.classList.remove('bp-rd-modal-lock');
+    }
+
+    if (showMoreBtn && modal) {
+      showMoreBtn.addEventListener('click', openModal);
+    }
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    if (modal) {
+      modal.querySelectorAll('.bp-rd-photo-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var img = btn.querySelector('img');
+          open(btn.getAttribute('data-full'), img ? img.alt : '');
+        });
       });
     }
   })();
@@ -477,12 +667,12 @@
     { "type": "color", "id": "bg_color", "label": "Background", "default": "#fdf3f4" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "WHAT DO CUSTOMERS SAY" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Real customers, real Bunny Perches" },
-    { "type": "text", "id": "overall_rating", "label": "Overall rating (shown large)", "default": "4.9" },
-    { "type": "number", "id": "star_5_count", "label": "5-star review count", "default": 181 },
-    { "type": "number", "id": "star_4_count", "label": "4-star review count", "default": 18 },
-    { "type": "number", "id": "star_3_count", "label": "3-star review count", "default": 1 },
-    { "type": "number", "id": "star_2_count", "label": "2-star review count", "default": 0 },
-    { "type": "number", "id": "star_1_count", "label": "1-star review count", "default": 0 },
+    { "type": "text", "id": "overall_rating", "label": "Overall rating (shown large)", "default": "4.6" },
+    { "type": "number", "id": "star_5_count", "label": "5-star review count", "default": 950 },
+    { "type": "number", "id": "star_4_count", "label": "4-star review count", "default": 280 },
+    { "type": "number", "id": "star_3_count", "label": "3-star review count", "default": 60 },
+    { "type": "number", "id": "star_2_count", "label": "2-star review count", "default": 17 },
+    { "type": "number", "id": "star_1_count", "label": "1-star review count", "default": 10 },
     { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Share your experience" },
     { "type": "text", "id": "cta_text", "label": "CTA button text", "default": "Write a review" },
     { "type": "header", "content": "Trust row (shown above the reviews)" },
