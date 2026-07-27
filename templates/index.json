@@ -666,6 +666,51 @@
             "image": "bp-review-photo-7.jpg",
             "image_2": "bp-review-photo-8.jpg"
           }
+        },
+        "review_14": {
+          "type": "review",
+          "settings": {
+            "name": "S***o",
+            "date": "26 Dec 2025",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Super easy to assemble and the call stays very firm.",
+            "image": "bp-review-photo-9.jpg",
+            "image_2": "bp-review-photo-10.jpg"
+          }
+        },
+        "review_15": {
+          "type": "review",
+          "settings": {
+            "name": "X***u",
+            "date": "4 Feb 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Fast delivery, the product is very good and my phone fits perfectly on it. Honestly, I recommend it. Thank you again.",
+            "image": "bp-review-photo-11.jpg"
+          }
+        },
+        "review_16": {
+          "type": "review",
+          "settings": {
+            "name": "Anonymous",
+            "date": "8 Feb 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Cute 😍 Love it! Exactly what I expected.",
+            "image": "bp-review-photo-12.jpg"
+          }
+        },
+        "review_17": {
+          "type": "review",
+          "settings": {
+            "name": "Anonymous",
+            "date": "19 Feb 2026",
+            "variant": "1pc - Black",
+            "stars": 5,
+            "quote": "It arrived quickly and is just as described.",
+            "image": "bp-review-photo-13.jpg"
+          }
         }
       },
       "block_order": [
@@ -681,7 +726,11 @@
         "review_10",
         "review_11",
         "review_12",
-        "review_13"
+        "review_13",
+        "review_14",
+        "review_15",
+        "review_16",
+        "review_17"
       ],
       "settings": {
         "bg_color": "#fdf3f4",
