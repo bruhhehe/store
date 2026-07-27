@@ -197,6 +197,12 @@
     .bp-reviews-display-{{ section.id }} .bp-rd-lightbox.is-open {
       display: flex;
     }
+    .bp-reviews-display-{{ section.id }} .bp-rd-lightbox-inner {
+      position: relative;
+      display: block;
+      max-width: min(90vw, 520px);
+      max-height: 85vh;
+    }
     .bp-reviews-display-{{ section.id }} .bp-rd-lightbox img {
       max-width: min(90vw, 520px);
       max-height: 85vh;
@@ -205,8 +211,8 @@
     }
     .bp-reviews-display-{{ section.id }} .bp-rd-lightbox-close {
       position: absolute;
-      top: 20px;
-      right: 24px;
+      top: -16px;
+      right: -16px;
       width: 40px;
       height: 40px;
       border-radius: 50%;
@@ -636,8 +642,10 @@
     {%- endif -%}
 
     <div class="bp-rd-lightbox" id="BpRdLightbox-{{ section.id }}">
-      <button type="button" class="bp-rd-lightbox-close" aria-label="Close photo">✕</button>
-      <img src="" alt="" id="BpRdLightboxImg-{{ section.id }}">
+      <div class="bp-rd-lightbox-inner">
+        <button type="button" class="bp-rd-lightbox-close" aria-label="Close photo">✕</button>
+        <img src="" alt="" id="BpRdLightboxImg-{{ section.id }}">
+      </div>
     </div>
 
     {%- if section.blocks.size > 3 -%}
