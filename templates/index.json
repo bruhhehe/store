@@ -643,6 +643,29 @@
             "quote": "Just like in the photo. No complaints, it arrived ahead of schedule.",
             "image": "bp-review-photo-5.jpg"
           }
+        },
+        "review_12": {
+          "type": "review",
+          "settings": {
+            "name": "M***d",
+            "date": "14 Sep 2025",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "I bought it on Monday (08/09) and it arrived in Portugal on Saturday (13/09). I've never seen anything so fast. Let's talk about the product, which was a combo of 13 gifts for my girlfriend: cute and finely crafted, she will finally have a place to put her phone on video call!",
+            "image": "bp-review-photo-6.jpg"
+          }
+        },
+        "review_13": {
+          "type": "review",
+          "settings": {
+            "name": "O***z",
+            "date": "23 Dec 2025",
+            "variant": "1pc - Black",
+            "stars": 5,
+            "quote": "Very good. I struggled a little to assemble the pieces, but it holds the weight of my phone with a case on well, whether placed vertically or horizontally. The base is not very heavy, but overall it feels solid. Good purchase.",
+            "image": "bp-review-photo-7.jpg",
+            "image_2": "bp-review-photo-8.jpg"
+          }
         }
       },
       "block_order": [
@@ -656,7 +679,9 @@
         "review_8",
         "review_9",
         "review_10",
-        "review_11"
+        "review_11",
+        "review_12",
+        "review_13"
       ],
       "settings": {
         "bg_color": "#fdf3f4",
