@@ -132,19 +132,27 @@
       gap: 10px;
       flex-grow: 1;
     }
+    .bp-reviews-display-{{ section.id }} .bp-rd-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-header {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
     .bp-reviews-display-{{ section.id }} .bp-rd-photos {
       display: flex;
-      width: 100%;
-      justify-content: flex-end;
+      flex: none;
       gap: 6px;
-      padding: 14px 20px 0;
     }
     .bp-reviews-display-{{ section.id }} .bp-rd-photo-btn {
-      width: 140px;
-      height: 140px;
+      width: 90px;
+      height: 90px;
       flex: none;
       margin: 0;
-      margin-left: auto;
       padding: 0;
       border: 1px solid rgba(43,30,34,.12);
       border-radius: 12px;
@@ -283,41 +291,45 @@
     <div class="bp-rd-grid">
       {%- for block in section.blocks -%}
         <div class="bp-rd-card" {{ block.shopify_attributes }}>
-          {%- if block.settings.image != blank or block.settings.image_2 != blank -%}
-            <div class="bp-rd-photos">
-              {%- if block.settings.image != blank -%}
-                <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image | asset_url }}" aria-label="View photo from {{ block.settings.name }}'s review">
-                  <img
-                    src="{{ block.settings.image | asset_url }}"
-                    loading="lazy"
-                    alt="Photo from {{ block.settings.name }}'s review"
-                    width="140"
-                    height="140"
-                  >
-                </button>
-              {%- endif -%}
-              {%- if block.settings.image_2 != blank -%}
-                <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image_2 | asset_url }}" aria-label="View second photo from {{ block.settings.name }}'s review">
-                  <img
-                    src="{{ block.settings.image_2 | asset_url }}"
-                    loading="lazy"
-                    alt="Second photo from {{ block.settings.name }}'s review"
-                    width="140"
-                    height="140"
-                  >
-                </button>
+          <div class="bp-rd-card-body">
+            <div class="bp-rd-top">
+              <div class="bp-rd-header">
+                {%- if block.settings.variant != blank -%}
+                  <span class="bp-rd-variant">{{ block.settings.variant }}</span>
+                {%- endif -%}
+                <span class="bp-rd-stars" aria-label="{{ block.settings.stars }} out of 5 stars">
+                  {%- for i in (1..5) -%}
+                    {%- if i <= block.settings.stars -%}★{%- else -%}<span class="bp-rd-star-empty">★</span>{%- endif -%}
+                  {%- endfor -%}
+                </span>
+              </div>
+              {%- if block.settings.image != blank or block.settings.image_2 != blank -%}
+                <div class="bp-rd-photos">
+                  {%- if block.settings.image != blank -%}
+                    <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image | asset_url }}" aria-label="View photo from {{ block.settings.name }}'s review">
+                      <img
+                        src="{{ block.settings.image | asset_url }}"
+                        loading="lazy"
+                        alt="Photo from {{ block.settings.name }}'s review"
+                        width="90"
+                        height="90"
+                      >
+                    </button>
+                  {%- endif -%}
+                  {%- if block.settings.image_2 != blank -%}
+                    <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image_2 | asset_url }}" aria-label="View second photo from {{ block.settings.name }}'s review">
+                      <img
+                        src="{{ block.settings.image_2 | asset_url }}"
+                        loading="lazy"
+                        alt="Second photo from {{ block.settings.name }}'s review"
+                        width="90"
+                        height="90"
+                      >
+                    </button>
+                  {%- endif -%}
+                </div>
               {%- endif -%}
             </div>
-          {%- endif -%}
-          <div class="bp-rd-card-body">
-            {%- if block.settings.variant != blank -%}
-              <span class="bp-rd-variant">{{ block.settings.variant }}</span>
-            {%- endif -%}
-            <span class="bp-rd-stars" aria-label="{{ block.settings.stars }} out of 5 stars">
-              {%- for i in (1..5) -%}
-                {%- if i <= block.settings.stars -%}★{%- else -%}<span class="bp-rd-star-empty">★</span>{%- endif -%}
-              {%- endfor -%}
-            </span>
             <p class="bp-rd-quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
             <div class="bp-rd-meta">
               <span class="bp-rd-name">{{ block.settings.name }}</span>
