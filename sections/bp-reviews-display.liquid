@@ -388,6 +388,28 @@
     body.bp-rd-modal-lock {
       overflow: hidden;
     }
+    .bp-reviews-display-{{ section.id }} .bp-rd-meta {
+      align-items: center;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-who {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      flex: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
   </style>
 
   <div class="bp-wrap">
@@ -490,7 +512,10 @@
               </div>
               <p class="bp-rd-quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
               <div class="bp-rd-meta">
-                <span class="bp-rd-name">{{ block.settings.name }}</span>
+                <span class="bp-rd-who">
+                  {%- render 'bp-review-avatar', name: block.settings.name -%}
+                  <span class="bp-rd-name">{{ block.settings.name }}</span>
+                </span>
                 <span>{{ block.settings.date }}</span>
               </div>
             </div>
@@ -570,7 +595,10 @@
                       </div>
                       <p class="bp-rd-quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
                       <div class="bp-rd-meta">
-                        <span class="bp-rd-name">{{ block.settings.name }}</span>
+                        <span class="bp-rd-who">
+                          {%- render 'bp-review-avatar', name: block.settings.name -%}
+                          <span class="bp-rd-name">{{ block.settings.name }}</span>
+                        </span>
                         <span>{{ block.settings.date }}</span>
                       </div>
                     </div>
