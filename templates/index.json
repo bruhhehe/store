@@ -1346,6 +1346,17 @@
             "stars": 5,
             "quote": ""
           }
+        },
+        "review_81": {
+          "type": "review",
+          "settings": {
+            "name": "U***r",
+            "date": "17 Jun 2026",
+            "variant": "1pc - Pink",
+            "stars": 4,
+            "quote": "",
+            "image": "bp-review-photo-17.jpg"
+          }
         }
       },
       "block_order": [
@@ -1428,15 +1439,16 @@
         "review_77",
         "review_78",
         "review_79",
-        "review_80"
+        "review_80",
+        "review_81"
       ],
       "settings": {
         "bg_color": "#fdf3f4",
         "eyebrow": "WHAT DO CUSTOMERS SAY",
-        "heading": "4.6/5 from 1,380 reviews",
+        "heading": "4.6/5 from 1,381 reviews",
         "overall_rating": "4.6",
         "star_5_count": 1010,
-        "star_4_count": 283,
+        "star_4_count": 284,
         "star_3_count": 60,
         "star_2_count": 17,
         "star_1_count": 10,
