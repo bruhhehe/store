@@ -235,7 +235,7 @@
             <div class="bp-rd-photos{% if block.settings.image != blank and block.settings.image_2 != blank %} has-two{% endif %}">
               {%- if block.settings.image != blank -%}
                 <img
-                  src="{{ block.settings.image | image_url: width: 600 }}"
+                  src="{{ block.settings.image | asset_url }}"
                   loading="lazy"
                   alt="Photo from {{ block.settings.name }}'s review"
                   width="600"
@@ -244,7 +244,7 @@
               {%- endif -%}
               {%- if block.settings.image_2 != blank -%}
                 <img
-                  src="{{ block.settings.image_2 | image_url: width: 600 }}"
+                  src="{{ block.settings.image_2 | asset_url }}"
                   loading="lazy"
                   alt="Second photo from {{ block.settings.name }}'s review"
                   width="600"
@@ -297,8 +297,8 @@
       "type": "review",
       "name": "Review",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Photo (optional)" },
-        { "type": "image_picker", "id": "image_2", "label": "Second photo (optional)" },
+        { "type": "text", "id": "image", "label": "Photo filename (optional)", "info": "Filename of an image uploaded to this theme's Assets folder, e.g. bp-review-photo-1.jpg" },
+        { "type": "text", "id": "image_2", "label": "Second photo filename (optional)", "info": "Filename of an image uploaded to this theme's Assets folder" },
         { "type": "text", "id": "name", "label": "Name (masked)", "default": "C***s" },
         { "type": "text", "id": "date", "label": "Date", "default": "15 May 2026" },
         { "type": "text", "id": "variant", "label": "Variant purchased", "default": "1pc - Black" },

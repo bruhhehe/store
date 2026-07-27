@@ -556,7 +556,8 @@
             "date": "3 Jan 2026",
             "variant": "1pc - White",
             "stars": 5,
-            "quote": "So useful to hold my phone when recording or watching something."
+            "quote": "So useful to hold my phone when recording or watching something.",
+            "image": "bp-review-photo-4.jpg"
           }
         },
         "review_4": {
@@ -566,7 +567,9 @@
             "date": "15 Jun 2026",
             "variant": "1pc - White",
             "stars": 5,
-            "quote": "Very happy, I can use it as a controller stand too, keeps my desk organised."
+            "quote": "Very happy, I can use it as a controller stand too, keeps my desk organised.",
+            "image": "bp-review-photo-2.jpg",
+            "image_2": "bp-review-photo-3.jpg"
           }
         },
         "review_5": {
@@ -618,6 +621,28 @@
             "stars": 5,
             "quote": "Very handy little stand for my phone, so pleased with the quality."
           }
+        },
+        "review_10": {
+          "type": "review",
+          "settings": {
+            "name": "L***r",
+            "date": "1 Jan 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "So cute and easy to build!! It holds my phone really well.",
+            "image": "bp-review-photo-1.jpg"
+          }
+        },
+        "review_11": {
+          "type": "review",
+          "settings": {
+            "name": "J***r",
+            "date": "17 Jan 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Just like in the photo. No complaints, it arrived ahead of schedule.",
+            "image": "bp-review-photo-5.jpg"
+          }
         }
       },
       "block_order": [
@@ -629,7 +654,9 @@
         "review_6",
         "review_7",
         "review_8",
-        "review_9"
+        "review_9",
+        "review_10",
+        "review_11"
       ],
       "settings": {
         "bg_color": "#fdf3f4",
