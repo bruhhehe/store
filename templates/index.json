@@ -1456,19 +1456,6 @@
         "cta_text": "Write a review"
       }
     },
-    "bp_review_form": {
-      "type": "bp-review-form",
-      "settings": {
-        "bg_color": "#2b1e22",
-        "text_color": "#f5ece7",
-        "eyebrow": "REVIEWS",
-        "heading": "Leave us a review",
-        "subheading": "Bought a Bunny Perch? Tell us how it's holding up — your review gets read by an actual person on our team, not a bot.",
-        "button_label": "Submit review",
-        "success_message": "Thank you! Your review has been sent to our team — we read every single one.",
-        "privacy_note": "Your email is only used to follow up if needed and is never shared."
-      }
-    },
     "bp_product_size": {
       "type": "bp-product-size",
       "blocks": {
@@ -1523,7 +1510,6 @@
     "bp_shipping",
     "bp_faq",
     "bp_reviews_display",
-    "bp_review_form",
     "bp_product_size"
   ]
 }

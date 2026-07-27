@@ -419,6 +419,83 @@
       text-transform: uppercase;
       letter-spacing: 0;
     }
+    .bp-reviews-display-{{ section.id }} .bp-rd-write-panel form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-write-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-write-field label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--bp-muted);
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-write-field input[type="text"],
+    .bp-reviews-display-{{ section.id }} .bp-rd-write-field input[type="email"],
+    .bp-reviews-display-{{ section.id }} .bp-rd-write-field textarea {
+      background: #fff;
+      border: 1px solid rgba(43,30,34,.15);
+      border-radius: var(--bp-radius-sm);
+      padding: 12px 14px;
+      font-size: 15px;
+      font-family: var(--bp-sans);
+      color: var(--bp-ink);
+      outline: none;
+      transition: border-color .15s ease;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-write-field input:focus,
+    .bp-reviews-display-{{ section.id }} .bp-rd-write-field textarea:focus {
+      border-color: var(--bp-pink-deep);
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-write-field textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-write-stars {
+      display: flex;
+      gap: 6px;
+      font-size: 28px;
+      line-height: 1;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-write-star {
+      cursor: pointer;
+      opacity: .3;
+      transition: opacity .12s ease, transform .12s ease;
+      user-select: none;
+      background: none;
+      border: none;
+      padding: 0;
+      color: #d9a441;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-write-star:hover {
+      transform: scale(1.12);
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-write-star.is-active {
+      opacity: 1;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-write-error {
+      font-size: 13px;
+      color: #c0392b;
+      margin-top: -8px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-write-submit {
+      align-self: flex-start;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-write-success {
+      background: rgba(30, 158, 92, .08);
+      border: 1px solid rgba(30, 158, 92, .25);
+      border-radius: var(--bp-radius-sm);
+      padding: 18px 20px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--bp-ink);
+    }
   </style>
 
   <div class="bp-wrap">
@@ -472,7 +549,7 @@
 
       <div class="bp-rd-cta">
         <span class="bp-rd-cta-label">{{ section.settings.cta_label }}</span>
-        <a href="#bp-reviews" class="bp-btn">{{ section.settings.cta_text }}</a>
+        <button type="button" class="bp-btn" id="BpRdWriteReview-{{ section.id }}">{{ section.settings.cta_text }}</button>
       </div>
     </div>
 
@@ -645,6 +722,58 @@
         </div>
       </div>
     {%- endif -%}
+
+    <div class="bp-rd-modal" id="BpRdWriteModal-{{ section.id }}" role="dialog" aria-modal="true" aria-label="Write a review">
+      <div class="bp-rd-modal-backdrop"></div>
+      <div class="bp-rd-modal-panel bp-rd-write-panel">
+        <div class="bp-rd-modal-head">
+          <h3>Write a review</h3>
+          <button type="button" class="bp-rd-modal-close" id="BpRdWriteModalClose-{{ section.id }}" aria-label="Close">✕</button>
+        </div>
+        <div class="bp-rd-modal-body">
+          {%- form 'contact', id: 'bp-rd-write-form-' | append: section.id -%}
+            {%- if form.posted_successfully? -%}
+              <div class="bp-rd-write-success" tabindex="-1" autofocus>
+                Thank you! Your review has been sent to our team — we read every single one.
+              </div>
+            {%- else -%}
+              <input type="hidden" name="contact[email]" id="BpRdWriteEmailHidden-{{ section.id }}" value="">
+              <input type="hidden" name="contact[body]" id="BpRdWriteBodyHidden-{{ section.id }}">
+
+              <div class="bp-rd-write-field">
+                <label for="BpRdWriteName-{{ section.id }}">Name</label>
+                <input type="text" id="BpRdWriteName-{{ section.id }}" placeholder="Your name" autocomplete="name" required>
+              </div>
+
+              <div class="bp-rd-write-field">
+                <label for="BpRdWriteEmail-{{ section.id }}">Email</label>
+                <input type="email" id="BpRdWriteEmail-{{ section.id }}" placeholder="you@example.com" autocomplete="email" required
+                  {% if form.errors contains 'email' %}aria-invalid="true"{% endif %}>
+              </div>
+              {%- if form.errors contains 'email' -%}
+                <div class="bp-rd-write-error">Please enter a valid email address.</div>
+              {%- endif -%}
+
+              <div class="bp-rd-write-field">
+                <label>Rating</label>
+                <div class="bp-rd-write-stars" id="BpRdWriteStars-{{ section.id }}" role="radiogroup" aria-label="Star rating">
+                  {%- for i in (1..5) -%}
+                    <button type="button" class="bp-rd-write-star" data-value="{{ i }}" role="radio" aria-checked="false" aria-label="{{ i }} star{% if i != 1 %}s{% endif %}">★</button>
+                  {%- endfor -%}
+                </div>
+              </div>
+
+              <div class="bp-rd-write-field">
+                <label for="BpRdWriteReviewText-{{ section.id }}">Your review</label>
+                <textarea id="BpRdWriteReviewText-{{ section.id }}" placeholder="Tell us what you think — how does it hold up, what colour did you get, would you recommend it?" required></textarea>
+              </div>
+
+              <button type="submit" class="bp-btn bp-rd-write-submit">Submit review</button>
+            {%- endif -%}
+          {%- endform -%}
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -695,25 +824,28 @@
     var modalClose = modal ? modal.querySelector('.bp-rd-modal-close') : null;
     var modalBackdrop = modal ? modal.querySelector('.bp-rd-modal-backdrop') : null;
 
-    function openModal() {
-      if (!modal) return;
-      modal.classList.add('is-open');
+    function openModal(m) {
+      if (!m) return;
+      m.classList.add('is-open');
       document.body.classList.add('bp-rd-modal-lock');
     }
 
-    function closeModal() {
-      if (!modal) return;
-      modal.classList.remove('is-open');
+    function closeModal(m) {
+      if (!m) return;
+      m.classList.remove('is-open');
       document.body.classList.remove('bp-rd-modal-lock');
     }
 
     if (showMoreBtn && modal) {
-      showMoreBtn.addEventListener('click', openModal);
+      showMoreBtn.addEventListener('click', function () { openModal(modal); });
     }
-    if (modalClose) modalClose.addEventListener('click', closeModal);
-    if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+    if (modalClose) modalClose.addEventListener('click', function () { closeModal(modal); });
+    if (modalBackdrop) modalBackdrop.addEventListener('click', function () { closeModal(modal); });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeModal();
+      if (e.key === 'Escape') {
+        closeModal(modal);
+        closeModal(writeModal);
+      }
     });
 
     if (modal) {
@@ -722,6 +854,62 @@
           var img = btn.querySelector('img');
           open(btn.getAttribute('data-full'), img ? img.alt : '');
         });
+      });
+    }
+
+    // Write-a-review popup
+    var writeBtn = document.getElementById('BpRdWriteReview-{{ section.id }}');
+    var writeModal = document.getElementById('BpRdWriteModal-{{ section.id }}');
+    var writeModalClose = writeModal ? document.getElementById('BpRdWriteModalClose-{{ section.id }}') : null;
+    var writeModalBackdrop = writeModal ? writeModal.querySelector('.bp-rd-modal-backdrop') : null;
+
+    if (writeBtn && writeModal) {
+      writeBtn.addEventListener('click', function () { openModal(writeModal); });
+    }
+    if (writeModalClose) writeModalClose.addEventListener('click', function () { closeModal(writeModal); });
+    if (writeModalBackdrop) writeModalBackdrop.addEventListener('click', function () { closeModal(writeModal); });
+
+    var writeStars = document.querySelectorAll('#BpRdWriteStars-{{ section.id }} .bp-rd-write-star');
+    var writeRating = 0;
+    writeStars.forEach(function (star) {
+      star.addEventListener('click', function () {
+        writeRating = parseInt(star.getAttribute('data-value'), 10);
+        writeStars.forEach(function (s) {
+          var active = parseInt(s.getAttribute('data-value'), 10) <= writeRating;
+          s.classList.toggle('is-active', active);
+          s.setAttribute('aria-checked', active ? 'true' : 'false');
+        });
+      });
+    });
+
+    var writeForm = writeStars.length ? writeStars[0].closest('form') : (writeModal ? writeModal.querySelector('form') : null);
+    if (writeForm) {
+      writeForm.addEventListener('submit', function (e) {
+        var nameEl = document.getElementById('BpRdWriteName-{{ section.id }}');
+        var emailEl = document.getElementById('BpRdWriteEmail-{{ section.id }}');
+        var reviewEl = document.getElementById('BpRdWriteReviewText-{{ section.id }}');
+        var emailHidden = document.getElementById('BpRdWriteEmailHidden-{{ section.id }}');
+        var bodyHidden = document.getElementById('BpRdWriteBodyHidden-{{ section.id }}');
+
+        if (writeRating < 1) {
+          e.preventDefault();
+          alert('Please select a star rating before submitting.');
+          return;
+        }
+
+        emailHidden.value = emailEl.value;
+
+        var lines = [
+          'New product review submitted via velagoods.co.uk',
+          '',
+          'Name: ' + nameEl.value,
+          'Email: ' + emailEl.value,
+          'Rating: ' + writeRating + ' / 5',
+          '',
+          'Review:',
+          reviewEl.value
+        ];
+        bodyHidden.value = lines.join('\n');
       });
     }
   })();
