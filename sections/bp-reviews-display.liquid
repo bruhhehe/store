@@ -409,7 +409,7 @@
           <path d="M4 9.5C4 8 5.3 6.7 7 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
         </svg>
         <h3>{{ section.settings.more_heading }}</h3>
-        <p>{{ section.settings.more_text | replace: '{count}', rd_total }}</p>
+        <p>{{ section.settings.more_text | replace: '[count]', rd_total }}</p>
         <button type="button" class="bp-btn" id="BpRdShowMore-{{ section.id }}">{{ section.settings.more_button_text }}</button>
       </div>
     {%- endif -%}
@@ -492,7 +492,7 @@
     { "type": "text", "id": "trust_text_3", "label": "Trust item 3", "default": "Perfect gift" },
     { "type": "header", "content": "\"Show more\" box (shown after the first 3 reviews)" },
     { "type": "text", "id": "more_heading", "label": "Heading", "default": "More happy customers" },
-    { "type": "text", "id": "more_text", "label": "Text", "info": "Use {count} to insert the total review count", "default": "Join {count}+ customers who love our phone stands." },
+    { "type": "text", "id": "more_text", "label": "Text", "info": "Use [count] to insert the total review count", "default": "Join [count]+ customers who love our phone stands." },
     { "type": "text", "id": "more_button_text", "label": "Button text", "default": "Show more reviews" }
   ],
   "blocks": [
