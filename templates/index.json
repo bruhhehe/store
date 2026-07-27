@@ -317,7 +317,7 @@
           "settings": {
             "label": "2 Stands",
             "quantity": 2,
-            "price": 24.68,
+            "price": 21.99,
             "badge_text": "Most Popular",
             "default_selected": true,
             "discount_code": "BUNNY2"
@@ -328,7 +328,7 @@
           "settings": {
             "label": "3 Stands",
             "quantity": 3,
-            "price": 35.07,
+            "price": 27,
             "badge_text": "",
             "default_selected": false,
             "discount_code": "BUNNY3"
@@ -339,7 +339,7 @@
           "settings": {
             "label": "4 Stands",
             "quantity": 4,
-            "price": 44.17,
+            "price": 28.02,
             "badge_text": "Best Value",
             "default_selected": false,
             "discount_code": "BUNNY4"

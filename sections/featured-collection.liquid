@@ -204,6 +204,12 @@
     margin-bottom: 4px;
   }
 
+  .fc-{{ section.id }} .fc-unit-price {
+    font-size: 13px;
+    opacity: 0.7;
+    margin: 0 0 6px;
+  }
+
   .fc-{{ section.id }} .fc-price {
     font-size: 34px;
     font-weight: 700;
@@ -537,6 +543,11 @@
               <span class="fc-compare-price" id="FcComparePrice-{{ section.id }}">{{ variant.compare_at_price | times: default_block.settings.quantity | money }}</span>
             {%- endif -%}
           </div>
+          {%- liquid
+            assign default_qty = default_block.settings.quantity | default: 1
+            assign default_price_cents = default_block.settings.price | times: 100
+          -%}
+          <p class="fc-unit-price" id="FcUnitPrice-{{ section.id }}"{% if default_qty <= 1 %} style="display:none;"{% endif %}>{{ default_price_cents | divided_by: default_qty | money }} per stand</p>
           {%- if variant.compare_at_price > variant.price -%}
             {%- assign default_compare_total = variant.compare_at_price | times: default_block.settings.quantity -%}
             {%- assign default_price_total = default_block.settings.price | times: 100 -%}
@@ -1045,6 +1056,7 @@
       var priceEl = document.getElementById('FcPrice-' + sectionId);
       var comparePriceEl = document.getElementById('FcComparePrice-' + sectionId);
       var savingsEl = document.getElementById('FcSavings-' + sectionId);
+      var unitPriceEl = document.getElementById('FcUnitPrice-' + sectionId);
       var compareAtCents = {{ variant.compare_at_price | default: 0 }};
 
       // Stash the button's "resting" label (not the transient "Adding…"
@@ -1074,6 +1086,15 @@
           // Reflect this tier's total (and exact savings) in the top price
           // row, instead of always showing the single-unit price.
           if (priceEl) priceEl.textContent = formatMoney(priceCents);
+          if (unitPriceEl) {
+            if (qty > 1) {
+              var unitCents = Math.floor(priceCents / qty);
+              unitPriceEl.textContent = formatMoney(unitCents) + ' per stand';
+              unitPriceEl.style.display = '';
+            } else {
+              unitPriceEl.style.display = 'none';
+            }
+          }
           if (compareAtCents > 0) {
             var compareTotalCents = compareAtCents * qty;
             var savingsCents = compareTotalCents - priceCents;
