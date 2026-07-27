@@ -138,13 +138,13 @@
       padding: 14px 20px 0;
     }
     .bp-reviews-display-{{ section.id }} .bp-rd-photo-btn {
-      width: 64px;
-      height: 64px;
+      width: 140px;
+      height: 140px;
       flex: none;
       padding: 0;
       margin: 0;
       border: 1px solid rgba(43,30,34,.12);
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
       cursor: pointer;
       background: none;
@@ -288,8 +288,8 @@
                     src="{{ block.settings.image | asset_url }}"
                     loading="lazy"
                     alt="Photo from {{ block.settings.name }}'s review"
-                    width="64"
-                    height="64"
+                    width="140"
+                    height="140"
                   >
                 </button>
               {%- endif -%}
@@ -299,8 +299,8 @@
                     src="{{ block.settings.image_2 | asset_url }}"
                     loading="lazy"
                     alt="Second photo from {{ block.settings.name }}'s review"
-                    width="64"
-                    height="64"
+                    width="140"
+                    height="140"
                   >
                 </button>
               {%- endif -%}
