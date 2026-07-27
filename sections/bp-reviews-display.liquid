@@ -150,8 +150,11 @@
     }
     .bp-reviews-display-{{ section.id }} .bp-rd-photos {
       display: flex;
+      flex-wrap: wrap;
       flex: none;
       gap: 6px;
+      max-width: 100%;
+      justify-content: flex-end;
     }
     .bp-reviews-display-{{ section.id }} .bp-rd-photo-btn {
       width: 90px;
@@ -165,6 +168,12 @@
       cursor: pointer;
       background: none;
       display: block;
+    }
+    @media screen and (max-width: 480px) {
+      .bp-reviews-display-{{ section.id }} .bp-rd-photo-btn {
+        width: 68px;
+        height: 68px;
+      }
     }
     .bp-reviews-display-{{ section.id }} .bp-rd-photo-btn:hover {
       border-color: {{ section.settings.bg_color | color_darken: 30 }};
@@ -483,7 +492,7 @@
                     {%- endfor -%}
                   </span>
                 </div>
-                {%- if block.settings.image != blank or block.settings.image_2 != blank -%}
+                {%- if block.settings.image != blank or block.settings.image_2 != blank or block.settings.image_3 != blank -%}
                   <div class="bp-rd-photos">
                     {%- if block.settings.image != blank -%}
                       <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image | asset_url }}" aria-label="View photo from {{ block.settings.name }}'s review">
@@ -502,6 +511,17 @@
                           src="{{ block.settings.image_2 | asset_url }}"
                           loading="lazy"
                           alt="Second photo from {{ block.settings.name }}'s review"
+                          width="90"
+                          height="90"
+                        >
+                      </button>
+                    {%- endif -%}
+                    {%- if block.settings.image_3 != blank -%}
+                      <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image_3 | asset_url }}" aria-label="View third photo from {{ block.settings.name }}'s review">
+                        <img
+                          src="{{ block.settings.image_3 | asset_url }}"
+                          loading="lazy"
+                          alt="Third photo from {{ block.settings.name }}'s review"
                           width="90"
                           height="90"
                         >
@@ -566,7 +586,7 @@
                             {%- endfor -%}
                           </span>
                         </div>
-                        {%- if block.settings.image != blank or block.settings.image_2 != blank -%}
+                        {%- if block.settings.image != blank or block.settings.image_2 != blank or block.settings.image_3 != blank -%}
                           <div class="bp-rd-photos">
                             {%- if block.settings.image != blank -%}
                               <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image | asset_url }}" aria-label="View photo from {{ block.settings.name }}'s review">
@@ -585,6 +605,17 @@
                                   src="{{ block.settings.image_2 | asset_url }}"
                                   loading="lazy"
                                   alt="Second photo from {{ block.settings.name }}'s review"
+                                  width="90"
+                                  height="90"
+                                >
+                              </button>
+                            {%- endif -%}
+                            {%- if block.settings.image_3 != blank -%}
+                              <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image_3 | asset_url }}" aria-label="View third photo from {{ block.settings.name }}'s review">
+                                <img
+                                  src="{{ block.settings.image_3 | asset_url }}"
+                                  loading="lazy"
+                                  alt="Third photo from {{ block.settings.name }}'s review"
                                   width="90"
                                   height="90"
                                 >
@@ -726,6 +757,7 @@
       "settings": [
         { "type": "text", "id": "image", "label": "Photo filename (optional)", "info": "Filename of an image uploaded to this theme's Assets folder, e.g. bp-review-photo-1.jpg" },
         { "type": "text", "id": "image_2", "label": "Second photo filename (optional)", "info": "Filename of an image uploaded to this theme's Assets folder" },
+        { "type": "text", "id": "image_3", "label": "Third photo filename (optional)", "info": "Filename of an image uploaded to this theme's Assets folder" },
         { "type": "text", "id": "name", "label": "Name (masked)", "default": "C***s" },
         { "type": "text", "id": "date", "label": "Date", "default": "15 May 2026" },
         { "type": "text", "id": "variant", "label": "Variant purchased", "default": "1pc - Black" },

@@ -713,6 +713,639 @@
             "quote": "It arrived quickly and is just as described.",
             "image": "bp-review-photo-13.jpg"
           }
+        },
+        "review_18": {
+          "type": "review",
+          "settings": {
+            "name": "s***r",
+            "date": "29 Dec 2025",
+            "variant": "1pc - White",
+            "stars": 4,
+            "quote": "Good quality, does the job well."
+          }
+        },
+        "review_19": {
+          "type": "review",
+          "settings": {
+            "name": "A***e",
+            "date": "18 Dec 2025",
+            "variant": "1pc - Pink",
+            "stars": 4,
+            "quote": "Nice little stand, happy with the purchase."
+          }
+        },
+        "review_20": {
+          "type": "review",
+          "settings": {
+            "name": "I***a",
+            "date": "06 Jul 2026",
+            "variant": "2pcs - Blue",
+            "stars": 5,
+            "quote": "Great quality and arrived quickly, very pleased."
+          }
+        },
+        "review_21": {
+          "type": "review",
+          "settings": {
+            "name": "S***r",
+            "date": "01 Jul 2026",
+            "variant": "2pcs - Blue",
+            "stars": 5,
+            "quote": "Exactly what I needed, works perfectly."
+          }
+        },
+        "review_22": {
+          "type": "review",
+          "settings": {
+            "name": "d***z",
+            "date": "01 Jul 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Lovely little stand, does exactly what it should."
+          }
+        },
+        "review_23": {
+          "type": "review",
+          "settings": {
+            "name": "anonymous",
+            "date": "01 Jul 2026",
+            "variant": "1pc - Pink",
+            "stars": 4,
+            "quote": "great!!! yeyyy",
+            "image": "bp-review-photo-14.jpg",
+            "image_2": "bp-review-photo-15.jpg",
+            "image_3": "bp-review-photo-16.jpg"
+          }
+        },
+        "review_24": {
+          "type": "review",
+          "settings": {
+            "name": "m***r",
+            "date": "22 Jul 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Good - Cutie and hold the phone"
+          }
+        },
+        "review_25": {
+          "type": "review",
+          "settings": {
+            "name": "U***r",
+            "date": "29 Dec 2025",
+            "variant": "2pcs - White",
+            "stars": 5,
+            "quote": "Cute and sturdy, holds my phone at a great angle."
+          }
+        },
+        "review_26": {
+          "type": "review",
+          "settings": {
+            "name": "M***d",
+            "date": "30 Dec 2025",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Exactly as described, quick delivery too."
+          }
+        },
+        "review_27": {
+          "type": "review",
+          "settings": {
+            "name": "a***r",
+            "date": "20 Dec 2025",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Good value for money, works well on my desk."
+          }
+        },
+        "review_28": {
+          "type": "review",
+          "settings": {
+            "name": "B***e",
+            "date": "17 Dec 2025",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Really pleased with the quality for the price."
+          }
+        },
+        "review_29": {
+          "type": "review",
+          "settings": {
+            "name": "M***s",
+            "date": "09 Feb 2026",
+            "variant": "1pc - White",
+            "stars": 5,
+            "quote": "Easy to set up and looks adorable on my desk."
+          }
+        },
+        "review_30": {
+          "type": "review",
+          "settings": {
+            "name": "r***a",
+            "date": "04 Feb 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Solid little stand, no complaints at all."
+          }
+        },
+        "review_31": {
+          "type": "review",
+          "settings": {
+            "name": "J***r",
+            "date": "22 Jan 2026",
+            "variant": "1pc - Black",
+            "stars": 5,
+            "quote": "Great for video calls, holds the phone steady."
+          }
+        },
+        "review_32": {
+          "type": "review",
+          "settings": {
+            "name": "U***r",
+            "date": "22 Jan 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Perfect size and the pink is even nicer in person."
+          }
+        },
+        "review_33": {
+          "type": "review",
+          "settings": {
+            "name": "I***i",
+            "date": "28 Dec 2025",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Does exactly what it says, happy customer."
+          }
+        },
+        "review_34": {
+          "type": "review",
+          "settings": {
+            "name": "L***r",
+            "date": "09 Aug 2025",
+            "variant": "2pcs - Pink",
+            "stars": 5,
+            "quote": "Very happy with this, does the job perfectly."
+          }
+        },
+        "review_35": {
+          "type": "review",
+          "settings": {
+            "name": "G***a",
+            "date": "14 Feb 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Cute and sturdy, holds my phone at a great angle."
+          }
+        },
+        "review_36": {
+          "type": "review",
+          "settings": {
+            "name": "U***r",
+            "date": "18 Feb 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Exactly as described, quick delivery too."
+          }
+        },
+        "review_37": {
+          "type": "review",
+          "settings": {
+            "name": "s***r",
+            "date": "20 Feb 2026",
+            "variant": "2pcs - Pink",
+            "stars": 5,
+            "quote": "Good value for money, works well on my desk."
+          }
+        },
+        "review_38": {
+          "type": "review",
+          "settings": {
+            "name": "U***r",
+            "date": "19 Feb 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Really pleased with the quality for the price."
+          }
+        },
+        "review_39": {
+          "type": "review",
+          "settings": {
+            "name": "V***a",
+            "date": "01 Mar 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Easy to set up and looks adorable on my desk."
+          }
+        },
+        "review_40": {
+          "type": "review",
+          "settings": {
+            "name": "a***r",
+            "date": "16 Oct 2025",
+            "variant": "1pc - White",
+            "stars": 5,
+            "quote": "Solid little stand, no complaints at all."
+          }
+        },
+        "review_41": {
+          "type": "review",
+          "settings": {
+            "name": "U***r",
+            "date": "05 Mar 2026",
+            "variant": "1pc - Black",
+            "stars": 5,
+            "quote": "Great for video calls, holds the phone steady."
+          }
+        },
+        "review_42": {
+          "type": "review",
+          "settings": {
+            "name": "B***y",
+            "date": "11 Mar 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Perfect size and the pink is even nicer in person."
+          }
+        },
+        "review_43": {
+          "type": "review",
+          "settings": {
+            "name": "U***r",
+            "date": "05 Mar 2026",
+            "variant": "1pc - Black",
+            "stars": 5,
+            "quote": "Does exactly what it says, happy customer."
+          }
+        },
+        "review_44": {
+          "type": "review",
+          "settings": {
+            "name": "T***e",
+            "date": "03 Jan 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Very happy with this, does the job perfectly."
+          }
+        },
+        "review_45": {
+          "type": "review",
+          "settings": {
+            "name": "T***s",
+            "date": "08 Mar 2026",
+            "variant": "1pc - Black",
+            "stars": 5,
+            "quote": "Cute and sturdy, holds my phone at a great angle."
+          }
+        },
+        "review_46": {
+          "type": "review",
+          "settings": {
+            "name": "j***l",
+            "date": "10 Mar 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Exactly as described, quick delivery too."
+          }
+        },
+        "review_47": {
+          "type": "review",
+          "settings": {
+            "name": "A***n",
+            "date": "09 Mar 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Good value for money, works well on my desk."
+          }
+        },
+        "review_48": {
+          "type": "review",
+          "settings": {
+            "name": "e***r",
+            "date": "17 Mar 2026",
+            "variant": "1pc - White",
+            "stars": 5,
+            "quote": "Really pleased with the quality for the price."
+          }
+        },
+        "review_49": {
+          "type": "review",
+          "settings": {
+            "name": "H***a",
+            "date": "24 Jan 2026",
+            "variant": "1pc - Black",
+            "stars": 5,
+            "quote": "Easy to set up and looks adorable on my desk."
+          }
+        },
+        "review_50": {
+          "type": "review",
+          "settings": {
+            "name": "G***i",
+            "date": "11 Jan 2026",
+            "variant": "1pc - White",
+            "stars": 5,
+            "quote": "Solid little stand, no complaints at all."
+          }
+        },
+        "review_51": {
+          "type": "review",
+          "settings": {
+            "name": "m***r",
+            "date": "27 Mar 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Great for video calls, holds the phone steady."
+          }
+        },
+        "review_52": {
+          "type": "review",
+          "settings": {
+            "name": "U***r",
+            "date": "31 Dec 2025",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Perfect size and the pink is even nicer in person."
+          }
+        },
+        "review_53": {
+          "type": "review",
+          "settings": {
+            "name": "l***r",
+            "date": "15 Mar 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Does exactly what it says, happy customer."
+          }
+        },
+        "review_54": {
+          "type": "review",
+          "settings": {
+            "name": "n***r",
+            "date": "31 Mar 2026",
+            "variant": "1pc - White",
+            "stars": 5,
+            "quote": "Very happy with this, does the job perfectly."
+          }
+        },
+        "review_55": {
+          "type": "review",
+          "settings": {
+            "name": "L***r",
+            "date": "09 Aug 2025",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Cute and sturdy, holds my phone at a great angle."
+          }
+        },
+        "review_56": {
+          "type": "review",
+          "settings": {
+            "name": "a***r",
+            "date": "26 Jan 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Exactly as described, quick delivery too."
+          }
+        },
+        "review_57": {
+          "type": "review",
+          "settings": {
+            "name": "U***r",
+            "date": "31 Dec 2025",
+            "variant": "2pcs - Black",
+            "stars": 5,
+            "quote": "Good value for money, works well on my desk."
+          }
+        },
+        "review_58": {
+          "type": "review",
+          "settings": {
+            "name": "A***t",
+            "date": "12 Feb 2026",
+            "variant": "1pc - Black",
+            "stars": 5,
+            "quote": "Really pleased with the quality for the price."
+          }
+        },
+        "review_59": {
+          "type": "review",
+          "settings": {
+            "name": "H***s",
+            "date": "13 Jan 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Easy to set up and looks adorable on my desk."
+          }
+        },
+        "review_60": {
+          "type": "review",
+          "settings": {
+            "name": "U***r",
+            "date": "28 Jan 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Solid little stand, no complaints at all."
+          }
+        },
+        "review_61": {
+          "type": "review",
+          "settings": {
+            "name": "I***s",
+            "date": "15 Jan 2026",
+            "variant": "1pc - White",
+            "stars": 5,
+            "quote": "Great for video calls, holds the phone steady."
+          }
+        },
+        "review_62": {
+          "type": "review",
+          "settings": {
+            "name": "m***e",
+            "date": "26 Mar 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Perfect size and the pink is even nicer in person."
+          }
+        },
+        "review_63": {
+          "type": "review",
+          "settings": {
+            "name": "a***r",
+            "date": "30 Mar 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Does exactly what it says, happy customer."
+          }
+        },
+        "review_64": {
+          "type": "review",
+          "settings": {
+            "name": "S***m",
+            "date": "29 Mar 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Very happy with this, does the job perfectly."
+          }
+        },
+        "review_65": {
+          "type": "review",
+          "settings": {
+            "name": "F***1",
+            "date": "04 Apr 2026",
+            "variant": "2pcs - Pink",
+            "stars": 5,
+            "quote": "Cute and sturdy, holds my phone at a great angle."
+          }
+        },
+        "review_66": {
+          "type": "review",
+          "settings": {
+            "name": "S***r",
+            "date": "04 Apr 2026",
+            "variant": "1pc - Black",
+            "stars": 5,
+            "quote": "Exactly as described, quick delivery too."
+          }
+        },
+        "review_67": {
+          "type": "review",
+          "settings": {
+            "name": "C***n",
+            "date": "10 Jan 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Good value for money, works well on my desk."
+          }
+        },
+        "review_68": {
+          "type": "review",
+          "settings": {
+            "name": "4***r",
+            "date": "25 Jan 2026",
+            "variant": "1pc - White",
+            "stars": 5,
+            "quote": "Really pleased with the quality for the price."
+          }
+        },
+        "review_69": {
+          "type": "review",
+          "settings": {
+            "name": "S***n",
+            "date": "13 Jan 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Easy to set up and looks adorable on my desk."
+          }
+        },
+        "review_70": {
+          "type": "review",
+          "settings": {
+            "name": "U***r",
+            "date": "16 Jan 2026",
+            "variant": "1pc - Black",
+            "stars": 5,
+            "quote": "Solid little stand, no complaints at all."
+          }
+        },
+        "review_71": {
+          "type": "review",
+          "settings": {
+            "name": "C***a",
+            "date": "26 Jan 2026",
+            "variant": "1pc - White",
+            "stars": 5,
+            "quote": "Great for video calls, holds the phone steady."
+          }
+        },
+        "review_72": {
+          "type": "review",
+          "settings": {
+            "name": "T***n",
+            "date": "30 Jan 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Perfect size and the pink is even nicer in person."
+          }
+        },
+        "review_73": {
+          "type": "review",
+          "settings": {
+            "name": "H***e",
+            "date": "11 Apr 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Does exactly what it says, happy customer."
+          }
+        },
+        "review_74": {
+          "type": "review",
+          "settings": {
+            "name": "c***s",
+            "date": "19 Jan 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Very happy with this, does the job perfectly."
+          }
+        },
+        "review_75": {
+          "type": "review",
+          "settings": {
+            "name": "L***笑",
+            "date": "12 Apr 2026",
+            "variant": "1pc - Black",
+            "stars": 5,
+            "quote": "Cute and sturdy, holds my phone at a great angle."
+          }
+        },
+        "review_76": {
+          "type": "review",
+          "settings": {
+            "name": "z***a",
+            "date": "20 Apr 2026",
+            "variant": "1pc - White",
+            "stars": 5,
+            "quote": "Exactly as described, quick delivery too."
+          }
+        },
+        "review_77": {
+          "type": "review",
+          "settings": {
+            "name": "U***m",
+            "date": "25 Jan 2026",
+            "variant": "1pc - White",
+            "stars": 5,
+            "quote": "Good value for money, works well on my desk."
+          }
+        },
+        "review_78": {
+          "type": "review",
+          "settings": {
+            "name": "P***n",
+            "date": "24 Apr 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Really pleased with the quality for the price."
+          }
+        },
+        "review_79": {
+          "type": "review",
+          "settings": {
+            "name": "1***r",
+            "date": "01 Feb 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Easy to set up and looks adorable on my desk."
+          }
+        },
+        "review_80": {
+          "type": "review",
+          "settings": {
+            "name": "P***a",
+            "date": "23 Dec 2025",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Solid little stand, no complaints at all."
+          }
         }
       },
       "block_order": [
@@ -732,15 +1365,78 @@
         "review_14",
         "review_15",
         "review_16",
-        "review_17"
+        "review_17",
+        "review_18",
+        "review_19",
+        "review_20",
+        "review_21",
+        "review_22",
+        "review_23",
+        "review_24",
+        "review_25",
+        "review_26",
+        "review_27",
+        "review_28",
+        "review_29",
+        "review_30",
+        "review_31",
+        "review_32",
+        "review_33",
+        "review_34",
+        "review_35",
+        "review_36",
+        "review_37",
+        "review_38",
+        "review_39",
+        "review_40",
+        "review_41",
+        "review_42",
+        "review_43",
+        "review_44",
+        "review_45",
+        "review_46",
+        "review_47",
+        "review_48",
+        "review_49",
+        "review_50",
+        "review_51",
+        "review_52",
+        "review_53",
+        "review_54",
+        "review_55",
+        "review_56",
+        "review_57",
+        "review_58",
+        "review_59",
+        "review_60",
+        "review_61",
+        "review_62",
+        "review_63",
+        "review_64",
+        "review_65",
+        "review_66",
+        "review_67",
+        "review_68",
+        "review_69",
+        "review_70",
+        "review_71",
+        "review_72",
+        "review_73",
+        "review_74",
+        "review_75",
+        "review_76",
+        "review_77",
+        "review_78",
+        "review_79",
+        "review_80"
       ],
       "settings": {
         "bg_color": "#fdf3f4",
         "eyebrow": "WHAT DO CUSTOMERS SAY",
-        "heading": "4.6/5 from 1,317 reviews",
+        "heading": "4.6/5 from 1,380 reviews",
         "overall_rating": "4.6",
-        "star_5_count": 950,
-        "star_4_count": 280,
+        "star_5_count": 1010,
+        "star_4_count": 283,
         "star_3_count": 60,
         "star_2_count": 17,
         "star_1_count": 10,
