@@ -133,18 +133,67 @@
       flex-grow: 1;
     }
     .bp-reviews-display-{{ section.id }} .bp-rd-photos {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2px;
+      display: flex;
+      gap: 6px;
+      padding: 14px 20px 0;
     }
-    .bp-reviews-display-{{ section.id }} .bp-rd-photos.has-two {
-      grid-template-columns: 1fr 1fr;
+    .bp-reviews-display-{{ section.id }} .bp-rd-photo-btn {
+      width: 64px;
+      height: 64px;
+      flex: none;
+      padding: 0;
+      margin: 0;
+      border: 1px solid rgba(43,30,34,.12);
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      background: none;
+      display: block;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-photo-btn:hover {
+      border-color: {{ section.settings.bg_color | color_darken: 30 }};
     }
     .bp-reviews-display-{{ section.id }} .bp-rd-photos img {
       display: block;
       width: 100%;
-      aspect-ratio: 4 / 3;
+      height: 100%;
       object-fit: cover;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(20,14,16,.82);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-lightbox.is-open {
+      display: flex;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-lightbox img {
+      max-width: min(90vw, 520px);
+      max-height: 85vh;
+      border-radius: 14px;
+      display: block;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,.15);
+      color: #fff;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-lightbox-close:hover {
+      background: rgba(255,255,255,.25);
     }
     .bp-reviews-display-{{ section.id }} .bp-rd-quote {
       font-size: 14.5px;
@@ -232,24 +281,28 @@
       {%- for block in section.blocks -%}
         <div class="bp-rd-card" {{ block.shopify_attributes }}>
           {%- if block.settings.image != blank or block.settings.image_2 != blank -%}
-            <div class="bp-rd-photos{% if block.settings.image != blank and block.settings.image_2 != blank %} has-two{% endif %}">
+            <div class="bp-rd-photos">
               {%- if block.settings.image != blank -%}
-                <img
-                  src="{{ block.settings.image | asset_url }}"
-                  loading="lazy"
-                  alt="Photo from {{ block.settings.name }}'s review"
-                  width="600"
-                  height="450"
-                >
+                <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image | asset_url }}" aria-label="View photo from {{ block.settings.name }}'s review">
+                  <img
+                    src="{{ block.settings.image | asset_url }}"
+                    loading="lazy"
+                    alt="Photo from {{ block.settings.name }}'s review"
+                    width="64"
+                    height="64"
+                  >
+                </button>
               {%- endif -%}
               {%- if block.settings.image_2 != blank -%}
-                <img
-                  src="{{ block.settings.image_2 | asset_url }}"
-                  loading="lazy"
-                  alt="Second photo from {{ block.settings.name }}'s review"
-                  width="600"
-                  height="450"
-                >
+                <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image_2 | asset_url }}" aria-label="View second photo from {{ block.settings.name }}'s review">
+                  <img
+                    src="{{ block.settings.image_2 | asset_url }}"
+                    loading="lazy"
+                    alt="Second photo from {{ block.settings.name }}'s review"
+                    width="64"
+                    height="64"
+                  >
+                </button>
               {%- endif -%}
             </div>
           {%- endif -%}
@@ -271,8 +324,51 @@
         </div>
       {%- endfor -%}
     </div>
+
+    <div class="bp-rd-lightbox" id="BpRdLightbox-{{ section.id }}">
+      <button type="button" class="bp-rd-lightbox-close" aria-label="Close photo">✕</button>
+      <img src="" alt="" id="BpRdLightboxImg-{{ section.id }}">
+    </div>
   </div>
 </div>
+
+<script>
+  (function () {
+    var root = document.querySelector('.bp-reviews-display-{{ section.id }}');
+    if (!root) return;
+
+    var lightbox = document.getElementById('BpRdLightbox-{{ section.id }}');
+    var lightboxImg = document.getElementById('BpRdLightboxImg-{{ section.id }}');
+    var closeBtn = lightbox ? lightbox.querySelector('.bp-rd-lightbox-close') : null;
+    if (!lightbox || !lightboxImg) return;
+
+    function open(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || '';
+      lightbox.classList.add('is-open');
+    }
+
+    function close() {
+      lightbox.classList.remove('is-open');
+      lightboxImg.src = '';
+    }
+
+    root.querySelectorAll('.bp-rd-photo-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var img = btn.querySelector('img');
+        open(btn.getAttribute('data-full'), img ? img.alt : '');
+      });
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') close();
+    });
+  })();
+</script>
 
 {% schema %}
 {
