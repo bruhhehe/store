@@ -230,19 +230,20 @@
 
   .fc-{{ section.id }} .fc-swatches {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
     margin-bottom: 8px;
   }
 
   .fc-{{ section.id }} .fc-swatch-row {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    border: 1.5px solid rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
-    padding: 8px 8px 8px 14px;
+    gap: 8px;
+    flex: 1;
+    min-width: 62px;
     transition: opacity 0.15s ease;
   }
 
@@ -250,12 +251,10 @@
     opacity: 0.75;
   }
 
-  .fc-{{ section.id }} .fc-swatch-swatch {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
+  .fc-{{ section.id }} .fc-swatch-label {
+    font-size: 12px;
     font-weight: 600;
+    text-align: center;
   }
 
   .fc-{{ section.id }} .fc-swatches-hint {
@@ -264,26 +263,27 @@
   }
 
   .fc-{{ section.id }} .fc-swatch-dot {
-    width: 16px;
-    height: 16px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     flex: none;
   }
 
   .fc-{{ section.id }} .fc-stepper {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
   }
 
   .fc-{{ section.id }} .fc-stepper-btn {
-    width: 28px;
-    height: 28px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     border: 1.5px solid rgba(0, 0, 0, 0.2);
     background: transparent;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1;
     cursor: pointer;
     display: inline-flex;
@@ -304,10 +304,10 @@
   }
 
   .fc-{{ section.id }} .fc-stepper-value {
-    min-width: 1.4em;
+    min-width: 1.2em;
     text-align: center;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .fc-{{ section.id }} .fc-swatches-error {
@@ -568,21 +568,19 @@
               {%- if swatch_blocks.size > 0 -%}
                 <input type="hidden" name="properties[Colour]" id="FcColours-{{ section.id }}" value="">
                 <p class="fc-swatches-label">
-                  Choose your colour{{ swatch_blocks.size | pluralize: '', 's' }}
-                  <span class="fc-swatches-hint" id="FcSwatchesHint-{{ section.id }}">(select {{ default_block.settings.quantity | default: 1 }})</span>
+                  Select Quantity per Colour
+                  <span class="fc-swatches-hint" id="FcSwatchesHint-{{ section.id }}">(Total: 0 of {{ default_block.settings.quantity | default: 1 }} selected)</span>
                 </p>
                 <div class="fc-swatches" id="FcSwatches-{{ section.id }}" role="group" aria-label="Colour options">
                   {%- for block in swatch_blocks -%}
                     <div class="fc-swatch-row" data-label="{{ block.settings.label }}" data-quantity="0" {{ block.shopify_attributes }}>
-                      <span class="fc-swatch-swatch">
-                        <span class="fc-swatch-dot" style="background: {{ block.settings.color }};"></span>
-                        {{ block.settings.label }}
-                      </span>
+                      <span class="fc-swatch-dot" style="background: {{ block.settings.color }};"></span>
                       <span class="fc-stepper">
                         <button type="button" class="fc-stepper-btn fc-stepper-minus" aria-label="Fewer {{ block.settings.label }}">−</button>
                         <span class="fc-stepper-value">0</span>
                         <button type="button" class="fc-stepper-btn fc-stepper-plus" aria-label="More {{ block.settings.label }}">+</button>
                       </span>
+                      <span class="fc-swatch-label">{{ block.settings.label }}</span>
                     </div>
                   {%- endfor -%}
                 </div>
@@ -831,7 +829,7 @@
 
       function updateHint() {
         if (hintEl) {
-          hintEl.textContent = '(' + totalSelected() + ' of ' + maxColours + ' selected)';
+          hintEl.textContent = '(Total: ' + totalSelected() + ' of ' + maxColours + ' selected)';
         }
       }
 
