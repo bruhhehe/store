@@ -226,6 +226,39 @@
     .bp-reviews-display-{{ section.id }} .bp-rd-lightbox-close:hover {
       background: rgba(255,255,255,.25);
     }
+    .bp-reviews-display-{{ section.id }} .bp-rd-lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,.15);
+      color: #fff;
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-lightbox-nav.is-visible {
+      display: flex;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-lightbox-nav:hover {
+      background: rgba(255,255,255,.25);
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-lightbox-prev {
+      left: -14px;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-lightbox-next {
+      right: -14px;
+    }
+    @media screen and (max-width: 640px) {
+      .bp-reviews-display-{{ section.id }} .bp-rd-lightbox-prev { left: 4px; }
+      .bp-reviews-display-{{ section.id }} .bp-rd-lightbox-next { right: 4px; }
+    }
     .bp-reviews-display-{{ section.id }} .bp-rd-quote {
       font-size: 14.5px;
       line-height: 1.55;
@@ -602,9 +635,21 @@
                   </span>
                 </div>
                 {%- if rd_img_1_url != blank or rd_img_2_url != blank or rd_img_3_url != blank -%}
-                  <div class="bp-rd-photos">
+                  {%- liquid
+                    assign rd_photo_group = ''
+                    if rd_img_1_url != blank
+                      assign rd_photo_group = rd_img_1_url
+                    endif
+                    if rd_img_2_url != blank
+                      assign rd_photo_group = rd_photo_group | append: '|' | append: rd_img_2_url
+                    endif
+                    if rd_img_3_url != blank
+                      assign rd_photo_group = rd_photo_group | append: '|' | append: rd_img_3_url
+                    endif
+                  -%}
+                  <div class="bp-rd-photos" data-photo-group="{{ rd_photo_group | escape }}">
                     {%- if rd_img_1_url != blank -%}
-                      <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_1_url }}" aria-label="View photo from {{ block.settings.name }}'s review">
+                      <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_1_url }}" data-photo-index="0" aria-label="View photo from {{ block.settings.name }}'s review">
                         <img
                           src="{{ rd_img_1_url }}"
                           loading="lazy"
@@ -615,7 +660,7 @@
                       </button>
                     {%- endif -%}
                     {%- if rd_img_2_url != blank -%}
-                      <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_2_url }}" aria-label="View second photo from {{ block.settings.name }}'s review">
+                      <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_2_url }}" data-photo-index="1" aria-label="View second photo from {{ block.settings.name }}'s review">
                         <img
                           src="{{ rd_img_2_url }}"
                           loading="lazy"
@@ -626,7 +671,7 @@
                       </button>
                     {%- endif -%}
                     {%- if rd_img_3_url != blank -%}
-                      <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_3_url }}" aria-label="View third photo from {{ block.settings.name }}'s review">
+                      <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_3_url }}" data-photo-index="2" aria-label="View third photo from {{ block.settings.name }}'s review">
                         <img
                           src="{{ rd_img_3_url }}"
                           loading="lazy"
@@ -670,7 +715,9 @@
     <div class="bp-rd-lightbox" id="BpRdLightbox-{{ section.id }}">
       <div class="bp-rd-lightbox-inner">
         <button type="button" class="bp-rd-lightbox-close" aria-label="Close photo">✕</button>
+        <button type="button" class="bp-rd-lightbox-nav bp-rd-lightbox-prev" aria-label="Previous photo">‹</button>
         <img src="" alt="" id="BpRdLightboxImg-{{ section.id }}">
+        <button type="button" class="bp-rd-lightbox-nav bp-rd-lightbox-next" aria-label="Next photo">›</button>
       </div>
     </div>
 
@@ -726,9 +773,21 @@
                           </span>
                         </div>
                         {%- if rd_img_1_url != blank or rd_img_2_url != blank or rd_img_3_url != blank -%}
-                          <div class="bp-rd-photos">
+                          {%- liquid
+                            assign rd_photo_group = ''
+                            if rd_img_1_url != blank
+                              assign rd_photo_group = rd_img_1_url
+                            endif
+                            if rd_img_2_url != blank
+                              assign rd_photo_group = rd_photo_group | append: '|' | append: rd_img_2_url
+                            endif
+                            if rd_img_3_url != blank
+                              assign rd_photo_group = rd_photo_group | append: '|' | append: rd_img_3_url
+                            endif
+                          -%}
+                          <div class="bp-rd-photos" data-photo-group="{{ rd_photo_group | escape }}">
                             {%- if rd_img_1_url != blank -%}
-                              <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_1_url }}" aria-label="View photo from {{ block.settings.name }}'s review">
+                              <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_1_url }}" data-photo-index="0" aria-label="View photo from {{ block.settings.name }}'s review">
                                 <img
                                   src="{{ rd_img_1_url }}"
                                   loading="lazy"
@@ -739,7 +798,7 @@
                               </button>
                             {%- endif -%}
                             {%- if rd_img_2_url != blank -%}
-                              <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_2_url }}" aria-label="View second photo from {{ block.settings.name }}'s review">
+                              <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_2_url }}" data-photo-index="1" aria-label="View second photo from {{ block.settings.name }}'s review">
                                 <img
                                   src="{{ rd_img_2_url }}"
                                   loading="lazy"
@@ -750,7 +809,7 @@
                               </button>
                             {%- endif -%}
                             {%- if rd_img_3_url != blank -%}
-                              <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_3_url }}" aria-label="View third photo from {{ block.settings.name }}'s review">
+                              <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_3_url }}" data-photo-index="2" aria-label="View third photo from {{ block.settings.name }}'s review">
                                 <img
                                   src="{{ rd_img_3_url }}"
                                   loading="lazy"
@@ -851,32 +910,62 @@
     var lightbox = document.getElementById('BpRdLightbox-{{ section.id }}');
     var lightboxImg = document.getElementById('BpRdLightboxImg-{{ section.id }}');
     var closeBtn = lightbox ? lightbox.querySelector('.bp-rd-lightbox-close') : null;
+    var prevBtn = lightbox ? lightbox.querySelector('.bp-rd-lightbox-prev') : null;
+    var nextBtn = lightbox ? lightbox.querySelector('.bp-rd-lightbox-next') : null;
     if (!lightbox || !lightboxImg) return;
 
-    function open(src, alt) {
-      lightboxImg.src = src;
+    var currentGroup = [];
+    var currentIndex = 0;
+
+    function updateNavVisibility() {
+      var hasMultiple = currentGroup.length > 1;
+      if (prevBtn) prevBtn.classList.toggle('is-visible', hasMultiple);
+      if (nextBtn) nextBtn.classList.toggle('is-visible', hasMultiple);
+    }
+
+    function showIndex(index) {
+      if (!currentGroup.length) return;
+      currentIndex = (index + currentGroup.length) % currentGroup.length;
+      lightboxImg.src = currentGroup[currentIndex];
+    }
+
+    function open(src, alt, group) {
+      currentGroup = group && group.length ? group : [src];
+      currentIndex = Math.max(0, currentGroup.indexOf(src));
       lightboxImg.alt = alt || '';
+      showIndex(currentIndex);
+      updateNavVisibility();
       lightbox.classList.add('is-open');
     }
 
     function close() {
       lightbox.classList.remove('is-open');
       lightboxImg.src = '';
+      currentGroup = [];
     }
 
     root.querySelectorAll('.bp-rd-photo-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var img = btn.querySelector('img');
-        open(btn.getAttribute('data-full'), img ? img.alt : '');
+        var wrapper = btn.closest('.bp-rd-photos');
+        var groupAttr = wrapper ? wrapper.getAttribute('data-photo-group') : '';
+        var group = groupAttr ? groupAttr.split('|').filter(Boolean) : [];
+        open(btn.getAttribute('data-full'), img ? img.alt : '', group);
       });
     });
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { showIndex(currentIndex - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { showIndex(currentIndex + 1); });
 
     if (closeBtn) closeBtn.addEventListener('click', close);
     lightbox.addEventListener('click', function (e) {
       if (e.target === lightbox) close();
     });
     document.addEventListener('keydown', function (e) {
+      if (!lightbox.classList.contains('is-open')) return;
       if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') showIndex(currentIndex - 1);
+      if (e.key === 'ArrowRight') showIndex(currentIndex + 1);
     });
 
     var showMoreBtn = document.getElementById('BpRdShowMore-{{ section.id }}');
@@ -912,7 +1001,10 @@
       modal.querySelectorAll('.bp-rd-photo-btn').forEach(function (btn) {
         btn.addEventListener('click', function () {
           var img = btn.querySelector('img');
-          open(btn.getAttribute('data-full'), img ? img.alt : '');
+          var wrapper = btn.closest('.bp-rd-photos');
+          var groupAttr = wrapper ? wrapper.getAttribute('data-photo-group') : '';
+          var group = groupAttr ? groupAttr.split('|').filter(Boolean) : [];
+          open(btn.getAttribute('data-full'), img ? img.alt : '', group);
         });
       });
     }

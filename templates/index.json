@@ -559,19 +559,6 @@
         "review_3": {
           "type": "review",
           "settings": {
-            "image": "",
-            "image_2": "",
-            "image_3": "",
-            "name": "J***n",
-            "date": "27 Jan 2026",
-            "variant": "",
-            "stars": 5,
-            "quote": "This is the second one I've ordered, very good product despite the fragile material; if taken care of properly, it can last a long time."
-          }
-        },
-        "review_4": {
-          "type": "review",
-          "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r3-0.webp?v=1785241344",
             "image_2": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r3-1.webp?v=1785241343",
             "image_3": "",
@@ -582,20 +569,7 @@
             "quote": "Very good. I struggled a little to assemble the pieces, but it holds the weight of my phone with a case on well, whether placed vertically or horizontally. The base is not very heavy, but overall it feels solid. Good purchase."
           }
         },
-        "review_5": {
-          "type": "review",
-          "settings": {
-            "image": "",
-            "image_2": "",
-            "image_3": "",
-            "name": "M***e",
-            "date": "12 Dec 2025",
-            "variant": "",
-            "stars": 4,
-            "quote": "Design just as in the photo, adorable. The material is a bit plasticky, but it serves its purpose, and for the quality-price ratio, quite good and recommendable."
-          }
-        },
-        "review_6": {
+        "review_4": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r5-0.webp?v=1785241343",
@@ -608,7 +582,7 @@
             "quote": "It's very handsome, I loved it, my daughters went crazy, I will order 2 more again."
           }
         },
-        "review_7": {
+        "review_5": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r6-0.webp?v=1785241344",
@@ -621,7 +595,7 @@
             "quote": "Divine as I expected, I liked it and good rigid product to prevent the phone from falling.   I recommend it."
           }
         },
-        "review_8": {
+        "review_6": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r7-0.webp?v=1785241344",
@@ -634,7 +608,7 @@
             "quote": "very nice and stable, they support heavy phones, I recommend♡"
           }
         },
-        "review_9": {
+        "review_7": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r8-0.webp?v=1785241344",
@@ -647,7 +621,7 @@
             "quote": "I bought it for the second time, one for home and another for work."
           }
         },
-        "review_10": {
+        "review_8": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r9-0.webp?v=1785241343",
@@ -660,7 +634,7 @@
             "quote": "The stand is very cute. I ordered it for my child's phone. The child is happy; it turns out she wanted such a stand for a long time. Now she always watches cartoons with it, very convenient."
           }
         },
-        "review_11": {
+        "review_9": {
           "type": "review",
           "settings": {
             "image": "",
@@ -673,7 +647,7 @@
             "quote": "The up-and-down movement is a bit stiff, but I'm satisfied with it for the price!"
           }
         },
-        "review_12": {
+        "review_10": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r11-0.webp?v=1785241344",
@@ -686,7 +660,7 @@
             "quote": "Just as described. Perfect for your phone on auto scroll and those hilarious reel short movies."
           }
         },
-        "review_13": {
+        "review_11": {
           "type": "review",
           "settings": {
             "image": "",
@@ -699,7 +673,7 @@
             "quote": "Super practical and beautiful, I have bought several because they always want one and I give them as gifts."
           }
         },
-        "review_14": {
+        "review_12": {
           "type": "review",
           "settings": {
             "image": "",
@@ -712,7 +686,7 @@
             "quote": "cute I even bought two after loving my first one"
           }
         },
-        "review_15": {
+        "review_13": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r14-0.webp?v=1785241344",
@@ -725,7 +699,7 @@
             "quote": "Such a cute stand. I use it everyday! Super stable and easy to install."
           }
         },
-        "review_16": {
+        "review_14": {
           "type": "review",
           "settings": {
             "image": "",
@@ -738,7 +712,7 @@
             "quote": "Very good, holds the phone well."
           }
         },
-        "review_17": {
+        "review_15": {
           "type": "review",
           "settings": {
             "image": "",
@@ -751,20 +725,7 @@
             "quote": "very light but my daughter's phone still holds well. You get what you pay for ;)"
           }
         },
-        "review_18": {
-          "type": "review",
-          "settings": {
-            "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r17-0.webp?v=1785241343",
-            "image_2": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r17-1.webp?v=1785241343",
-            "image_3": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r17-2.webp?v=1785241344",
-            "name": "J***f",
-            "date": "13 Aug 2025",
-            "variant": "",
-            "stars": 5,
-            "quote": "plastic is high-quality and durable. But to ensure the stability of the structure, it was necessary to fill half of the base with cement because at the maximum height it wobbles."
-          }
-        },
-        "review_19": {
+        "review_16": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r18-0.webp?v=1785241376",
@@ -777,7 +738,7 @@
             "quote": "Perfect for what I wanted, which was to use as a support for my controller (Gamesir T4 Nova Lite). The material is plastic and rubberized and it's quite light. It's not of the best quality but it's great for the price. If taken care of properly, it lasts quite a bit."
           }
         },
-        "review_20": {
+        "review_17": {
           "type": "review",
           "settings": {
             "image": "",
@@ -790,20 +751,7 @@
             "quote": "It's cute and comfortable enough for one sister to use and another to write with."
           }
         },
-        "review_21": {
-          "type": "review",
-          "settings": {
-            "image": "",
-            "image_2": "",
-            "image_3": "",
-            "name": "G***d",
-            "date": "22 Oct 2025",
-            "variant": "",
-            "stars": 4,
-            "quote": "It feels a bit cheap, but it's cute and I'm using a Fold 5, so I was worried about it not being weight-centered properly, but it's holding up well and I'm happy with it."
-          }
-        },
-        "review_22": {
+        "review_18": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r21-0.webp?v=1785241376",
@@ -816,7 +764,7 @@
             "quote": "Fast delivery, the product is very good and my phone fits perfectly on it. Honestly, I recommend it. Thank you again."
           }
         },
-        "review_23": {
+        "review_19": {
           "type": "review",
           "settings": {
             "image": "",
@@ -829,7 +777,7 @@
             "quote": "I did not contact the seller, the stand is excellent for the money. the angle of inclination is adjustable, holds the phone well, convenient."
           }
         },
-        "review_24": {
+        "review_20": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r23-0.webp?v=1785241375",
@@ -842,7 +790,7 @@
             "quote": "I loved it; the color is super nice and it looks durable, so I highly recommend it."
           }
         },
-        "review_25": {
+        "review_21": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r24-0.webp?v=1785241375",
@@ -855,7 +803,7 @@
             "quote": "Just like the image, I loved it. It can be enlarged more than I thought, I highly recommend it."
           }
         },
-        "review_26": {
+        "review_22": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r25-0.webp?v=1785241376",
@@ -868,7 +816,7 @@
             "quote": "Yes, I took this stand just so that the phone would be higher when I'm doing TikTok videos, otherwise if the phone is low, you can see all my 10 chins lol"
           }
         },
-        "review_27": {
+        "review_23": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r26-0.webp?v=1785241375",
@@ -881,7 +829,7 @@
             "quote": "girl but very good if it holds my phone perfectly ✨"
           }
         },
-        "review_28": {
+        "review_24": {
           "type": "review",
           "settings": {
             "image": "",
@@ -894,20 +842,7 @@
             "quote": "I bought it at a very low price.   It's really useful, and the delivery is much faster than before.   I recommend it.   I bought it at a very low price.   It's really useful, and the delivery is much faster than before.   I recommend it."
           }
         },
-        "review_29": {
-          "type": "review",
-          "settings": {
-            "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r28-0.webp?v=1785241376",
-            "image_2": "",
-            "image_3": "",
-            "name": "G***a",
-            "date": "30 Aug 2025",
-            "variant": "",
-            "stars": 4,
-            "quote": "It's very cute, but it falls back simply by tilting the ears. It's fine for supporting the phone while charging and watching something on the screen while doing so. It can be raised but becomes even more flimsy."
-          }
-        },
-        "review_30": {
+        "review_25": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r29-0.webp?v=1785241376",
@@ -920,7 +855,7 @@
             "quote": "Love this!! So easy to adjust and perfect for when im eating and want to watch youtube. Please like this ❤️ ❤️ ❤️ ❤️ ❤️"
           }
         },
-        "review_31": {
+        "review_26": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r30-0.webp?v=1785241375",
@@ -933,7 +868,7 @@
             "quote": "It arrived on time, made of good material, only works for a cell phone on its side, it falls when standing."
           }
         },
-        "review_32": {
+        "review_27": {
           "type": "review",
           "settings": {
             "image": "",
@@ -946,7 +881,7 @@
             "quote": "Very pretty, very satisfied, I highly recommend, thank you very much."
           }
         },
-        "review_33": {
+        "review_28": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r32-0.webp?v=1785241376",
@@ -959,7 +894,7 @@
             "quote": "I liked it so much that I'm going to order another one."
           }
         },
-        "review_34": {
+        "review_29": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r33-0.webp?v=1785241376",
@@ -972,7 +907,7 @@
             "quote": "Really too cute, just like in the photo and I received it well."
           }
         },
-        "review_35": {
+        "review_30": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r34-0.webp?v=1785241376",
@@ -985,7 +920,7 @@
             "quote": "Very good, I will use it all the time when I do my makeup, etc."
           }
         },
-        "review_36": {
+        "review_31": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r35-0.webp?v=1785241376",
@@ -998,7 +933,7 @@
             "quote": "It's very cute and perfectly fulfills its function, I liked it a lot."
           }
         },
-        "review_37": {
+        "review_32": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r36-0.webp?v=1785241375",
@@ -1011,20 +946,7 @@
             "quote": "I LOVE IT. Now I will be able to play Love And Deepspace calmly. 🤭❤️🖤✨."
           }
         },
-        "review_38": {
-          "type": "review",
-          "settings": {
-            "image": "",
-            "image_2": "",
-            "image_3": "",
-            "name": "N***a",
-            "date": "14 Jan 2026",
-            "variant": "",
-            "stars": 4,
-            "quote": "The reviews seemed not very good, but I received it in two days, and apart from the fact that the length can't be adjusted, it came with two legs and holds quite well. I use it next to me while eating at home and watching videos! I wouldn't recommend it strongly, but if you want to use a cheap and cost-effective product instead of paying a lot on other sites, I recommend this one~"
-          }
-        },
-        "review_39": {
+        "review_33": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1037,7 +959,7 @@
             "quote": "It's comfortable to use, just that if your phone weighs a lot, it might not support it. Mine doesn't go up or down; if it does go up, it goes down quickly because it doesn't have a lock, but it does fulfill its function."
           }
         },
-        "review_40": {
+        "review_34": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1050,7 +972,7 @@
             "quote": "VERY COOL, HIGHLY RECOMMENDED"
           }
         },
-        "review_41": {
+        "review_35": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r40-0.webp?v=1785241403",
@@ -1063,7 +985,7 @@
             "quote": "I liked it, just as displayed, I recommend it."
           }
         },
-        "review_42": {
+        "review_36": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r41-0.webp?v=1785241404",
@@ -1076,7 +998,7 @@
             "quote": "Very cute and supports the weight of the phone quite well."
           }
         },
-        "review_43": {
+        "review_37": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r42-0.webp?v=1785241404",
@@ -1089,7 +1011,7 @@
             "quote": "just like the photos, very nice and practical"
           }
         },
-        "review_44": {
+        "review_38": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1102,7 +1024,7 @@
             "quote": "just as described   I highly recommend it."
           }
         },
-        "review_45": {
+        "review_39": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1115,7 +1037,7 @@
             "quote": "I received the product in a considerably short period, specifically within a week, which I consider an efficient delivery. The item matches the visual description provided. Although compatibility with my mobile device is adequate, I have experienced some instability due to the weight of the product. However, given its quality-price ratio, I consider that it fulfills its function satisfactorily and I have found it to my liking."
           }
         },
-        "review_46": {
+        "review_40": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1128,7 +1050,7 @@
             "quote": "Everything is great, it fits perfectly for both the tablet and phone."
           }
         },
-        "review_47": {
+        "review_41": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1141,7 +1063,7 @@
             "quote": "Daughter loves it she puts her switch ipad etc on it"
           }
         },
-        "review_48": {
+        "review_42": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1154,7 +1076,7 @@
             "quote": "So in love it works perfectly easy to watch movies while eating a meal"
           }
         },
-        "review_49": {
+        "review_43": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1167,7 +1089,7 @@
             "quote": "I highly recommend it."
           }
         },
-        "review_50": {
+        "review_44": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1180,7 +1102,7 @@
             "quote": "highly recommended."
           }
         },
-        "review_51": {
+        "review_45": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1193,7 +1115,7 @@
             "quote": "It's very cute and the quality is good."
           }
         },
-        "review_52": {
+        "review_46": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1206,7 +1128,7 @@
             "quote": "Nice for a kids room for holding phones"
           }
         },
-        "review_53": {
+        "review_47": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1219,7 +1141,7 @@
             "quote": "The product matches, I recommend it!"
           }
         },
-        "review_54": {
+        "review_48": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r53-0.webp?v=1785241403",
@@ -1232,7 +1154,7 @@
             "quote": "Okay~ It's not completely sturdy, but it's still nice to use."
           }
         },
-        "review_55": {
+        "review_49": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1245,7 +1167,7 @@
             "quote": "I was confused for a long time about how to assemble it, but it works incredibly well."
           }
         },
-        "review_56": {
+        "review_50": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1258,7 +1180,7 @@
             "quote": "So cute and sturdy! Love it already!! So handy!"
           }
         },
-        "review_57": {
+        "review_51": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1271,7 +1193,7 @@
             "quote": "Perfect. I use it since i got. Very useful."
           }
         },
-        "review_58": {
+        "review_52": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1284,20 +1206,7 @@
             "quote": "Very good, easy to assemble and sturdy"
           }
         },
-        "review_59": {
-          "type": "review",
-          "settings": {
-            "image": "",
-            "image_2": "",
-            "image_3": "",
-            "name": "L***a",
-            "date": "15 Dec 2025",
-            "variant": "",
-            "stars": 5,
-            "quote": "It wobbles a bit due to the weight of the phone, but overall it's very cute and high-quality."
-          }
-        },
-        "review_60": {
+        "review_53": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r59-0.webp?v=1785241403",
@@ -1310,7 +1219,7 @@
             "quote": "I expected it to be a few centimeters bigger. The box came somewhat crushed and upon opening there are plastic pieces that you have to assemble. However, for the price, the quality is decent and it serves its purpose."
           }
         },
-        "review_61": {
+        "review_54": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r60-0.webp?v=1785241403",
@@ -1323,7 +1232,7 @@
             "quote": "So cute, and exactly as described. I gave  2 🌟   Because we didn't communicate   I highly recommend and god bless the seller."
           }
         },
-        "review_62": {
+        "review_55": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r61-0.webp?v=1785241403",
@@ -1336,7 +1245,7 @@
             "quote": "It is stable; it's a bit difficult to set up because the pieces move around, but it's easy to assemble."
           }
         },
-        "review_63": {
+        "review_56": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1349,7 +1258,7 @@
             "quote": "I really like the phone holder!"
           }
         },
-        "review_64": {
+        "review_57": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1362,7 +1271,7 @@
             "quote": "It's bigger than I thought.   I bought it to put in front of the computer."
           }
         },
-        "review_65": {
+        "review_58": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1375,7 +1284,7 @@
             "quote": "Cute and easy to assemble"
           }
         },
-        "review_66": {
+        "review_59": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r65-0.webp?v=1785241402",
@@ -1388,7 +1297,7 @@
             "quote": "I can't adjust the length. Is it defective or am I just unable to attach it properly...   I'm satisfied with the basic size, so I'll just use it."
           }
         },
-        "review_67": {
+        "review_60": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r66-0.webp?v=1785241403",
@@ -1401,7 +1310,7 @@
             "quote": "I loved it, the color is pastel which I love, happy, it arrived ahead of schedule ⭐️ the size is great, I will order more 💕"
           }
         },
-        "review_68": {
+        "review_61": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r67-0.webp?v=1785241404",
@@ -1414,7 +1323,7 @@
             "quote": "It's plastic, but feels sturdy. It's good."
           }
         },
-        "review_69": {
+        "review_62": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r68-0.webp?v=1785241404",
@@ -1427,7 +1336,7 @@
             "quote": "Really good for the price!! It arrived not assembled but it was really easy to put together and has an adjustable size. Can’t wait to use it!"
           }
         },
-        "review_70": {
+        "review_63": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r69-0.webp?v=1785241402",
@@ -1440,7 +1349,7 @@
             "quote": "Material - plastic, the holder itself is light, holds the phone, and paper is glued for decoration, for softness apparently. Thought of another material... slightly tilts up and down if you wish. We'll see how it performs in practice. Arrived quickly via Ukrainian mail with other goods."
           }
         },
-        "review_71": {
+        "review_64": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r70-0.webp?v=1785241429",
@@ -1453,7 +1362,7 @@
             "quote": "Beautiful 😍😍, very cute and durable. The little thing that goes up does get stuck a bit, but everything is very cute."
           }
         },
-        "review_72": {
+        "review_65": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r71-0.webp?v=1785241429",
@@ -1466,7 +1375,7 @@
             "quote": "It's nice, arrived well and quickly, easy to assemble. I recommend."
           }
         },
-        "review_73": {
+        "review_66": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r72-0.webp?v=1785241429",
@@ -1479,7 +1388,7 @@
             "quote": "I loved my product, it's super nice, it's small but the CEL fits very well."
           }
         },
-        "review_74": {
+        "review_67": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r73-0.webp?v=1785241430",
@@ -1492,7 +1401,7 @@
             "quote": "I loved it, good material, very useful just as shown in the photos, I liked it a lot."
           }
         },
-        "review_75": {
+        "review_68": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r74-0.webp?v=1785241430",
@@ -1505,7 +1414,7 @@
             "quote": "Super good, just like the photos!! Good size and holds the phone properly."
           }
         },
-        "review_76": {
+        "review_69": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r75-0.webp?v=1785241429",
@@ -1518,20 +1427,7 @@
             "quote": "Very nice, it is exactly the same as in the pictures, recommended."
           }
         },
-        "review_77": {
-          "type": "review",
-          "settings": {
-            "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r76-0.webp?v=1785241430",
-            "image_2": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r76-1.webp?v=1785241429",
-            "image_3": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r76-2.webp?v=1785241429",
-            "name": "L***e",
-            "date": "14 Oct 2025",
-            "variant": "",
-            "stars": 5,
-            "quote": "Boxes were a bit destroyed but all good. It's cheap plastic but does what it's supposed to. Can't complain for the price"
-          }
-        },
-        "review_78": {
+        "review_70": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r77-0.webp?v=1785241429",
@@ -1544,20 +1440,7 @@
             "quote": "The height is adjustable. It's not made of the material it looks like, but it's nice. It's functional."
           }
         },
-        "review_79": {
-          "type": "review",
-          "settings": {
-            "image": "",
-            "image_2": "",
-            "image_3": "",
-            "name": "B***i",
-            "date": "3 Dec 2025",
-            "variant": "",
-            "stars": 4,
-            "quote": "It's a little wobbly but still usable."
-          }
-        },
-        "review_80": {
+        "review_71": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r79-0.webp?v=1785241431",
@@ -1570,7 +1453,7 @@
             "quote": "Everything arrived intact, good quality, performs its function. The child is satisfied."
           }
         },
-        "review_81": {
+        "review_72": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r80-0.webp?v=1785241430",
@@ -1583,7 +1466,7 @@
             "quote": "Long-term tester but looks very good!"
           }
         },
-        "review_82": {
+        "review_73": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r81-0.webp?v=1785241456",
@@ -1596,7 +1479,7 @@
             "quote": "I thought it would topple over with my abnormally large phone but it didn't shift or shake a bit. Delivery was fast."
           }
         },
-        "review_83": {
+        "review_74": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r82-0.webp?v=1785241457",
@@ -1609,7 +1492,7 @@
             "quote": "Perfect, it's really worth it."
           }
         },
-        "review_84": {
+        "review_75": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1622,7 +1505,7 @@
             "quote": "Everything is fine, everything is fine, everything is fine, everything is fine, everything is fine, everything is fine, everything is fine, everything is fine, everything is fine, everything is fine, everything is fine, everything is fine, everything is fine, everything is fine, everything is fine."
           }
         },
-        "review_85": {
+        "review_76": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1635,7 +1518,7 @@
             "quote": "We are very happy with the cute rabbit, I am very pleased and my sister-in-law also liked it a lot."
           }
         },
-        "review_86": {
+        "review_77": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r85-0.webp?v=1785241456",
@@ -1648,7 +1531,7 @@
             "quote": "It looks very nice... and it works perfectly 😁"
           }
         },
-        "review_87": {
+        "review_78": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r86-0.webp?v=1785241457",
@@ -1661,7 +1544,7 @@
             "quote": "Perfect, arrived before the expected date."
           }
         },
-        "review_88": {
+        "review_79": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1674,7 +1557,7 @@
             "quote": "Love this very good for my phone"
           }
         },
-        "review_89": {
+        "review_80": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r88-0.webp?v=1785241457",
@@ -1687,7 +1570,7 @@
             "quote": "Looks like the picture, very pretty. Works perfectly."
           }
         },
-        "review_90": {
+        "review_81": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r89-0.webp?v=1785241457",
@@ -1700,7 +1583,7 @@
             "quote": "It's very nice, a good size and firm. I loved it."
           }
         },
-        "review_91": {
+        "review_82": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r90-0.webp?v=1785241458",
@@ -1713,7 +1596,7 @@
             "quote": "The design is nice, although the quality isn't the best, it's super good for the price 😸"
           }
         },
-        "review_92": {
+        "review_83": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1726,7 +1609,7 @@
             "quote": "The best for resale! I have already sold around 50 pieces. They are beautiful and very attractive."
           }
         },
-        "review_93": {
+        "review_84": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1739,7 +1622,7 @@
             "quote": "I found it beautiful, it fully fulfills its function, easy to assemble and durable material."
           }
         },
-        "review_94": {
+        "review_85": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1752,7 +1635,7 @@
             "quote": "Excellent product, good delivery time, very practical and comfortable, easy to use. Thank you."
           }
         },
-        "review_95": {
+        "review_86": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1765,7 +1648,7 @@
             "quote": "This is so cute and useful. A little hard to set up but it is too cuteeeeeee."
           }
         },
-        "review_96": {
+        "review_87": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1778,7 +1661,7 @@
             "quote": "Honestly, since I've wanted it for so long, it's perfect timing, it's incredible."
           }
         },
-        "review_97": {
+        "review_88": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r96-0.webp?v=1785241457",
@@ -1791,7 +1674,7 @@
             "quote": "Recommended. Of good quality."
           }
         },
-        "review_98": {
+        "review_89": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1804,7 +1687,7 @@
             "quote": "Nice good holder galaxy s24 ultra."
           }
         },
-        "review_99": {
+        "review_90": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r98-0.webp?v=1785241457",
@@ -1817,7 +1700,7 @@
             "quote": "I loved it, very good Kawaii 🤗👍💕"
           }
         },
-        "review_100": {
+        "review_91": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r99-0.webp?v=1785241457",
@@ -1830,7 +1713,7 @@
             "quote": "Cute 😍   Love it! Exactly what i expected."
           }
         },
-        "review_101": {
+        "review_92": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r100-0.webp?v=1785241457",
@@ -1843,7 +1726,7 @@
             "quote": "Better than I expected 🤩"
           }
         },
-        "review_102": {
+        "review_93": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r101-0.webp?v=1785241457",
@@ -1856,7 +1739,7 @@
             "quote": "Excellent, very cute and comfortable."
           }
         },
-        "review_103": {
+        "review_94": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r102-0.webp?v=1785241457",
@@ -1869,7 +1752,7 @@
             "quote": "It is very beautiful as well as functional."
           }
         },
-        "review_104": {
+        "review_95": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r103-0.webp?v=1785241484",
@@ -1882,7 +1765,7 @@
             "quote": "It’s just as announced i love it !"
           }
         },
-        "review_105": {
+        "review_96": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1895,7 +1778,7 @@
             "quote": "Assembling was funny, very beautiful."
           }
         },
-        "review_106": {
+        "review_97": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1908,7 +1791,7 @@
             "quote": "It arrived well and I really like it."
           }
         },
-        "review_107": {
+        "review_98": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1921,7 +1804,7 @@
             "quote": "very practical. will be used by my daughter to store her recipe book."
           }
         },
-        "review_108": {
+        "review_99": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1934,7 +1817,7 @@
             "quote": "Really nice, but would help if there were instructions to build it"
           }
         },
-        "review_109": {
+        "review_100": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1947,7 +1830,7 @@
             "quote": "The delivery is fast and I like the product! !   Thank you for the fast delivery.   I am always using it well and enjoying it^^"
           }
         },
-        "review_110": {
+        "review_101": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1960,7 +1843,7 @@
             "quote": "It's very nice and if you hold the phone well, it doesn't fall."
           }
         },
-        "review_111": {
+        "review_102": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1973,7 +1856,7 @@
             "quote": "I liked them a lot, they fulfill their function and are nice and practical."
           }
         },
-        "review_112": {
+        "review_103": {
           "type": "review",
           "settings": {
             "image": "",
@@ -1986,20 +1869,7 @@
             "quote": "Very cute, perfect and good size. Just like photo :)"
           }
         },
-        "review_113": {
-          "type": "review",
-          "settings": {
-            "image": "",
-            "image_2": "",
-            "image_3": "",
-            "name": "C***a",
-            "date": "12 Feb 2026",
-            "variant": "",
-            "stars": 5,
-            "quote": "A very cute stand, just like in the photo. The mount isn't great, though, due to the plastic which seems a bit fragile, but it does fulfill its function."
-          }
-        },
-        "review_114": {
+        "review_104": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2012,7 +1882,7 @@
             "quote": "Received what was shown on the photos very happy with the product"
           }
         },
-        "review_115": {
+        "review_105": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2025,7 +1895,7 @@
             "quote": "Great little phone holder, can bend into different positions"
           }
         },
-        "review_116": {
+        "review_106": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2038,7 +1908,7 @@
             "quote": "It is practical, easy to assemble, and can withstand the weight of the cell phone."
           }
         },
-        "review_117": {
+        "review_107": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2051,7 +1921,7 @@
             "quote": "Just like photo love it"
           }
         },
-        "review_118": {
+        "review_108": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r117-0.webp?v=1785241484",
@@ -2064,7 +1934,7 @@
             "quote": "Very good i like it"
           }
         },
-        "review_119": {
+        "review_109": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r118-0.webp?v=1785241483",
@@ -2077,7 +1947,7 @@
             "quote": "It's beautiful, I love it!"
           }
         },
-        "review_120": {
+        "review_110": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r119-0.webp?v=1785241486",
@@ -2090,7 +1960,7 @@
             "quote": "Cute and useful"
           }
         },
-        "review_121": {
+        "review_111": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r120-0.webp?v=1785241483",
@@ -2103,7 +1973,7 @@
             "quote": "I loved them"
           }
         },
-        "review_122": {
+        "review_112": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r121-0.webp?v=1785241483",
@@ -2116,7 +1986,7 @@
             "quote": "super cool"
           }
         },
-        "review_123": {
+        "review_113": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r122-0.webp?v=1785241484",
@@ -2129,7 +1999,7 @@
             "quote": "Super cute, I loved it"
           }
         },
-        "review_124": {
+        "review_114": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r123-0.webp?v=1785241485",
@@ -2142,7 +2012,7 @@
             "quote": "Absolutely love it"
           }
         },
-        "review_125": {
+        "review_115": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r124-0.webp?v=1785241484",
@@ -2155,7 +2025,7 @@
             "quote": "It's cute and arrived without any damage. Good."
           }
         },
-        "review_126": {
+        "review_116": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r125-0.webp?v=1785241485",
@@ -2168,7 +2038,7 @@
             "quote": "It's cute and comfortable. I'm thinking of buying the white one too."
           }
         },
-        "review_127": {
+        "review_117": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r126-0.webp?v=1785241485",
@@ -2181,7 +2051,7 @@
             "quote": "Very useful and cute :)"
           }
         },
-        "review_128": {
+        "review_118": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2194,7 +2064,7 @@
             "quote": "So good that i have bought multiple!"
           }
         },
-        "review_129": {
+        "review_119": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2207,7 +2077,7 @@
             "quote": "Satisfied with the product"
           }
         },
-        "review_130": {
+        "review_120": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2220,7 +2090,7 @@
             "quote": "Quickly assembled, cute design"
           }
         },
-        "review_131": {
+        "review_121": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2233,7 +2103,7 @@
             "quote": "Very cute and light, easy to assemble"
           }
         },
-        "review_132": {
+        "review_122": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2246,7 +2116,7 @@
             "quote": "I really liked it a lot, it's beautiful."
           }
         },
-        "review_133": {
+        "review_123": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2259,7 +2129,7 @@
             "quote": "excellent, thank you very much for everything, ok"
           }
         },
-        "review_134": {
+        "review_124": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2272,7 +2142,7 @@
             "quote": "I am very grateful for the stand, it's well made."
           }
         },
-        "review_135": {
+        "review_125": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2285,7 +2155,7 @@
             "quote": "Just like in the photo, it arrived very quickly."
           }
         },
-        "review_136": {
+        "review_126": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2298,7 +2168,7 @@
             "quote": "Identical to the image, it arrived in good condition."
           }
         },
-        "review_137": {
+        "review_127": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2311,7 +2181,7 @@
             "quote": "Very happy, just as described!"
           }
         },
-        "review_138": {
+        "review_128": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2324,7 +2194,7 @@
             "quote": "I really liked them! Just like the photo and description."
           }
         },
-        "review_139": {
+        "review_129": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2337,7 +2207,7 @@
             "quote": "Cute, easy to put together, works perfectly."
           }
         },
-        "review_140": {
+        "review_130": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2350,7 +2220,7 @@
             "quote": "Very nice and useful, and easy to assemble, I loved it."
           }
         },
-        "review_141": {
+        "review_131": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2363,7 +2233,7 @@
             "quote": "Very nice and easy to assemble. Just like the photo."
           }
         },
-        "review_142": {
+        "review_132": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2376,7 +2246,7 @@
             "quote": "It's a good product. It's really nice. You'll be satisfied if you buy it."
           }
         },
-        "review_143": {
+        "review_133": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2389,7 +2259,7 @@
             "quote": "I really liked it, good support."
           }
         },
-        "review_144": {
+        "review_134": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2402,7 +2272,7 @@
             "quote": "It's a little gem, I loved it, I recommend it, it's worth the wait."
           }
         },
-        "review_145": {
+        "review_135": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2415,7 +2285,7 @@
             "quote": "I love it, very useful and practical."
           }
         },
-        "review_146": {
+        "review_136": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2428,7 +2298,7 @@
             "quote": "very nice. my girl loved it"
           }
         },
-        "review_147": {
+        "review_137": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2441,7 +2311,7 @@
             "quote": "My daughter is very satisfied. I recommend it."
           }
         },
-        "review_148": {
+        "review_138": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2454,7 +2324,7 @@
             "quote": "very nice and practical. of good quality 👌"
           }
         },
-        "review_149": {
+        "review_139": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2467,7 +2337,7 @@
             "quote": "It's nice, very cute, easy to assemble."
           }
         },
-        "review_150": {
+        "review_140": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r149-0.webp?v=1785241484",
@@ -2480,7 +2350,7 @@
             "quote": "It's soo cute i'm gonna gift the other one for my friend 💙"
           }
         },
-        "review_151": {
+        "review_141": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2493,7 +2363,7 @@
             "quote": "easy to assemble, durable and good"
           }
         },
-        "review_152": {
+        "review_142": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2506,7 +2376,7 @@
             "quote": "Super cute, I loved it and it's also super firm."
           }
         },
-        "review_153": {
+        "review_143": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2519,7 +2389,7 @@
             "quote": "So cute and sturdy love it"
           }
         },
-        "review_154": {
+        "review_144": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r153-0.webp?v=1785241485",
@@ -2532,7 +2402,7 @@
             "quote": "Everything is great."
           }
         },
-        "review_155": {
+        "review_145": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2545,7 +2415,7 @@
             "quote": "It looked a bit bigger and sturdier in the picture, but it doesn't seem to be the case, but the phone fits well, so that's good."
           }
         },
-        "review_156": {
+        "review_146": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r155-0.webp?v=1785241483",
@@ -2558,7 +2428,7 @@
             "quote": "very nice"
           }
         },
-        "review_157": {
+        "review_147": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r156-0.webp?v=1785241484",
@@ -2571,7 +2441,7 @@
             "quote": "very nice"
           }
         },
-        "review_158": {
+        "review_148": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r157-0.webp?v=1785241484",
@@ -2584,7 +2454,7 @@
             "quote": "I loved it a lot."
           }
         },
-        "review_159": {
+        "review_149": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r158-0.webp?v=1785241483",
@@ -2597,7 +2467,7 @@
             "quote": "very good"
           }
         },
-        "review_160": {
+        "review_150": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2610,7 +2480,7 @@
             "quote": "Good for a wide phone/phone case. \r   The long leg is not perfect-it will not hold a phone"
           }
         },
-        "review_161": {
+        "review_151": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r160-0.webp?v=1785241483",
@@ -2623,7 +2493,7 @@
             "quote": "This is great stuff good crop."
           }
         },
-        "review_162": {
+        "review_152": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r161-0.webp?v=1785241483",
@@ -2636,7 +2506,7 @@
             "quote": "a bit unstable."
           }
         },
-        "review_163": {
+        "review_153": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r162-0.webp?v=1785241512",
@@ -2649,7 +2519,7 @@
             "quote": "Nice products"
           }
         },
-        "review_164": {
+        "review_154": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r163-0.webp?v=1785241515",
@@ -2662,7 +2532,7 @@
             "quote": "It sells well."
           }
         },
-        "review_165": {
+        "review_155": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r164-0.webp?v=1785241513",
@@ -2675,7 +2545,7 @@
             "quote": "It came to me without parts, not recommended. I added bolts."
           }
         },
-        "review_166": {
+        "review_156": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r165-0.webp?v=1785241513",
@@ -2688,7 +2558,7 @@
             "quote": "I haven’t used it yet but it seems all good."
           }
         },
-        "review_167": {
+        "review_157": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r166-0.webp?v=1785241514",
@@ -2701,7 +2571,7 @@
             "quote": "Everything arrived fine. But I gave 4 stars because it came dirty and the box was crushed and open."
           }
         },
-        "review_168": {
+        "review_158": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r167-0.webp?v=1785241513",
@@ -2714,7 +2584,7 @@
             "quote": "The item is working."
           }
         },
-        "review_169": {
+        "review_159": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r168-0.webp?v=1785241513",
@@ -2727,7 +2597,7 @@
             "quote": "Received, nothing to say."
           }
         },
-        "review_170": {
+        "review_160": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r169-0.webp?v=1785241513",
@@ -2740,7 +2610,7 @@
             "quote": "Well, it works."
           }
         },
-        "review_171": {
+        "review_161": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2753,7 +2623,7 @@
             "quote": "It's very cute, but it doesn't hold much; when I put my phone on it, it falls right away :////"
           }
         },
-        "review_172": {
+        "review_162": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2766,7 +2636,7 @@
             "quote": "Everything was fast, package received intact."
           }
         },
-        "review_173": {
+        "review_163": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2779,20 +2649,7 @@
             "quote": "Hehe, it's so cute.   The second one will be surprising when they come home."
           }
         },
-        "review_174": {
-          "type": "review",
-          "settings": {
-            "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r173-0.webp?v=1785241512",
-            "image_2": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r173-1.webp?v=1785241512",
-            "image_3": "",
-            "name": "M***n",
-            "date": "5 Feb 2026",
-            "variant": "",
-            "stars": 4,
-            "quote": "It's nice but a bit weak.   It fulfills its purpose. 🙂"
-          }
-        },
-        "review_175": {
+        "review_164": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2805,7 +2662,7 @@
             "quote": "It's cute and it does support the weight."
           }
         },
-        "review_176": {
+        "review_165": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2818,20 +2675,7 @@
             "quote": "Everything matches very well."
           }
         },
-        "review_177": {
-          "type": "review",
-          "settings": {
-            "image": "",
-            "image_2": "",
-            "image_3": "",
-            "name": "W***r",
-            "date": "14 Dec 2025",
-            "variant": "",
-            "stars": 4,
-            "quote": "I thought it would be heavier. Somehow very flimsy. But it's okay, cute."
-          }
-        },
-        "review_178": {
+        "review_166": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r177-0.webp?v=1785241513",
@@ -2844,7 +2688,7 @@
             "quote": "Thank you"
           }
         },
-        "review_179": {
+        "review_167": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2857,7 +2701,7 @@
             "quote": "beautiful item"
           }
         },
-        "review_180": {
+        "review_168": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2870,7 +2714,7 @@
             "quote": "Received, thank you."
           }
         },
-        "review_181": {
+        "review_169": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2883,7 +2727,7 @@
             "quote": "Okay, but the stand is not very stable."
           }
         },
-        "review_182": {
+        "review_170": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2896,7 +2740,7 @@
             "quote": "I only received one unit, the advertisement said two 🥺"
           }
         },
-        "review_183": {
+        "review_171": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2909,7 +2753,7 @@
             "quote": "Same as the photo, but it doesn't stay stretched. I don't know if it's missing a piece or something?"
           }
         },
-        "review_184": {
+        "review_172": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2922,7 +2766,7 @@
             "quote": "Delivery is fast and good!"
           }
         },
-        "review_185": {
+        "review_173": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2935,7 +2779,7 @@
             "quote": "stands for phone"
           }
         },
-        "review_186": {
+        "review_174": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2948,7 +2792,7 @@
             "quote": "There was some dirt when wiped with tissue once, but the shipping was fast!"
           }
         },
-        "review_187": {
+        "review_175": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2961,7 +2805,7 @@
             "quote": "One arrived damaged."
           }
         },
-        "review_188": {
+        "review_176": {
           "type": "review",
           "settings": {
             "image": "",
@@ -2974,7 +2818,7 @@
             "quote": "Everything is fine, the product is good, but the box arrived completely crushed."
           }
         },
-        "review_189": {
+        "review_177": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r188-0.webp?v=1785241513",
@@ -2987,7 +2831,7 @@
             "quote": "It's cute, the material is just there, it's a bit complicated to make the stick go up and down, it's somewhat rigid and hard, you have to use force and the stick comes off haha, but cute for the price."
           }
         },
-        "review_190": {
+        "review_178": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3000,20 +2844,7 @@
             "quote": "There's a lot of dust. The box is dusty, and the product is dusty too. It's sturdy and good, but I bought it in a bright color."
           }
         },
-        "review_191": {
-          "type": "review",
-          "settings": {
-            "image": "",
-            "image_2": "",
-            "image_3": "",
-            "name": "L***s",
-            "date": "12 Oct 2025",
-            "variant": "",
-            "stars": 4,
-            "quote": "It's light and cute. The durability is weak but it's exactly worth that price."
-          }
-        },
-        "review_192": {
+        "review_179": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3026,7 +2857,7 @@
             "quote": "The goods are okay but the packaging is damaged."
           }
         },
-        "review_193": {
+        "review_180": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3039,20 +2870,7 @@
             "quote": "It's cute."
           }
         },
-        "review_194": {
-          "type": "review",
-          "settings": {
-            "image": "",
-            "image_2": "",
-            "image_3": "",
-            "name": "L***n",
-            "date": "17 Oct 2025",
-            "variant": "",
-            "stars": 4,
-            "quote": "Weak but still okay"
-          }
-        },
-        "review_195": {
+        "review_181": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r194-0.webp?v=1785241541",
@@ -3065,7 +2883,7 @@
             "quote": "The box arrived a little damaged but the product is all correct, excellent. It comes disassembled and you have to assemble it to use it, it holds the cell phone very well and looks very cute. It has no scratches and stands very well on a flat surface. It's very good, a great purchase, Recommended! Furthermore, the delivery was monitored and arrived in just over 2 weeks. I am very happy with the product. I liked it. 10/10"
           }
         },
-        "review_196": {
+        "review_182": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r195-0.webp?v=1785241542",
@@ -3078,7 +2896,7 @@
             "quote": "Arrived very fast, just as described with thanks. A very useful tool. Thanks seller"
           }
         },
-        "review_197": {
+        "review_183": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r196-0.webp?v=1785241541",
@@ -3091,7 +2909,7 @@
             "quote": "Superrrrrr cute!!!! The furthest back it can go is in the 3rd pic"
           }
         },
-        "review_198": {
+        "review_184": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3104,33 +2922,7 @@
             "quote": "A very nice stand, convenient for everyday use. The tilt angle can be adjusted. I am satisfied, thank you! Fast delivery."
           }
         },
-        "review_199": {
-          "type": "review",
-          "settings": {
-            "image": "",
-            "image_2": "",
-            "image_3": "",
-            "name": "H***s",
-            "date": "24 Sep 2025",
-            "variant": "",
-            "stars": 4,
-            "quote": "Sorta weak but works tbh"
-          }
-        },
-        "review_200": {
-          "type": "review",
-          "settings": {
-            "image": "",
-            "image_2": "",
-            "image_3": "",
-            "name": "W***n",
-            "date": "21 Nov 2025",
-            "variant": "",
-            "stars": 4,
-            "quote": "it looks fragile"
-          }
-        },
-        "review_201": {
+        "review_185": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3143,7 +2935,7 @@
             "quote": "My sister and mom loved it, and use it all the time. It's a bit unstable but not too much."
           }
         },
-        "review_202": {
+        "review_186": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r201-0.webp?v=1785241540",
@@ -3156,20 +2948,7 @@
             "quote": "Bought 1 of each color   Great product"
           }
         },
-        "review_203": {
-          "type": "review",
-          "settings": {
-            "image": "",
-            "image_2": "",
-            "image_3": "",
-            "name": "E***a",
-            "date": "31 Jan 2026",
-            "variant": "",
-            "stars": 4,
-            "quote": "Big and flimsy"
-          }
-        },
-        "review_204": {
+        "review_187": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3182,20 +2961,7 @@
             "quote": "Weaker than expected."
           }
         },
-        "review_205": {
-          "type": "review",
-          "settings": {
-            "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r204-0.webp?v=1785241541",
-            "image_2": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r204-1.webp?v=1785241541",
-            "image_3": "",
-            "name": "R***i",
-            "date": "24 Nov 2025",
-            "variant": "",
-            "stars": 3,
-            "quote": "Product conforms to the description but seems fragile, will see over time."
-          }
-        },
-        "review_206": {
+        "review_188": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r205-0.webp?v=1785241541",
@@ -3208,7 +2974,7 @@
             "quote": "Good and cute"
           }
         },
-        "review_207": {
+        "review_189": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3221,7 +2987,7 @@
             "quote": "Beautiful just like in the photo"
           }
         },
-        "review_208": {
+        "review_190": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3234,7 +3000,7 @@
             "quote": "very nice and performs well with its function"
           }
         },
-        "review_209": {
+        "review_191": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3247,7 +3013,7 @@
             "quote": "Very practical! I recommend!"
           }
         },
-        "review_210": {
+        "review_192": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r209-0.webp?v=1785241542",
@@ -3260,7 +3026,7 @@
             "quote": "Great attitude"
           }
         },
-        "review_211": {
+        "review_193": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3273,7 +3039,7 @@
             "quote": "Excellent, I loved it. 😍"
           }
         },
-        "review_212": {
+        "review_194": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r211-0.webp?v=1785241541",
@@ -3286,7 +3052,7 @@
             "quote": "It’s affordable and adorable! It comes un-assembled but it only took me 30 seconds to put together. It holds my phone both vertically and horizontally. The padding on the bottom is paper thin but i don’t care much for that as it’s goin on my desk."
           }
         },
-        "review_213": {
+        "review_195": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3299,7 +3065,7 @@
             "quote": "I bought it for my sister tablet and it holds good ! ! !"
           }
         },
-        "review_214": {
+        "review_196": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3312,7 +3078,7 @@
             "quote": "I can watch movies without having my phone in my hand all the time, and every time I go to record or do something, it's too much for me to have my phone or iPad."
           }
         },
-        "review_215": {
+        "review_197": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3325,7 +3091,7 @@
             "quote": "So cute i recommend i loved it delivery was fast :)"
           }
         },
-        "review_216": {
+        "review_198": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3338,7 +3104,7 @@
             "quote": "This stand can extend! Very cute."
           }
         },
-        "review_217": {
+        "review_199": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3351,7 +3117,7 @@
             "quote": "So cute looks exactly like the picture."
           }
         },
-        "review_218": {
+        "review_200": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3364,7 +3130,7 @@
             "quote": "Very nice product"
           }
         },
-        "review_219": {
+        "review_201": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3377,7 +3143,7 @@
             "quote": "Super beautiful 😍"
           }
         },
-        "review_220": {
+        "review_202": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3390,7 +3156,7 @@
             "quote": "Very nice and very practical, I liked it."
           }
         },
-        "review_221": {
+        "review_203": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3403,7 +3169,7 @@
             "quote": "Omg loveéeee it"
           }
         },
-        "review_222": {
+        "review_204": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3416,7 +3182,7 @@
             "quote": "Super easy to assemble and holds well!"
           }
         },
-        "review_223": {
+        "review_205": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r222-0.webp?v=1785241541",
@@ -3429,7 +3195,7 @@
             "quote": "It’s cute and fits my phone well"
           }
         },
-        "review_224": {
+        "review_206": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r223-0.webp?v=1785241541",
@@ -3442,7 +3208,7 @@
             "quote": "Very cute"
           }
         },
-        "review_225": {
+        "review_207": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3455,7 +3221,7 @@
             "quote": "I love you"
           }
         },
-        "review_226": {
+        "review_208": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3468,7 +3234,7 @@
             "quote": "Done for my kids. No doubt they'll be copied hahaha"
           }
         },
-        "review_227": {
+        "review_209": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r226-0.webp?v=1785241542",
@@ -3481,7 +3247,7 @@
             "quote": "It came in a ruined package which sucks and it took almost a whole month to get here, its very accurate tho and good quality"
           }
         },
-        "review_228": {
+        "review_210": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r227-0.webp?v=1785241541",
@@ -3494,7 +3260,7 @@
             "quote": "Really cute"
           }
         },
-        "review_229": {
+        "review_211": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3507,7 +3273,7 @@
             "quote": "Everything as described."
           }
         },
-        "review_230": {
+        "review_212": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3520,7 +3286,7 @@
             "quote": "Just like the photo"
           }
         },
-        "review_231": {
+        "review_213": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3533,7 +3299,7 @@
             "quote": "Good item"
           }
         },
-        "review_232": {
+        "review_214": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3546,7 +3312,7 @@
             "quote": "It’s okay"
           }
         },
-        "review_233": {
+        "review_215": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r232-0.webp?v=1785241541",
@@ -3559,7 +3325,7 @@
             "quote": "It's so expensive."
           }
         },
-        "review_234": {
+        "review_216": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3572,7 +3338,7 @@
             "quote": "I have been looking for a phone stand that is tall enough to use with my wired headphones. This one works great!"
           }
         },
-        "review_235": {
+        "review_217": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3585,7 +3351,7 @@
             "quote": "It’s really nice and helps a lot!"
           }
         },
-        "review_236": {
+        "review_218": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3598,20 +3364,7 @@
             "quote": "Like it u can adjust it to"
           }
         },
-        "review_237": {
-          "type": "review",
-          "settings": {
-            "image": "",
-            "image_2": "",
-            "image_3": "",
-            "name": "R***n",
-            "date": "5 Sep 2025",
-            "variant": "",
-            "stars": 5,
-            "quote": "To flimsy! Not good support"
-          }
-        },
-        "review_238": {
+        "review_219": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3624,7 +3377,7 @@
             "quote": "Good and sturdy! I love it sm!"
           }
         },
-        "review_239": {
+        "review_220": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r238-0.webp?v=1785241541",
@@ -3637,7 +3390,7 @@
             "quote": "Easy to build"
           }
         },
-        "review_240": {
+        "review_221": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r239-0.webp?v=1785241568",
@@ -3650,7 +3403,7 @@
             "quote": "It's not bad but I thought it would come in better quality!"
           }
         },
-        "review_241": {
+        "review_222": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3663,7 +3416,7 @@
             "quote": "She withdrawing"
           }
         },
-        "review_242": {
+        "review_223": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r241-0.webp?v=1785241568",
@@ -3676,7 +3429,7 @@
             "quote": "I love the stand for mobile phones, although I always use it for PS5 controllers 😊. It's beautiful and I love that it has a bunny shape, even my bunny Gofio seems to like it 🐇🩷 I would definitely buy it again. It's firm and soft, also foldable!"
           }
         },
-        "review_243": {
+        "review_224": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3689,7 +3442,7 @@
             "quote": "It is actually much better than i expected it to be, hold weight of the phone very well both vertically and horizontally. Adjustable height and angle."
           }
         },
-        "review_244": {
+        "review_225": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3702,20 +3455,7 @@
             "quote": "I love it, it prevents the phone from slipping and holds well. The only drawback I see is that the base is very light, so a lot of weight causes it to lean back, but by adding something heavy it can be fixed and it would be very easy to solve.   10/10"
           }
         },
-        "review_245": {
-          "type": "review",
-          "settings": {
-            "image": "",
-            "image_2": "",
-            "image_3": "",
-            "name": "T***y",
-            "date": "3 Sep 2025",
-            "variant": "",
-            "stars": 5,
-            "quote": "It seems very ideal to me since the product is just like the photo, arrived in perfect condition, it's very easy to assemble. It's recommended that you place it on a solid base because otherwise it might wobble a bit. It's perfect for my cell phone, I haven't tried it with tablets yet but I recommend that you be careful because I'm not sure if the weight of the tablet can support it. I love it."
-          }
-        },
-        "review_246": {
+        "review_226": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3728,7 +3468,7 @@
             "quote": "I love it, it fulfills its functionality 100% and is easy to assemble."
           }
         },
-        "review_247": {
+        "review_227": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r246-0.webp?v=1785241568",
@@ -3741,7 +3481,7 @@
             "quote": "The kids like it."
           }
         },
-        "review_248": {
+        "review_228": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3754,7 +3494,7 @@
             "quote": "I loved it…. Beautiful."
           }
         },
-        "review_249": {
+        "review_229": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3767,7 +3507,7 @@
             "quote": "Great product"
           }
         },
-        "review_250": {
+        "review_230": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3780,7 +3520,7 @@
             "quote": "very nice and comfortable!!"
           }
         },
-        "review_251": {
+        "review_231": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3793,7 +3533,7 @@
             "quote": "Perfect, very practical."
           }
         },
-        "review_252": {
+        "review_232": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3806,7 +3546,7 @@
             "quote": "Perfect for my daughter"
           }
         },
-        "review_253": {
+        "review_233": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3819,7 +3559,7 @@
             "quote": "excellent product"
           }
         },
-        "review_254": {
+        "review_234": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3832,7 +3572,7 @@
             "quote": "Nice practical cute"
           }
         },
-        "review_255": {
+        "review_235": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3845,7 +3585,7 @@
             "quote": "very nice and durable"
           }
         },
-        "review_256": {
+        "review_236": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3858,7 +3598,7 @@
             "quote": "Very cute"
           }
         },
-        "review_257": {
+        "review_237": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3871,7 +3611,7 @@
             "quote": "Very useful"
           }
         },
-        "review_258": {
+        "review_238": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3884,7 +3624,7 @@
             "quote": "Beautiful and comfortable"
           }
         },
-        "review_259": {
+        "review_239": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3897,7 +3637,7 @@
             "quote": "Great item"
           }
         },
-        "review_260": {
+        "review_240": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3910,7 +3650,7 @@
             "quote": "Meets its purpose, great"
           }
         },
-        "review_261": {
+        "review_241": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3923,7 +3663,7 @@
             "quote": "arrived quickly, I recommend"
           }
         },
-        "review_262": {
+        "review_242": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3936,7 +3676,7 @@
             "quote": "Arrived perfect and high quality"
           }
         },
-        "review_263": {
+        "review_243": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3949,7 +3689,7 @@
             "quote": "beautiful and functional"
           }
         },
-        "review_264": {
+        "review_244": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3962,7 +3702,7 @@
             "quote": "Everything is fine!"
           }
         },
-        "review_265": {
+        "review_245": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3975,7 +3715,7 @@
             "quote": "Great quality product"
           }
         },
-        "review_266": {
+        "review_246": {
           "type": "review",
           "settings": {
             "image": "",
@@ -3988,7 +3728,7 @@
             "quote": "Very good!!"
           }
         },
-        "review_267": {
+        "review_247": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4001,7 +3741,7 @@
             "quote": "very good product"
           }
         },
-        "review_268": {
+        "review_248": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4014,7 +3754,7 @@
             "quote": "Very cute, I loved it."
           }
         },
-        "review_269": {
+        "review_249": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4027,7 +3767,7 @@
             "quote": "It's just as I saw it, with a sense of stability and good quality ☆"
           }
         },
-        "review_270": {
+        "review_250": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4040,7 +3780,7 @@
             "quote": "great for the phone"
           }
         },
-        "review_271": {
+        "review_251": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r270-0.webp?v=1785241568",
@@ -4053,7 +3793,7 @@
             "quote": "It arrived just like in the photo."
           }
         },
-        "review_272": {
+        "review_252": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4066,7 +3806,7 @@
             "quote": "Good, convenient"
           }
         },
-        "review_273": {
+        "review_253": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4079,7 +3819,7 @@
             "quote": "Perfect, I loved it 🥰👏"
           }
         },
-        "review_274": {
+        "review_254": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4092,7 +3832,7 @@
             "quote": "Actually really nice"
           }
         },
-        "review_275": {
+        "review_255": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4105,7 +3845,7 @@
             "quote": "Beautiful and very practical"
           }
         },
-        "review_276": {
+        "review_256": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4118,7 +3858,7 @@
             "quote": "Excellent product"
           }
         },
-        "review_277": {
+        "review_257": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4131,7 +3871,7 @@
             "quote": "Very useful, good product"
           }
         },
-        "review_278": {
+        "review_258": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4144,7 +3884,7 @@
             "quote": "It works perfectly"
           }
         },
-        "review_279": {
+        "review_259": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4157,7 +3897,7 @@
             "quote": "Love it thank you"
           }
         },
-        "review_280": {
+        "review_260": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4170,7 +3910,7 @@
             "quote": "beautiful just like the photo"
           }
         },
-        "review_281": {
+        "review_261": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4183,7 +3923,7 @@
             "quote": "Super just like the photo"
           }
         },
-        "review_282": {
+        "review_262": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4196,7 +3936,7 @@
             "quote": "I love it 😍"
           }
         },
-        "review_283": {
+        "review_263": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4209,7 +3949,7 @@
             "quote": "As described, holds the phone well."
           }
         },
-        "review_284": {
+        "review_264": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4222,7 +3962,7 @@
             "quote": "It's nice and sturdy, suitable for the price."
           }
         },
-        "review_285": {
+        "review_265": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4235,7 +3975,7 @@
             "quote": "It shipped out quickly, looks just like the picture and is sturdy."
           }
         },
-        "review_286": {
+        "review_266": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4248,7 +3988,7 @@
             "quote": "Thank you.   It's a gift i hope she'll love it.   I love it."
           }
         },
-        "review_287": {
+        "review_267": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4261,7 +4001,7 @@
             "quote": "I recommend"
           }
         },
-        "review_288": {
+        "review_268": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4274,7 +4014,7 @@
             "quote": "Easy to assemble"
           }
         },
-        "review_289": {
+        "review_269": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4287,7 +4027,7 @@
             "quote": "It's cute and I like it."
           }
         },
-        "review_290": {
+        "review_270": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4300,7 +4040,7 @@
             "quote": "Love it"
           }
         },
-        "review_291": {
+        "review_271": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4313,7 +4053,7 @@
             "quote": "I like it so I'll buy another one."
           }
         },
-        "review_292": {
+        "review_272": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4326,7 +4066,7 @@
             "quote": "I loved it!"
           }
         },
-        "review_293": {
+        "review_273": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4339,7 +4079,7 @@
             "quote": "Very good"
           }
         },
-        "review_294": {
+        "review_274": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4352,7 +4092,7 @@
             "quote": "It felt stable!!"
           }
         },
-        "review_295": {
+        "review_275": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4365,7 +4105,7 @@
             "quote": "Very good"
           }
         },
-        "review_296": {
+        "review_276": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4378,7 +4118,7 @@
             "quote": "everything is fine"
           }
         },
-        "review_297": {
+        "review_277": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4391,7 +4131,7 @@
             "quote": "Great job!"
           }
         },
-        "review_298": {
+        "review_278": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4404,7 +4144,7 @@
             "quote": "very nice"
           }
         },
-        "review_299": {
+        "review_279": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4417,7 +4157,7 @@
             "quote": "Very well"
           }
         },
-        "review_300": {
+        "review_280": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4430,20 +4170,7 @@
             "quote": "Very well"
           }
         },
-        "review_301": {
-          "type": "review",
-          "settings": {
-            "image": "",
-            "image_2": "",
-            "image_3": "",
-            "name": "L***a",
-            "date": "29 Sep 2025",
-            "variant": "",
-            "stars": 4,
-            "quote": "A bit wobbly but it's cute! :)"
-          }
-        },
-        "review_302": {
+        "review_281": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4456,7 +4183,7 @@
             "quote": "Well, first of all, it's cute haha, and the angle can be adjusted, which is really nice. I think I'll use it often."
           }
         },
-        "review_303": {
+        "review_282": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4469,7 +4196,7 @@
             "quote": "cool stand, thank you"
           }
         },
-        "review_304": {
+        "review_283": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4482,7 +4209,7 @@
             "quote": "Nice stand and comfortable."
           }
         },
-        "review_305": {
+        "review_284": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4495,7 +4222,7 @@
             "quote": "Very light but holds the phone perfectly 👌"
           }
         },
-        "review_306": {
+        "review_285": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4508,7 +4235,7 @@
             "quote": "It's practical, I recommend it."
           }
         },
-        "review_307": {
+        "review_286": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4521,20 +4248,7 @@
             "quote": "I thought it would be a decently good quality thing, it’s just a 3d print haha. Which fair enough i guess and still works just wansnt what i expected, but i’ll still use it as it’s decently sturdy"
           }
         },
-        "review_308": {
-          "type": "review",
-          "settings": {
-            "image": "",
-            "image_2": "",
-            "image_3": "",
-            "name": "W***r",
-            "date": "21 Dec 2025",
-            "variant": "",
-            "stars": 4,
-            "quote": "It looks unstable and fragile because the box came bent... but ultimately it serves the purpose for which it was designed."
-          }
-        },
-        "review_309": {
+        "review_287": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4547,7 +4261,7 @@
             "quote": "It's quite cute ^^"
           }
         },
-        "review_310": {
+        "review_288": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4560,20 +4274,7 @@
             "quote": "very nice and practical"
           }
         },
-        "review_311": {
-          "type": "review",
-          "settings": {
-            "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r310-0.webp?v=1785241568",
-            "image_2": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r310-1.webp?v=1785241568",
-            "image_3": "",
-            "name": "B***e",
-            "date": "9 Dec 2025",
-            "variant": "",
-            "stars": 5,
-            "quote": "The box came a bit damaged, when assembling it the inside handle was loose, but I think it's part of the design, same color as the image and fits perfectly with a standard-sized phone, however, it wobbles easily.   arrived on the estimated date"
-          }
-        },
-        "review_312": {
+        "review_289": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r311-0.webp?v=1785241567",
@@ -4586,7 +4287,7 @@
             "quote": "Excellent, if the cell phone stops well."
           }
         },
-        "review_313": {
+        "review_290": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4599,20 +4300,7 @@
             "quote": "Well extends to put at different height"
           }
         },
-        "review_314": {
-          "type": "review",
-          "settings": {
-            "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r313-0.webp?v=1785241567",
-            "image_2": "",
-            "image_3": "",
-            "name": "D***e",
-            "date": "19 Dec 2025",
-            "variant": "",
-            "stars": 5,
-            "quote": "It is exactly as in the photo, it arrived earlier than expected, it looks and feels a bit fragile."
-          }
-        },
-        "review_315": {
+        "review_291": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4625,7 +4313,7 @@
             "quote": "I liked it very much, it's beautiful but it can't hold much weight, it falls."
           }
         },
-        "review_316": {
+        "review_292": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r315-0.webp?v=1785241567",
@@ -4638,7 +4326,7 @@
             "quote": "I was worried about shipping from overseas, but the condition of the box sometimes has dents or small holes, yet the contents arrived without any issues."
           }
         },
-        "review_317": {
+        "review_293": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r316-0.webp?v=1785241570",
@@ -4651,7 +4339,7 @@
             "quote": "Order 13.11. Arrived in Israel on 04.12. Cute rabbit for the phone. Holds well horizontally, but vertically if the phone is large, it falls. Maybe not secured well. Recommend!"
           }
         },
-        "review_318": {
+        "review_294": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r317-0.webp?v=1785241568",
@@ -4664,7 +4352,7 @@
             "quote": "If you place the phone horizontally, it doesn't have much support, but vertically it does."
           }
         },
-        "review_319": {
+        "review_295": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4677,7 +4365,7 @@
             "quote": "The best for resale! I have already sold around 50 pieces. They are beautiful and very attractive."
           }
         },
-        "review_320": {
+        "review_296": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r319-0.webp?v=1785241568",
@@ -4690,20 +4378,7 @@
             "quote": "Cute and sturdy, very easy to assemble"
           }
         },
-        "review_321": {
-          "type": "review",
-          "settings": {
-            "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r320-0.webp?v=1785241568",
-            "image_2": "",
-            "image_3": "",
-            "name": "T***y",
-            "date": "27 Dec 2025",
-            "variant": "",
-            "stars": 5,
-            "quote": "It's cute~! It's a bit flimsy but still good enough to use."
-          }
-        },
-        "review_322": {
+        "review_297": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r321-0.webp?v=1785241568",
@@ -4716,7 +4391,7 @@
             "quote": "satisfied with the item"
           }
         },
-        "review_323": {
+        "review_298": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4729,7 +4404,7 @@
             "quote": "Very nice and easy to install, and the quality is also very good."
           }
         },
-        "review_324": {
+        "review_299": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4742,7 +4417,7 @@
             "quote": "Very nice, good material. Same as the description. Same as the photo."
           }
         },
-        "review_325": {
+        "review_300": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4755,7 +4430,7 @@
             "quote": "I bought the white 3-tier because it was good value for money.   I repurchased the black 4-tier this time! !   I bought it to store my eyelashes and it's perfect haha."
           }
         },
-        "review_326": {
+        "review_301": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4768,7 +4443,7 @@
             "quote": "easy to use, just as shown in the image"
           }
         },
-        "review_327": {
+        "review_302": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r326-0.webp?v=1785241568",
@@ -4781,7 +4456,7 @@
             "quote": "I love it too much"
           }
         },
-        "review_328": {
+        "review_303": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r327-0.webp?v=1785241588",
@@ -4794,7 +4469,7 @@
             "quote": "It arrived in good condition."
           }
         },
-        "review_329": {
+        "review_304": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r328-0.webp?v=1785241589",
@@ -4807,7 +4482,7 @@
             "quote": "So cute!"
           }
         },
-        "review_330": {
+        "review_305": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r329-0.webp?v=1785241588",
@@ -4820,7 +4495,7 @@
             "quote": "VERY CUTEEEEEE"
           }
         },
-        "review_331": {
+        "review_306": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r330-0.webp?v=1785241587",
@@ -4833,7 +4508,7 @@
             "quote": "It's good for the price."
           }
         },
-        "review_332": {
+        "review_307": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4846,7 +4521,7 @@
             "quote": "Box a little dented, but suitable for gifting."
           }
         },
-        "review_333": {
+        "review_308": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4859,7 +4534,7 @@
             "quote": "You have to assemble it yourself, very simple and nice."
           }
         },
-        "review_334": {
+        "review_309": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4872,7 +4547,7 @@
             "quote": "Very functional, I gave it to my husband and he loved it."
           }
         },
-        "review_335": {
+        "review_310": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4885,7 +4560,7 @@
             "quote": "They're cute and very useful"
           }
         },
-        "review_336": {
+        "review_311": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4898,7 +4573,7 @@
             "quote": "Amazing love it but i’m missing the small sticks to hold your phone"
           }
         },
-        "review_337": {
+        "review_312": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4911,7 +4586,7 @@
             "quote": "I really liked the quality"
           }
         },
-        "review_338": {
+        "review_313": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4924,7 +4599,7 @@
             "quote": "Very nice. A little unstable but overall a good value for the price."
           }
         },
-        "review_339": {
+        "review_314": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4937,7 +4612,7 @@
             "quote": "It's nice and meets expectations."
           }
         },
-        "review_340": {
+        "review_315": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4950,7 +4625,7 @@
             "quote": "Product matches the image and is functional, I recommend it."
           }
         },
-        "review_341": {
+        "review_316": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4963,7 +4638,7 @@
             "quote": "It is small and identical to the reference image."
           }
         },
-        "review_342": {
+        "review_317": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4976,7 +4651,7 @@
             "quote": "exactly as in the photos, if it supports the weight of the cell phone."
           }
         },
-        "review_343": {
+        "review_318": {
           "type": "review",
           "settings": {
             "image": "",
@@ -4989,7 +4664,7 @@
             "quote": "may lack stability if the screen is tilted but overall I am satisfied."
           }
         },
-        "review_344": {
+        "review_319": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5002,7 +4677,7 @@
             "quote": "So cute, I love it."
           }
         },
-        "review_345": {
+        "review_320": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5015,7 +4690,7 @@
             "quote": "This is an item I wanted, so it was helpful."
           }
         },
-        "review_346": {
+        "review_321": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5028,7 +4703,7 @@
             "quote": "Very nice and durable"
           }
         },
-        "review_347": {
+        "review_322": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5041,7 +4716,7 @@
             "quote": "very beautiful indeed"
           }
         },
-        "review_348": {
+        "review_323": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5054,7 +4729,7 @@
             "quote": "Item as expected"
           }
         },
-        "review_349": {
+        "review_324": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5067,7 +4742,7 @@
             "quote": "Too cute!!! 😍"
           }
         },
-        "review_350": {
+        "review_325": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5080,7 +4755,7 @@
             "quote": "Product as described"
           }
         },
-        "review_351": {
+        "review_326": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5093,7 +4768,7 @@
             "quote": "good for its price"
           }
         },
-        "review_352": {
+        "review_327": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5106,7 +4781,7 @@
             "quote": "Assembly is super easy and it's cute!"
           }
         },
-        "review_353": {
+        "review_328": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5119,7 +4794,7 @@
             "quote": "very beautiful"
           }
         },
-        "review_354": {
+        "review_329": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5132,7 +4807,7 @@
             "quote": "Very cute"
           }
         },
-        "review_355": {
+        "review_330": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5145,7 +4820,7 @@
             "quote": "It's cute and holds up quite well."
           }
         },
-        "review_356": {
+        "review_331": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5158,7 +4833,7 @@
             "quote": "It's cute."
           }
         },
-        "review_357": {
+        "review_332": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5171,7 +4846,7 @@
             "quote": "It's cute, but a bit small."
           }
         },
-        "review_358": {
+        "review_333": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5184,7 +4859,7 @@
             "quote": "Super cute"
           }
         },
-        "review_359": {
+        "review_334": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5197,7 +4872,7 @@
             "quote": "Good buy"
           }
         },
-        "review_360": {
+        "review_335": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r359-0.webp?v=1785241588",
@@ -5210,7 +4885,7 @@
             "quote": "comes as is"
           }
         },
-        "review_361": {
+        "review_336": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r360-0.webp?v=1785241588",
@@ -5223,7 +4898,7 @@
             "quote": "Very good and functional, the standandee doesn’t have much weight so it might not handle a tablet though."
           }
         },
-        "review_362": {
+        "review_337": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5236,7 +4911,7 @@
             "quote": "super good"
           }
         },
-        "review_363": {
+        "review_338": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5249,7 +4924,7 @@
             "quote": "It's not bad for the price, but I'm using the Galaxy Fold.   I forgot for a moment haha, so I feel a bit anxious.   The height can be adjusted and if the phone is lightweight.   You can use it as a lightweight stand."
           }
         },
-        "review_364": {
+        "review_339": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5262,7 +4937,7 @@
             "quote": "It works well. Thanks"
           }
         },
-        "review_365": {
+        "review_340": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r364-0.webp?v=1785241588",
@@ -5275,7 +4950,7 @@
             "quote": "Good for price, works fine d"
           }
         },
-        "review_366": {
+        "review_341": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r365-0.webp?v=1785241587",
@@ -5288,7 +4963,7 @@
             "quote": "Dear, I saw in the comments that it was used for a controller and bought it."
           }
         },
-        "review_367": {
+        "review_342": {
           "type": "review",
           "settings": {
             "image": "https://cdn.shopify.com/s/files/1/1025/1485/2187/files/bp-rev-r366-0.webp?v=1785241589",
@@ -5301,7 +4976,7 @@
             "quote": "Goog good"
           }
         },
-        "review_368": {
+        "review_343": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5314,7 +4989,7 @@
             "quote": "That one is an assembly type, you can cleverly fit it in."
           }
         },
-        "review_369": {
+        "review_344": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5327,7 +5002,7 @@
             "quote": "Theres a burnt edge on one of the thingamagigadees but overall i like it"
           }
         },
-        "review_370": {
+        "review_345": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5340,7 +5015,7 @@
             "quote": "Mt divo"
           }
         },
-        "review_371": {
+        "review_346": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5353,7 +5028,7 @@
             "quote": "It's fine, although it's made of plastic."
           }
         },
-        "review_372": {
+        "review_347": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5366,7 +5041,7 @@
             "quote": "It's okay if it's too heavy with all plastic."
           }
         },
-        "review_373": {
+        "review_348": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5379,7 +5054,7 @@
             "quote": "Not bad"
           }
         },
-        "review_374": {
+        "review_349": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5392,7 +5067,7 @@
             "quote": "It's pretty and pink"
           }
         },
-        "review_375": {
+        "review_350": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5405,7 +5080,7 @@
             "quote": "Its great!"
           }
         },
-        "review_376": {
+        "review_351": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5418,7 +5093,7 @@
             "quote": "They are perfect"
           }
         },
-        "review_377": {
+        "review_352": {
           "type": "review",
           "settings": {
             "image": "",
@@ -5784,32 +5459,7 @@
         "review_349",
         "review_350",
         "review_351",
-        "review_352",
-        "review_353",
-        "review_354",
-        "review_355",
-        "review_356",
-        "review_357",
-        "review_358",
-        "review_359",
-        "review_360",
-        "review_361",
-        "review_362",
-        "review_363",
-        "review_364",
-        "review_365",
-        "review_366",
-        "review_367",
-        "review_368",
-        "review_369",
-        "review_370",
-        "review_371",
-        "review_372",
-        "review_373",
-        "review_374",
-        "review_375",
-        "review_376",
-        "review_377"
+        "review_352"
       ],
       "settings": {
         "bg_color": "#fdf3f4",
