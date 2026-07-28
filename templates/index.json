@@ -5831,6 +5831,52 @@
         "more_button_text": "Show more reviews"
       }
     },
+    "bp_ugc_videos": {
+      "type": "bp-ugc-videos",
+      "blocks": {
+        "video_1": {
+          "type": "video",
+          "settings": {
+            "video_url": "",
+            "video_type": "file",
+            "caption": "\"Didn't expect to use it this much\""
+          }
+        },
+        "video_2": {
+          "type": "video",
+          "settings": {
+            "video_url": "",
+            "video_type": "file",
+            "caption": "Unboxing + first setup"
+          }
+        },
+        "video_3": {
+          "type": "video",
+          "settings": {
+            "video_url": "",
+            "video_type": "file",
+            "caption": "Desk setup tour"
+          }
+        },
+        "video_4": {
+          "type": "video",
+          "settings": {
+            "video_url": "",
+            "video_type": "file",
+            "caption": "\"Perfect for hands-free calls\""
+          }
+        }
+      },
+      "block_order": ["video_1", "video_2", "video_3", "video_4"],
+      "settings": {
+        "bg_color": "#fdf3f4",
+        "placeholder_bg": "#f6c9d3",
+        "eyebrow": "SEE IT IN ACTION",
+        "heading": "Loved by real customers",
+        "subheading": "Real videos from people using their Bunny Perch every day.",
+        "empty_state_text": "Video coming soon — check back shortly!"
+      }
+    },
     "bp_product_size": {
       "type": "bp-product-size",
       "blocks": {
@@ -5885,6 +5931,7 @@
     "bp_shipping",
     "bp_faq",
     "bp_reviews_display",
+    "bp_ugc_videos",
     "bp_product_size"
   ]
 }
