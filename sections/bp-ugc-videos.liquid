@@ -151,6 +151,40 @@
       cursor: pointer;
       padding: 6px;
     }
+    .bp-ugc-{{ section.id }} .bp-ugc-modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,.15);
+      color: #fff;
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+    .bp-ugc-{{ section.id }} .bp-ugc-modal-nav.is-visible {
+      display: flex;
+    }
+    .bp-ugc-{{ section.id }} .bp-ugc-modal-nav:hover {
+      background: rgba(255,255,255,.25);
+    }
+    .bp-ugc-{{ section.id }} .bp-ugc-modal-prev {
+      left: -14px;
+    }
+    .bp-ugc-{{ section.id }} .bp-ugc-modal-next {
+      right: -14px;
+    }
+    @media screen and (max-width: 480px) {
+      .bp-ugc-{{ section.id }} .bp-ugc-modal-prev { left: 4px; }
+      .bp-ugc-{{ section.id }} .bp-ugc-modal-next { right: 4px; }
+    }
   </style>
 
   <div class="bp-wrap" style="padding-bottom: 0;">
@@ -207,7 +241,9 @@
     <div class="bp-ugc-modal-backdrop"></div>
     <div class="bp-ugc-modal-panel">
       <button type="button" class="bp-ugc-modal-close" aria-label="Close video">✕</button>
+      <button type="button" class="bp-ugc-modal-nav bp-ugc-modal-prev" aria-label="Previous video">‹</button>
       <div class="bp-ugc-modal-body"></div>
+      <button type="button" class="bp-ugc-modal-nav bp-ugc-modal-next" aria-label="Next video">›</button>
     </div>
   </div>
 </div>
@@ -221,8 +257,23 @@
     var modalBody = modal.querySelector('.bp-ugc-modal-body');
     var closeBtn = modal.querySelector('.bp-ugc-modal-close');
     var backdrop = modal.querySelector('.bp-ugc-modal-backdrop');
+    var prevBtn = modal.querySelector('.bp-ugc-modal-prev');
+    var nextBtn = modal.querySelector('.bp-ugc-modal-next');
 
-    function openModal(url, type) {
+    var triggers = Array.prototype.slice.call(root.querySelectorAll('[data-ugc-trigger]'));
+    var currentIndex = 0;
+
+    function updateNavVisibility() {
+      var hasMultiple = triggers.length > 1;
+      if (prevBtn) prevBtn.classList.toggle('is-visible', hasMultiple);
+      if (nextBtn) nextBtn.classList.toggle('is-visible', hasMultiple);
+    }
+
+    function renderCurrent() {
+      var btn = triggers[currentIndex];
+      if (!btn) return;
+      var url = btn.getAttribute('data-video-url');
+      var type = btn.getAttribute('data-video-type');
       modalBody.innerHTML = '';
       if (!url) {
         var empty = document.createElement('div');
@@ -243,6 +294,18 @@
         video.playsInline = true;
         modalBody.appendChild(video);
       }
+    }
+
+    function showIndex(index) {
+      if (!triggers.length) return;
+      currentIndex = (index + triggers.length) % triggers.length;
+      renderCurrent();
+    }
+
+    function openModal(startIndex) {
+      currentIndex = startIndex;
+      renderCurrent();
+      updateNavVisibility();
       modal.classList.add('is-open');
       document.body.classList.add('bp-rd-modal-lock');
     }
@@ -253,16 +316,22 @@
       document.body.classList.remove('bp-rd-modal-lock');
     }
 
-    root.querySelectorAll('[data-ugc-trigger]').forEach(function (btn) {
+    triggers.forEach(function (btn, index) {
       btn.addEventListener('click', function () {
-        openModal(btn.getAttribute('data-video-url'), btn.getAttribute('data-video-type'));
+        openModal(index);
       });
     });
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { showIndex(currentIndex - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { showIndex(currentIndex + 1); });
 
     closeBtn.addEventListener('click', closeModal);
     backdrop.addEventListener('click', closeModal);
     document.addEventListener('keydown', function (e) {
+      if (!modal.classList.contains('is-open')) return;
       if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowLeft') showIndex(currentIndex - 1);
+      if (e.key === 'ArrowRight') showIndex(currentIndex + 1);
     });
   })();
 </script>
