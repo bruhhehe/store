@@ -152,15 +152,24 @@
     }
     .bp-ugc-{{ section.id }} .bp-ugc-modal-close {
       position: absolute;
-      top: -44px;
-      right: 0;
-      background: none;
+      top: 10px;
+      right: 10px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0,0,0,.4);
       border: none;
       color: #fff;
-      font-size: 24px;
+      font-size: 18px;
       line-height: 1;
       cursor: pointer;
-      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+    }
+    .bp-ugc-{{ section.id }} .bp-ugc-modal-close:hover {
+      background: rgba(0,0,0,.55);
     }
     .bp-ugc-{{ section.id }} .bp-ugc-modal-nav {
       position: absolute;
@@ -346,6 +355,37 @@
       if (e.key === 'ArrowLeft') showIndex(currentIndex - 1);
       if (e.key === 'ArrowRight') showIndex(currentIndex + 1);
     });
+
+    // Swipe support (mobile)
+    var modalPanel = modal.querySelector('.bp-ugc-modal-panel');
+    var touchStartX = null;
+    var touchStartY = null;
+    var SWIPE_THRESHOLD = 40;
+
+    if (modalPanel) {
+      modalPanel.addEventListener('touchstart', function (e) {
+        if (!e.touches || !e.touches.length) return;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      modalPanel.addEventListener('touchend', function (e) {
+        if (touchStartX === null) return;
+        var touch = (e.changedTouches && e.changedTouches[0]) || null;
+        if (!touch) return;
+        var deltaX = touch.clientX - touchStartX;
+        var deltaY = touch.clientY - touchStartY;
+        touchStartX = null;
+        touchStartY = null;
+        // Ignore mostly-vertical swipes (scrolling gestures)
+        if (Math.abs(deltaX) < SWIPE_THRESHOLD || Math.abs(deltaX) < Math.abs(deltaY)) return;
+        if (deltaX < 0) {
+          showIndex(currentIndex + 1);
+        } else {
+          showIndex(currentIndex - 1);
+        }
+      }, { passive: true });
+    }
   })();
 </script>
 
