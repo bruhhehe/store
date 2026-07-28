@@ -31,6 +31,29 @@
         "tracking_text": "Included on every order"
       }
     },
+    "returns": {
+      "type": "bp-returns",
+      "settings": {
+        "bg_color": "#fdf3f4",
+        "eyebrow": "RETURNS & REFUNDS",
+        "heading": "Our 30-day return policy",
+        "subheading": "Not the right fit? We've got you covered.",
+        "highlight_text": "30 days to request a return from when you receive your order",
+        "eligibility_title": "Eligibility",
+        "eligibility_text": "To be eligible for a return, your item must be in the same condition that you received it, unworn or unused, with tags, and in its original packaging. You'll also need the receipt or proof of purchase.",
+        "how_title": "How to start a return",
+        "how_text": "Contact us at support@velagoods.co.uk to request a return. If accepted, we'll send you a return shipping label and instructions on how and where to send your package. Items sent back without first requesting a return will not be accepted.",
+        "damages_title": "Damages and issues",
+        "damages_text": "Please inspect your order upon reception and contact us immediately if the item is defective, damaged, or if you receive the wrong item, so we can evaluate the issue and make it right.",
+        "exceptions_title": "Exceptions",
+        "exceptions_text": "Unfortunately, we cannot accept returns on sale items or gift cards. Please get in touch if you have questions about a specific item.",
+        "eu_title": "EU 14-day cooling off period",
+        "eu_text": "If your order is shipped into the European Union, you have the right to cancel or return your order within 14 days, for any reason, without a justification. Your item must still be in the same condition you received it, unworn or unused, with tags, and in its original packaging.",
+        "refund_title": "Refunds",
+        "refund_text": "We'll notify you once we've received and inspected your return, and let you know if it's approved. If approved, you'll be automatically refunded on your original payment method within 10 business days. It can take extra time for your bank or card provider to post the refund.",
+        "footer_text": "Questions about a return? Email support@velagoods.co.uk and we'll help sort it out."
+      }
+    },
     "faq": {
       "type": "bp-faq",
       "blocks": {
@@ -78,5 +101,5 @@
       }
     }
   },
-  "order": ["main", "contact", "shipping", "faq"]
+  "order": ["main", "contact", "shipping", "returns", "faq"]
 }
