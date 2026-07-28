@@ -505,8 +505,8 @@
     }
     .bp-reviews-display-{{ section.id }} .bp-rd-write-stars {
       display: flex;
-      gap: 6px;
-      font-size: 28px;
+      gap: 10px;
+      font-size: 40px;
       line-height: 1;
     }
     .bp-reviews-display-{{ section.id }} .bp-rd-write-star {
@@ -516,8 +516,10 @@
       user-select: none;
       background: none;
       border: none;
-      padding: 0;
+      padding: 4px;
       color: #d9a441;
+      font-size: inherit;
+      line-height: 1;
     }
     .bp-reviews-display-{{ section.id }} .bp-rd-write-star:hover {
       transform: scale(1.12);
@@ -537,10 +539,17 @@
       background: rgba(30, 158, 92, .08);
       border: 1px solid rgba(30, 158, 92, .25);
       border-radius: var(--bp-radius-sm);
-      padding: 18px 20px;
+      padding: 32px 24px;
       font-size: 15px;
       line-height: 1.6;
       color: var(--bp-ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .bp-reviews-display-{{ section.id }} .bp-rd-write-success[hidden] {
+      display: none;
     }
   </style>
 
@@ -758,12 +767,15 @@
           <button type="button" class="bp-rd-modal-close" id="BpRdWriteModalClose-{{ section.id }}" aria-label="Close">✕</button>
         </div>
         <div class="bp-rd-modal-body">
-          {%- form 'contact' -%}
-            {%- if form.posted_successfully? -%}
-              <div class="bp-rd-write-success" tabindex="-1" autofocus>
-                Thank you! Your review has been sent to our team — we read every single one.
-              </div>
-            {%- else -%}
+          {%- form 'contact', id: 'BpRdWriteForm-' | append: section.id -%}
+            <div class="bp-rd-write-success" id="BpRdWriteSuccess-{{ section.id }}" tabindex="-1" hidden>
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:32px;height:32px;margin-bottom:10px;">
+                <circle cx="10" cy="10" r="10" fill="#1e9e5c"/>
+                <path d="M5.5 10.2L8.3 13L14.5 6.8" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div>Thank you! Your review has been sent to our team — we read every single one.</div>
+            </div>
+            <div id="BpRdWriteFields-{{ section.id }}">
               <input type="hidden" name="contact[email]" id="BpRdWriteEmailHidden-{{ section.id }}" value="">
               <input type="hidden" name="contact[body]" id="BpRdWriteBodyHidden-{{ section.id }}">
 
@@ -774,12 +786,9 @@
 
               <div class="bp-rd-write-field">
                 <label for="BpRdWriteEmail-{{ section.id }}">Email</label>
-                <input type="email" id="BpRdWriteEmail-{{ section.id }}" placeholder="you@example.com" autocomplete="email" required
-                  {% if form.errors contains 'email' %}aria-invalid="true"{% endif %}>
+                <input type="email" id="BpRdWriteEmail-{{ section.id }}" placeholder="you@example.com" autocomplete="email" required>
               </div>
-              {%- if form.errors contains 'email' -%}
-                <div class="bp-rd-write-error">Please enter a valid email address.</div>
-              {%- endif -%}
+              <div class="bp-rd-write-error" id="BpRdWriteErrorMsg-{{ section.id }}" hidden>Please enter a valid email address.</div>
 
               <div class="bp-rd-write-field">
                 <label>Rating</label>
@@ -795,8 +804,8 @@
                 <textarea id="BpRdWriteReviewText-{{ section.id }}" placeholder="Tell us what you think — how does it hold up, what colour did you get, would you recommend it?" required></textarea>
               </div>
 
-              <button type="submit" class="bp-btn bp-rd-write-submit">Submit review</button>
-            {%- endif -%}
+              <button type="submit" class="bp-btn bp-rd-write-submit" id="BpRdWriteSubmit-{{ section.id }}">Submit review</button>
+            </div>
           {%- endform -%}
         </div>
       </div>
@@ -1017,7 +1026,15 @@
     var writeModalBackdrop = writeModal ? writeModal.querySelector('.bp-rd-modal-backdrop') : null;
 
     if (writeBtn && writeModal) {
-      writeBtn.addEventListener('click', function () { openModal(writeModal); });
+      writeBtn.addEventListener('click', function () {
+        var fieldsWrap = document.getElementById('BpRdWriteFields-{{ section.id }}');
+        var successWrap = document.getElementById('BpRdWriteSuccess-{{ section.id }}');
+        var errorMsg = document.getElementById('BpRdWriteErrorMsg-{{ section.id }}');
+        if (fieldsWrap) fieldsWrap.hidden = false;
+        if (successWrap) successWrap.hidden = true;
+        if (errorMsg) errorMsg.hidden = true;
+        openModal(writeModal);
+      });
     }
     if (writeModalClose) writeModalClose.addEventListener('click', function () { closeModal(writeModal); });
     if (writeModalBackdrop) writeModalBackdrop.addEventListener('click', function () { closeModal(writeModal); });
@@ -1038,14 +1055,21 @@
     var writeForm = writeStars.length ? writeStars[0].closest('form') : (writeModal ? writeModal.querySelector('form') : null);
     if (writeForm) {
       writeForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
         var nameEl = document.getElementById('BpRdWriteName-{{ section.id }}');
         var emailEl = document.getElementById('BpRdWriteEmail-{{ section.id }}');
         var reviewEl = document.getElementById('BpRdWriteReviewText-{{ section.id }}');
         var emailHidden = document.getElementById('BpRdWriteEmailHidden-{{ section.id }}');
         var bodyHidden = document.getElementById('BpRdWriteBodyHidden-{{ section.id }}');
+        var errorMsg = document.getElementById('BpRdWriteErrorMsg-{{ section.id }}');
+        var fieldsWrap = document.getElementById('BpRdWriteFields-{{ section.id }}');
+        var successWrap = document.getElementById('BpRdWriteSuccess-{{ section.id }}');
+        var submitBtn = document.getElementById('BpRdWriteSubmit-{{ section.id }}');
+
+        if (errorMsg) errorMsg.hidden = true;
 
         if (writeRating < 1) {
-          e.preventDefault();
           alert('Please select a star rating before submitting.');
           return;
         }
@@ -1063,6 +1087,37 @@
           reviewEl.value
         ];
         bodyHidden.value = lines.join('\n');
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending…';
+        }
+
+        var formData = new FormData(writeForm);
+
+        fetch(writeForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        })
+          .then(function (res) {
+            if (!res.ok) throw new Error('Request failed');
+            if (fieldsWrap) fieldsWrap.hidden = true;
+            if (successWrap) {
+              successWrap.hidden = false;
+              successWrap.focus();
+            }
+          })
+          .catch(function () {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Submit review';
+            }
+            if (errorMsg) {
+              errorMsg.textContent = "Something went wrong sending your review — please try again, or email us directly.";
+              errorMsg.hidden = false;
+            }
+          });
       });
     }
   })();
