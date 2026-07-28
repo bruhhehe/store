@@ -195,18 +195,21 @@
 
   .fc-{{ section.id }} .fc-rating-link {
     font-size: 13px;
-    font-weight: 600;
-    color: var(--bp-pink-deep, #a8496a);
+    font-weight: 700;
+    color: #fff;
     text-decoration: none;
-    padding: 3px 10px;
+    padding: 6px 16px;
+    background: var(--bp-pink-deep, #a8496a);
     border: 1px solid var(--bp-pink-deep, #a8496a);
     border-radius: 999px;
-    transition: background 0.15s ease, color 0.15s ease;
+    box-shadow: 0 4px 12px rgba(168, 73, 106, 0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
   }
 
   .fc-{{ section.id }} .fc-rating-link:hover {
-    background: var(--bp-pink-deep, #a8496a);
-    color: #fff;
+    background: color-mix(in srgb, var(--bp-pink-deep, #a8496a) 85%, black);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(168, 73, 106, 0.45);
   }
 
   .fc-{{ section.id }} .fc-price-row {
