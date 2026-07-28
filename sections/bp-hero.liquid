@@ -26,6 +26,10 @@
     }
     .bp-hero-{{ section.id }} h1{ font-size:44px; line-height:1.1; margin-bottom:18px; }
     .bp-hero-{{ section.id }} h1 .bp-accent{ color:{{ section.settings.accent_color }}; }
+    .bp-hero-{{ section.id }} p.bp-clarifier{
+      font-size:17px; font-weight:600; line-height:1.4;
+      max-width:460px; margin:-8px 0 14px;
+    }
     .bp-hero-{{ section.id }} p.bp-sub{ font-size:16px; color:var(--bp-muted); max-width:460px; margin-bottom:26px; }
     .bp-hero-{{ section.id }} .bp-hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:22px; }
     .bp-hero-{{ section.id }} .bp-hero-trust{
@@ -115,6 +119,9 @@
     <div class="bp-hero-info">
       <div class="bp-eyebrow">{{ section.settings.eyebrow }}</div>
       <h1>{{ section.settings.heading }} <span class="bp-accent">{{ section.settings.heading_accent }}</span></h1>
+      {%- if section.settings.clarifier != blank -%}
+        <p class="bp-clarifier">{{ section.settings.clarifier }}</p>
+      {%- endif -%}
       <p class="bp-sub">{{ section.settings.subtext }}</p>
       <div class="bp-hero-trust">
         <a href="#bp-reviews-display">{{ section.settings.trust_icon_1 }} {{ section.settings.trust_label_1 }}</a>
@@ -223,6 +230,7 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "ADJUSTABLE RABBIT STAND" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Hands-free calls," },
     { "type": "text", "id": "heading_accent", "label": "Heading accent line", "default": "hop to it." },
+    { "type": "text", "id": "clarifier", "label": "Clarifier line (says what the product is, plainly)", "info": "Sits directly under the headline so the product is clear in the first few seconds, even if the headline itself is a pun.", "default": "The bunny-shaped phone & tablet stand for your desk, bed, or vanity." },
     { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Bunny Perch holds your phone or tablet at any angle you need — video calls, recipes, shows in bed — on a stable base with soft anti-slip padding." },
     { "type": "text", "id": "cta_text", "label": "Primary CTA text", "default": "Shop Now" },
     { "type": "url", "id": "cta_link", "label": "Primary CTA link", "info": "Leave blank to jump down to the Featured offer section automatically." },
