@@ -118,6 +118,10 @@
       z-index: 1;
       width: min(90vw, 380px);
       aspect-ratio: 9 / 16;
+    }
+    .bp-ugc-{{ section.id }} .bp-ugc-modal-media {
+      position: absolute;
+      inset: 0;
       background: #000;
       border-radius: var(--bp-radius);
       overflow: hidden;
@@ -125,12 +129,19 @@
       align-items: center;
       justify-content: center;
     }
-    .bp-ugc-{{ section.id }} .bp-ugc-modal-panel video,
-    .bp-ugc-{{ section.id }} .bp-ugc-modal-panel iframe {
+    .bp-ugc-{{ section.id }} .bp-ugc-modal-media video,
+    .bp-ugc-{{ section.id }} .bp-ugc-modal-media iframe {
       width: 100%;
       height: 100%;
       border: none;
       object-fit: cover;
+    }
+    .bp-ugc-{{ section.id }} .bp-ugc-modal-body {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .bp-ugc-{{ section.id }} .bp-ugc-modal-empty {
       color: #fff;
@@ -240,9 +251,11 @@
   <div class="bp-ugc-modal" id="BpUgcModal-{{ section.id }}" role="dialog" aria-modal="true" aria-label="Customer video">
     <div class="bp-ugc-modal-backdrop"></div>
     <div class="bp-ugc-modal-panel">
+      <div class="bp-ugc-modal-media">
+        <div class="bp-ugc-modal-body"></div>
+      </div>
       <button type="button" class="bp-ugc-modal-close" aria-label="Close video">✕</button>
       <button type="button" class="bp-ugc-modal-nav bp-ugc-modal-prev" aria-label="Previous video">‹</button>
-      <div class="bp-ugc-modal-body"></div>
       <button type="button" class="bp-ugc-modal-nav bp-ugc-modal-next" aria-label="Next video">›</button>
     </div>
   </div>
