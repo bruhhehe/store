@@ -69,10 +69,16 @@
   }
 
   .fc-{{ section.id }} .fc-heading {
-    font-size: clamp(28px, 4vw, 42px);
+    font-size: 28px;
     line-height: 1.15;
     margin: 0;
     color: var(--fc-text);
+  }
+
+  @media screen and (min-width: 900px) {
+    .fc-{{ section.id }} .fc-heading {
+      font-size: 42px;
+    }
   }
 
   .fc-{{ section.id }} .fc-subheading {
@@ -462,10 +468,6 @@
     .fc-{{ section.id }} .fc-left {
       gap: 10px;
       padding-top: 0;
-    }
-    .fc-{{ section.id }} .fc-heading {
-      font-size: 30px;
-      line-height: 1.2;
     }
     .fc-{{ section.id }} .fc-subheading {
       font-size: 15px;
