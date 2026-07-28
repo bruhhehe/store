@@ -428,6 +428,13 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
+    .bp-reviews-display-{{ section.id }} .bp-rd-modal-loading {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: var(--bp-muted);
+      font-size: 14px;
+      padding: 40px 0;
+    }
     @media screen and (max-width: 640px) {
       .bp-reviews-display-{{ section.id }} .bp-rd-modal-grid {
         grid-template-columns: 1fr;
@@ -700,7 +707,7 @@
       {%- endfor -%}
     </div>
 
-    {%- if section.blocks.size > 3 -%}
+    {%- if section.settings.more_button_text != blank -%}
       <div class="bp-rd-more" id="BpRdMore-{{ section.id }}">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M8 12.5C8 9.5 10.5 7 14 7C17.5 7 20 9.5 20 12.5C20 15.5 17.5 18 14 18C13.2 18 12.5 17.9 11.8 17.6L8.5 19L9.3 16.2C8.5 15.2 8 13.9 8 12.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
@@ -721,126 +728,27 @@
       </div>
     </div>
 
-    {%- if section.blocks.size > 3 -%}
-      <div class="bp-rd-modal" id="BpRdModal-{{ section.id }}" role="dialog" aria-modal="true" aria-label="All customer reviews">
-        <div class="bp-rd-modal-backdrop"></div>
-        <div class="bp-rd-modal-panel">
-          <div class="bp-rd-modal-head">
-            <h3>{{ 'All reviews' }} <span class="bp-rd-modal-count">({{ rd_total }})</span></h3>
-            <button type="button" class="bp-rd-modal-close" aria-label="Close reviews">✕</button>
-          </div>
-          <div class="bp-rd-modal-body">
-            <div class="bp-rd-modal-grid">
-              {%- for block in section.blocks -%}
-                {%- if forloop.index > 3 -%}
-                  {%- liquid
-                    assign rd_img_1 = block.settings.image
-                    if rd_img_1 != blank and rd_img_1 contains 'http'
-                      assign rd_img_1_url = rd_img_1
-                    elsif rd_img_1 != blank
-                      assign rd_img_1_url = rd_img_1 | asset_url
-                    else
-                      assign rd_img_1_url = blank
-                    endif
-                    assign rd_img_2 = block.settings.image_2
-                    if rd_img_2 != blank and rd_img_2 contains 'http'
-                      assign rd_img_2_url = rd_img_2
-                    elsif rd_img_2 != blank
-                      assign rd_img_2_url = rd_img_2 | asset_url
-                    else
-                      assign rd_img_2_url = blank
-                    endif
-                    assign rd_img_3 = block.settings.image_3
-                    if rd_img_3 != blank and rd_img_3 contains 'http'
-                      assign rd_img_3_url = rd_img_3
-                    elsif rd_img_3 != blank
-                      assign rd_img_3_url = rd_img_3 | asset_url
-                    else
-                      assign rd_img_3_url = blank
-                    endif
-                  -%}
-                  <div class="bp-rd-card" {{ block.shopify_attributes }}>
-                    <div class="bp-rd-card-body">
-                      <div class="bp-rd-top">
-                        <div class="bp-rd-header">
-                          {%- if block.settings.variant != blank -%}
-                            <span class="bp-rd-variant">{{ block.settings.variant }}</span>
-                          {%- endif -%}
-                          <span class="bp-rd-stars" aria-label="{{ block.settings.stars }} out of 5 stars">
-                            {%- for i in (1..5) -%}
-                              {%- if i <= block.settings.stars -%}★{%- else -%}<span class="bp-rd-star-empty">★</span>{%- endif -%}
-                            {%- endfor -%}
-                          </span>
-                        </div>
-                        {%- if rd_img_1_url != blank or rd_img_2_url != blank or rd_img_3_url != blank -%}
-                          {%- liquid
-                            assign rd_photo_group = ''
-                            if rd_img_1_url != blank
-                              assign rd_photo_group = rd_img_1_url
-                            endif
-                            if rd_img_2_url != blank
-                              assign rd_photo_group = rd_photo_group | append: '|' | append: rd_img_2_url
-                            endif
-                            if rd_img_3_url != blank
-                              assign rd_photo_group = rd_photo_group | append: '|' | append: rd_img_3_url
-                            endif
-                          -%}
-                          <div class="bp-rd-photos" data-photo-group="{{ rd_photo_group | escape }}">
-                            {%- if rd_img_1_url != blank -%}
-                              <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_1_url }}" data-photo-index="0" aria-label="View photo from {{ block.settings.name }}'s review">
-                                <img
-                                  src="{{ rd_img_1_url }}"
-                                  loading="lazy"
-                                  alt="Photo from {{ block.settings.name }}'s review"
-                                  width="90"
-                                  height="90"
-                                >
-                              </button>
-                            {%- endif -%}
-                            {%- if rd_img_2_url != blank -%}
-                              <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_2_url }}" data-photo-index="1" aria-label="View second photo from {{ block.settings.name }}'s review">
-                                <img
-                                  src="{{ rd_img_2_url }}"
-                                  loading="lazy"
-                                  alt="Second photo from {{ block.settings.name }}'s review"
-                                  width="90"
-                                  height="90"
-                                >
-                              </button>
-                            {%- endif -%}
-                            {%- if rd_img_3_url != blank -%}
-                              <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_3_url }}" data-photo-index="2" aria-label="View third photo from {{ block.settings.name }}'s review">
-                                <img
-                                  src="{{ rd_img_3_url }}"
-                                  loading="lazy"
-                                  alt="Third photo from {{ block.settings.name }}'s review"
-                                  width="90"
-                                  height="90"
-                                >
-                              </button>
-                            {%- endif -%}
-                          </div>
-                        {%- endif -%}
-                      </div>
-                      {%- if block.settings.quote != blank -%}
-                        <p class="bp-rd-quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
-                      {%- endif -%}
-                      <div class="bp-rd-meta">
-                        <span class="bp-rd-who">
-                          {%- render 'bp-review-avatar', name: block.settings.name -%}
-                          <span class="bp-rd-name">{{ block.settings.name }}</span>
-                        </span>
-                        <span>{{ block.settings.date }}</span>
-                      </div>
-                    </div>
-                  </div>
-                {%- endif -%}
-              {%- endfor -%}
-            </div>
+    <div
+      class="bp-rd-modal"
+      id="BpRdModal-{{ section.id }}"
+      role="dialog"
+      aria-modal="true"
+      aria-label="All customer reviews"
+      data-reviews-src="{{ 'bp-reviews-data.json' | asset_url }}"
+    >
+      <div class="bp-rd-modal-backdrop"></div>
+      <div class="bp-rd-modal-panel">
+        <div class="bp-rd-modal-head">
+          <h3>{{ 'All reviews' }} <span class="bp-rd-modal-count">({{ rd_total }})</span></h3>
+          <button type="button" class="bp-rd-modal-close" aria-label="Close reviews">✕</button>
+        </div>
+        <div class="bp-rd-modal-body">
+          <div class="bp-rd-modal-grid" id="BpRdModalGrid-{{ section.id }}">
+            <p class="bp-rd-modal-loading">Loading reviews…</p>
           </div>
         </div>
       </div>
-    {%- endif -%}
+    </div>
 
     <div class="bp-rd-modal" id="BpRdWriteModal-{{ section.id }}" role="dialog" aria-modal="true" aria-label="Write a review">
       <div class="bp-rd-modal-backdrop"></div>
@@ -970,8 +878,10 @@
 
     var showMoreBtn = document.getElementById('BpRdShowMore-{{ section.id }}');
     var modal = document.getElementById('BpRdModal-{{ section.id }}');
+    var modalGrid = document.getElementById('BpRdModalGrid-{{ section.id }}');
     var modalClose = modal ? modal.querySelector('.bp-rd-modal-close') : null;
     var modalBackdrop = modal ? modal.querySelector('.bp-rd-modal-backdrop') : null;
+    var modalReviewsLoaded = false;
 
     function openModal(m) {
       if (!m) return;
@@ -985,20 +895,76 @@
       document.body.classList.remove('bp-rd-modal-lock');
     }
 
-    if (showMoreBtn && modal) {
-      showMoreBtn.addEventListener('click', function () { openModal(modal); });
+    function escapeHtml(str) {
+      var div = document.createElement('div');
+      div.textContent = str == null ? '' : String(str);
+      return div.innerHTML;
     }
-    if (modalClose) modalClose.addEventListener('click', function () { closeModal(modal); });
-    if (modalBackdrop) modalBackdrop.addEventListener('click', function () { closeModal(modal); });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        closeModal(modal);
-        closeModal(writeModal);
-      }
-    });
 
-    if (modal) {
-      modal.querySelectorAll('.bp-rd-photo-btn').forEach(function (btn) {
+    function starsHtml(stars) {
+      var out = '';
+      for (var i = 1; i <= 5; i++) {
+        out += i <= stars ? '★' : '<span class="bp-rd-star-empty">★</span>';
+      }
+      return out;
+    }
+
+    function resolveImageUrl(value) {
+      if (!value) return '';
+      if (value.indexOf('http') === 0) return value;
+      // Fallback for legacy theme-asset-filename values (not expected for new data)
+      return '{{ "x" | asset_url }}'.replace('x', value);
+    }
+
+    function avatarInitial(name) {
+      var clean = (name || '').trim();
+      return clean ? clean.charAt(0).toUpperCase() : '?';
+    }
+
+    function renderReviewCard(review) {
+      var img1 = resolveImageUrl(review.image);
+      var img2 = resolveImageUrl(review.image_2);
+      var img3 = resolveImageUrl(review.image_3);
+      var photoGroup = [img1, img2, img3].filter(Boolean).join('|');
+      var name = escapeHtml(review.name);
+
+      var photosHtml = '';
+      if (img1 || img2 || img3) {
+        var photoBtns = '';
+        [img1, img2, img3].forEach(function (url, idx) {
+          if (!url) return;
+          var label = idx === 0 ? 'View photo from' : (idx === 1 ? 'View second photo from' : 'View third photo from');
+          photoBtns += '<button type="button" class="bp-rd-photo-btn" data-full="' + escapeHtml(url) + '" data-photo-index="' + idx + '" aria-label="' + label + ' ' + name + '\'s review">' +
+            '<img src="' + escapeHtml(url) + '" loading="lazy" alt="Photo from ' + name + '\'s review" width="90" height="90"></button>';
+        });
+        photosHtml = '<div class="bp-rd-photos" data-photo-group="' + escapeHtml(photoGroup) + '">' + photoBtns + '</div>';
+      }
+
+      var variantHtml = review.variant ? '<span class="bp-rd-variant">' + escapeHtml(review.variant) + '</span>' : '';
+      var quoteHtml = review.quote ? '<p class="bp-rd-quote">&ldquo;' + escapeHtml(review.quote) + '&rdquo;</p>' : '';
+
+      return (
+        '<div class="bp-rd-card">' +
+          '<div class="bp-rd-card-body">' +
+            '<div class="bp-rd-top">' +
+              '<div class="bp-rd-header">' + variantHtml +
+                '<span class="bp-rd-stars" aria-label="' + review.stars + ' out of 5 stars">' + starsHtml(review.stars) + '</span>' +
+              '</div>' + photosHtml +
+            '</div>' + quoteHtml +
+            '<div class="bp-rd-meta">' +
+              '<span class="bp-rd-who">' +
+                '<span class="bp-rd-avatar" data-bp-rd-avatar aria-hidden="true">' + escapeHtml(avatarInitial(review.name)) + '</span>' +
+                '<span class="bp-rd-name">' + name + '</span>' +
+              '</span>' +
+              '<span>' + escapeHtml(review.date) + '</span>' +
+            '</div>' +
+          '</div>' +
+        '</div>'
+      );
+    }
+
+    function attachModalPhotoHandlers() {
+      modalGrid.querySelectorAll('.bp-rd-photo-btn').forEach(function (btn) {
         btn.addEventListener('click', function () {
           var img = btn.querySelector('img');
           var wrapper = btn.closest('.bp-rd-photos');
@@ -1008,6 +974,41 @@
         });
       });
     }
+
+    function loadModalReviews() {
+      if (modalReviewsLoaded || !modal || !modalGrid) return;
+      var src = modal.getAttribute('data-reviews-src');
+      if (!src) return;
+      fetch(src)
+        .then(function (res) { return res.json(); })
+        .then(function (reviews) {
+          modalGrid.innerHTML = reviews.map(renderReviewCard).join('');
+          var avatarPalette = ['#e57373', '#f06292', '#ba68c8', '#9575cd', '#7986cb', '#64b5f6', '#4fc3f7', '#4dd0e1', '#4db6ac', '#81c784', '#aed581', '#ffb74d', '#ff8a65', '#a1887f', '#90a4ae'];
+          modalGrid.querySelectorAll('[data-bp-rd-avatar]').forEach(function (el) {
+            el.style.background = avatarPalette[Math.floor(Math.random() * avatarPalette.length)];
+          });
+          attachModalPhotoHandlers();
+          modalReviewsLoaded = true;
+        })
+        .catch(function () {
+          modalGrid.innerHTML = '<p class="bp-rd-modal-loading">Couldn\'t load reviews right now — please refresh and try again.</p>';
+        });
+    }
+
+    if (showMoreBtn && modal) {
+      showMoreBtn.addEventListener('click', function () {
+        openModal(modal);
+        loadModalReviews();
+      });
+    }
+    if (modalClose) modalClose.addEventListener('click', function () { closeModal(modal); });
+    if (modalBackdrop) modalBackdrop.addEventListener('click', function () { closeModal(modal); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeModal(modal);
+        closeModal(writeModal);
+      }
+    });
 
     // Write-a-review popup
     var writeBtn = document.getElementById('BpRdWriteReview-{{ section.id }}');
