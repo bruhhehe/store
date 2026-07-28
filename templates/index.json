@@ -5488,32 +5488,36 @@
         "video_1": {
           "type": "video",
           "settings": {
-            "video_url": "",
+            "video_url": "https://cdn.shopify.com/videos/c/vp/13280f1389144391b4fd56d37ad8ff3a/13280f1389144391b4fd56d37ad8ff3a.HD-720p-1.6Mbps-90121024.mp4",
             "video_type": "file",
+            "thumbnail": "shopify://shop_images/bp-ugc-thumb-1.jpg",
             "caption": "\"Didn't expect to use it this much\""
           }
         },
         "video_2": {
           "type": "video",
           "settings": {
-            "video_url": "",
+            "video_url": "https://cdn.shopify.com/videos/c/vp/b0f1b68952364c7a80c62208d2ce58ba/b0f1b68952364c7a80c62208d2ce58ba.HD-720p-1.6Mbps-90121025.mp4",
             "video_type": "file",
+            "thumbnail": "shopify://shop_images/bp-ugc-thumb-2.jpg",
             "caption": "Unboxing + first setup"
           }
         },
         "video_3": {
           "type": "video",
           "settings": {
-            "video_url": "",
+            "video_url": "https://cdn.shopify.com/videos/c/vp/476307ec20384407b39d07fb0e066afb/476307ec20384407b39d07fb0e066afb.HD-720p-1.6Mbps-90121022.mp4",
             "video_type": "file",
+            "thumbnail": "shopify://shop_images/bp-ugc-thumb-3.jpg",
             "caption": "Desk setup tour"
           }
         },
         "video_4": {
           "type": "video",
           "settings": {
-            "video_url": "",
+            "video_url": "https://cdn.shopify.com/videos/c/vp/71c78525181642e7baa25cf879a61a15/71c78525181642e7baa25cf879a61a15.HD-720p-1.6Mbps-90121020.mp4",
             "video_type": "file",
+            "thumbnail": "shopify://shop_images/bp-ugc-thumb-4.jpg",
             "caption": "\"Perfect for hands-free calls\""
           }
         }
