@@ -562,6 +562,32 @@
     <div class="bp-rd-grid" id="BpRdGrid-{{ section.id }}">
       {%- for block in section.blocks -%}
         {%- if forloop.index <= 3 -%}
+          {%- liquid
+            assign rd_img_1 = block.settings.image
+            if rd_img_1 != blank and rd_img_1 contains 'http'
+              assign rd_img_1_url = rd_img_1
+            elsif rd_img_1 != blank
+              assign rd_img_1_url = rd_img_1 | asset_url
+            else
+              assign rd_img_1_url = blank
+            endif
+            assign rd_img_2 = block.settings.image_2
+            if rd_img_2 != blank and rd_img_2 contains 'http'
+              assign rd_img_2_url = rd_img_2
+            elsif rd_img_2 != blank
+              assign rd_img_2_url = rd_img_2 | asset_url
+            else
+              assign rd_img_2_url = blank
+            endif
+            assign rd_img_3 = block.settings.image_3
+            if rd_img_3 != blank and rd_img_3 contains 'http'
+              assign rd_img_3_url = rd_img_3
+            elsif rd_img_3 != blank
+              assign rd_img_3_url = rd_img_3 | asset_url
+            else
+              assign rd_img_3_url = blank
+            endif
+          -%}
           <div class="bp-rd-card" {{ block.shopify_attributes }}>
             <div class="bp-rd-card-body">
               <div class="bp-rd-top">
@@ -575,12 +601,12 @@
                     {%- endfor -%}
                   </span>
                 </div>
-                {%- if block.settings.image != blank or block.settings.image_2 != blank or block.settings.image_3 != blank -%}
+                {%- if rd_img_1_url != blank or rd_img_2_url != blank or rd_img_3_url != blank -%}
                   <div class="bp-rd-photos">
-                    {%- if block.settings.image != blank -%}
-                      <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image | asset_url }}" aria-label="View photo from {{ block.settings.name }}'s review">
+                    {%- if rd_img_1_url != blank -%}
+                      <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_1_url }}" aria-label="View photo from {{ block.settings.name }}'s review">
                         <img
-                          src="{{ block.settings.image | asset_url }}"
+                          src="{{ rd_img_1_url }}"
                           loading="lazy"
                           alt="Photo from {{ block.settings.name }}'s review"
                           width="90"
@@ -588,10 +614,10 @@
                         >
                       </button>
                     {%- endif -%}
-                    {%- if block.settings.image_2 != blank -%}
-                      <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image_2 | asset_url }}" aria-label="View second photo from {{ block.settings.name }}'s review">
+                    {%- if rd_img_2_url != blank -%}
+                      <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_2_url }}" aria-label="View second photo from {{ block.settings.name }}'s review">
                         <img
-                          src="{{ block.settings.image_2 | asset_url }}"
+                          src="{{ rd_img_2_url }}"
                           loading="lazy"
                           alt="Second photo from {{ block.settings.name }}'s review"
                           width="90"
@@ -599,10 +625,10 @@
                         >
                       </button>
                     {%- endif -%}
-                    {%- if block.settings.image_3 != blank -%}
-                      <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image_3 | asset_url }}" aria-label="View third photo from {{ block.settings.name }}'s review">
+                    {%- if rd_img_3_url != blank -%}
+                      <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_3_url }}" aria-label="View third photo from {{ block.settings.name }}'s review">
                         <img
-                          src="{{ block.settings.image_3 | asset_url }}"
+                          src="{{ rd_img_3_url }}"
                           loading="lazy"
                           alt="Third photo from {{ block.settings.name }}'s review"
                           width="90"
@@ -660,6 +686,32 @@
             <div class="bp-rd-modal-grid">
               {%- for block in section.blocks -%}
                 {%- if forloop.index > 3 -%}
+                  {%- liquid
+                    assign rd_img_1 = block.settings.image
+                    if rd_img_1 != blank and rd_img_1 contains 'http'
+                      assign rd_img_1_url = rd_img_1
+                    elsif rd_img_1 != blank
+                      assign rd_img_1_url = rd_img_1 | asset_url
+                    else
+                      assign rd_img_1_url = blank
+                    endif
+                    assign rd_img_2 = block.settings.image_2
+                    if rd_img_2 != blank and rd_img_2 contains 'http'
+                      assign rd_img_2_url = rd_img_2
+                    elsif rd_img_2 != blank
+                      assign rd_img_2_url = rd_img_2 | asset_url
+                    else
+                      assign rd_img_2_url = blank
+                    endif
+                    assign rd_img_3 = block.settings.image_3
+                    if rd_img_3 != blank and rd_img_3 contains 'http'
+                      assign rd_img_3_url = rd_img_3
+                    elsif rd_img_3 != blank
+                      assign rd_img_3_url = rd_img_3 | asset_url
+                    else
+                      assign rd_img_3_url = blank
+                    endif
+                  -%}
                   <div class="bp-rd-card" {{ block.shopify_attributes }}>
                     <div class="bp-rd-card-body">
                       <div class="bp-rd-top">
@@ -673,12 +725,12 @@
                             {%- endfor -%}
                           </span>
                         </div>
-                        {%- if block.settings.image != blank or block.settings.image_2 != blank or block.settings.image_3 != blank -%}
+                        {%- if rd_img_1_url != blank or rd_img_2_url != blank or rd_img_3_url != blank -%}
                           <div class="bp-rd-photos">
-                            {%- if block.settings.image != blank -%}
-                              <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image | asset_url }}" aria-label="View photo from {{ block.settings.name }}'s review">
+                            {%- if rd_img_1_url != blank -%}
+                              <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_1_url }}" aria-label="View photo from {{ block.settings.name }}'s review">
                                 <img
-                                  src="{{ block.settings.image | asset_url }}"
+                                  src="{{ rd_img_1_url }}"
                                   loading="lazy"
                                   alt="Photo from {{ block.settings.name }}'s review"
                                   width="90"
@@ -686,10 +738,10 @@
                                 >
                               </button>
                             {%- endif -%}
-                            {%- if block.settings.image_2 != blank -%}
-                              <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image_2 | asset_url }}" aria-label="View second photo from {{ block.settings.name }}'s review">
+                            {%- if rd_img_2_url != blank -%}
+                              <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_2_url }}" aria-label="View second photo from {{ block.settings.name }}'s review">
                                 <img
-                                  src="{{ block.settings.image_2 | asset_url }}"
+                                  src="{{ rd_img_2_url }}"
                                   loading="lazy"
                                   alt="Second photo from {{ block.settings.name }}'s review"
                                   width="90"
@@ -697,10 +749,10 @@
                                 >
                               </button>
                             {%- endif -%}
-                            {%- if block.settings.image_3 != blank -%}
-                              <button type="button" class="bp-rd-photo-btn" data-full="{{ block.settings.image_3 | asset_url }}" aria-label="View third photo from {{ block.settings.name }}'s review">
+                            {%- if rd_img_3_url != blank -%}
+                              <button type="button" class="bp-rd-photo-btn" data-full="{{ rd_img_3_url }}" aria-label="View third photo from {{ block.settings.name }}'s review">
                                 <img
-                                  src="{{ block.settings.image_3 | asset_url }}"
+                                  src="{{ rd_img_3_url }}"
                                   loading="lazy"
                                   alt="Third photo from {{ block.settings.name }}'s review"
                                   width="90"
@@ -955,9 +1007,9 @@
       "type": "review",
       "name": "Review",
       "settings": [
-        { "type": "text", "id": "image", "label": "Photo filename (optional)", "info": "Filename of an image uploaded to this theme's Assets folder, e.g. bp-review-photo-1.jpg" },
-        { "type": "text", "id": "image_2", "label": "Second photo filename (optional)", "info": "Filename of an image uploaded to this theme's Assets folder" },
-        { "type": "text", "id": "image_3", "label": "Third photo filename (optional)", "info": "Filename of an image uploaded to this theme's Assets folder" },
+        { "type": "text", "id": "image", "label": "Photo (optional)", "info": "A full image URL (e.g. from Shopify Files/CDN) or a filename of an image uploaded to this theme's Assets folder" },
+        { "type": "text", "id": "image_2", "label": "Second photo (optional)", "info": "A full image URL or a theme Assets filename" },
+        { "type": "text", "id": "image_3", "label": "Third photo (optional)", "info": "A full image URL or a theme Assets filename" },
         { "type": "text", "id": "name", "label": "Name (masked)", "default": "C***s" },
         { "type": "text", "id": "date", "label": "Date", "default": "15 May 2026" },
         { "type": "text", "id": "variant", "label": "Variant purchased", "default": "1pc - Black" },
