@@ -81,6 +81,14 @@
   border: 1px solid rgba(43,30,34,.18);
 }
 .bp-btn--outline:hover{ box-shadow:none; border-color: var(--bp-ink); }
+.bp-btn--ghost{
+  background: transparent;
+  color: var(--bp-muted);
+  border: none;
+  padding: 14px 10px;
+  font-weight:600;
+}
+.bp-btn--ghost:hover{ transform:none; box-shadow:none; color: var(--bp-ink); }
 
 .bp-card{
   background:#fff;
