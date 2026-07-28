@@ -621,6 +621,160 @@
         "subheading": "Compact enough for a nightstand, sturdy enough for a tablet.",
         "footnote": "Fits phones and most tablets. Angle & height adjustable."
       }
+    },
+    "bp_reviews_display_jGtf3x": {
+      "type": "bp-reviews-display",
+      "blocks": {
+        "review_zhmg39": {
+          "type": "review",
+          "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
+            "name": "C***s",
+            "date": "15 May 2026",
+            "variant": "2pcs - Black",
+            "stars": 5,
+            "quote": "Very satisfied with these. Easy to assemble, and great for holding my phone or a small notebook whilst gaming."
+          }
+        },
+        "review_KzDBVq": {
+          "type": "review",
+          "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
+            "name": "z***r",
+            "date": "17 Jan 2026",
+            "variant": "1pc - Pink",
+            "stars": 5,
+            "quote": "Such a life saver, always needed a cute phone stand to watch stuff on."
+          }
+        },
+        "review_XbxxF3": {
+          "type": "review",
+          "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
+            "name": "t***n",
+            "date": "3 Jan 2026",
+            "variant": "1pc - White",
+            "stars": 5,
+            "quote": "So useful to hold my phone when recording or watching something."
+          }
+        },
+        "review_UCRDFE": {
+          "type": "review",
+          "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
+            "name": "J***1",
+            "date": "15 Jun 2026",
+            "variant": "1pc - White",
+            "stars": 5,
+            "quote": "Very happy, I can use it as a controller stand too, keeps my desk organised."
+          }
+        },
+        "review_LdrJyL": {
+          "type": "review",
+          "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
+            "name": "s***r",
+            "date": "29 Dec 2025",
+            "variant": "1pc - Black",
+            "stars": 4,
+            "quote": "Very useful, can use it to film videos from above as well. Easy to set up, and for the price it's fine."
+          }
+        },
+        "review_ybKLzU": {
+          "type": "review",
+          "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
+            "name": "N***d",
+            "date": "8 Jun 2026",
+            "variant": "2pcs - Pink",
+            "stars": 5,
+            "quote": "Lovely items and great quality, well worth the price. Arrived speedily and very happy with everything."
+          }
+        },
+        "review_T3zQfp": {
+          "type": "review",
+          "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
+            "name": "K***v",
+            "date": "20 Mar 2026",
+            "variant": "1pc - Black",
+            "stars": 4,
+            "quote": "It's very light and cheaply made, but it supports my phone, so it does what it's supposed to do for the price."
+          }
+        },
+        "review_eh9ipB": {
+          "type": "review",
+          "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
+            "name": "A***r",
+            "date": "6 May 2026",
+            "variant": "1pc - Pink",
+            "stars": 4,
+            "quote": "Very cute, holds my phone at both angles. Assembly was a bit fiddly, but it does the job. Definitely recommend."
+          }
+        },
+        "review_RdLehG": {
+          "type": "review",
+          "settings": {
+            "image": "",
+            "image_2": "",
+            "image_3": "",
+            "name": "N***n",
+            "date": "8 Mar 2026",
+            "variant": "1pc - White",
+            "stars": 5,
+            "quote": "Very handy little stand for my phone, so pleased with the quality."
+          }
+        }
+      },
+      "block_order": [
+        "review_zhmg39",
+        "review_KzDBVq",
+        "review_XbxxF3",
+        "review_UCRDFE",
+        "review_LdrJyL",
+        "review_ybKLzU",
+        "review_T3zQfp",
+        "review_eh9ipB",
+        "review_RdLehG"
+      ],
+      "name": "BP Reviews Display",
+      "settings": {
+        "bg_color": "#fdf3f4",
+        "eyebrow": "WHAT DO CUSTOMERS SAY",
+        "heading": "Real customers, real Bunny Perches",
+        "overall_rating": "4.6",
+        "star_5_count": 950,
+        "star_4_count": 280,
+        "star_3_count": 60,
+        "star_2_count": 17,
+        "star_1_count": 10,
+        "cta_label": "Share your experience",
+        "cta_text": "Write a review",
+        "trust_description": "Customers love the quality, practicality, and design of our phone stands.",
+        "trust_text_1": "Great quality",
+        "trust_text_2": "Useful & practical",
+        "trust_text_3": "Perfect gift",
+        "more_heading": "More happy customers",
+        "more_text": "Join [count]+ customers who love our phone stands.",
+        "more_button_text": "Show more reviews"
+      }
     }
   },
   "order": [
@@ -635,6 +789,7 @@
     "bp_shipping",
     "bp_faq",
     "bp_ugc_videos",
+    "bp_reviews_display_jGtf3x",
     "bp_product_size"
   ]
 }
