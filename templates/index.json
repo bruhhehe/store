@@ -6,7 +6,6 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- * re-sync marker: 2026-07-28
  */
 {
   "sections": {
@@ -28,13 +27,14 @@
         "eyebrow": "ADJUSTABLE RABBIT STAND",
         "heading": "Hands-free calls,",
         "heading_accent": "hop to it.",
+        "clarifier": "The bunny-shaped phone & tablet stand for your desk, bed, or vanity.",
         "subtext": "Bunny Perch holds your phone or tablet at any angle you need — video calls, recipes, shows in bed — on a stable base with soft anti-slip padding.",
         "cta_text": "Shop Now",
         "cta_link": "",
         "reviews_text": "How it works",
         "reviews_link": "",
         "trust_icon_1": "⭐",
-        "trust_label_1": "4.6/5 (1,317 UK reviews)",
+        "trust_label_1": "4.6/5 (1,318 UK reviews)",
         "trust_icon_2": "🐇",
         "trust_label_2": "10,000+ sold",
         "trust_icon_3": "🇬🇧",
@@ -42,8 +42,7 @@
         "trust_icon_4": "🔒",
         "trust_label_4": "Secure checkout",
         "callout_top": "",
-        "callout_bottom": "",
-        "clarifier": "The bunny-shaped phone & tablet stand for your desk, bed, or vanity."
+        "callout_bottom": ""
       }
     },
     "bp_problem_solution": {
@@ -307,10 +306,10 @@
           "settings": {
             "label": "1 Stand",
             "quantity": 1,
+            "price_pence": 1199,
             "badge_text": "",
             "default_selected": false,
-            "discount_code": "",
-            "price_pence": 1199
+            "discount_code": ""
           }
         },
         "tier_jxzQ3D": {
@@ -318,10 +317,10 @@
           "settings": {
             "label": "2 Stands",
             "quantity": 2,
+            "price_pence": 2099,
             "badge_text": "Most Popular",
             "default_selected": true,
-            "discount_code": "BUNNY2",
-            "price_pence": 2099
+            "discount_code": "BUNNY2"
           }
         },
         "tier_eHADa9": {
@@ -329,10 +328,10 @@
           "settings": {
             "label": "3 Stands",
             "quantity": 3,
+            "price_pence": 2799,
             "badge_text": "",
             "default_selected": false,
-            "discount_code": "BUNNY3",
-            "price_pence": 2799
+            "discount_code": "BUNNY3"
           }
         },
         "tier_bMRAHT": {
@@ -340,10 +339,10 @@
           "settings": {
             "label": "4 Stands",
             "quantity": 4,
+            "price_pence": 3299,
             "badge_text": "Best Value",
             "default_selected": false,
-            "discount_code": "BUNNY4",
-            "price_pence": 3299
+            "discount_code": "BUNNY4"
           }
         },
         "swatch_pink": {
@@ -527,6 +526,61 @@
         "heading": "Questions, answered"
       }
     },
+    "bp_ugc_videos": {
+      "type": "bp-ugc-videos",
+      "blocks": {
+        "video_1": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/vp/13280f1389144391b4fd56d37ad8ff3a/13280f1389144391b4fd56d37ad8ff3a.HD-720p-1.6Mbps-90121024.mp4",
+            "video_type": "file",
+            "thumbnail": "shopify://shop_images/bp-ugc-thumb-1.jpg",
+            "caption": "\"Didn't expect to use it this much\""
+          }
+        },
+        "video_2": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/vp/b0f1b68952364c7a80c62208d2ce58ba/b0f1b68952364c7a80c62208d2ce58ba.HD-720p-1.6Mbps-90121025.mp4",
+            "video_type": "file",
+            "thumbnail": "shopify://shop_images/bp-ugc-thumb-2.jpg",
+            "caption": "Unboxing + first setup"
+          }
+        },
+        "video_3": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/vp/476307ec20384407b39d07fb0e066afb/476307ec20384407b39d07fb0e066afb.HD-720p-1.6Mbps-90121022.mp4",
+            "video_type": "file",
+            "thumbnail": "shopify://shop_images/bp-ugc-thumb-3.jpg",
+            "caption": "Desk setup tour"
+          }
+        },
+        "video_4": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/vp/71c78525181642e7baa25cf879a61a15/71c78525181642e7baa25cf879a61a15.HD-720p-1.6Mbps-90121020.mp4",
+            "video_type": "file",
+            "thumbnail": "shopify://shop_images/bp-ugc-thumb-4.jpg",
+            "caption": "\"Perfect for hands-free calls\""
+          }
+        }
+      },
+      "block_order": [
+        "video_1",
+        "video_2",
+        "video_3",
+        "video_4"
+      ],
+      "settings": {
+        "bg_color": "#fdf3f4",
+        "placeholder_bg": "#f6c9d3",
+        "eyebrow": "SEE IT IN ACTION",
+        "heading": "Loved by real customers",
+        "subheading": "Real videos from people using their Bunny Perch every day.",
+        "empty_state_text": "Video coming soon — check back shortly!"
+      }
+    },
     "bp_reviews_display": {
       "type": "bp-reviews-display",
       "blocks": {
@@ -596,56 +650,6 @@
         "more_button_text": "Show more reviews"
       }
     },
-    "bp_ugc_videos": {
-      "type": "bp-ugc-videos",
-      "blocks": {
-        "video_1": {
-          "type": "video",
-          "settings": {
-            "video_url": "https://cdn.shopify.com/videos/c/vp/13280f1389144391b4fd56d37ad8ff3a/13280f1389144391b4fd56d37ad8ff3a.HD-720p-1.6Mbps-90121024.mp4",
-            "video_type": "file",
-            "thumbnail": "shopify://shop_images/bp-ugc-thumb-1.jpg",
-            "caption": "\"Didn't expect to use it this much\""
-          }
-        },
-        "video_2": {
-          "type": "video",
-          "settings": {
-            "video_url": "https://cdn.shopify.com/videos/c/vp/b0f1b68952364c7a80c62208d2ce58ba/b0f1b68952364c7a80c62208d2ce58ba.HD-720p-1.6Mbps-90121025.mp4",
-            "video_type": "file",
-            "thumbnail": "shopify://shop_images/bp-ugc-thumb-2.jpg",
-            "caption": "Unboxing + first setup"
-          }
-        },
-        "video_3": {
-          "type": "video",
-          "settings": {
-            "video_url": "https://cdn.shopify.com/videos/c/vp/476307ec20384407b39d07fb0e066afb/476307ec20384407b39d07fb0e066afb.HD-720p-1.6Mbps-90121022.mp4",
-            "video_type": "file",
-            "thumbnail": "shopify://shop_images/bp-ugc-thumb-3.jpg",
-            "caption": "Desk setup tour"
-          }
-        },
-        "video_4": {
-          "type": "video",
-          "settings": {
-            "video_url": "https://cdn.shopify.com/videos/c/vp/71c78525181642e7baa25cf879a61a15/71c78525181642e7baa25cf879a61a15.HD-720p-1.6Mbps-90121020.mp4",
-            "video_type": "file",
-            "thumbnail": "shopify://shop_images/bp-ugc-thumb-4.jpg",
-            "caption": "\"Perfect for hands-free calls\""
-          }
-        }
-      },
-      "block_order": ["video_1", "video_2", "video_3", "video_4"],
-      "settings": {
-        "bg_color": "#fdf3f4",
-        "placeholder_bg": "#f6c9d3",
-        "eyebrow": "SEE IT IN ACTION",
-        "heading": "Loved by real customers",
-        "subheading": "Real videos from people using their Bunny Perch every day.",
-        "empty_state_text": "Video coming soon — check back shortly!"
-      }
-    },
     "bp_product_size": {
       "type": "bp-product-size",
       "blocks": {
@@ -699,8 +703,8 @@
     "bp_guarantees",
     "bp_shipping",
     "bp_faq",
-    "bp_reviews_display",
     "bp_ugc_videos",
+    "bp_reviews_display",
     "bp_product_size"
   ]
 }
