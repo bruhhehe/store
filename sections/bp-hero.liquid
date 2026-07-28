@@ -44,6 +44,19 @@
       text-underline-offset:2px;
     }
     .bp-hero-{{ section.id }} .bp-hero-trust a:hover{ filter:brightness(0.85); }
+    .bp-hero-{{ section.id }} .bp-hero-track{
+      font-size:13px;
+      margin-top:-8px;
+      margin-bottom:22px;
+    }
+    .bp-hero-{{ section.id }} .bp-hero-track a{
+      display:inline-flex; align-items:center; gap:6px;
+      color:var(--bp-muted);
+      font-weight:600;
+      text-decoration:underline;
+      text-underline-offset:2px;
+    }
+    .bp-hero-{{ section.id }} .bp-hero-track a:hover{ color:{{ section.settings.accent_color }}; }
     .bp-hero-{{ section.id }} .bp-hero-media{
       display:flex; flex-direction:column;
     }
@@ -108,11 +121,13 @@
         <span>{{ section.settings.trust_icon_2 }} {{ section.settings.trust_label_2 }}</span>
         <span>{{ section.settings.trust_icon_3 }} {{ section.settings.trust_label_3 }}</span>
         <span>{{ section.settings.trust_icon_4 }} {{ section.settings.trust_label_4 }}</span>
-        <a href="https://velagoods.co.uk/a/tracking">📦 Track your order</a>
       </div>
       <div class="bp-hero-ctas">
         <a href="{{ cta_href }}" class="bp-btn">{{ section.settings.cta_text }} →</a>
         <a href="{{ reviews_href }}" class="bp-btn bp-btn--outline">{{ section.settings.reviews_text }}</a>
+      </div>
+      <div class="bp-hero-track">
+        <a href="https://velagoods.co.uk/a/tracking">📦 Track your order</a>
       </div>
     </div>
 
