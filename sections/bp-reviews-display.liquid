@@ -1008,169 +1008,106 @@
       }
     });
 
-    // Write-a-review popup
-var writeBtn = document.getElementById('BpRdWriteReview-{{ section.id }}');
-var writeModal = document.getElementById('BpRdWriteModal-{{ section.id }}');
-var writeModalClose = writeModal ? document.getElementById('BpRdWriteModalClose-{{ section.id }}') : null;
-var writeModalBackdrop = writeModal ? writeModal.querySelector('.bp-rd-modal-backdrop') : null;
-var writeFields = document.getElementById('BpRdWriteFields-{{ section.id }}');
-var writeSuccess = document.getElementById('BpRdWriteSuccess-{{ section.id }}');
-var writeError = document.getElementById('BpRdWriteError-{{ section.id }}');
-var writeSubmitBtn = document.getElementById('BpRdWriteSubmit-{{ section.id }}');
-var writeForm = document.getElementById('BpRdWriteForm-{{ section.id }}');
+// Write-a-review popup
+    var writeBtn = document.getElementById('BpRdWriteReview-{{ section.id }}');
+    var writeModal = document.getElementById('BpRdWriteModal-{{ section.id }}');
+    var writeModalClose = writeModal ? document.getElementById('BpRdWriteModalClose-{{ section.id }}') : null;
+    var writeModalBackdrop = writeModal ? writeModal.querySelector('.bp-rd-modal-backdrop') : null;
+    var writeFields = document.getElementById('BpRdWriteFields-{{ section.id }}');
+    var writeSuccess = document.getElementById('BpRdWriteSuccess-{{ section.id }}');
+    var writeError = document.getElementById('BpRdWriteError-{{ section.id }}');
+    var writeSubmitBtn = document.getElementById('BpRdWriteSubmit-{{ section.id }}');
+    var writeForm = document.getElementById('BpRdWriteForm-{{ section.id }}');
 
-if (writeForm) {
-  // Remove any stray prior listener by cloning the node (nuclear option, guarantees a clean slate)
-  var freshForm = writeForm.cloneNode(true);
-  writeForm.parentNode.replaceChild(freshForm, writeForm);
-  writeForm = freshForm;
-
-  writeForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    e.stopImmediatePropagation(); // blocks any other submit listeners still attached
-    console.log('Intercepted submit — sending via fetch');
-
-    var nameEl = document.getElementById('BpRdWriteName-{{ section.id }}');
-    var emailEl = document.getElementById('BpRdWriteEmail-{{ section.id }}');
-    var reviewEl = document.getElementById('BpRdWriteReviewText-{{ section.id }}');
-    var emailHidden = document.getElementById('BpRdWriteEmailHidden-{{ section.id }}');
-    var bodyHidden = document.getElementById('BpRdWriteBodyHidden-{{ section.id }}');
-
-    writeError.style.display = 'none';
-
-    if (writeRating < 1) {
-      writeError.textContent = 'Please select a star rating before submitting.';
-      writeError.style.display = 'block';
-      return;
-    }
-    if (!nameEl.value.trim() || !emailEl.checkValidity() || !reviewEl.value.trim()) {
-      writeError.textContent = 'Please fill in your name, a valid email, and your review.';
-      writeError.style.display = 'block';
-      return;
+    function resetWriteForm() {
+      if (writeFields) writeFields.style.display = '';
+      if (writeSuccess) writeSuccess.style.display = 'none';
+      if (writeError) writeError.style.display = 'none';
     }
 
-    emailHidden.value = emailEl.value;
-    bodyHidden.value = [
-      'New product review submitted via velagoods.co.uk',
-      '',
-      'Name: ' + nameEl.value,
-      'Email: ' + emailEl.value,
-      'Rating: ' + writeRating + ' / 5',
-      '',
-      'Review:',
-      reviewEl.value
-    ].join('\n');
-
-    writeSubmitBtn.disabled = true;
-    writeSubmitBtn.textContent = 'Sending…';
-
-    fetch(writeForm.action, {
-      method: 'POST',
-      body: new FormData(writeForm)
-    })
-      .then(function (response) {
-        console.log('Fetch response', response.status, response.url);
-        if (!response.ok) throw new Error('Request failed: ' + response.status);
-        writeFields.style.display = 'none';
-        writeSuccess.style.display = 'block';
-        writeSuccess.focus();
-      })
-      .catch(function (err) {
-        console.error('Submit error', err);
-        writeError.textContent = 'Something went wrong sending your review — please try again.';
-        writeError.style.display = 'block';
-      })
-      .finally(function () {
-        writeSubmitBtn.disabled = false;
-        writeSubmitBtn.textContent = 'Submit review';
+    if (writeBtn && writeModal) {
+      writeBtn.addEventListener('click', function () {
+        resetWriteForm();
+        openModal(writeModal);
       });
-  });
-}
-function resetWriteForm() {
-  if (writeFields) writeFields.style.display = '';
-  if (writeSuccess) writeSuccess.style.display = 'none';
-  if (writeError) writeError.style.display = 'none';
-}
+    }
+    if (writeModalClose) writeModalClose.addEventListener('click', function () { closeModal(writeModal); });
+    if (writeModalBackdrop) writeModalBackdrop.addEventListener('click', function () { closeModal(writeModal); });
 
-if (writeBtn && writeModal) {
-  writeBtn.addEventListener('click', function () {
-    resetWriteForm();
-    openModal(writeModal);
-  });
-}
-if (writeModalClose) writeModalClose.addEventListener('click', function () { closeModal(writeModal); });
-if (writeModalBackdrop) writeModalBackdrop.addEventListener('click', function () { closeModal(writeModal); });
-var writeStars = writeForm.querySelectorAll('.bp-rd-write-star');
-var writeRating = 0;
-writeStars.forEach(function (star) {
-  star.addEventListener('click', function () {
-    writeRating = parseInt(star.getAttribute('data-value'), 10);
-    writeStars.forEach(function (s) {
-      var active = parseInt(s.getAttribute('data-value'), 10) <= writeRating;
-      s.classList.toggle('is-active', active);
-      s.setAttribute('aria-checked', active ? 'true' : 'false');
+    var writeStars = document.querySelectorAll('#BpRdWriteStars-{{ section.id }} .bp-rd-write-star');
+    var writeRating = 0;
+    writeStars.forEach(function (star) {
+      star.addEventListener('click', function () {
+        writeRating = parseInt(star.getAttribute('data-value'), 10);
+        writeStars.forEach(function (s) {
+          var active = parseInt(s.getAttribute('data-value'), 10) <= writeRating;
+          s.classList.toggle('is-active', active);
+          s.setAttribute('aria-checked', active ? 'true' : 'false');
+        });
+      });
     });
-  });
-});
 
-if (writeForm) {
-  writeForm.addEventListener('submit', function (e) {
-    e.preventDefault();
+    if (writeForm) {
+      writeForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        console.log('Intercepted submit — sending via fetch');
 
-    var nameEl = document.getElementById('BpRdWriteName-{{ section.id }}');
-    var emailEl = document.getElementById('BpRdWriteEmail-{{ section.id }}');
-    var reviewEl = document.getElementById('BpRdWriteReviewText-{{ section.id }}');
-    var emailHidden = document.getElementById('BpRdWriteEmailHidden-{{ section.id }}');
-    var bodyHidden = document.getElementById('BpRdWriteBodyHidden-{{ section.id }}');
+        var nameEl = document.getElementById('BpRdWriteName-{{ section.id }}');
+        var emailEl = document.getElementById('BpRdWriteEmail-{{ section.id }}');
+        var reviewEl = document.getElementById('BpRdWriteReviewText-{{ section.id }}');
+        var emailHidden = document.getElementById('BpRdWriteEmailHidden-{{ section.id }}');
+        var bodyHidden = document.getElementById('BpRdWriteBodyHidden-{{ section.id }}');
 
-    writeError.style.display = 'none';
+        writeError.style.display = 'none';
 
-    if (writeRating < 1) {
-      writeError.textContent = 'Please select a star rating before submitting.';
-      writeError.style.display = 'block';
-      return;
-    }
-    if (!nameEl.value.trim() || !emailEl.checkValidity() || !reviewEl.value.trim()) {
-      writeError.textContent = 'Please fill in your name, a valid email, and your review.';
-      writeError.style.display = 'block';
-      return;
-    }
+        if (writeRating < 1) {
+          writeError.textContent = 'Please select a star rating before submitting.';
+          writeError.style.display = 'block';
+          return;
+        }
+        if (!nameEl.value.trim() || !emailEl.checkValidity() || !reviewEl.value.trim()) {
+          writeError.textContent = 'Please fill in your name, a valid email, and your review.';
+          writeError.style.display = 'block';
+          return;
+        }
 
-    emailHidden.value = emailEl.value;
-    bodyHidden.value = [
-      'New product review submitted via velagoods.co.uk',
-      '',
-      'Name: ' + nameEl.value,
-      'Email: ' + emailEl.value,
-      'Rating: ' + writeRating + ' / 5',
-      '',
-      'Review:',
-      reviewEl.value
-    ].join('\n');
+        emailHidden.value = emailEl.value;
+        bodyHidden.value = [
+          'New product review submitted via velagoods.co.uk',
+          '',
+          'Name: ' + nameEl.value,
+          'Email: ' + emailEl.value,
+          'Rating: ' + writeRating + ' / 5',
+          '',
+          'Review:',
+          reviewEl.value
+        ].join('\n');
 
-    writeSubmitBtn.disabled = true;
-    writeSubmitBtn.textContent = 'Sending…';
+        writeSubmitBtn.disabled = true;
+        writeSubmitBtn.textContent = 'Sending…';
 
-    fetch(writeForm.action, {
-      method: 'POST',
-      body: new FormData(writeForm)
-    })
-      .then(function (response) {
-        if (!response.ok) throw new Error('Request failed');
-        writeFields.style.display = 'none';
-        writeSuccess.style.display = 'block';
-        writeSuccess.focus();
-      })
-      .catch(function () {
-        writeError.textContent = 'Something went wrong sending your review — please try again.';
-        writeError.style.display = 'block';
-      })
-      .finally(function () {
-        writeSubmitBtn.disabled = false;
-        writeSubmitBtn.textContent = 'Submit review';
+        fetch(writeForm.action, {
+          method: 'POST',
+          body: new FormData(writeForm)
+        })
+          .then(function (response) {
+            console.log('Fetch response', response.status, response.url);
+            if (!response.ok) throw new Error('Request failed: ' + response.status);
+            writeFields.style.display = 'none';
+            writeSuccess.style.display = 'block';
+            writeSuccess.focus();
+          })
+          .catch(function (err) {
+            console.error('Submit error', err);
+            writeError.textContent = 'Something went wrong sending your review — please try again.';
+            writeError.style.display = 'block';
+          })
+          .finally(function () {
+            writeSubmitBtn.disabled = false;
+            writeSubmitBtn.textContent = 'Submit review';
+          });
       });
-  });
-}
+    }
   })();
 </script>
 
