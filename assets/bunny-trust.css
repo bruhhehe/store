@@ -82,13 +82,14 @@
 }
 .bp-btn--outline:hover{ box-shadow:none; border-color: var(--bp-ink); }
 .bp-btn--ghost{
-  background: transparent;
-  color: var(--bp-muted);
-  border: none;
-  padding: 14px 10px;
+  background: rgba(43,30,34,.05);
+  color: var(--bp-ink);
+  border: 1px solid rgba(43,30,34,.15);
+  padding: 14px 22px;
   font-weight:600;
+  border-radius: 999px;
 }
-.bp-btn--ghost:hover{ transform:none; box-shadow:none; color: var(--bp-ink); }
+.bp-btn--ghost:hover{ background: rgba(43,30,34,.09); border-color: rgba(43,30,34,.3); box-shadow:none; transform: translateY(-1px); }
 
 .bp-card{
   background:#fff;
